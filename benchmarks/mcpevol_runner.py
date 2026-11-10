@@ -32,6 +32,8 @@ from collections import defaultdict
 from pathlib import Path
 from typing import Any, Dict, List, Tuple
 
+from benchmarks.stats import wilson_interval, check_exploratory
+
 from server.tools.verify_logic import run_verification
 from server.tools.schema import run_schema_alignment
 from server.models.schemas import MismatchedSpan
@@ -43,12 +45,20 @@ def _metrics(tp: int, fp: int, tn: int, fn: int) -> Dict:
     precision = tp / (tp + fp) if (tp + fp) else 0.0
     recall = tp / (tp + fn) if (tp + fn) else 0.0
     f1 = 2 * precision * recall / (precision + recall) if (precision + recall) else 0.0
+    acc_ci = wilson_interval(tp + tn, total) if total else [None, None]
+    prec_ci = wilson_interval(tp, tp + fp) if (tp + fp) else [None, None]
+    rec_ci = wilson_interval(tp, tp + fn) if (tp + fn) else [None, None]
+    exp = check_exploratory(tp + fn, label=f"class (n_pos={tp+fn})")
     return {
         "accuracy": round(accuracy, 4),
+        "accuracy_ci": list(acc_ci),
         "precision": round(precision, 4),
+        "precision_ci": list(prec_ci),
         "recall": round(recall, 4),
+        "recall_ci": list(rec_ci),
         "f1": round(f1, 4),
         "tp": tp, "fp": fp, "tn": tn, "fn": fn,
+        "exploratory": exp["is_exploratory"],
     }
 
 

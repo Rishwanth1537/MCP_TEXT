@@ -25,6 +25,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
 from server.pipeline.arg_ground import call_is_grounded, call_score, conformal_threshold  # noqa: E402
+from benchmarks.stats import bootstrap_rate_ci, check_exploratory  # noqa: E402
 
 
 def exact_ok(args, context):
@@ -60,18 +61,14 @@ def summarize(cases, preds_ok):
     return {"n": len(cases), "false_block_rate": fb, "detection_rate": det, "accuracy": acc, "balanced_accuracy": (1 - fb + det) / 2}
 
 
-def boot(cases, preds_ok, n=1000, seed=0):
-    rng = np.random.default_rng(seed)
-    y = np.array([c["label"] for c in cases], bool); ok = np.array(preds_ok, bool)
-    fbs, dets = [], []
-    for _ in range(n):
-        i = rng.integers(0, len(y), len(y))
-        yy, oo = y[i], ok[i]
-        if yy.all() or (~yy).all():
-            continue
-        fbs.append((~oo[yy]).mean()); dets.append((~oo[~yy]).mean())
-    q = lambda a: [round(float(np.percentile(a, 2.5)), 4), round(float(np.percentile(a, 97.5)), 4)]
-    return {"false_block_rate_95ci": q(fbs), "detection_rate_95ci": q(dets)}
+def boot(cases, preds_ok, n=10000, seed=0):
+    y = np.array([c["label"] for c in cases], bool)
+    ok = np.array(preds_ok, bool)
+    fb_samples = ~ok[y]
+    det_samples = ~ok[~y]
+    _, fb_ci = bootstrap_rate_ci(fb_samples, n_resamples=n, seed=seed)
+    _, det_ci = bootstrap_rate_ci(det_samples, n_resamples=n, seed=seed)
+    return {"false_block_rate_95ci": list(fb_ci), "detection_rate_95ci": list(det_ci)}
 
 
 def conformal_eval(dev, test, alphas=(0.02, 0.05, 0.10, 0.15)):

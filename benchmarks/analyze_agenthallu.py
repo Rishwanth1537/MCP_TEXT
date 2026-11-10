@@ -19,7 +19,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 sys.path.insert(0, str(ROOT / "benchmarks"))
 from analyze_study import blocked_from_row  # noqa: E402
-from llm_judge_args import mcnemar_exact  # noqa: E402
+from stats import wilson_interval, mcnemar_exact, check_exploratory  # noqa: E402
 from server.pipeline.arg_ground import call_is_grounded  # noqa: E402
 
 B = ROOT / "benchmarks"
@@ -32,13 +32,8 @@ JUDGES = [
 ]
 
 
-def wilson(k, n, z=1.96):
-    if n == 0:
-        return (float("nan"), float("nan"))
-    p = k / n
-    c = (p + z * z / (2 * n)) / (1 + z * z / n)
-    h = z * math.sqrt(p * (1 - p) / n + z * z / (4 * n * n)) / (1 + z * z / n)
-    return (c - h, c + h)
+def wilson(k, n):
+    return wilson_interval(k, n)
 
 
 def main():
@@ -58,6 +53,9 @@ def main():
             continue
         systems[name] = (np.array([blocked_from_row(rows[i]) for i in ids]), sum(not rows[i]["parsed"] for i in ids))
     n_pos, n_neg = int((~ok).sum()), int(ok.sum())
+    exp_info = check_exploratory(n_pos, label="AgentHallu")
+    if exp_info["is_exploratory"]:
+        print(f"[{exp_info['status']}] {exp_info['note']}\n")
     out = {}
     print("%-26s %-22s %-22s %6s %6s | vs checker: only-judge/only-checker  p" % ("system", "false blocks (95% CI)", "detection (95% CI)", "J", "unpars"))
     pvals = {}

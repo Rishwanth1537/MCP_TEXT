@@ -30,28 +30,12 @@ from server.pipeline.provenance import (  # noqa: E402
 B = ROOT / "benchmarks"
 
 
-def wilson(k, n, z=1.96):
-    if n == 0:
-        return [None, None]
-    p = k / n
-    c = (p + z * z / (2 * n)) / (1 + z * z / n)
-    h = z * math.sqrt(p * (1 - p) / n + z * z / (4 * n * n)) / (1 + z * z / n)
-    return [round(c - h, 4), round(c + h, 4)]
+from stats import wilson_interval, mcnemar_exact, check_exploratory  # noqa: E402
 
 
 def rate(k, n):
-    return {"k": k, "n": n, "rate": round(k / n, 4) if n else None, "wilson95": wilson(k, n)}
-
-
-def mcnemar_exact(a_correct, b_correct):
-    only_a = sum(a and not b for a, b in zip(a_correct, b_correct))
-    only_b = sum(b and not a for a, b in zip(a_correct, b_correct))
-    n = only_a + only_b
-    if n == 0:
-        return {"only_a_correct": 0, "only_b_correct": 0, "p": 1.0}
-    k = min(only_a, only_b)
-    p = min(1.0, 2 * sum(math.comb(n, i) for i in range(k + 1)) / 2 ** n)
-    return {"only_a_correct": only_a, "only_b_correct": only_b, "p": round(p, 4)}
+    w = wilson_interval(k, n) if n else [None, None]
+    return {"k": k, "n": n, "rate": round(k / n, 4) if n else None, "wilson95": [w[0], w[1]] if n else [None, None]}
 
 
 def literal(x):
