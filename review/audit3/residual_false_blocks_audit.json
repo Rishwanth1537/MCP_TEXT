@@ -1,0 +1,2083 @@
+[
+  {
+    "id": "mcpatlas-68a398aa2f58036e8d45ede3-3",
+    "tool": "fetch_fetch",
+    "tier": "BLOCK",
+    "cause": "number_unit_format",
+    "reason": "Unit or magnitude conversion in 'max_length'=999999.",
+    "ungrounded_leaves": [
+      [
+        "max_length",
+        999999
+      ]
+    ],
+    "call_arguments": {
+      "url": "https://www.themechanicalengineeringhandbook.com/useful-resources/engineering-institutions-and-standards/civil-engineering-institutions?",
+      "max_length": 999999
+    },
+    "user_preview": "I'm confident that michael thompson's profession, according to the local graph, is connected with an American professional society founded in 1852 in its field. Could you check this <https://www.theme"
+  },
+  {
+    "id": "mcpatlas-68993ef3cf3e953b8ab83fdf-3",
+    "tool": "osm-mcp-server_get_route_directions",
+    "tier": "ASK",
+    "cause": "control_parameter",
+    "reason": "Control/pagination parameter 'mode'='foot' chosen by agent.",
+    "ungrounded_leaves": [
+      [
+        "mode",
+        "foot"
+      ]
+    ],
+    "call_arguments": {
+      "from_latitude": 51.0888724,
+      "from_longitude": 4.3813181,
+      "to_latitude": 51.0906981,
+      "to_longitude": 4.3776277,
+      "mode": "foot"
+    },
+    "user_preview": "Can you give me the walking distance in meters from the location where tomorrowland was held in 2022 to its closest charging station?"
+  },
+  {
+    "id": "mcpatlas-689cd6f8522029b7ad7b2016-4",
+    "tool": "clinicaltrialsgov-mcp-server_clinicaltrials_list_studies",
+    "tier": "ASK",
+    "cause": "control_parameter",
+    "reason": "Control/pagination parameter 'filter.advanced'='AREA[BriefTitle] \"Daily Care\" AND AREA[CompletionDate] RANGE[2015-01-01,2023-12-31]' chosen by agent.",
+    "ungrounded_leaves": [
+      [
+        "filter.advanced",
+        "AREA[BriefTitle] \"Daily Care\" AND AREA[CompletionDate] RANGE[2015-01-01,2023-12-31]"
+      ]
+    ],
+    "call_arguments": {
+      "filter": {
+        "advanced": "AREA[BriefTitle] \"Daily Care\" AND AREA[CompletionDate] RANGE[2015-01-01,2023-12-31]"
+      },
+      "fields": [
+        "BriefTitle",
+        "CompletionDate"
+      ]
+    },
+    "user_preview": "I've been crunching pet-care revenues for 2023 and cross-referencing clinical studies. Out of all weeks, I\u2019m curious about the one with the biggest haul and which service category dominated that spike"
+  },
+  {
+    "id": "mcpatlas-6888e207a34beb25cfedda8b-0",
+    "tool": "open-library_get_book_by_title",
+    "tier": "BLOCK",
+    "cause": "other",
+    "reason": "Uncategorized semantic difference or ungrounded parameter.",
+    "ungrounded_leaves": [
+      [
+        "title",
+        "g oair accident"
+      ]
+    ],
+    "call_arguments": {
+      "title": "g oair accident"
+    },
+    "user_preview": "i am researching the long-term corporate impact of aviation incidents, and i am studying about embraer. for the g oair prefix, i need to find the earliest report written about it, and i need to show t"
+  },
+  {
+    "id": "mcpatlas-6890e7fd2516f66b0a628e68-1",
+    "tool": "osm-mcp-server_geocode_address",
+    "tier": "BLOCK",
+    "cause": "other",
+    "reason": "Uncategorized semantic difference or ungrounded parameter.",
+    "ungrounded_leaves": [
+      [
+        "address",
+        "Botafogo Mall"
+      ]
+    ],
+    "call_arguments": {
+      "address": "Botafogo Mall"
+    },
+    "user_preview": "I'm studying football in rio, I have a question about engenh\u00e3o which football club calls that venue home? A friend of mine already told me that the name of this team match both a mall and a neighborho"
+  },
+  {
+    "id": "mcpatlas-689a373e148a49f91233dfec-1",
+    "tool": "fetch_fetch",
+    "tier": "BLOCK",
+    "cause": "control_parameter",
+    "reason": "Control/pagination parameter 'start_index'=3437 chosen by agent.",
+    "ungrounded_leaves": [
+      [
+        "start_index",
+        3437
+      ]
+    ],
+    "call_arguments": {
+      "url": "https://en.wikipedia.org/wiki/List_of_World_Heritage_Sites_in_Greece",
+      "raw": false,
+      "start_index": 3437
+    },
+    "user_preview": "I want to take a road trip through greece in my car, starting in athens, to see some of its monuments that are on the world heritage list. Tell me which were the first three monuments in the country t"
+  },
+  {
+    "id": "mcpatlas-68925f01db31fe35560e3ebb-1",
+    "tool": "national-parks_findParks",
+    "tier": "BLOCK",
+    "cause": "control_parameter",
+    "reason": "Control/pagination parameter 'q'='free entry' chosen by agent.",
+    "ungrounded_leaves": [
+      [
+        "q",
+        "free entry"
+      ]
+    ],
+    "call_arguments": {
+      "stateCode": "SD",
+      "activities": "astronomy,horse trekking",
+      "q": "free entry"
+    },
+    "user_preview": "I'm heading to rapid city. I want to know the city hall coordinates, and I'd love to stay in a natural reserve in that state that offers astronomy and horse trekking activities. It should also be open"
+  },
+  {
+    "id": "mcpatlas-689f4d693e212e8ef3390748-3",
+    "tool": "weather-data_weather_astronomy",
+    "tier": "BLOCK",
+    "cause": "datetime_format",
+    "reason": "DateTime format resolution or timestamp in 'dt'='2015-07-04'.",
+    "ungrounded_leaves": [
+      [
+        "dt",
+        "2015-07-04"
+      ]
+    ],
+    "call_arguments": {
+      "q": "Belgrade, Serbia",
+      "dt": "2015-07-04"
+    },
+    "user_preview": "Yesterday I was reading a paper on racial bias in basketball titled racial bias, colorism, and overcorrection while traveling to the city where the champion of the men's wimbledon 2015 tennis tourname"
+  },
+  {
+    "id": "mcpatlas-689e0b1d9c8e2ac413c1f23a-2",
+    "tool": "alchemy_fetchTokenPriceHistoryBySymbol",
+    "tier": "BLOCK",
+    "cause": "alias_entity_naming",
+    "reason": "Cryptocurrency ticker alias 'btc' for 'bitcoin'.",
+    "ungrounded_leaves": [
+      [
+        "symbol",
+        "btc"
+      ],
+      [
+        "startTime",
+        "2015-01-01"
+      ],
+      [
+        "endTime",
+        "2015-01-02"
+      ],
+      [
+        "interval",
+        "1d"
+      ]
+    ],
+    "call_arguments": {
+      "symbol": "btc",
+      "startTime": "2015-01-01",
+      "endTime": "2015-01-02",
+      "interval": "1d"
+    },
+    "user_preview": "For a Spanish-language presentation, I'm connecting a famous artwork to cryptocurrency. I'm focusing on a painting by a Dutch post-impressionist master that depicts a vibrant, golden wheat field under"
+  },
+  {
+    "id": "mcpatlas-689af4e653c3905e7b5b2578-2",
+    "tool": "airtable_list_records",
+    "tier": "BLOCK",
+    "cause": "number_unit_format",
+    "reason": "Unit or magnitude conversion in 'max_records'=1.",
+    "ungrounded_leaves": [
+      [
+        "max_records",
+        1
+      ]
+    ],
+    "call_arguments": {
+      "base_id": "appIF9byLfQwdHqE2",
+      "table_name": "tblHl4gmp9TEimRzY",
+      "max_records": 1
+    },
+    "user_preview": "Using my dealership data on foot traffic, specifically about service center visits on january 2015, what's the average per week (mon-fri) of visitors? Compare that with the average value for showroom "
+  },
+  {
+    "id": "mcpatlas-689a373e148a49f91233e004-2",
+    "tool": "osm-mcp-server_find_nearby_places",
+    "tier": "BLOCK",
+    "cause": "number_unit_format",
+    "reason": "Unit or magnitude conversion in 'radius'=5000.",
+    "ungrounded_leaves": [
+      [
+        "radius",
+        5000
+      ]
+    ],
+    "call_arguments": {
+      "latitude": 51.1788293,
+      "longitude": -1.826183,
+      "radius": 5000,
+      "categories": [
+        "parking"
+      ]
+    },
+    "user_preview": "i\u2019m planning a dawn field recording at stonehenge for the winter solstice in 2010, which was on december 20th. check the local sunrise at its exact coordinates. if it was earlier than ten-to-seven, gi"
+  },
+  {
+    "id": "mcpatlas-688fb11183792b921381bd66-1",
+    "tool": "osm-mcp-server_geocode_address",
+    "tier": "BLOCK",
+    "cause": "other",
+    "reason": "Uncategorized semantic difference or ungrounded parameter.",
+    "ungrounded_leaves": [
+      [
+        "address",
+        "Plaza de la Aduana, Cartagena, Colombia"
+      ]
+    ],
+    "call_arguments": {
+      "address": "Plaza de la Aduana, Cartagena, Colombia"
+    },
+    "user_preview": "I'm planning a road trip in colombia following key historical places. From plaza de bolivar, bogot\u00e1, the route must go through plaza de la audana, cartagena, and end at the boyac\u00e1 bridge where the bat"
+  },
+  {
+    "id": "mcpatlas-68a398aa2f58036e8d45edd2-2",
+    "tool": "fetch_fetch",
+    "tier": "BLOCK",
+    "cause": "world_knowledge",
+    "reason": "External URL construction 'https://api.github.com/repos/freeCodeCamp/freeCodeCamp' derived from repository/domain knowledge.",
+    "ungrounded_leaves": [
+      [
+        "url",
+        "https://api.github.com/repos/freeCodeCamp/freeCodeCamp"
+      ]
+    ],
+    "call_arguments": {
+      "url": "https://api.github.com/repos/freeCodeCamp/freeCodeCamp"
+    },
+    "user_preview": "Can you tell me the difference in months between the domain registration of the english freecodecamp website and the creation date of its english repository?"
+  },
+  {
+    "id": "mcpatlas-68993ef3cf3e953b8ab83fa3-3",
+    "tool": "osm-mcp-server_get_route_directions",
+    "tier": "ASK",
+    "cause": "control_parameter",
+    "reason": "Control/pagination parameter 'mode'='foot' chosen by agent.",
+    "ungrounded_leaves": [
+      [
+        "mode",
+        "foot"
+      ]
+    ],
+    "call_arguments": {
+      "from_latitude": 25.7993913,
+      "from_longitude": -80.1962949,
+      "to_latitude": 25.7443808,
+      "to_longitude": -80.2105015,
+      "mode": "foot"
+    },
+    "user_preview": "I have a scheduled visit to the museum after my brunch sometime this july 2025 (all I remember is after july 15th); get me the walking time from the restaurant to the museum."
+  },
+  {
+    "id": "mcpatlas-688ba1b3e95696e72dd93e8d-4",
+    "tool": "osm-mcp-server_find_nearby_places",
+    "tier": "BLOCK",
+    "cause": "number_unit_format",
+    "reason": "Unit or magnitude conversion in 'radius'=200.",
+    "ungrounded_leaves": [
+      [
+        "radius",
+        200
+      ]
+    ],
+    "call_arguments": {
+      "latitude": 43.6718771,
+      "longitude": -79.3866663,
+      "radius": 200,
+      "categories": [
+        "subway"
+      ]
+    },
+    "user_preview": "I'm creating a presentation of influential modern architects and their roots. I need to identify the lead architect of the guggenheim musuem in bilbao in order to find his name and the city where he w"
+  },
+  {
+    "id": "mcpatlas-689cd6f8522029b7ad7b2014-0",
+    "tool": "slack_channels_list",
+    "tier": "ASK",
+    "cause": "control_parameter",
+    "reason": "Control/pagination parameter 'channel_types'='public_channel,private_channel' chosen by agent.",
+    "ungrounded_leaves": [
+      [
+        "channel_types",
+        "public_channel,private_channel"
+      ]
+    ],
+    "call_arguments": {
+      "channel_types": "public_channel,private_channel"
+    },
+    "user_preview": "According to my local movie data, have I watched the movie recommended by kcpfan46 in the movie suggestions channel?"
+  },
+  {
+    "id": "mcpatlas-6866d4d2eea665b355a8f8bc-1",
+    "tool": "oxylabs_google_search_scraper",
+    "tier": "ASK",
+    "cause": "other",
+    "reason": "Uncategorized semantic difference or ungrounded parameter.",
+    "ungrounded_leaves": [
+      [
+        "query",
+        "Movie about two teenage boys in a roadtrip with a woman directed by Alfonso Cuaron"
+      ]
+    ],
+    "call_arguments": {
+      "query": "Movie about two teenage boys in a roadtrip with a woman directed by Alfonso Cuaron",
+      "limit": 20
+    },
+    "user_preview": "Hi! I heard someone left a movie recommendation in a channel of the business messaging app directed by the same director of A Little Princess, released in 1995. As far as I know, the recommended movie"
+  },
+  {
+    "id": "mcpatlas-689bd255c0422b257e7dfce6-3",
+    "tool": "weather-data_weather_astronomy",
+    "tier": "BLOCK",
+    "cause": "datetime_format",
+    "reason": "DateTime format resolution or timestamp in 'dt'='2025-12-07'.",
+    "ungrounded_leaves": [
+      [
+        "dt",
+        "2025-12-07"
+      ]
+    ],
+    "call_arguments": {
+      "q": "Grand Teton, Wyoming",
+      "dt": "2025-12-07"
+    },
+    "user_preview": "I'm planning a camping trip to grand teton park to watch mercury's greatest western elongation, as reference I wnt to know bout the one in december 2025, so I need to know the sunset and moonrise loca"
+  },
+  {
+    "id": "mcpatlas-6896416f7b30e5d8ccd7c8dd-0",
+    "tool": "filesystem_list_directory",
+    "tier": "BLOCK",
+    "cause": "other",
+    "reason": "Uncategorized semantic difference or ungrounded parameter.",
+    "ungrounded_leaves": [
+      [
+        "path",
+        "/data"
+      ]
+    ],
+    "call_arguments": {
+      "path": "/data"
+    },
+    "user_preview": "I'm using my local snake game repo to teach version control to my students. I need you to solve one of the questions for the test. Can you find the url for the second commit made by a git actor object"
+  },
+  {
+    "id": "mcpatlas-689e0b1d9c8e2ac413c1f228-2",
+    "tool": "fetch_fetch",
+    "tier": "BLOCK",
+    "cause": "number_unit_format",
+    "reason": "Unit or magnitude conversion in 'max_length'=999999.",
+    "ungrounded_leaves": [
+      [
+        "max_length",
+        999999
+      ]
+    ],
+    "call_arguments": {
+      "url": "https://www.nationalgeographic.com/travel/article/fun-facts-national-parks",
+      "max_length": 999999
+    },
+    "user_preview": "I'm planning a visit to hot spring park and am curious about what the park has to offer. I wonder if they provide guided tours and have camping areas with picnic tables. I'd love to discover an intere"
+  },
+  {
+    "id": "mcpatlas-689a373e148a49f91233e016-4",
+    "tool": "google-workspace_list_events",
+    "tier": "BLOCK",
+    "cause": "datetime_format",
+    "reason": "DateTime format resolution or timestamp in 'timeMax'='2025-08-01T00:00:00Z'.",
+    "ungrounded_leaves": [
+      [
+        "timeMax",
+        "2025-08-01T00:00:00Z"
+      ]
+    ],
+    "call_arguments": {
+      "timeMin": "2025-07-01T00:00:00Z",
+      "timeMax": "2025-08-01T00:00:00Z",
+      "maxResults": 100
+    },
+    "user_preview": "Based on my database inventory, could you calculate the average stock for each game genre for august 2023, rounded to two decimal places? Then, for my research, pick the genre with the highest stock a"
+  },
+  {
+    "id": "mcpatlas-68824c643e6ff020bc339906-3",
+    "tool": "alchemy_fetchTokenPriceHistoryBySymbol",
+    "tier": "BLOCK",
+    "cause": "datetime_format",
+    "reason": "DateTime format resolution or timestamp in 'endTime'='2017-04-01'.",
+    "ungrounded_leaves": [
+      [
+        "endTime",
+        "2017-04-01"
+      ]
+    ],
+    "call_arguments": {
+      "symbol": "ETH",
+      "startTime": "2017-03-25",
+      "endTime": "2017-04-01",
+      "interval": "1d"
+    },
+    "user_preview": "I want to know what the percentage of ethereum growth was 7 days after the start of advertising campaign with the lowest local audience reach, whic was only for mobile devices, which was run in the Ne"
+  },
+  {
+    "id": "mcpatlas-689bd255c0422b257e7dfcc7-3",
+    "tool": "airtable_search_records",
+    "tier": "BLOCK",
+    "cause": "other",
+    "reason": "Uncategorized semantic difference or ungrounded parameter.",
+    "ungrounded_leaves": [
+      [
+        "value",
+        "2017-Q1"
+      ]
+    ],
+    "call_arguments": {
+      "base_id": "appIF9byLfQwdHqE2",
+      "table_name": "Employee Performance",
+      "field_name": "Date",
+      "value": "2017-Q1"
+    },
+    "user_preview": "I have to review a database in car dealership company, and I need some help. I would like to know which team had the worst performance in terms of total scores among the employees during the first qua"
+  },
+  {
+    "id": "mcpatlas-68952adeba1c2ad4e6a5db84-0",
+    "tool": "national-parks_findParks",
+    "tier": "BLOCK",
+    "cause": "alias_entity_naming",
+    "reason": "Standard abbreviation 'NY'.",
+    "ungrounded_leaves": [
+      [
+        "stateCode",
+        "NY"
+      ]
+    ],
+    "call_arguments": {
+      "stateCode": "NY",
+      "q": "initially intended to prevent a British invasion in 1812"
+    },
+    "user_preview": "A spanish friend told me that new york is a very stressful place, and if i wanted peace, I could go to the park that was initially intended to prevent a british invasion in 1812 and read the book \"el "
+  },
+  {
+    "id": "mcpatlas-68925f01db31fe35560e3e9f-0",
+    "tool": "google-maps_maps_distance_matrix",
+    "tier": "BLOCK",
+    "cause": "alias_entity_naming",
+    "reason": "Geographic entity expansion/country addition in 'destinations[0]'='1000 5th Ave, New York, NY 10028, USA'.",
+    "ungrounded_leaves": [
+      [
+        "destinations[0]",
+        "1000 5th Ave, New York, NY 10028, USA"
+      ],
+      [
+        "origins[0]",
+        "East Side between 77th &, E 78th St, New York, NY 10065, Estados Unidos"
+      ]
+    ],
+    "call_arguments": {
+      "destinations": [
+        "1000 5th Ave, New York, NY 10028, USA"
+      ],
+      "origins": [
+        "East Side between 77th &, E 78th St, New York, NY 10065, Estados Unidos"
+      ],
+      "mode": "walking"
+    },
+    "user_preview": "I need to do a presentation about George Orwell and my friend is going to borrow me his book. I will meet him in 1000 5th Avenue, NY 10028 but I am in East Side between 77th and E 78th St NY. I need t"
+  },
+  {
+    "id": "mcpatlas-6896416f7b30e5d8ccd7c8e5-3",
+    "tool": "google-maps_maps_search_places",
+    "tier": "BLOCK",
+    "cause": "number_unit_format",
+    "reason": "Unit or magnitude conversion in 'radius'=0.",
+    "ungrounded_leaves": [
+      [
+        "radius",
+        0
+      ]
+    ],
+    "call_arguments": {
+      "query": "pizzeria",
+      "location": {
+        "latitude": 40.7288495,
+        "longitude": -74.0009142
+      },
+      "radius": 0
+    },
+    "user_preview": "I am planning a visit to new york and I've heard that there are a lot of fictional superheroes from the marvel universe that live there. There is a superhero that was a surgeon and now uses magic. Cou"
+  },
+  {
+    "id": "mcpatlas-689a373e148a49f91233e024-3",
+    "tool": "alchemy_fetchTokenPriceHistoryBySymbol",
+    "tier": "BLOCK",
+    "cause": "other",
+    "reason": "Uncategorized semantic difference or ungrounded parameter.",
+    "ungrounded_leaves": [
+      [
+        "interval",
+        "1d"
+      ]
+    ],
+    "call_arguments": {
+      "startTime": "03-14-2025",
+      "endTime": "03-14-2025",
+      "symbol": "BTC",
+      "interval": "1d"
+    },
+    "user_preview": "When creating my local fantasy sports file, the position data got scrambled across different sports. I want to use this issue to create a riddle for my kids to solve. They must identify the first line"
+  },
+  {
+    "id": "mcpatlas-68952adeba1c2ad4e6a5db77-3",
+    "tool": "airtable_list_records",
+    "tier": "BLOCK",
+    "cause": "number_unit_format",
+    "reason": "Unit or magnitude conversion in 'max_records'=10.",
+    "ungrounded_leaves": [
+      [
+        "max_records",
+        10
+      ]
+    ],
+    "call_arguments": {
+      "base_id": "appIF9byLfQwdHqE2",
+      "table_name": "Sales Expenses",
+      "max_records": 10
+    },
+    "user_preview": "I am an employee at car dealership, and I'm making a sales report. I need to know the brand name of the car category that was a bestseller in april of the year that the book afterparties by anthony ve"
+  },
+  {
+    "id": "mcpatlas-68925f01db31fe35560e3e85-5",
+    "tool": "airtable_search_records",
+    "tier": "BLOCK",
+    "cause": "other",
+    "reason": "Uncategorized semantic difference or ungrounded parameter.",
+    "ungrounded_leaves": [
+      [
+        "value",
+        "2020-03"
+      ]
+    ],
+    "call_arguments": {
+      "base_id": "appIF9byLfQwdHqE2",
+      "table_name": "Sales Expenses",
+      "field_name": "Date",
+      "value": "2020-03"
+    },
+    "user_preview": "I was checking the relation between quantity transacted and leading product type in commercial performance data, using the cloud database. From the year 2020, which type of leading product recorded th"
+  },
+  {
+    "id": "mcpatlas-6880e844943a73a8c5e412c3-3",
+    "tool": "arxiv_search_papers",
+    "tier": "ASK",
+    "cause": "other",
+    "reason": "Uncategorized semantic difference or ungrounded parameter.",
+    "ungrounded_leaves": [
+      [
+        "query",
+        "Jen-Hsun Jensen Huang"
+      ]
+    ],
+    "call_arguments": {
+      "query": "Jen-Hsun Jensen Huang"
+    },
+    "user_preview": "Can you get me the ceo of the public corporation with the second largest market cap for the fourth quarter of 2024? Does he have any scholarly articles published that year? Tell me their titles. Also,"
+  },
+  {
+    "id": "mcpatlas-689bd255c0422b257e7dfcb5-2",
+    "tool": "airtable_list_records",
+    "tier": "BLOCK",
+    "cause": "number_unit_format",
+    "reason": "Unit or magnitude conversion in 'max_records'=5.",
+    "ungrounded_leaves": [
+      [
+        "max_records",
+        5
+      ]
+    ],
+    "call_arguments": {
+      "table_name": "Employee Performance",
+      "base_id": "appIF9byLfQwdHqE2",
+      "max_records": 5
+    },
+    "user_preview": "I want to reward the most innovative department, according to their employee performance, with the highest score of the first quarter of 2020, using my PC files, with a trip to the state where the sun"
+  },
+  {
+    "id": "mcpatlas-6896416f7b30e5d8ccd7c8e5-4",
+    "tool": "google-maps_maps_distance_matrix",
+    "tier": "ASK",
+    "cause": "control_parameter",
+    "reason": "Control/pagination parameter 'mode'='walking' chosen by agent.",
+    "ungrounded_leaves": [
+      [
+        "mode",
+        "walking"
+      ]
+    ],
+    "call_arguments": {
+      "origins": [
+        "178 Bleecker St, New York, NY 10012, United States"
+      ],
+      "destinations": [
+        "L\u2019industrie Pizzeria West Village",
+        "John's of Bleecker Street",
+        "Nuovo York Pizza",
+        "L'Antica Pizzeria Da Michele NYC",
+        "Prince Street Pizza",
+        "Nolita Pizza",
+        "Cello's Pizzeria",
+        "LTD Pizza and Bar",
+        "Lucia Pizza Of SoHo",
+        "Bleecker Street Pizza",
+        "Lombardi's",
+        "Mama's TOO! Pizzeria West Village",
+        "Numero 28 Pizzeria",
+        "Little Italy Pizza III",
+        "Ben's Pizzeria",
+        "Artistic Pizza",
+        "Famous Ben's Pizza",
+        "Champion Pizza - Soho",
+        "Joe's Pizza",
+        "Two Boots Pizza West Village"
+      ],
+      "mode": "walking"
+    },
+    "user_preview": "I am planning a visit to new york and I've heard that there are a lot of fictional superheroes from the marvel universe that live there. There is a superhero that was a surgeon and now uses magic. Cou"
+  },
+  {
+    "id": "mcpatlas-689a373e148a49f91233e01a-1",
+    "tool": "alchemy_fetchTokenPriceHistoryBySymbol",
+    "tier": "BLOCK",
+    "cause": "alias_entity_naming",
+    "reason": "Cryptocurrency ticker alias 'BTC' for 'bitcoin'.",
+    "ungrounded_leaves": [
+      [
+        "symbol",
+        "BTC"
+      ],
+      [
+        "interval",
+        "1d"
+      ]
+    ],
+    "call_arguments": {
+      "symbol": "BTC",
+      "startTime": "2022-09-15",
+      "endTime": "2022-09-15",
+      "interval": "1d"
+    },
+    "user_preview": "I'm researching the impact of ethereum's transition to proof of stake in the two majors cryptocurrencies bitcoin and ethereum, find the date this transition occurred and compare the percentage change "
+  },
+  {
+    "id": "mcpatlas-6888e207a34beb25cfedda70-1",
+    "tool": "slack_channels_list",
+    "tier": "ASK",
+    "cause": "control_parameter",
+    "reason": "Control/pagination parameter 'channel_types'='private channel' chosen by agent.",
+    "ungrounded_leaves": [
+      [
+        "channel_types",
+        "private channel"
+      ]
+    ],
+    "call_arguments": {
+      "channel_types": "private channel"
+    },
+    "user_preview": "My boss recommended a movie through the company's private chat, but I can't remember the name of it. Could you tell me which movie he recommended? I don't know his chat name, but he uses the same one "
+  },
+  {
+    "id": "mcpatlas-688ba1b3e95696e72dd93eaf-2",
+    "tool": "pubmed_search_pubmed_key_words",
+    "tier": "BLOCK",
+    "cause": "other",
+    "reason": "Uncategorized semantic difference or ungrounded parameter.",
+    "ungrounded_leaves": [
+      [
+        "key_words",
+        "DNA Xu, Eriksson 2014"
+      ]
+    ],
+    "call_arguments": {
+      "key_words": "DNA Xu, Eriksson 2014"
+    },
+    "user_preview": "I've got some crime file in my computer, I'm curious about any medical investigation related to dna by xu and eriksson from the year from the first crime I had registered. Can you help me with the tit"
+  },
+  {
+    "id": "mcpatlas-6896416f7b30e5d8ccd7c8dd-1",
+    "tool": "filesystem_list_directory",
+    "tier": "BLOCK",
+    "cause": "other",
+    "reason": "Uncategorized semantic difference or ungrounded parameter.",
+    "ungrounded_leaves": [
+      [
+        "path",
+        "/data/repos"
+      ]
+    ],
+    "call_arguments": {
+      "path": "/data/repos"
+    },
+    "user_preview": "I'm using my local snake game repo to teach version control to my students. I need you to solve one of the questions for the test. Can you find the url for the second commit made by a git actor object"
+  },
+  {
+    "id": "mcpatlas-68952adeba1c2ad4e6a5db7d-4",
+    "tool": "clinicaltrialsgov-mcp-server_clinicaltrials_analyze_trends",
+    "tier": "ASK",
+    "cause": "other",
+    "reason": "Uncategorized semantic difference or ungrounded parameter.",
+    "ungrounded_leaves": [
+      [
+        "analysisType",
+        "countByCountry"
+      ]
+    ],
+    "call_arguments": {
+      "query": {
+        "cond": "lung cancer",
+        "id": "",
+        "locn": "Argentina"
+      },
+      "analysisType": "countByCountry"
+    },
+    "user_preview": "please state the start dates of the trials mentioned in the papers: the 2021 study which proposed a dendritic cell vaccine to treat respiratory organ cancer tested in twelve patients after 85 treatmen"
+  },
+  {
+    "id": "mcpatlas-689a373e148a49f91233dfd6-3",
+    "tool": "osm-mcp-server_get_route_directions",
+    "tier": "ASK",
+    "cause": "control_parameter",
+    "reason": "Control/pagination parameter 'mode'='foot' chosen by agent.",
+    "ungrounded_leaves": [
+      [
+        "mode",
+        "foot"
+      ]
+    ],
+    "call_arguments": {
+      "from_latitude": 19.4270004,
+      "from_longitude": -99.1676685,
+      "to_latitude": 19.4222314,
+      "to_longitude": -99.1892316,
+      "mode": "foot"
+    },
+    "user_preview": "I want to know all the panda attractions in a 5km radius nearby the monument inaugurated by porfirio diaz to commemorate mexico's independence, what is the distance by walking between the monument and"
+  },
+  {
+    "id": "mcpatlas-6896416f7b30e5d8ccd7c8c7-1",
+    "tool": "mcp-code-executor_execute_code",
+    "tier": "BLOCK",
+    "cause": "other",
+    "reason": "Uncategorized semantic difference or ungrounded parameter.",
+    "ungrounded_leaves": [
+      [
+        "language",
+        "python"
+      ]
+    ],
+    "call_arguments": {
+      "language": "python",
+      "code": "arr=[{\"title\": \"A Description Of Active And Extinct Volcanos\", \"first_publish_year\": 2007}, {\"title\": \"Monitoring Active Volcanoes\", \"first_publish_year\": 2022}, {\"title\": \"My Mouth Is A Volcano Activity And Idea Book\", \"first_publish_year\": 2009}, {\"title\": \"Active Volcanoes of Chiapas\", \"first_publish_year\": 2015}, {\"title\": \"Daniel, an active volcano\", \"first_publish_year\": 1989}, {\"title\": \"Thermal Remote Sensing of Active Volcanoes\", \"first_publish_year\": 2013}, {\"title\": \"Monitoring active volcanoes\", \"first_publish_year\": 1993}, {\"title\": \"Volcanoes and their activity\", \"first_publish_year\": 1962}, {\"title\": \"Radiometry of active volcanoes\", \"first_publish_year\": 2013}, {\"title\": \"Volcanoes and their activity\", \"first_publish_year\": 1962}, {\"title\": \"Description of Active and Extinct Volcanos, of Earthquakes, and of Thermal Springs\", \"first_publish_year\": 2011}, {\"title\": \"MONITORING ACTIVE VOLCANOES\", \"first_publish_year\": 1995}, {\"title\": \"Volcanoes Activity Book\", \"first_publish_year\": 1989}, {\"title\": \"Monitoring active volcanoes\", \"first_publish_year\": 1995}, {\"title\": \"My Mouth is a Volcano Activity Book\", \"first_publish_year\": 2007}, {\"title\": \"Active Volcanoes of the Southwest Indian Ocean\", \"first_publish_year\": 2015}, {\"title\": \"Active Volcanoes of China\", \"first_publish_year\": 2021}, {\"title\": \"Volcanoes and Their Activity\", \"first_publish_year\": 1962}, {\"title\": \"Volcanoes Facts Stories Activities\", \"first_publish_year\": None}, {\"title\": \"Volcanoes and their activity\", \"first_publish_year\": 1962}, {\"title\": \"Volcanoes and Their Activity\", \"first_publish_year\": None}, {\"title\": \"Volcanoes and Their Activity\", \"first_publish_year\": 1962}, {\"title\": \"A description of active and extinct volcanos\", \"first_publish_year\": 1826}, {\"title\": \"STEM on an Active Volcano\", \"first_publish_year\": 2017}, {\"title\": \"Active Learning! Volcanoes and Earthquakes\", \"first_publish_year\": 2023}, {\"title\": \"Rocks and Volcanoes Activity Book\", \"first_publish_year\": 2021}, {\"title\": \"Sb23f Active Volcanoes\", \"first_publish_year\": 2005}, {\"title\": \"Active Learning! Volcanoes and Earthquakes\", \"first_publish_year\": 2023}, {\"title\": \"Mount Rainier : Active Cascade Volcano\", \"first_publish_year\": 1994}, {\"title\": \"Mount Rainier active Cascade volcano\", \"first_publish_year\": 1994}, {\"title\": \"Springboard - Active Volcanoes Level N\", \"first_publish_year\": None}, {\"title\": \"The active volcanoes of Peru\", \"first_publish_year\": None}, {\"title\": \"Kilauea Hawaii's Most Active Volcano\", \"first_publish_year\": 2001}, {\"title\": \"The active volcanoes of Peru\", \"first_publish_year\": 1998}, {\"title\": \"Volcano Coloring and Activity Book\", \"first_publish_year\": 2019}, {\"title\": \"The active volcanoes of Tibesti\", \"first_publish_year\": 1957}, {\"title\": \"Mount Rainier Active Cascade Volcano\", \"first_publish_year\": 1994}, {\"title\": \"Volcanoes (High Q Science Activity Books)\", \"first_publish_year\": 1999}, {\"title\": \"Active Volcanoes of Kamchatka (Volume 1)\", \"first_publish_year\": 1991}, {\"title\": \"REDEFINING ACTIVE VOLCANOES: A DISCUSSION ARTICLE\", \"first_publish_year\": None}, {\"title\": \"Hawaii Volcanoes National Park Activity Book\", \"first_publish_year\": 2021}, {\"title\": \"Earthquakes, Mountains and Volcanoes (The Active Earth)\", \"first_publish_year\": 1979}, {\"title\": \"Investigations of Anomalous Earthquakes at Active Volcanoes\", \"first_publish_year\": 2012}, {\"title\": \"Catalogue of the active volcanoes of Indonesia\", \"first_publish_year\": 1951}, {\"title\": \"A description of active and extinct volcanoes..\", \"first_publish_year\": 1969}, {\"title\": \"A description of active and extinct volcanoes\", \"first_publish_year\": 1826}, {\"title\": \"The Kingship of Mt. Lassen, at Present the Only Active Volcano on the Mainland of the United States, in the Past California's Greatest Benefactor\", \"first_publish_year\": 2018}, {\"title\": \"Historically active volcanoes in Alaska, a quick reference\", \"first_publish_year\": 2000}, {\"title\": \"Catalog of the historically active volcanoes of Alaska\", \"first_publish_year\": 1998}, {\"title\": \"Historically active volcanoes in Alaska, a quick reference\", \"first_publish_year\": 2000}, {\"title\": \"Historically active volcanoes in Alaska, a quick reference\", \"first_publish_year\": 2000}, {\"title\": \"Active volcanoes and geothermal systems, Taupo volcanic zone\", \"first_publish_year\": 1987}, {\"title\": \"Activity of Hawaiian volcanoes during the years, 1940-1950\", \"first_publish_year\": 1954}, {\"title\": \"Catalogue of the active volcanoes and solfatara fields of the United States of America\", \"first_publish_year\": 1960}, {\"title\": \"Did You Go to the Heart of an Active Volcano?\", \"first_publish_year\": 2018}, {\"title\": \"Passive and active defense from the catastrophic eruptions of volcanoes\", \"first_publish_year\": 1961}, {\"title\": \"Catalogue of the active volcanoes and solfatara fields of Italy\", \"first_publish_year\": 1965}, {\"title\": \"Catalogue of the active volcanoes and sofatara fields of Antarctica\", \"first_publish_year\": 1960}, {\"title\": \"Catalogue of the active volcanoes and solfatara fields of Greece\", \"first_publish_year\": 1962}, {\"title\": \"Catalogue of the active volcanoes and solfatara fields of Melanesia\", \"first_publish_year\": 1957}, {\"title\": \"Catalogue of the active volcanoes and solfatara field of Turkey\", \"first_publish_year\": 1964}, {\"title\": \"A system for telemetering low-frequency data from active volcanoes\", \"first_publish_year\": 1988}, {\"title\": \"Catalogue of the active volcanoes and solfatara fields of New Zealand\", \"first_publish_year\": 1976}, {\"title\": \"Mount Hood--history and hazards of Oregon's most recently active volcano\", \"first_publish_year\": 2000}, {\"title\": \"Mount Hood--history and hazards of Oregon's most recently active volcano\", \"first_publish_year\": 2000}, {\"title\": \"Mount Hood--history and hazards of Oregon's most recently active volcano\", \"first_publish_year\": 2000}, {\"title\": \"Catalogue of the active volcanoes and solfatara fields of Central America\", \"first_publish_year\": 1958}, {\"title\": \"A manual for the installation of bench marks on active volcanoes\", \"first_publish_year\": 1993}, {\"title\": \"Catalogue of the active volcanoes of the world, including solfatara fields\", \"first_publish_year\": 1951}, {\"title\": \"BOOM! Its a Volcano! Stages of Volcanic Activity and Types of Volcanic Eruptions Volcanoes Grade 6-8 Earth Science\", \"first_publish_year\": 2024}, {\"title\": \"BOOM! Its a Volcano! Stages of Volcanic Activity and Types of Volcanic Eruptions Volcanoes Grade 6-8 Earth Science\", \"first_publish_year\": 2024}, {\"title\": \"BOOM! Its a Volcano! Stages of Volcanic Activity and Types of Volcanic Eruptions Volcanoes Grade 6-8 Earth Science\", \"first_publish_year\": 2024}, {\"title\": \"The eruptive activity, seismicity, and velocity structure of Pavlof Volcano, eastern Aleutians\", \"first_publish_year\": 1985}, {\"title\": \"Catalogue of the active volcanoes and solfatara fields of the Hawaiian Islands\", \"first_publish_year\": 1956}, {\"title\": \"Catalogue of the active volcanoes and solfatara fields of the Kurile Islands\", \"first_publish_year\": 1958}, {\"title\": \"Catalogue of the active volcanoes and solfatara fields of the West Indies\", \"first_publish_year\": 1966}, {\"title\": \"Movie footage of the activity of Par\u00edcutin Volcano, Michoac\u00e1n, Mexico, 1945-1952\", \"first_publish_year\": 1993}, {\"title\": \"Catalogue of the active volcanoes and solfatasa fields of the Chilean Continent\", \"first_publish_year\": 1963}, {\"title\": \"Active volcanoes of the archipelago de Colon (Galapagos) a provisional chapter of part XV, South America catalogue of active volcanoes of the world including solfatara fields\", \"first_publish_year\": 1962}, {\"title\": \"A geochemical and isotopic (Nd-Pb) comparison of volcanic rocks erupted during the last 3,550 yrs. B.P. of interplinian activity of Somma-Vesuvius volcano, southern Italy\", \"first_publish_year\": 1999}, {\"title\": \"21st Century Complete Guide to Mount St. Helens, Active Washington State Volcano\", \"first_publish_year\": 2005}, {\"title\": \"A description of active and extinct volcanos, of earthquakes, and of thermal springs\", \"first_publish_year\": 1848}, {\"title\": \"Catalogue of the active volcanoes and solfatara fields of Japan, Taiwan and Marianas\", \"first_publish_year\": 1962}, {\"title\": \"Catalogue of the active volcanoes and solfatara fields of Colombia, Ecuador and Peru\", \"first_publish_year\": 1966}, {\"title\": \"Quick reference to Alaska's active volcanoes and listing of historical eruptions, 1760-1994\", \"first_publish_year\": 1995}, {\"title\": \"Catalogue of the active volcanoes and solfatara fields of Kermadec, Tonga, and Samoa\", \"first_publish_year\": 1962}, {\"title\": \"Gravity studies of sub-surface structures and evolution of active volcanoes in Costa Rica\", \"first_publish_year\": 1985}, {\"title\": \"Catalogue of the active volcanoes and solfatasa fields of Arabia and the Indian Ocean\", \"first_publish_year\": 1963}, {\"title\": \"Catalogue of the active volcanoes of the world including solfatara fields [in three volumes]\", \"first_publish_year\": 1951}, {\"title\": \"Catalogue of the active volcanoes and solfatara fields of Africa and the Red Sea\", \"first_publish_year\": 1957}, {\"title\": \"The Mrdalsjkull Ice Cap Iceland Glacial Processes Sediments And Landforms On An Active Volcano\", \"first_publish_year\": 2009}, {\"title\": \"Catalogue of the active volcanoes and solfatara fields of the Philippine Islands and Cochin China\", \"first_publish_year\": 1953}, {\"title\": \"Catalogue of the active volcanoes and solfatara fields of Kamchatka and Continental areas of Asia\", \"first_publish_year\": 1959}, {\"title\": \"Volcanic Activity in the Aleutian Arc, Including A List of All Known Volcanoes and A Summary of Activity Between 1760 and 1948\", \"first_publish_year\": 1950}, {\"title\": \"Catalogue of the active volcanoes of the Archipielogo de Colon, Isla San Felix and Islas Juan Fernandez\", \"first_publish_year\": 1962}, {\"title\": \"Report on the 1997 activity of Shrub mud volcano, Wrangell-St. Elias National Park and Preserve, southcentral Alaska\", \"first_publish_year\": 1998}, {\"title\": \"Ground deformation associated with the 1975 magnitude-7.2 earthquake and resulting changes in activity of Kilauea Volcano, Hawaii\", \"first_publish_year\": 1985}, {\"title\": \"A geochemical and isotopic (Nd-Pb) comparison of volcanic rocks erupted during the last 3,550 yrs. B.P. of interplinian activity of Somma-Vesuvius volcano, southern Italy\", \"first_publish_year\": 1999}, {\"title\": \"A description of active and extinct volcanos. With remarks on their origin, their chemical phaenomena, and the character of their products, as determined by the condition of the earth during the period of their formation. Being the substance of some lectures delivered before the University of Oxford, with much additional matter\", \"first_publish_year\": 1826}]; filtered_arr = [item for item in arr if item.get('first_publish_year') is not None]; print(min(filtered_arr, key=lambda x: x['first_publish_year'])['title'])",
+      "stdin": ""
+    },
+    "user_preview": "Lately, I've been interested in volcanoes, especially active ones. I'd like to know from the database the oldest book related to this topic so I can read it, and also the information about the creatio"
+  },
+  {
+    "id": "mcpatlas-689f4d693e212e8ef3390724-2",
+    "tool": "oxylabs_universal_scraper",
+    "tier": "ASK",
+    "cause": "other",
+    "reason": "Uncategorized semantic difference or ungrounded parameter.",
+    "ungrounded_leaves": [
+      [
+        "output_format",
+        "md"
+      ]
+    ],
+    "call_arguments": {
+      "url": "https://buildwellconstructions.com/",
+      "output_format": "md",
+      "render": ""
+    },
+    "user_preview": "I'm going to remodel my house, and I'm sure I have the name of a construction company in my local graph. Please find the company's name. Using the company's name, please find contact information, such"
+  },
+  {
+    "id": "mcpatlas-6890e7fd2516f66b0a628e82-3",
+    "tool": "wikipedia_search_wikipedia",
+    "tier": "ASK",
+    "cause": "other",
+    "reason": "Uncategorized semantic difference or ungrounded parameter.",
+    "ungrounded_leaves": [
+      [
+        "query",
+        "Monarch of the United Kingdom in 1817."
+      ]
+    ],
+    "call_arguments": {
+      "query": "Monarch of the United Kingdom in 1817."
+    },
+    "user_preview": "Where was the coronation of the king in the country where 2012 olympic games for the king of that country in the year the author of pride and prejudice original book die?"
+  },
+  {
+    "id": "mcpatlas-68993ef3cf3e953b8ab83fa3-1",
+    "tool": "osm-mcp-server_geocode_address",
+    "tier": "BLOCK",
+    "cause": "other",
+    "reason": "Uncategorized semantic difference or ungrounded parameter.",
+    "ungrounded_leaves": [
+      [
+        "address",
+        "The Salty Donut, Miami, FL"
+      ]
+    ],
+    "call_arguments": {
+      "address": "The Salty Donut, Miami, FL"
+    },
+    "user_preview": "I have a scheduled visit to the museum after my brunch sometime this july 2025 (all I remember is after july 15th); get me the walking time from the restaurant to the museum."
+  },
+  {
+    "id": "mcpatlas-689e0b1d9c8e2ac413c1f20e-4",
+    "tool": "oxylabs_universal_scraper",
+    "tier": "ASK",
+    "cause": "other",
+    "reason": "Uncategorized semantic difference or ungrounded parameter.",
+    "ungrounded_leaves": [
+      [
+        "output_format",
+        "md"
+      ]
+    ],
+    "call_arguments": {
+      "url": "https://cryptomus.com/blog/how-many-cryptocurrencies-are-there",
+      "output_format": "md"
+    },
+    "user_preview": "Recently, while reviewing my coinbase trade history file, I became curious about which asset appeared most frequently. I also wondered in what year that coin first appeared, according to  <https://cry"
+  },
+  {
+    "id": "mcpatlas-689f4d693e212e8ef3390733-0",
+    "tool": "oxylabs_universal_scraper",
+    "tier": "ASK",
+    "cause": "other",
+    "reason": "Uncategorized semantic difference or ungrounded parameter.",
+    "ungrounded_leaves": [
+      [
+        "output_format",
+        "md"
+      ]
+    ],
+    "call_arguments": {
+      "url": "https://www.indeed.com/career-advice/career-development/how-to-volunteer",
+      "output_format": "md"
+    },
+    "user_preview": "I'd like to do some volunteer work. I enjoy walking dogs or helping with administrative tasks. According to [https://www.indeed.com/career-advice/career-development/how-to-volunteer,](https://www.inde"
+  },
+  {
+    "id": "mcpatlas-689cd6f8522029b7ad7b1fe6-0",
+    "tool": "oxylabs_google_search_scraper",
+    "tier": "BLOCK",
+    "cause": "number_unit_format",
+    "reason": "Unit or magnitude conversion in 'pages'=1.",
+    "ungrounded_leaves": [
+      [
+        "pages",
+        1
+      ],
+      [
+        "locale",
+        "en-US"
+      ]
+    ],
+    "call_arguments": {
+      "query": "La mia storia tra le dita (1994) author",
+      "parse": true,
+      "pages": 1,
+      "limit": 10,
+      "locale": "en-US",
+      "geo_location": "US",
+      "domain": ""
+    },
+    "user_preview": "I want to know the name of a classical violinist, now deceased, who shares the same nationality as the author of  a ballad released in 1994 under its original title la mia storia tra le dita. This vio"
+  },
+  {
+    "id": "mcpatlas-689f4d693e212e8ef339071d-2",
+    "tool": "oxylabs_universal_scraper",
+    "tier": "BLOCK",
+    "cause": "world_knowledge",
+    "reason": "External URL construction 'https://patch-diff.githubusercontent.com/raw/pandas-dev/pand' derived from repository/domain knowledge.",
+    "ungrounded_leaves": [
+      [
+        "url",
+        "https://patch-diff.githubusercontent.com/raw/pandas-dev/pandas/pull/62091.diff"
+      ]
+    ],
+    "call_arguments": {
+      "url": "https://patch-diff.githubusercontent.com/raw/pandas-dev/pandas/pull/62091.diff"
+    },
+    "user_preview": "I\u00b4m reviewing PR from the pandas repository. Please give me the url and diff url for PR #62091, and also list the files that were changed in that diff."
+  },
+  {
+    "id": "mcpatlas-6887c6d4614f06dc73af2411-1",
+    "tool": "arxiv_search_papers",
+    "tier": "BLOCK",
+    "cause": "datetime_format",
+    "reason": "DateTime format resolution or timestamp in 'date_from'='2024-08-01'.",
+    "ungrounded_leaves": [
+      [
+        "date_from",
+        "2024-08-01"
+      ],
+      [
+        "date_to",
+        "2024-08-30"
+      ]
+    ],
+    "call_arguments": {
+      "query": "Yilun Du 2024 robotics",
+      "date_from": "2024-08-01",
+      "date_to": "2024-08-30"
+    },
+    "user_preview": "the same month koko.com created its domain, a paper co-authored by yilun du in 2024 about robotics was released, but i forgot the title and the publication date. I also want to know how to say the exa"
+  },
+  {
+    "id": "mcpatlas-6890e7fd2516f66b0a628e6f-7",
+    "tool": "airtable_list_records",
+    "tier": "BLOCK",
+    "cause": "number_unit_format",
+    "reason": "Unit or magnitude conversion in 'max_records'=3.",
+    "ungrounded_leaves": [
+      [
+        "max_records",
+        3
+      ]
+    ],
+    "call_arguments": {
+      "base_id": "appIF9byLfQwdHqE2",
+      "table_name": "Turnover Retention",
+      "max_records": 3
+    },
+    "user_preview": "I need you to check the cloud database and tell me how many people left and joined the sales department the first quarter of the year that the game store customer having the number ten on their id mad"
+  },
+  {
+    "id": "mcpatlas-68993ef3cf3e953b8ab83fa3-2",
+    "tool": "osm-mcp-server_geocode_address",
+    "tier": "BLOCK",
+    "cause": "other",
+    "reason": "Uncategorized semantic difference or ungrounded parameter.",
+    "ungrounded_leaves": [
+      [
+        "address",
+        "Vizcaya Museum, Miami, FL"
+      ]
+    ],
+    "call_arguments": {
+      "address": "Vizcaya Museum, Miami, FL"
+    },
+    "user_preview": "I have a scheduled visit to the museum after my brunch sometime this july 2025 (all I remember is after july 15th); get me the walking time from the restaurant to the museum."
+  },
+  {
+    "id": "mcpatlas-68993ef3cf3e953b8ab83fbd-5",
+    "tool": "google-workspace_list_events",
+    "tier": "BLOCK",
+    "cause": "datetime_format",
+    "reason": "DateTime format resolution or timestamp in 'timeMax'='2025-07-14T04:00:00Z'.",
+    "ungrounded_leaves": [
+      [
+        "timeMax",
+        "2025-07-14T04:00:00Z"
+      ]
+    ],
+    "call_arguments": {
+      "timeMin": "2025-07-13T04:00:00Z",
+      "timeMax": "2025-07-14T04:00:00Z"
+    },
+    "user_preview": "Do I have any appointment to watch a movie with my girlfriend this 13 of july, 2025? I want something new to watch, and I stored my watchlist on my computer for the best movies I get recommendations f"
+  },
+  {
+    "id": "mcpatlas-6897a6002b64a8c831efa335-3",
+    "tool": "google-maps_maps_directions",
+    "tier": "BLOCK",
+    "cause": "other",
+    "reason": "Uncategorized semantic difference or ungrounded parameter.",
+    "ungrounded_leaves": [
+      [
+        "origin",
+        "Riverside Park, NYC"
+      ]
+    ],
+    "call_arguments": {
+      "origin": "Riverside Park, NYC",
+      "destination": "Pisticci, NYC",
+      "mode": "walking"
+    },
+    "user_preview": "My local data reminded me about the Gomez reunion. I know Maria forgot to bring a dish to the potluck, so she had to walk from the NYC park where the reunion was held to pick up a dish at the nearby r"
+  },
+  {
+    "id": "mcpatlas-68a398aa2f58036e8d45edf7-2",
+    "tool": "osm-mcp-server_find_nearby_places",
+    "tier": "BLOCK",
+    "cause": "other",
+    "reason": "Uncategorized semantic difference or ungrounded parameter.",
+    "ungrounded_leaves": [
+      [
+        "categories[0]",
+        "amenity"
+      ]
+    ],
+    "call_arguments": {
+      "latitude": 25.5659397,
+      "longitude": -80.2164388,
+      "radius": 10000,
+      "categories": [
+        "amenity"
+      ]
+    },
+    "user_preview": "I have a day trip with a brunch in the middle scheduled with my parents for the 1st half of July 2025. The following day, I'll be kayaking in the bay, and I'd also like to visit a church. Can you find"
+  },
+  {
+    "id": "mcpatlas-689a373e148a49f91233dfcd-7",
+    "tool": "mongodb_count",
+    "tier": "ASK",
+    "cause": "datetime_format",
+    "reason": "DateTime format resolution or timestamp in 'query.Date.$gte.$date'='2023-11-01T00:00:00Z'.",
+    "ungrounded_leaves": [
+      [
+        "query.Date.$gte.$date",
+        "2023-11-01T00:00:00Z"
+      ]
+    ],
+    "call_arguments": {
+      "database": "video_game_store",
+      "collection": "Social Media",
+      "query": {
+        "Social Media Platform": "Instagram",
+        "Date": {
+          "$gte": {
+            "$date": "2023-11-01T00:00:00Z"
+          },
+          "$lt": {
+            "$date": "2023-12-01T00:00:00Z"
+          }
+        }
+      }
+    },
+    "user_preview": "I'm analyzing the company's media campaigns for my shop, and I want to know, based on the company's nosql data, how many times we used instagram and tiktok for campaigns in the same year and month whe"
+  },
+  {
+    "id": "mcpatlas-686d2c79e1db37ea23ddd9f5-1",
+    "tool": "alchemy_fetchTokenPriceHistoryBySymbol",
+    "tier": "BLOCK",
+    "cause": "datetime_format",
+    "reason": "DateTime format resolution or timestamp in 'startTime'='2021-01-10'.",
+    "ungrounded_leaves": [
+      [
+        "startTime",
+        "2021-01-10"
+      ],
+      [
+        "endTime",
+        "2021-01-16"
+      ],
+      [
+        "interval",
+        "1d"
+      ]
+    ],
+    "call_arguments": {
+      "symbol": "DOGE",
+      "startTime": "2021-01-10",
+      "endTime": "2021-01-16",
+      "interval": "1d"
+    },
+    "user_preview": "Economic patterns in early-stage infectious disease research fascinate me. Could you find out who sponsored the very first clinical trial for malaria that began in 2021 in Canada? At the same time, I'"
+  },
+  {
+    "id": "mcpatlas-68a398aa2f58036e8d45edeb-4",
+    "tool": "google-workspace_list_events",
+    "tier": "BLOCK",
+    "cause": "datetime_format",
+    "reason": "DateTime format resolution or timestamp in 'timeMin'='2025-08-01T00:00:00Z'.",
+    "ungrounded_leaves": [
+      [
+        "timeMin",
+        "2025-08-01T00:00:00Z"
+      ],
+      [
+        "timeMax",
+        "2025-08-17T23:59:59Z"
+      ],
+      [
+        "MaxResult",
+        50
+      ]
+    ],
+    "call_arguments": {
+      "timeMin": "2025-08-01T00:00:00Z",
+      "timeMax": "2025-08-17T23:59:59Z",
+      "MaxResult": 50
+    },
+    "user_preview": "I need to check my calendar for if I have any flights going anywhere in 2025 in a particular month. Using no sql cloud data, tell me the ranking of the months in the third quarter to find the month wi"
+  },
+  {
+    "id": "mcpatlas-689af4e653c3905e7b5b25a1-5",
+    "tool": "airtable_search_records",
+    "tier": "BLOCK",
+    "cause": "other",
+    "reason": "Uncategorized semantic difference or ungrounded parameter.",
+    "ungrounded_leaves": [
+      [
+        "value",
+        "2016-01"
+      ]
+    ],
+    "call_arguments": {
+      "base_id": "appIF9byLfQwdHqE2",
+      "table_name": "Sales Expenses",
+      "field_name": "Date",
+      "value": "2016-01"
+    },
+    "user_preview": "Using the cloud database, make a comparison of each of the months of the year five years after arthur oschs sulzberger and irene roosevelt aitken gifts purchased the flintlock sporting gun of margarit"
+  },
+  {
+    "id": "mcpatlas-689af4e653c3905e7b5b25a1-9",
+    "tool": "airtable_search_records",
+    "tier": "BLOCK",
+    "cause": "other",
+    "reason": "Uncategorized semantic difference or ungrounded parameter.",
+    "ungrounded_leaves": [
+      [
+        "value",
+        "2016-05"
+      ]
+    ],
+    "call_arguments": {
+      "base_id": "appIF9byLfQwdHqE2",
+      "table_name": "Sales Expenses",
+      "field_name": "Date",
+      "value": "2016-05"
+    },
+    "user_preview": "Using the cloud database, make a comparison of each of the months of the year five years after arthur oschs sulzberger and irene roosevelt aitken gifts purchased the flintlock sporting gun of margarit"
+  },
+  {
+    "id": "mcpatlas-689bd255c0422b257e7dfd08-0",
+    "tool": "google-workspace_list_events",
+    "tier": "BLOCK",
+    "cause": "datetime_format",
+    "reason": "DateTime format resolution or timestamp in 'timeMax'='2025-08-07T23:59:59Z'.",
+    "ungrounded_leaves": [
+      [
+        "timeMax",
+        "2025-08-07T23:59:59Z"
+      ]
+    ],
+    "call_arguments": {
+      "timeMin": "2025-08-01T00:00:00Z",
+      "timeMax": "2025-08-07T23:59:59Z",
+      "maxResults": 1000
+    },
+    "user_preview": "We have scheduled our annual family reunion for the 1st week of aug 2025 in an la neighborhood; there is a lake there. Can you check how many days there are between the end date of the festival held t"
+  },
+  {
+    "id": "mcpatlas-6886306b5ed4da6b2c38117c-6",
+    "tool": "google-workspace_list_events",
+    "tier": "BLOCK",
+    "cause": "datetime_format",
+    "reason": "DateTime format resolution or timestamp in 'timeMin'='2025-07-09T18:00:00-04:00'.",
+    "ungrounded_leaves": [
+      [
+        "timeMin",
+        "2025-07-09T18:00:00-04:00"
+      ],
+      [
+        "timeMax",
+        "2025-07-10T18:00:00-04:00"
+      ]
+    ],
+    "call_arguments": {
+      "timeMin": "2025-07-09T18:00:00-04:00",
+      "timeMax": "2025-07-10T18:00:00-04:00"
+    },
+    "user_preview": "Do I have any dinner scheduled in 2025 on the birthday of the actor who won best leading actor for my favorite drama movie in my local database? If so, where and what time? And what's the first event "
+  },
+  {
+    "id": "mcpatlas-688fb11183792b921381bd25-1",
+    "tool": "mongodb_collection-schema",
+    "tier": "BLOCK",
+    "cause": "other",
+    "reason": "Uncategorized semantic difference or ungrounded parameter.",
+    "ungrounded_leaves": [
+      [
+        "database",
+        "video_game_store"
+      ]
+    ],
+    "call_arguments": {
+      "database": "video_game_store",
+      "collection": "Social Media"
+    },
+    "user_preview": "We made an instagram video post for our company long time ago and it only got 340 likes. On the date of that post, I remember we were speaking in the office about a building that was completed in that"
+  },
+  {
+    "id": "mcpatlas-688fb11183792b921381bd27-2",
+    "tool": "osm-mcp-server_geocode_address",
+    "tier": "BLOCK",
+    "cause": "other",
+    "reason": "Uncategorized semantic difference or ungrounded parameter.",
+    "ungrounded_leaves": [
+      [
+        "address",
+        "Florence Airport, Italy"
+      ]
+    ],
+    "call_arguments": {
+      "address": "Florence Airport, Italy"
+    },
+    "user_preview": "For my art history degree work, I'm planning to do a thesis called, Influence of tuscan history on art. I will travel to the capital of this italian region and visit the only bridge there spared from "
+  },
+  {
+    "id": "mcpatlas-689bd255c0422b257e7dfcb5-5",
+    "tool": "weather-data_weather_astronomy",
+    "tier": "BLOCK",
+    "cause": "control_parameter",
+    "reason": "Control/pagination parameter 'q'='New York' chosen by agent.",
+    "ungrounded_leaves": [
+      [
+        "q",
+        "New York"
+      ],
+      [
+        "dt",
+        "2020-04-01"
+      ]
+    ],
+    "call_arguments": {
+      "q": "New York",
+      "dt": "2020-04-01"
+    },
+    "user_preview": "I want to reward the most innovative department, according to their employee performance, with the highest score of the first quarter of 2020, using my PC files, with a trip to the state where the sun"
+  },
+  {
+    "id": "mcpatlas-689cd6f8522029b7ad7b202a-3",
+    "tool": "weather-data_weather_astronomy",
+    "tier": "BLOCK",
+    "cause": "datetime_format",
+    "reason": "DateTime format resolution or timestamp in 'dt'='2024-08-27'.",
+    "ungrounded_leaves": [
+      [
+        "dt",
+        "2024-08-27"
+      ]
+    ],
+    "call_arguments": {
+      "q": "Indiana",
+      "dt": "2024-08-27"
+    },
+    "user_preview": "My mom is coming to visit me. I currently live in the same state where the composer of stardust in 1927 was born. This state also has some dunes. Can you remind me of the full name of this guy and tel"
+  },
+  {
+    "id": "mcpatlas-689a373e148a49f91233e004-1",
+    "tool": "weather-data_weather_astronomy",
+    "tier": "BLOCK",
+    "cause": "datetime_format",
+    "reason": "DateTime format resolution or timestamp in 'dt'='2010-12-20'.",
+    "ungrounded_leaves": [
+      [
+        "dt",
+        "2010-12-20"
+      ]
+    ],
+    "call_arguments": {
+      "q": "51.1788293,-1.826183",
+      "dt": "2010-12-20"
+    },
+    "user_preview": "i\u2019m planning a dawn field recording at stonehenge for the winter solstice in 2010, which was on december 20th. check the local sunrise at its exact coordinates. if it was earlier than ten-to-seven, gi"
+  },
+  {
+    "id": "mcpatlas-68952adeba1c2ad4e6a5db7d-0",
+    "tool": "pubmed_search_pubmed_key_words",
+    "tier": "BLOCK",
+    "cause": "other",
+    "reason": "Uncategorized semantic difference or ungrounded parameter.",
+    "ungrounded_leaves": [
+      [
+        "key_words",
+        "dendritic cell vaccine lung cancer 12 patients 85 treatments "
+      ]
+    ],
+    "call_arguments": {
+      "key_words": "dendritic cell vaccine lung cancer 12 patients 85 treatments "
+    },
+    "user_preview": "please state the start dates of the trials mentioned in the papers: the 2021 study which proposed a dendritic cell vaccine to treat respiratory organ cancer tested in twelve patients after 85 treatmen"
+  },
+  {
+    "id": "mcpatlas-6896416f7b30e5d8ccd7c8e2-0",
+    "tool": "open-library_get_book_by_title",
+    "tier": "BLOCK",
+    "cause": "other",
+    "reason": "Uncategorized semantic difference or ungrounded parameter.",
+    "ungrounded_leaves": [
+      [
+        "title",
+        "The Cater Street Hangman"
+      ]
+    ],
+    "call_arguments": {
+      "title": "The Cater Street Hangman"
+    },
+    "user_preview": "I was analyzing historical literary figures. In the first month of the year in which the author of a book with a title similar to the hangings in cater street passed away. what is the name of the stud"
+  },
+  {
+    "id": "mcpatlas-689f4d693e212e8ef3390707-2",
+    "tool": "alchemy_fetchTokenPriceHistoryBySymbol",
+    "tier": "BLOCK",
+    "cause": "datetime_format",
+    "reason": "DateTime format resolution or timestamp in 'startTime'='2020-01-19'.",
+    "ungrounded_leaves": [
+      [
+        "startTime",
+        "2020-01-19"
+      ],
+      [
+        "endTime",
+        "2020-01-19"
+      ],
+      [
+        "interval",
+        "1d"
+      ]
+    ],
+    "call_arguments": {
+      "startTime": "2020-01-19",
+      "endTime": "2020-01-19",
+      "symbol": "BTC",
+      "interval": "1d"
+    },
+    "user_preview": "I'm piecing together openai's story, specifically the exact date their website went live. I'd like the bitcoin closing price 7 years after the launch date, and its closing price exactly six years afte"
+  },
+  {
+    "id": "mcpatlas-68a398aa2f58036e8d45edd3-4",
+    "tool": "arxiv_search_papers",
+    "tier": "BLOCK",
+    "cause": "datetime_format",
+    "reason": "DateTime format resolution or timestamp in 'date_from'='2020-01-13'.",
+    "ungrounded_leaves": [
+      [
+        "date_from",
+        "2020-01-13"
+      ],
+      [
+        "date_to",
+        "2020-01-19"
+      ]
+    ],
+    "call_arguments": {
+      "query": "Wayne Polyzou",
+      "date_from": "2020-01-13",
+      "date_to": "2020-01-19"
+    },
+    "user_preview": "I can't remember the date I had the highest number of page views on the video game store website database, but I do know that day brought me great joy, as my friend wayne polyzou published a paper in "
+  },
+  {
+    "id": "mcpatlas-688fb11183792b921381bd27-0",
+    "tool": "wikipedia_search_wikipedia",
+    "tier": "ASK",
+    "cause": "other",
+    "reason": "Uncategorized semantic difference or ungrounded parameter.",
+    "ungrounded_leaves": [
+      [
+        "query",
+        "Tuscany region "
+      ]
+    ],
+    "call_arguments": {
+      "query": "Tuscany region "
+    },
+    "user_preview": "For my art history degree work, I'm planning to do a thesis called, Influence of tuscan history on art. I will travel to the capital of this italian region and visit the only bridge there spared from "
+  },
+  {
+    "id": "mcpatlas-689a373e148a49f91233dffa-7",
+    "tool": "alchemy_fetchTokenPriceHistoryBySymbol",
+    "tier": "BLOCK",
+    "cause": "datetime_format",
+    "reason": "DateTime format resolution or timestamp in 'startTime'='2017-01-20'.",
+    "ungrounded_leaves": [
+      [
+        "startTime",
+        "2017-01-20"
+      ],
+      [
+        "endTime",
+        "2017-01-20"
+      ],
+      [
+        "interval",
+        "1d"
+      ]
+    ],
+    "call_arguments": {
+      "symbol": "BTC",
+      "startTime": "2017-01-20",
+      "endTime": "2017-01-20",
+      "interval": "1d"
+    },
+    "user_preview": "I'm investigating a crime involving cryptocurrencies. The other day, a 28 year old person hacked a platform and stole a bunch of cryptocurrencies; actually, the currency I trade the most with. Accordi"
+  },
+  {
+    "id": "mcpatlas-6897a6002b64a8c831efa32f-2",
+    "tool": "fetch_fetch",
+    "tier": "BLOCK",
+    "cause": "number_unit_format",
+    "reason": "Unit or magnitude conversion in 'max_length'=10000.",
+    "ungrounded_leaves": [
+      [
+        "max_length",
+        10000
+      ]
+    ],
+    "call_arguments": {
+      "url": "https://en.wikipedia.org/wiki/Mad_Men",
+      "max_length": 10000
+    },
+    "user_preview": "I like 60s-themed series and I'm looking for one to watch. A colleague recommended a series that aired o the amc and was released the year of the super bowl XLI. I'd like to know the name of this seri"
+  },
+  {
+    "id": "mcpatlas-68993ef3cf3e953b8ab83fcc-1",
+    "tool": "google-workspace_list_events",
+    "tier": "BLOCK",
+    "cause": "datetime_format",
+    "reason": "DateTime format resolution or timestamp in 'timeMin'='2025-07-08T00:00:00Z'.",
+    "ungrounded_leaves": [
+      [
+        "timeMin",
+        "2025-07-08T00:00:00Z"
+      ],
+      [
+        "timeMax",
+        "2025-07-11T23:59:59Z"
+      ]
+    ],
+    "call_arguments": {
+      "timeMin": "2025-07-08T00:00:00Z",
+      "timeMax": "2025-07-11T23:59:59Z",
+      "maxResults": 2147483647
+    },
+    "user_preview": "During amazon prime days in july 2025, I have scheduled a dinner at a restaurant, and although it's not written in my schedule, I'll probably head over to brickell city centre. Could you confirm the w"
+  },
+  {
+    "id": "mcpatlas-689a373e148a49f91233dfcd-8",
+    "tool": "mongodb_count",
+    "tier": "ASK",
+    "cause": "datetime_format",
+    "reason": "DateTime format resolution or timestamp in 'query.Date.$gte.$date'='2023-11-01T00:00:00Z'.",
+    "ungrounded_leaves": [
+      [
+        "query.Date.$gte.$date",
+        "2023-11-01T00:00:00Z"
+      ]
+    ],
+    "call_arguments": {
+      "database": "video_game_store",
+      "collection": "Social Media",
+      "query": {
+        "Social Media Platform": "TikTok",
+        "Date": {
+          "$gte": {
+            "$date": "2023-11-01T00:00:00Z"
+          },
+          "$lt": {
+            "$date": "2023-12-01T00:00:00Z"
+          }
+        }
+      }
+    },
+    "user_preview": "I'm analyzing the company's media campaigns for my shop, and I want to know, based on the company's nosql data, how many times we used instagram and tiktok for campaigns in the same year and month whe"
+  },
+  {
+    "id": "mcpatlas-68993ef3cf3e953b8ab83fa3-0",
+    "tool": "google-workspace_list_events",
+    "tier": "BLOCK",
+    "cause": "datetime_format",
+    "reason": "DateTime format resolution or timestamp in 'timeMin'='2025-07-15T00:00:00Z'.",
+    "ungrounded_leaves": [
+      [
+        "timeMin",
+        "2025-07-15T00:00:00Z"
+      ]
+    ],
+    "call_arguments": {
+      "timeMin": "2025-07-15T00:00:00Z",
+      "timeMax": "2025-07-31T23:59:59Z",
+      "maxResults": 1000
+    },
+    "user_preview": "I have a scheduled visit to the museum after my brunch sometime this july 2025 (all I remember is after july 15th); get me the walking time from the restaurant to the museum."
+  },
+  {
+    "id": "mcpatlas-68a398aa2f58036e8d45ee00-4",
+    "tool": "fetch_fetch",
+    "tier": "BLOCK",
+    "cause": "number_unit_format",
+    "reason": "Unit or magnitude conversion in 'max_length'=50000.",
+    "ungrounded_leaves": [
+      [
+        "max_length",
+        50000
+      ]
+    ],
+    "call_arguments": {
+      "url": "https://www.rottentomatoes.com/m/requiem_for_a_dream",
+      "max_length": 50000
+    },
+    "user_preview": "I remember I watched a drama from this list [editorial.rottentomatoes.com/guide/best-movies-2000](http://editorial.rottentomatoes.com/guide/best-movies-2000) that I also noted in my personal local mov"
+  },
+  {
+    "id": "mcpatlas-68993ef3cf3e953b8ab83fa4-3",
+    "tool": "twelvedata_GetTimeSeriesRsi",
+    "tier": "ASK",
+    "cause": "alias_entity_naming",
+    "reason": "Entity ticker/symbol alias 'NFLX' resolved from context.",
+    "ungrounded_leaves": [
+      [
+        "params.symbol",
+        "NFLX"
+      ]
+    ],
+    "call_arguments": {
+      "params": {
+        "symbol": "NFLX",
+        "date": "2020-02-18"
+      }
+    },
+    "user_preview": "my book club is going to read a manga about the scarlet letter from 2020. For the newsletter, I need to find a good photo of the manga cover, from that big non-profitable library data . I remember tha"
+  },
+  {
+    "id": "mcpatlas-689af4e653c3905e7b5b25c8-3",
+    "tool": "weather-data_weather_astronomy",
+    "tier": "BLOCK",
+    "cause": "datetime_format",
+    "reason": "DateTime format resolution or timestamp in 'dt'='2025-02-01'.",
+    "ungrounded_leaves": [
+      [
+        "dt",
+        "2025-02-01"
+      ]
+    ],
+    "call_arguments": {
+      "q": "Bogota",
+      "dt": "2025-02-01"
+    },
+    "user_preview": "I remember a latino winning the monacogp 2003. Could you tell me the lunar phase in the city of birth of that person the day they won the monaco gp? I believe good things happen under certain moon pha"
+  },
+  {
+    "id": "mcpatlas-689af4e653c3905e7b5b25c2-3",
+    "tool": "airtable_list_records",
+    "tier": "BLOCK",
+    "cause": "number_unit_format",
+    "reason": "Unit or magnitude conversion in 'max_records'=10.",
+    "ungrounded_leaves": [
+      [
+        "max_records",
+        10
+      ]
+    ],
+    "call_arguments": {
+      "base_id": "appIF9byLfQwdHqE2",
+      "table_name": "Supplier Performance",
+      "max_records": 10
+    },
+    "user_preview": "Check the cloud database and tell me which supplier had the highest score in delivery timeliness in the first quarter of the year eight years after ac milan won their last champions league."
+  },
+  {
+    "id": "mcpatlas-688ba1b3e95696e72dd93ea2-3",
+    "tool": "osm-mcp-server_find_nearby_places",
+    "tier": "BLOCK",
+    "cause": "number_unit_format",
+    "reason": "Unit or magnitude conversion in 'radius'=200.",
+    "ungrounded_leaves": [
+      [
+        "categories[0]",
+        "tourism"
+      ],
+      [
+        "radius",
+        200
+      ]
+    ],
+    "call_arguments": {
+      "categories": [
+        "tourism"
+      ],
+      "latitude": 47.36667,
+      "longitude": 8.54999,
+      "radius": 200,
+      "limit": 100
+    },
+    "user_preview": "```js\nThis guy was talking bout a publication he did before 2024 about mindfulness and psychedelics when he was working at zurich, can you tell me all the authors and what drugs they used? He told me "
+  },
+  {
+    "id": "mcpatlas-68a398aa2f58036e8d45edf6-4",
+    "tool": "mongodb_count",
+    "tier": "ASK",
+    "cause": "datetime_format",
+    "reason": "DateTime format resolution or timestamp in 'query.Date.$lt.$date'='2021-01-01T00:00:00Z'.",
+    "ungrounded_leaves": [
+      [
+        "query.Date.$lt.$date",
+        "2021-01-01T00:00:00Z"
+      ]
+    ],
+    "call_arguments": {
+      "database": "video_game_store",
+      "collection": "Social Media",
+      "query": {
+        "Social Media Platform": "Twitter",
+        "Date": {
+          "$gte": {
+            "$date": "2020-01-01T00:00:00Z"
+          },
+          "$lt": {
+            "$date": "2021-01-01T00:00:00Z"
+          }
+        }
+      }
+    },
+    "user_preview": "I need to know, from the cloud nosql video game store database, how many twitter posts were made in the year kobe bryant passed away."
+  },
+  {
+    "id": "mcpatlas-68993ef3cf3e953b8ab83fbb-3",
+    "tool": "open-library_get_book_by_id",
+    "tier": "ASK",
+    "cause": "world_knowledge",
+    "reason": "External entity reference or ID in ungrounded arguments.",
+    "ungrounded_leaves": [
+      [
+        "idType",
+        "isbn"
+      ]
+    ],
+    "call_arguments": {
+      "idType": "isbn",
+      "idValue": "0312169396"
+    },
+    "user_preview": "I saw this amazing alexander the great black basalt ware ceramics piece at the met. It was made around 1779-80 by wedgwood and bentley. It inspired me to borrow a book online about part of his life. I"
+  },
+  {
+    "id": "mcpatlas-6896416f7b30e5d8ccd7c8dd-2",
+    "tool": "filesystem_list_directory",
+    "tier": "BLOCK",
+    "cause": "other",
+    "reason": "Uncategorized semantic difference or ungrounded parameter.",
+    "ungrounded_leaves": [
+      [
+        "path",
+        "/data/repos/snake-game"
+      ]
+    ],
+    "call_arguments": {
+      "path": "/data/repos/snake-game"
+    },
+    "user_preview": "I'm using my local snake game repo to teach version control to my students. I need you to solve one of the questions for the test. Can you find the url for the second commit made by a git actor object"
+  },
+  {
+    "id": "mcpatlas-68993ef3cf3e953b8ab83fa4-2",
+    "tool": "twelvedata_GetTimeSeriesRsi",
+    "tier": "ASK",
+    "cause": "alias_entity_naming",
+    "reason": "Entity ticker/symbol alias 'AMZN' resolved from context.",
+    "ungrounded_leaves": [
+      [
+        "params.symbol",
+        "AMZN"
+      ]
+    ],
+    "call_arguments": {
+      "params": {
+        "symbol": "AMZN",
+        "date": "2020-02-18"
+      }
+    },
+    "user_preview": "my book club is going to read a manga about the scarlet letter from 2020. For the newsletter, I need to find a good photo of the manga cover, from that big non-profitable library data . I remember tha"
+  },
+  {
+    "id": "mcpatlas-68952adeba1c2ad4e6a5db79-3",
+    "tool": "airtable_search_records",
+    "tier": "BLOCK",
+    "cause": "other",
+    "reason": "Uncategorized semantic difference or ungrounded parameter.",
+    "ungrounded_leaves": [
+      [
+        "value",
+        "2022-09"
+      ]
+    ],
+    "call_arguments": {
+      "base_id": "appIF9byLfQwdHqE2",
+      "table_name": "Inventory Levels Turnover",
+      "field_name": "Date",
+      "value": "2022-09"
+    },
+    "user_preview": "I'm analyzing sales trends alongside recent literary releases. Could you tell me how many units of the fusion model the car dealership sold in september of the same year nita prose published the maid?"
+  },
+  {
+    "id": "mcpatlas-6896416f7b30e5d8ccd7c913-1",
+    "tool": "google-maps_maps_distance_matrix",
+    "tier": "ASK",
+    "cause": "control_parameter",
+    "reason": "Control/pagination parameter 'mode'='walking' chosen by agent.",
+    "ungrounded_leaves": [
+      [
+        "mode",
+        "walking"
+      ]
+    ],
+    "call_arguments": {
+      "origins": [
+        "Eiffel Tower"
+      ],
+      "destinations": [
+        "Le Louvre"
+      ],
+      "mode": "walking"
+    },
+    "user_preview": "I'm currently doing a trip in Paris. I'm at the eiffel tower, and I wanna see the mona lisa and the self-portrait of van gogh, but I don't have a car. Can you tell me if they are reachable by feet (un"
+  },
+  {
+    "id": "mcpatlas-6880e844943a73a8c5e412c1-1",
+    "tool": "whois_whois_domain",
+    "tier": "BLOCK",
+    "cause": "other",
+    "reason": "Uncategorized semantic difference or ungrounded parameter.",
+    "ungrounded_leaves": [
+      [
+        "domain",
+        "ethereum.org"
+      ]
+    ],
+    "call_arguments": {
+      "domain": "ethereum.org"
+    },
+    "user_preview": "I'm writing a historical analysis of ethereum's market behavior in relation to bitcoin's key milestones. I need to know if the ethereum domain was registered before or after the second bitcoin halving"
+  },
+  {
+    "id": "mcpatlas-68a398aa2f58036e8d45edd1-4",
+    "tool": "arxiv_search_papers",
+    "tier": "BLOCK",
+    "cause": "datetime_format",
+    "reason": "DateTime format resolution or timestamp in 'date_from'='2021-03-01'.",
+    "ungrounded_leaves": [
+      [
+        "date_from",
+        "2021-03-01"
+      ],
+      [
+        "date_to",
+        "2021-03-31"
+      ]
+    ],
+    "call_arguments": {
+      "query": "Mostafa Ijavi",
+      "date_from": "2021-03-01",
+      "date_to": "2021-03-31"
+    },
+    "user_preview": "According to the cloud data, what are the top 10 highest-grossing months for the video game store? I recall that my cousin, mostafa ijavi, published a paper during the same month I had the highest rev"
+  },
+  {
+    "id": "mcpatlas-6896416f7b30e5d8ccd7c901-1",
+    "tool": "google-maps_maps_distance_matrix",
+    "tier": "BLOCK",
+    "cause": "other",
+    "reason": "Uncategorized semantic difference or ungrounded parameter.",
+    "ungrounded_leaves": [
+      [
+        "origins[0]",
+        "New York, USA"
+      ],
+      [
+        "destinations[0]",
+        "Los Angeles, USA"
+      ]
+    ],
+    "call_arguments": {
+      "origins": [
+        "New York, USA"
+      ],
+      "destinations": [
+        "Los Angeles, USA"
+      ]
+    },
+    "user_preview": "I\u00b4m curious if the distance of the two most populous cities in usa as of 2025 is higher than the distance between the two most populous cities in brazil as of 2025. If not, create a repo with the braz"
+  },
+  {
+    "id": "mcpatlas-68a398aa2f58036e8d45edfb-3",
+    "tool": "whois_whois_domain",
+    "tier": "BLOCK",
+    "cause": "other",
+    "reason": "Uncategorized semantic difference or ungrounded parameter.",
+    "ungrounded_leaves": [
+      [
+        "domain",
+        "google.com"
+      ]
+    ],
+    "call_arguments": {
+      "domain": "google.com"
+    },
+    "user_preview": "I'm researching the market performance of tech companies during periods of intense ai competition. I want to know the date on which google stock had its lowest closing price, between the publication o"
+  },
+  {
+    "id": "mcpatlas-688fb11183792b921381bd14-2",
+    "tool": "osm-mcp-server_find_nearby_places",
+    "tier": "BLOCK",
+    "cause": "number_unit_format",
+    "reason": "Unit or magnitude conversion in 'radius'=10000.",
+    "ungrounded_leaves": [
+      [
+        "radius",
+        10000
+      ]
+    ],
+    "call_arguments": {
+      "longitude": 2.2945006,
+      "latitude": 48.8582599,
+      "radius": 10000,
+      "categories": [
+        "statue"
+      ]
+    },
+    "user_preview": "I'm researching the area around gustave eiffel's 1889 exposition universelle project, within a ten kilometer radius, I want to know all the named equestrian statues nearby there."
+  },
+  {
+    "id": "mcpatlas-689a373e148a49f91233e029-2",
+    "tool": "arxiv_search_papers",
+    "tier": "BLOCK",
+    "cause": "datetime_format",
+    "reason": "DateTime format resolution or timestamp in 'date_from'='2017-01-01'.",
+    "ungrounded_leaves": [
+      [
+        "categories[0]",
+        "astro-ph.HE"
+      ],
+      [
+        "date_from",
+        "2017-01-01"
+      ]
+    ],
+    "call_arguments": {
+      "query": "Dynamical phase transition neutron stars",
+      "date_to": "2018-01-01",
+      "categories": [
+        "astro-ph.HE"
+      ],
+      "max_results": 100,
+      "date_from": "2017-01-01"
+    },
+    "user_preview": "I'm on my 2025 summer break and feel like diving into some papers. Earlier this year, my old teacher bernhard mueller at monash did some 3d sims about the formation of a certain type of star. I'm more"
+  },
+  {
+    "id": "mcpatlas-6888e207a34beb25cfedda89-0",
+    "tool": "arxiv_search_papers",
+    "tier": "BLOCK",
+    "cause": "datetime_format",
+    "reason": "DateTime format resolution or timestamp in 'date_from'='2025-07-01'.",
+    "ungrounded_leaves": [
+      [
+        "date_from",
+        "2025-07-01"
+      ]
+    ],
+    "call_arguments": {
+      "query": "\"video comprehension\"",
+      "date_from": "2025-07-01",
+      "date_to": "2025-07-31"
+    },
+    "user_preview": "For our spanish newsletter, between July 1 and July 31, 2025, I need the spanish titles of the three most recent papers on video comprehension. Also include books on the topic published in 2023 if the"
+  },
+  {
+    "id": "mcpatlas-689f4d693e212e8ef3390707-0",
+    "tool": "whois_whois_domain",
+    "tier": "BLOCK",
+    "cause": "other",
+    "reason": "Uncategorized semantic difference or ungrounded parameter.",
+    "ungrounded_leaves": [
+      [
+        "domain",
+        "openai.com"
+      ]
+    ],
+    "call_arguments": {
+      "domain": "openai.com"
+    },
+    "user_preview": "I'm piecing together openai's story, specifically the exact date their website went live. I'd like the bitcoin closing price 7 years after the launch date, and its closing price exactly six years afte"
+  },
+  {
+    "id": "mcpatlas-688706e2ca6b330849710721-1",
+    "tool": "mcp-code-executor_read_code_file",
+    "tier": "BLOCK",
+    "cause": "other",
+    "reason": "Uncategorized semantic difference or ungrounded parameter.",
+    "ungrounded_leaves": [
+      [
+        "file_path",
+        "/data/Crime_records.csv"
+      ]
+    ],
+    "call_arguments": {
+      "file_path": "/data/Crime_records.csv"
+    },
+    "user_preview": "I'm checking local police station data on an assault that ocurred at a restaurante with a 40 years old victim. what's the date of that report? And for crimes in this category from 2017 and 2020, what'"
+  },
+  {
+    "id": "mcpatlas-68940d8355faa0b720f0b4aa-3",
+    "tool": "airtable_search_records",
+    "tier": "BLOCK",
+    "cause": "other",
+    "reason": "Uncategorized semantic difference or ungrounded parameter.",
+    "ungrounded_leaves": [
+      [
+        "value",
+        "2018-Q3"
+      ]
+    ],
+    "call_arguments": {
+      "base_id": "appIF9byLfQwdHqE2",
+      "table_name": "Turnover Retention",
+      "field_name": "Date",
+      "value": "2018-Q3"
+    },
+    "user_preview": "I am in charge of a cloud database and I need to get the information about the third quarter what I am looking for is all the staff headcount of employees from the human relantionship and advertising "
+  },
+  {
+    "id": "mcpatlas-689cd6f8522029b7ad7b200e-0",
+    "tool": "oxylabs_google_search_scraper",
+    "tier": "ASK",
+    "cause": "number_unit_format",
+    "reason": "Unit or magnitude conversion in 'pages'=1.",
+    "ungrounded_leaves": [
+      [
+        "query",
+        "In what year did John F. Kennedy assume the presidency?"
+      ],
+      [
+        "pages",
+        1
+      ]
+    ],
+    "call_arguments": {
+      "query": "In what year did John F. Kennedy assume the presidency?",
+      "pages": 1
+    },
+    "user_preview": "I was chatting with a friend about Gabo and he mentioned a novel that came out the same year John F Kennedy took office, I\u00b4d love to translate it, so I\u00b4m curios: what\u00b4s the title and who\u00b4s the author,"
+  },
+  {
+    "id": "mcpatlas-6890e7fd2516f66b0a628e3a-2",
+    "tool": "airtable_list_records",
+    "tier": "BLOCK",
+    "cause": "number_unit_format",
+    "reason": "Unit or magnitude conversion in 'max_records'=10.",
+    "ungrounded_leaves": [
+      [
+        "max_records",
+        10
+      ]
+    ],
+    "call_arguments": {
+      "base_id": "appIF9byLfQwdHqE2",
+      "table_name": "Employee Performance",
+      "max_records": 10
+    },
+    "user_preview": "I am a new employee at a car dealership and I need some help. Can you tell me which area had the best performance average in the second quarter of 2017 between the sales and human resources areas, bas"
+  },
+  {
+    "id": "mcpatlas-689cd6f8522029b7ad7b200d-1",
+    "tool": "clinicaltrialsgov-mcp-server_clinicaltrials_list_studies",
+    "tier": "ASK",
+    "cause": "control_parameter",
+    "reason": "Control/pagination parameter 'filter.advanced'='AREA[CompletionDate]RANGE[01/01/2024,12/31/2024]' chosen by agent.",
+    "ungrounded_leaves": [
+      [
+        "filter.advanced",
+        "AREA[CompletionDate]RANGE[01/01/2024,12/31/2024]"
+      ],
+      [
+        "filter.overallStatus[0]",
+        "COMPLETED"
+      ],
+      [
+        "fields[0]",
+        "StartDate"
+      ],
+      [
+        "fields[2]",
+        "OfficialTitle"
+      ]
+    ],
+    "call_arguments": {
+      "query": {
+        "cond": "sedentarism"
+      },
+      "filter": {
+        "advanced": "AREA[CompletionDate]RANGE[01/01/2024,12/31/2024]",
+        "overallStatus": [
+          "COMPLETED"
+        ],
+        "ids": []
+      },
+      "countTotal": true,
+      "fields": [
+        "StartDate",
+        "CompletionDate",
+        "OfficialTitle"
+      ]
+    },
+    "user_preview": "My doctor told me that I need to do more exercise and avoid the consequences of sedentarism. I was wondering what studies were made about sedentarism as a condition the year after the release of chat "
+  },
+  {
+    "id": "mcpatlas-68940d8355faa0b720f0b4b2-11",
+    "tool": "airtable_search_records",
+    "tier": "BLOCK",
+    "cause": "other",
+    "reason": "Uncategorized semantic difference or ungrounded parameter.",
+    "ungrounded_leaves": [
+      [
+        "value",
+        "2022-08"
+      ]
+    ],
+    "call_arguments": {
+      "base_id": "appIF9byLfQwdHqE2",
+      "table_name": "Sales Expenses",
+      "field_name": "Date",
+      "value": "2022-08"
+    },
+    "user_preview": "Check the data and tell me on which month were sold the most units in the year half-century after James dashner was born. Can you tell me how many units were?."
+  },
+  {
+    "id": "mcpatlas-68a398aa2f58036e8d45edee-3",
+    "tool": "clinicaltrialsgov-mcp-server_clinicaltrials_list_studies",
+    "tier": "ASK",
+    "cause": "control_parameter",
+    "reason": "Control/pagination parameter 'filter.advanced'='AREA[StartDate]RANGE[2024-01-24,2024-01-25]' chosen by agent.",
+    "ungrounded_leaves": [
+      [
+        "filter.advanced",
+        "AREA[StartDate]RANGE[2024-01-24,2024-01-25]"
+      ]
+    ],
+    "call_arguments": {
+      "filter": {
+        "advanced": "AREA[StartDate]RANGE[2024-01-24,2024-01-25]",
+        "ids": []
+      },
+      "countTotal": true,
+      "query": {
+        "spons": "King Saud University"
+      }
+    },
+    "user_preview": "I want to know if maybe there is a relationship between the crypto market and the studies that the king saud university produce. So, search for the title of the studies started on the same day and the"
+  }
+]

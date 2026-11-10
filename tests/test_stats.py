@@ -8,6 +8,7 @@ import pytest
 from benchmarks.stats import (
     wilson_interval,
     bootstrap_rate_ci,
+    cluster_bootstrap_rate_ci,
     fast_auroc,
     bootstrap_auroc_ci,
     mcnemar_exact,
@@ -87,3 +88,15 @@ def test_format_rate_with_ci():
     s = format_rate_with_ci(19, 31, method="wilson")
     assert "61.3%" in s
     assert "n=31" in s
+
+
+def test_cluster_bootstrap_rate_ci():
+    # 10 clusters of 10 items each
+    clusters = [f'tool_{i}' for i in range(10) for _ in range(10)]
+    # Half clusters have rate 0.8, half have rate 0.2
+    values = [1 if (i < 5 and j < 8) or (i >= 5 and j < 2) else 0
+              for i in range(10) for j in range(10)]
+    point, (low, high) = cluster_bootstrap_rate_ci(values, clusters, n_resamples=1000, seed=42)
+    assert point == 0.5
+    assert 0.30 <= low <= 0.45
+    assert 0.55 <= high <= 0.70

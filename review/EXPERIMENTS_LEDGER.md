@@ -140,3 +140,51 @@ This ledger records every experiment, benchmark run, calibration, and ablation c
     - Detection (`BLOCK + ASK`): **61.3%** [43.8, 76.3] `[EXPLORATORY]` -> Exact detection preserved.
     - Clean Hard Blocks: **14.0%** [8.3, 22.5] (down from 17.2%).
     - Clean ASK Rate: **3.2%** [1.1, 9.1]%.
+
+---
+
+### Task B1b: Residual False-Block Analysis & Cluster Rigor (2026-11-10)
+- **Status**: Completed and recorded.
+- **MCP-Atlas Calibration Clean False Blocks (B1 Three-Tier, n=1,212 calls across 53 tools)**:
+  - Hard False-Block Rate (`BLOCK` tier): **15.1%**
+    - **Primary (Cluster-Bootstrap by Tool, n=53 tools)**: **[6.5%, 25.9%]**
+    - Secondary (Cluster-Bootstrap by Task, n=360 tasks): **[12.7%, 17.5%]**
+    - Secondary (Exact Wilson): **[13.2%, 17.2%]**
+  - Confirmation Rate (`ASK` tier): **5.1%** (Primary Tool Cluster-Bootstrap: [1.6%, 9.9%], Wilson: [4.0%, 6.5%])
+  - Any Intervention Rate on Clean Calls (`BLOCK + ASK`): **20.2%** [18.0%, 22.6%]
+  - Out-of-Fold 5-Fold Tool-Grouped Cross-Fitting BLOCK Rate: **15.1%** [6.5%, 25.9%] (n=1,212)
+  - Largest Tool Share:
+    - Calibration split: `airtable_search_records` = 97/1,212 (8.0%)
+    - Frozen held-out split: `cli-mcp-server_run_command` = 95/1,211 (7.8%)
+
+- **Root Cause Breakdown (100 False Flags Stratified across 30 Tools)**:
+  - `datetime_format`: 24% (BLOCK: 21, ASK: 3) -> Projected removal: **~4.23 percentage points**
+  - `number_unit_format`: 17% (BLOCK: 16, ASK: 1) -> Projected removal: **~3.22 percentage points**
+  - `control_parameter`: 13% (BLOCK: 3, ASK: 10) -> Projected removal: **~0.60 percentage points**
+  - `alias_entity_naming`: 6% (BLOCK: 4, ASK: 2) -> Projected removal: **~0.81 percentage points**
+  - `world_knowledge`: 3% (BLOCK: 2, ASK: 1) -> Projected removal: **~0.40 percentage points**
+  - `other` (residual entity mismatches, complex params): 37% (BLOCK: 29, ASK: 8)
+  - **Key Finding**: Surface formatting and alias mismatches (B3 scope) account for **47%** of all false flags (~8.26 points of potential BLOCK-tier reduction).
+
+- **Tiered Recall Breakdown**:
+  - **DeRef fcrb Fabricated Values (n=362)**:
+    - BLOCK-only: **49.7%** [44.6%, 54.9%] (180/362)
+    - ASK-only: **28.2%** [23.8%, 33.0%] (102/362)
+    - Union (`BLOCK + ASK`): **77.9%** [73.4%, 81.9%] (282/362)
+  - **AgentHallu Errors (n=31)**:
+    - Union Detection: **61.3%** [43.8%, 76.3%] `[EXPLORATORY]` (19/31)
+  - **AgentHallu Clean Calls (n=93)**:
+    - Hard False Blocks: **14.0%** [8.3%, 22.5%] (13/93)
+    - Asks: **3.2%** [1.1%, 9.1%] (3/93)
+    - Any Intervention Rate: **17.2%** [10.9%, 26.1%] (16/93)
+
+- **Redone A4 Matched-FPR Comparison on `wrong_selection` (fcrb seeded n=200)**:
+  - N = 200: 94 clean control calls, 106 errors (49 fabricated, 43 wrong selection, 5 wrong format, 9 other).
+  - Clean Call FBR: Checker = 10.6% [5.9%, 18.5%], Claude Sonnet = 9.6% [5.1%, 17.2%].
+  - Catch Rate on `wrong_selection` (n=43): Checker = **25.6%** [14.9%, 40.2%] (11/43) vs Claude Sonnet = **41.9%** [28.4%, 56.7%] (18/43).
+  - Exact McNemar Test: 10 discordant favoring Sonnet vs 3 favoring Checker ($p = 0.0923$, not statistically significant at n=43).
+
+- **A6 Headline Realignment & 50-Item Spot-Check Plan**:
+  - **Headline Metric**: Full-data raw consensus AUROC = **0.889** [0.825, 0.941] (200 cases) / **0.930** [0.858, 0.979] (all 19,443 instances) / **0.843** [0.756, 0.904] (dev 56 cases).
+  - **Labelled Sensitivity Analysis**: Cleaned high-confidence subset AUROC = **0.947** [0.915, 0.974] (dev 56 cases, n=448, n_wrong=24).
+  - **50-Item Human Spot-Check Plan**: 50 items stratified from `review/audit2/` (25 where AI consensus agreed with gold, 25 where AI consensus disagreed with gold) will be reviewed by a single blinded human adjudicator without seeing model identities to establish inter-rater reliability (Cohen's kappa).

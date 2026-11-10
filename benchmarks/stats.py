@@ -67,6 +67,49 @@ def bootstrap_rate_ci(
     return (round(point_est, 4), (round(max(0.0, low), 4), round(min(1.0, high), 4)))
 
 
+def cluster_bootstrap_rate_ci(
+    values: Sequence[Union[bool, int, float]],
+    clusters: Sequence[Any],
+    n_resamples: int = 10000,
+    alpha: float = 0.05,
+    seed: int = 42,
+) -> Tuple[float, Tuple[float, float]]:
+    """
+    Cluster bootstrap confidence interval for a binary or continuous rate clustered by group (e.g. tool or task).
+    Resamples distinct clusters with replacement, pooling all observations within sampled clusters.
+    Returns: (point_estimate, (ci_low, ci_high))
+    """
+    arr_v = np.asarray(values, dtype=float)
+    arr_c = np.asarray(clusters)
+    if len(arr_v) != len(arr_c):
+        raise ValueError("values and clusters must have identical length")
+    if len(arr_v) == 0:
+        return (float("nan"), (float("nan"), float("nan")))
+
+    point_est = float(np.mean(arr_v))
+    unique_clusters = np.unique(arr_c)
+    n_clusters = len(unique_clusters)
+    if n_clusters <= 1:
+        return bootstrap_rate_ci(values, n_resamples=n_resamples, alpha=alpha, seed=seed)
+
+    # Pre-index observations by cluster
+    cluster_indices = [np.where(arr_c == c)[0] for c in unique_clusters]
+    cluster_sums = np.array([np.sum(arr_v[idx]) for idx in cluster_indices])
+    cluster_lens = np.array([len(idx) for idx in cluster_indices])
+
+    rng = np.random.default_rng(seed)
+    boot_indices = rng.integers(0, n_clusters, size=(n_resamples, n_clusters))
+    
+    # Calculate weighted mean per bootstrap draw: sum(cluster_sums) / sum(cluster_lens)
+    sum_vals = np.sum(cluster_sums[boot_indices], axis=1)
+    sum_lens = np.sum(cluster_lens[boot_indices], axis=1)
+    boot_means = sum_vals / sum_lens
+
+    low = float(np.percentile(boot_means, 100 * (alpha / 2.0)))
+    high = float(np.percentile(boot_means, 100 * (1.0 - alpha / 2.0)))
+    return (round(point_est, 4), (round(max(0.0, low), 4), round(min(1.0, high), 4)))
+
+
 def fast_auroc(y_true: np.ndarray, y_score: np.ndarray) -> float:
     """Fast rank-based computation of AUROC using Mann-Whitney U."""
     pos = y_score[y_true == 1]
