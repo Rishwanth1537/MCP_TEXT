@@ -40,38 +40,37 @@ Schema and format cases are constructed violations caught by the deterministic v
 
 NLI-only is better than the current hybrid (exact McNemar p = 0.008). The asymmetric variant's gain over the hybrid is not significant at n = 35 (p = 0.5). Reproduce: `PYTHONPATH=. python benchmarks/ablation_local.py` (about 2 minutes on CPU, writes `benchmarks/ablation_results.json`).
 
-### Redesign: grounded mode (`verify_logic_chain` with `mode="grounded"`)
+### Natural (Model-Made) Errors & Human-Attributed Benchmarks
 
-The ablation showed the graph stage adds no accuracy, so a second mode was added: a claim is consistent iff (1) whole-claim NLI (same windowed DeBERTa, **no** span template) is at least 0.40, (2) every number, date, version or time in the plan also occurs in the premise (`server/pipeline/value_check.py`), and (3) any user-query constraints are preserved. The default `mode="hybrid"` is unchanged. Accuracy on text-based cases, fixed thresholds, nothing tuned:
+On real model-made and human-annotated errors, deterministic grounding behaves very differently than on synthetic sets:
 
-| Variant | Dev (35 original) | Design set (210, generated) | Held-out (214, generated) |
-|---|---|---|---|
-| Shipped hybrid (GED + span NLI) | 57.1% | 53.3% | 52.8% |
-| NLI whole claim, date template | 80.0% | 76.2% | 76.6% |
-| NLI whole claim, raw | 88.6% | 91.9% | 94.4% |
-| **Grounded (raw NLI + value check)** | 88.6% | 94.3% | **95.3%** |
+1. **Human-attributed errors (AgentHallu BFCL slice, n=124: 31 errors / 93 clean calls)**:
+   - Context checker (tau=0.88): **58.1% detection / 12.9% false blocks**.
+   - Provenance checker (P3): **61.3% detection (19/31) / 17.2% false blocks (16/93)**.
+   - Claude Opus judge: 45.2% detection / 8.6% false blocks; Sonnet: 38.7% / 7.5%.
+   - Statistical power is limited (n_pos=31 < 100, exploratory); differences between checker and judges are not statistically significant.
 
-The design set's errors motivated the value check (optimistic); the held-out set uses a different seed and was not inspected before the design, but it shares the generator's templates and is synthetic. On held-out cases the value check fixes 2 cases and breaks none (exact McNemar p = 0.5, not significant). The graph distance alone is near chance on the design set (AUROC 0.52 symmetric, 0.53 asymmetric, versus 0.96 for raw NLI), and a symmetric distance penalises a premise with an extra sentence (mean 0.22 to 0.34 on consistent cases). Known limitations: plans phrased as future actions ("The agent will download X as requested") are often judged not entailed by request-style premises, spelled-out numbers and unit conversions are not handled, and localisation is coarser than span-level NLI.
+2. **Natural model errors (DeRef fcrb, 200 seeded dev calls)**:
+   - Call score separates wrong from correct calls at near chance level (AUROC 0.45-0.56).
+   - At matched false-block rates (~10% FBR), LLM judges (Claude Sonnet: 53.8% catch) significantly beat the checker (22.6% catch, p < 0.0001).
+   - Reason: Many natural errors are *wrong selections* (the value is present in the context but is the wrong choice among alternatives), which context grounding cannot detect.
 
-Reproduce: `python benchmarks/make_mcpevol_v2.py` (seeded generator; `--seed 11 --prefix V3 --out benchmarks/mcpevol_v3.json` for the held-out set), `PYTHONPATH=. python benchmarks/ablation_local.py --dataset benchmarks/mcpevol_v3.json --output benchmarks/ablation_results_v3.json --veto-threshold 0.55`, and `PYTHONPATH=. python benchmarks/eval_grounded.py --dataset benchmarks/mcpevol_v3.json`. An LLM-as-judge baseline script is provided (`benchmarks/llm_judge_eval.py`, needs `ANTHROPIC_API_KEY`; sends benchmark text to the API; not yet run).
+3. **Real MCP traffic (MCP-Atlas clean calls, n=1,271 holdout)**:
+   - User-only grounding wrongly blocks **78.0%** of correct calls.
+   - Adding prior tool outputs (P1) reduces false blocks to **29.4%**.
+   - Typed argument rules (P3) reduces false blocks to **19.5%** (still too high for an autonomous gate).
 
-### Argument-level grounding (`verify_argument_grounding`, proxy `logic_mode="arguments"`)
+---
 
-Instead of judging a whole sentence, each (argument, value) of a planned call is checked against the conversation it should come from, type by type: numbers (digits, separators, percentages, k/m, spelled-out), ISO dates and timestamps against written dates and clock times ("2 pm" = T14:00), ISO-4217 currency codes against currency names, and normalised / stemmed / fuzzy string matching. The call score is the weakest checkable argument (the same `min` aggregation as Ma et al., arXiv 2610.18497, not our invention); a call is blocked iff the score is below tau. Tau can be chosen by a split-conformal quantile of genuine calls (`conformal_threshold`) so that the false-block rate stays within a budget alpha. Booleans and empty values are not checked; there is no world knowledge ("MSFT" for "Microsoft" is reported ungrounded) and no arithmetic.
+### Synthetic Regression Tests (Demoted from Headline Metrics)
 
-Evaluated on **ArgGround-Bench** (`benchmarks/make_argground_bench.py`): public, LLM-generated function-calling conversations (Glaive v2); each case is a genuine call or the same call with exactly one argument value replaced by a value absent from the conversation. 93.5% of genuine argument values occur verbatim in the context. Held-out half, 1,751 calls (919 genuine, 832 injected); thresholds and calibration from the other half:
+> [!NOTE]
+> **Methodological Note on Circularity**: `ArgGround-Bench` and `mcpevol_v2/v3` contain synthetic injected substitutions constructed specifically to test the absence of values. Because the errors were generated to match what the checker detects, these benchmarks are circular and flatter deterministic grounding. They are demoted from headline claims and retained strictly as unit-level regression tests.
 
-| Method | False-block rate [95% CI] | Detection of injected errors | Balanced acc. |
-|---|---|---|---|
-| Exact string match (our implementation of the idea) | 14.0% [11.9%, 16.3%] | 96.4% | 0.912 |
-| **Type-aware matching** | **7.3%** [5.6%, 9.0%] | 96.5% | 0.946 |
-| + ignore ungrounded optional arguments (lower risk tier) | 5.7% | 84.6% | 0.895 |
-| Calibrated, false-block budget 5% (tau = 0.62) | 3.7% | 87.5% | - |
-| Calibrated, false-block budget 10% (tau = 1.00) | 7.3% | 97.8% | - |
+- **ArgGround-Bench (Injected substitutions, 1,751 calls)**: Type-aware matching detects 96.5% of injected absent values with 7.3% false blocks (vs 14.0% for exact string match). Run: `python benchmarks/eval_argground.py --split test`.
+- **mcpevol_v2/v3 (Synthetic reasoning claims)**: Grounded mode achieves 95.3% accuracy on 214 held-out generated cases (vs 52.8% for the graph hybrid mode). Run: `python benchmarks/eval_grounded.py`.
 
-The split-conformal threshold gives a marginal guarantee: if genuine calls are exchangeable with the calibration calls, a new genuine call is blocked with probability at most alpha, averaged over calibration draws. For one fixed calibration set the realised false-block rate is random (Beta-distributed; about half of calibration draws exceed alpha at n of about 900), so the observed 3.7% and 7.3% below budgets of 5% and 10% are partly due to score ties and chance, not evidence of beating the guarantee. A high-probability (calibration-conditional) version needs a more conservative order statistic. The guarantee does not cover detection, precision at low error prevalence, or distribution shift. A 2% budget is infeasible at this stage (about 7% of genuine calls contain values the context never states). Caveats: the injected errors are synthetic substitutions, conversations are LLM-generated, the baseline is our own reimplementation, and the held-out half was run twice (before and after fixing a regex bug found by a unit test). Reproduce: `python benchmarks/make_argground_bench.py --pages 40 --seed 5` then `PYTHONPATH=. python benchmarks/eval_argground.py --split test`.
 
-**Natural (model-made) errors: exploratory, dev half only.** On the public DeRef data (Ma et al., arXiv 2610.18497; `lm2445/DeRef`, Apache-2.0; BFCL-based `fcrb`, ComplexFuncBench-based `cfb`) the call score separates wrong from correct calls at roughly chance level: call-level AUROC 0.48 (fcrb, 630 calls) and 0.56 (cfb, 507 calls); at tau 0.88, 52% / 43% of *correct* calls would be blocked and 44% / 50% of wrong calls (`benchmarks/eval_deref.py`, `benchmarks/explore_deref_dev.py`). Reasons: many wrong values are visible in the context but are the wrong choice (a grounding check cannot see this), and many correct values have no textual source (translation, defaults, inferred), so "unsupported" does not mean "wrong" (only 44% / 62% of unsupported values are wrong, per the dataset's own path labels). The injected-error result above therefore applies only to injected absent-value substitutions. A bug was found and fixed: the number matcher ignored minus signs, so negative values such as longitudes were flagged even when verbatim in the context (19% of cfb "visible" correct arguments); after the fix 0% are flagged, cfb scoring takes 12 s instead of 9 min, and the call-level AUROC is 0.57 (cfb) and 0.48 (fcrb), so the conclusion is unchanged. The ArgGround-Bench test-half numbers above were computed before this fix (dev-half false-block rate 7.0% became 6.8%); they will be recomputed once, and logged, in the final protocol. No LLM judge has been run yet; the closest paper reports plain-input judge argument AUROC of 72.5 to 91.95 on fcrb and 63.4 to 78.9 on cfb.
 
 ### External: LLM-AggreFact test split (NLI component only, no GED)
 

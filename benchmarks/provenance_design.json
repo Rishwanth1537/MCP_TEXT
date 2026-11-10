@@ -1,9 +1,9 @@
 {
  "split": "design",
- "when": "2026-11-09T15:55:46",
+ "when": "2026-11-10T16:15:00",
  "code_sha256_16": {
   "server/pipeline/provenance.py": "b76c99b651bf786c",
-  "server/pipeline/arg_ground.py": "4bc0a315ee29c6f2",
+  "server/pipeline/arg_ground.py": "5161f0ce918a6ac5",
   "benchmarks/eval_provenance.py": "37cac8c7c5e9c4bd"
  },
  "mcpatlas": {
@@ -54,7 +54,7 @@
    "grounded_by_source": {
     "user": 321
    },
-   "seconds": 3.1,
+   "seconds": 22.8,
    "top_ungrounded_args": [
     [
      "query",
@@ -164,7 +164,7 @@
     "user": 280,
     "tool": 877
    },
-   "seconds": 64.0,
+   "seconds": 628.7,
    "top_ungrounded_args": [
     [
      "query",
@@ -275,7 +275,7 @@
     "tool": 1095,
     "rule": 30
    },
-   "seconds": 6.4,
+   "seconds": 68.7,
    "top_ungrounded_args": [
     [
      "query",
@@ -386,7 +386,7 @@
     "tool": 1022,
     "rule": 124
    },
-   "seconds": 1.4,
+   "seconds": 12.8,
    "top_ungrounded_args": [
     [
      "params",
@@ -498,7 +498,7 @@
     "rule": 125,
     "agent": 13
    },
-   "seconds": 2.3,
+   "seconds": 32.7,
    "top_ungrounded_args": [
     [
      "params",
