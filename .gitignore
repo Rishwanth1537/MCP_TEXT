@@ -1,0 +1,22 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+*.log
+*.zip
+*.parquet
+
+# Local benchmark outputs
+benchmarks/*_results.json
+benchmarks/mcpevol_eval.log
+benchmarks/external_eval.log
+
+# Downloaded model caches
+.huggingface/
+benchmarks/argground_bench.json
+benchmarks/llm_judge_args_cache.jsonl
+benchmarks/llm_judge_args_*.json
+
+# Study data and keys (never commit)
+benchmarks/data/
+*.env
+.secrets/

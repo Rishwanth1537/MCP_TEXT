@@ -1,0 +1,874 @@
+{
+ "split": "design",
+ "when": "2026-11-09T15:55:46",
+ "code_sha256_16": {
+  "server/pipeline/provenance.py": "b76c99b651bf786c",
+  "server/pipeline/arg_ground.py": "4bc0a315ee29c6f2",
+  "benchmarks/eval_provenance.py": "37cac8c7c5e9c4bd"
+ },
+ "mcpatlas": {
+  "n_calls": 1152,
+  "n_tasks": 235,
+  "P0_user_only": {
+   "all_calls": {
+    "k": 798,
+    "n": 1152,
+    "rate": 0.6927,
+    "wilson95": [
+     0.6655,
+     0.7187
+    ]
+   },
+   "calls_with_arguments": {
+    "k": 798,
+    "n": 1001,
+    "rate": 0.7972,
+    "wilson95": [
+     0.7712,
+     0.821
+    ]
+   },
+   "first_calls": {
+    "k": 68,
+    "n": 163,
+    "rate": 0.4172,
+    "wilson95": [
+     0.3442,
+     0.4939
+    ]
+   },
+   "later_calls": {
+    "k": 730,
+    "n": 838,
+    "rate": 0.8711,
+    "wilson95": [
+     0.8467,
+     0.8921
+    ]
+   },
+   "leaf_verdicts": {
+    "GROUNDED": 321,
+    "UNGROUNDED": 1251,
+    "UNCHECKABLE": 102
+   },
+   "grounded_by_source": {
+    "user": 321
+   },
+   "seconds": 3.1,
+   "top_ungrounded_args": [
+    [
+     "query",
+     125,
+     218
+    ],
+    [
+     "base_id",
+     118,
+     118
+    ],
+    [
+     "table_name",
+     77,
+     87
+    ],
+    [
+     "database",
+     77,
+     77
+    ],
+    [
+     "path",
+     64,
+     83
+    ],
+    [
+     "value",
+     59,
+     64
+    ],
+    [
+     "field_name",
+     57,
+     64
+    ],
+    [
+     "code",
+     55,
+     55
+    ],
+    [
+     "command",
+     47,
+     55
+    ],
+    [
+     "collection",
+     39,
+     53
+    ],
+    [
+     "q",
+     30,
+     51
+    ],
+    [
+     "startTime",
+     24,
+     24
+    ]
+   ]
+  },
+  "P1_tool_outputs": {
+   "all_calls": {
+    "k": 310,
+    "n": 1152,
+    "rate": 0.2691,
+    "wilson95": [
+     0.2443,
+     0.2954
+    ]
+   },
+   "calls_with_arguments": {
+    "k": 310,
+    "n": 1001,
+    "rate": 0.3097,
+    "wilson95": [
+     0.2818,
+     0.339
+    ]
+   },
+   "first_calls": {
+    "k": 68,
+    "n": 163,
+    "rate": 0.4172,
+    "wilson95": [
+     0.3442,
+     0.4939
+    ]
+   },
+   "later_calls": {
+    "k": 242,
+    "n": 838,
+    "rate": 0.2888,
+    "wilson95": [
+     0.2591,
+     0.3204
+    ]
+   },
+   "leaf_verdicts": {
+    "GROUNDED": 1157,
+    "UNGROUNDED": 381,
+    "UNCHECKABLE": 147
+   },
+   "grounded_by_source": {
+    "user": 280,
+    "tool": 877
+   },
+   "seconds": 64.0,
+   "top_ungrounded_args": [
+    [
+     "query",
+     106,
+     218
+    ],
+    [
+     "code",
+     54,
+     55
+    ],
+    [
+     "value",
+     21,
+     64
+    ],
+    [
+     "languageId",
+     16,
+     16
+    ],
+    [
+     "interval",
+     15,
+     24
+    ],
+    [
+     "channel_types",
+     14,
+     16
+    ],
+    [
+     "endTime",
+     13,
+     24
+    ],
+    [
+     "startTime",
+     12,
+     24
+    ],
+    [
+     "expression",
+     9,
+     16
+    ],
+    [
+     "q",
+     9,
+     51
+    ],
+    [
+     "timeMax",
+     9,
+     9
+    ],
+    [
+     "max_records",
+     9,
+     17
+    ]
+   ]
+  },
+  "P2_nested_dates": {
+   "all_calls": {
+    "k": 359,
+    "n": 1152,
+    "rate": 0.3116,
+    "wilson95": [
+     0.2855,
+     0.339
+    ]
+   },
+   "calls_with_arguments": {
+    "k": 359,
+    "n": 1001,
+    "rate": 0.3586,
+    "wilson95": [
+     0.3295,
+     0.3888
+    ]
+   },
+   "first_calls": {
+    "k": 68,
+    "n": 163,
+    "rate": 0.4172,
+    "wilson95": [
+     0.3442,
+     0.4939
+    ]
+   },
+   "later_calls": {
+    "k": 291,
+    "n": 838,
+    "rate": 0.3473,
+    "wilson95": [
+     0.3158,
+     0.3801
+    ]
+   },
+   "leaf_verdicts": {
+    "GROUNDED": 1498,
+    "UNGROUNDED": 461,
+    "UNCHECKABLE": 84
+   },
+   "grounded_by_source": {
+    "user": 373,
+    "tool": 1095,
+    "rule": 30
+   },
+   "seconds": 6.4,
+   "top_ungrounded_args": [
+    [
+     "query",
+     109,
+     230
+    ],
+    [
+     "code",
+     54,
+     55
+    ],
+    [
+     "params",
+     38,
+     108
+    ],
+    [
+     "filter",
+     22,
+     119
+    ],
+    [
+     "value",
+     21,
+     64
+    ],
+    [
+     "pipeline",
+     17,
+     88
+    ],
+    [
+     "languageId",
+     16,
+     16
+    ],
+    [
+     "interval",
+     15,
+     24
+    ],
+    [
+     "channel_types",
+     14,
+     16
+    ],
+    [
+     "endTime",
+     13,
+     24
+    ],
+    [
+     "startTime",
+     11,
+     24
+    ],
+    [
+     "sorts",
+     11,
+     20
+    ]
+   ]
+  },
+  "P3_E1": {
+   "all_calls": {
+    "k": 212,
+    "n": 1152,
+    "rate": 0.184,
+    "wilson95": [
+     0.1627,
+     0.2074
+    ]
+   },
+   "calls_with_arguments": {
+    "k": 212,
+    "n": 1001,
+    "rate": 0.2118,
+    "wilson95": [
+     0.1876,
+     0.2382
+    ]
+   },
+   "first_calls": {
+    "k": 30,
+    "n": 163,
+    "rate": 0.184,
+    "wilson95": [
+     0.1321,
+     0.2506
+    ]
+   },
+   "later_calls": {
+    "k": 182,
+    "n": 838,
+    "rate": 0.2172,
+    "wilson95": [
+     0.1906,
+     0.2464
+    ]
+   },
+   "leaf_verdicts": {
+    "GROUNDED": 1510,
+    "UNCHECKABLE": 250,
+    "UNGROUNDED": 283
+   },
+   "grounded_by_source": {
+    "user": 364,
+    "tool": 1022,
+    "rule": 124
+   },
+   "seconds": 1.4,
+   "top_ungrounded_args": [
+    [
+     "params",
+     38,
+     108
+    ],
+    [
+     "filter",
+     22,
+     119
+    ],
+    [
+     "value",
+     21,
+     64
+    ],
+    [
+     "query",
+     21,
+     230
+    ],
+    [
+     "languageId",
+     16,
+     16
+    ],
+    [
+     "pipeline",
+     16,
+     88
+    ],
+    [
+     "interval",
+     15,
+     24
+    ],
+    [
+     "channel_types",
+     14,
+     16
+    ],
+    [
+     "endTime",
+     13,
+     24
+    ],
+    [
+     "startTime",
+     11,
+     24
+    ],
+    [
+     "sorts",
+     11,
+     20
+    ],
+    [
+     "max_records",
+     9,
+     17
+    ]
+   ]
+  },
+  "P3_E1_plus_agent_text": {
+   "all_calls": {
+    "k": 203,
+    "n": 1152,
+    "rate": 0.1762,
+    "wilson95": [
+     0.1553,
+     0.1993
+    ]
+   },
+   "calls_with_arguments": {
+    "k": 203,
+    "n": 1001,
+    "rate": 0.2028,
+    "wilson95": [
+     0.179,
+     0.2288
+    ]
+   },
+   "first_calls": {
+    "k": 30,
+    "n": 163,
+    "rate": 0.184,
+    "wilson95": [
+     0.1321,
+     0.2506
+    ]
+   },
+   "later_calls": {
+    "k": 173,
+    "n": 838,
+    "rate": 0.2064,
+    "wilson95": [
+     0.1804,
+     0.2352
+    ]
+   },
+   "leaf_verdicts": {
+    "GROUNDED": 1524,
+    "UNCHECKABLE": 250,
+    "UNGROUNDED": 269
+   },
+   "grounded_by_source": {
+    "user": 364,
+    "tool": 1022,
+    "rule": 125,
+    "agent": 13
+   },
+   "seconds": 2.3,
+   "top_ungrounded_args": [
+    [
+     "params",
+     37,
+     108
+    ],
+    [
+     "value",
+     20,
+     64
+    ],
+    [
+     "query",
+     19,
+     230
+    ],
+    [
+     "filter",
+     19,
+     119
+    ],
+    [
+     "languageId",
+     16,
+     16
+    ],
+    [
+     "pipeline",
+     16,
+     88
+    ],
+    [
+     "channel_types",
+     14,
+     16
+    ],
+    [
+     "endTime",
+     13,
+     24
+    ],
+    [
+     "startTime",
+     11,
+     24
+    ],
+    [
+     "interval",
+     11,
+     24
+    ],
+    [
+     "sorts",
+     10,
+     20
+    ],
+    [
+     "max_records",
+     9,
+     17
+    ]
+   ]
+  },
+  "P3_blocked_examples_seeded_sample": [
+   {
+    "id": "mcpatlas-689af4e653c3905e7b5b2578-2",
+    "tool": "airtable_list_records",
+    "ungrounded": [
+     [
+      "max_records",
+      "1"
+     ]
+    ]
+   },
+   {
+    "id": "mcpatlas-68824c643e6ff020bc33994b-3",
+    "tool": "notion_API-post-database-query",
+    "ungrounded": [
+     [
+      "sorts[0].direction",
+      "descending"
+     ]
+    ]
+   },
+   {
+    "id": "mcpatlas-68925f01db31fe35560e3eb5-3",
+    "tool": "exa_web_search_exa",
+    "ungrounded": [
+     [
+      "query",
+      "The Lion King release date"
+     ]
+    ]
+   },
+   {
+    "id": "mcpatlas-689f4d693e212e8ef3390707-1",
+    "tool": "alchemy_fetchTokenPriceHistoryBySymbol",
+    "ungrounded": [
+     [
+      "symbol",
+      "BTC"
+     ],
+     [
+      "startTime",
+      "2014-01-19"
+     ],
+     [
+      "endTime",
+      "2014-01-19"
+     ],
+     [
+      "interval",
+      "1d"
+     ]
+    ]
+   },
+   {
+    "id": "mcpatlas-689e0b1d9c8e2ac413c1f200-2",
+    "tool": "alchemy_fetchTokenPriceHistoryBySymbol",
+    "ungrounded": [
+     [
+      "symbol",
+      "BTC"
+     ],
+     [
+      "interval",
+      "1d"
+     ]
+    ]
+   },
+   {
+    "id": "mcpatlas-688ba1b3e95696e72dd93eaf-2",
+    "tool": "pubmed_search_pubmed_key_words",
+    "ungrounded": [
+     [
+      "key_words",
+      "DNA Xu, Eriksson 2014"
+     ]
+    ]
+   },
+   {
+    "id": "mcpatlas-6896416f7b30e5d8ccd7c8f8-2",
+    "tool": "weather-data_weather_history",
+    "ungrounded": [
+     [
+      "q",
+      "Houston, Texas, United States"
+     ],
+     [
+      "dt",
+      "2025-07-30"
+     ]
+    ]
+   },
+   {
+    "id": "mcpatlas-689af4e653c3905e7b5b25a1-14",
+    "tool": "airtable_search_records",
+    "ungrounded": [
+     [
+      "value",
+      "2016-10"
+     ]
+    ]
+   },
+   {
+    "id": "mcpatlas-6866d4d2eea665b355a8f884-1",
+    "tool": "notion_API-post-database-query",
+    "ungrounded": [
+     [
+      "filter.and[5].number.less_than_or_equal_to",
+      "2019"
+     ],
+     [
+      "sorts[0].direction",
+      "ascending"
+     ]
+    ]
+   },
+   {
+    "id": "mcpatlas-68993ef3cf3e953b8ab83fbd-4",
+    "tool": "google-workspace_list_events",
+    "ungrounded": [
+     [
+      "timeMax",
+      "2025-07-14T00:00:00Z"
+     ]
+    ]
+   },
+   {
+    "id": "mcpatlas-689e0b1d9c8e2ac413c1f237-2",
+    "tool": "mcp-server-code-runner_run-code",
+    "ungrounded": [
+     [
+      "languageId",
+      "python"
+     ]
+    ]
+   },
+   {
+    "id": "mcpatlas-689e0b1d9c8e2ac413c1f249-2",
+    "tool": "weather-data_weather_astronomy",
+    "ungrounded": [
+     [
+      "dt",
+      "2010-11-20"
+     ]
+    ]
+   },
+   {
+    "id": "mcpatlas-6897a6002b64a8c831efa2e7-1",
+    "tool": "twelvedata_GetTimeSeries",
+    "ungrounded": [
+     [
+      "params.symbol",
+      "BTC/USD"
+     ]
+    ]
+   },
+   {
+    "id": "mcpatlas-6888e207a34beb25cfedda89-0",
+    "tool": "arxiv_search_papers",
+    "ungrounded": [
+     [
+      "date_from",
+      "2025-07-01"
+     ]
+    ]
+   },
+   {
+    "id": "mcpatlas-689bd255c0422b257e7dfcc4-0",
+    "tool": "slack_channels_list",
+    "ungrounded": [
+     [
+      "channel_types",
+      "public_channel, private_channel"
+     ]
+    ]
+   },
+   {
+    "id": "mcpatlas-689f4d693e212e8ef3390724-2",
+    "tool": "oxylabs_universal_scraper",
+    "ungrounded": [
+     [
+      "output_format",
+      "md"
+     ]
+    ]
+   },
+   {
+    "id": "mcpatlas-689cd6f8522029b7ad7b202c-4",
+    "tool": "alchemy_fetchTokenPriceHistoryBySymbol",
+    "ungrounded": [
+     [
+      "interval",
+      "1d"
+     ]
+    ]
+   },
+   {
+    "id": "mcpatlas-6890e7fd2516f66b0a628e5d-4",
+    "tool": "mongodb_aggregate",
+    "ungrounded": [
+     [
+      "pipeline[0].$match.Product Category.$in[0]",
+      "PC Games"
+     ],
+     [
+      "pipeline[0].$match.Product Category.$in[1]",
+      "Console Games"
+     ]
+    ]
+   },
+   {
+    "id": "mcpatlas-689cd6f8522029b7ad7b1fe1-3",
+    "tool": "alchemy_fetchTokenPriceHistoryBySymbol",
+    "ungrounded": [
+     [
+      "symbol",
+      "BTC"
+     ],
+     [
+      "startTime",
+      "2021-12-18T23:00:00.000Z"
+     ],
+     [
+      "endTime",
+      "2021-12-19T01:00:00.000Z"
+     ],
+     [
+      "interval",
+      "1h"
+     ]
+    ]
+   },
+   {
+    "id": "mcpatlas-6886306b5ed4da6b2c381170-1",
+    "tool": "twelvedata_GetTimeSeries",
+    "ungrounded": [
+     [
+      "params.symbol",
+      "ETH/USD"
+     ],
+     [
+      "params.end_date",
+      "2024-04-21"
+     ]
+    ]
+   },
+   {
+    "id": "mcpatlas-689cd6f8522029b7ad7b1fe1-2",
+    "tool": "mcp-server-code-runner_run-code",
+    "ungrounded": [
+     [
+      "languageId",
+      "python"
+     ]
+    ]
+   },
+   {
+    "id": "mcpatlas-689af4e653c3905e7b5b2576-5",
+    "tool": "twelvedata_GetTimeSeries",
+    "ungrounded": [
+     [
+      "params.start_date",
+      "2014-07-01"
+     ],
+     [
+      "params.end_date",
+      "2014-07-10"
+     ],
+     [
+      "params.interval",
+      "1day"
+     ]
+    ]
+   },
+   {
+    "id": "mcpatlas-6866d4d2eea665b355a8f885-2",
+    "tool": "slack_channels_list",
+    "ungrounded": [
+     [
+      "channel_types",
+      "public_channel,private_channel"
+     ]
+    ]
+   },
+   {
+    "id": "mcpatlas-689af4e653c3905e7b5b25a1-6",
+    "tool": "airtable_search_records",
+    "ungrounded": [
+     [
+      "value",
+      "2016-02"
+     ]
+    ]
+   },
+   {
+    "id": "mcpatlas-689cd6f8522029b7ad7b1ff9-2",
+    "tool": "notion_API-post-database-query",
+    "ungrounded": [
+     [
+      "filter.and[0].rich_text.equals",
+      "Apt117"
+     ],
+     [
+      "sorts[0].direction",
+      "ascending"
+     ]
+    ]
+   }
+  ]
+ }
+}

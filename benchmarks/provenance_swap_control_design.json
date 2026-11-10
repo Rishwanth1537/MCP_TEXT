@@ -1,0 +1,200 @@
+{
+ "all": {
+  "n": 890,
+  "P0_blocked": 0.9584,
+  "P3_blocked": 0.9787
+ },
+ "string": {
+  "n": 826,
+  "P0_blocked": 0.96,
+  "P3_blocked": 0.977
+ },
+ "number": {
+  "n": 64,
+  "P0_blocked": 0.9375,
+  "P3_blocked": 1.0
+ },
+ "first_call": {
+  "n": 159,
+  "P0_blocked": 0.9874,
+  "P3_blocked": 0.9937
+ },
+ "later_call": {
+  "n": 731,
+  "P0_blocked": 0.9521,
+  "P3_blocked": 0.9754
+ },
+ "missed_by_P3_examples": [
+  {
+   "id": "mcpatlas-689e0b1d9c8e2ac413c1f211-1",
+   "kind": "string",
+   "first_call": false,
+   "path": "query",
+   "new": "2014-07-10",
+   "P0": true,
+   "P3": false
+  },
+  {
+   "id": "mcpatlas-6880e844943a73a8c5e412c3-5",
+   "kind": "string",
+   "first_call": false,
+   "path": "text[2].text",
+   "new": "2015-07-04",
+   "P0": true,
+   "P3": false
+  },
+  {
+   "id": "mcpatlas-689bd255c0422b257e7dfcad-5",
+   "kind": "string",
+   "first_call": false,
+   "path": "query",
+   "new": "2023-12-23",
+   "P0": true,
+   "P3": false
+  },
+  {
+   "id": "mcpatlas-68925f01db31fe35560e3ea2-3",
+   "kind": "string",
+   "first_call": false,
+   "path": "olid",
+   "new": "en-US",
+   "P0": true,
+   "P3": false
+  },
+  {
+   "id": "mcpatlas-68a398aa2f58036e8d45edcf-3",
+   "kind": "string",
+   "first_call": false,
+   "path": "database",
+   "new": "2020-10",
+   "P0": true,
+   "P3": false
+  },
+  {
+   "id": "mcpatlas-68925f01db31fe35560e3e8a-2",
+   "kind": "string",
+   "first_call": false,
+   "path": "query",
+   "new": "2015-01-20",
+   "P0": true,
+   "P3": false
+  },
+  {
+   "id": "mcpatlas-689af4e653c3905e7b5b2568-3",
+   "kind": "string",
+   "first_call": false,
+   "path": "text[22].text",
+   "new": "en-EN",
+   "P0": true,
+   "P3": false
+  },
+  {
+   "id": "mcpatlas-689f4d693e212e8ef339073e-3",
+   "kind": "string",
+   "first_call": false,
+   "path": "query",
+   "new": "2016-06-05",
+   "P0": true,
+   "P3": false
+  },
+  {
+   "id": "mcpatlas-689f4d693e212e8ef339073e-5",
+   "kind": "string",
+   "first_call": false,
+   "path": "owner",
+   "new": "2016-08",
+   "P0": true,
+   "P3": false
+  },
+  {
+   "id": "mcpatlas-68a398aa2f58036e8d45ede2-2",
+   "kind": "string",
+   "first_call": false,
+   "path": "url",
+   "new": "language:python",
+   "P0": true,
+   "P3": false
+  },
+  {
+   "id": "mcpatlas-688ba1b3e95696e72dd93ecb-3",
+   "kind": "string",
+   "first_call": false,
+   "path": "database",
+   "new": "2023-11-01T00:00:00Z",
+   "P0": true,
+   "P3": false
+  },
+  {
+   "id": "mcpatlas-689af4e653c3905e7b5b25b0-4",
+   "kind": "string",
+   "first_call": false,
+   "path": "base_id",
+   "new": "}i:a",
+   "P0": true,
+   "P3": false
+  },
+  {
+   "id": "mcpatlas-689a373e148a49f91233e003-2",
+   "kind": "string",
+   "first_call": false,
+   "path": "database",
+   "new": "en-EN",
+   "P0": true,
+   "P3": false
+  },
+  {
+   "id": "mcpatlas-689af4e653c3905e7b5b2576-1",
+   "kind": "string",
+   "first_call": false,
+   "path": "url",
+   "new": "2021-01-01",
+   "P0": true,
+   "P3": false
+  },
+  {
+   "id": "mcpatlas-6897a6002b64a8c831efa335-2",
+   "kind": "string",
+   "first_call": false,
+   "path": "place_id",
+   "new": "}i:a",
+   "P0": false,
+   "P3": false
+  },
+  {
+   "id": "mcpatlas-6897a6002b64a8c831efa2e9-3",
+   "kind": "string",
+   "first_call": false,
+   "path": "query",
+   "new": "en-EN",
+   "P0": true,
+   "P3": false
+  },
+  {
+   "id": "mcpatlas-68925f01db31fe35560e3e78-3",
+   "kind": "string",
+   "first_call": false,
+   "path": "q",
+   "new": "2013-05-31",
+   "P0": true,
+   "P3": false
+  },
+  {
+   "id": "mcpatlas-68a398aa2f58036e8d45ee11-4",
+   "kind": "string",
+   "first_call": false,
+   "path": "title",
+   "new": "/data/repos/storyteller",
+   "P0": true,
+   "P3": false
+  },
+  {
+   "id": "mcpatlas-6890e7fd2516f66b0a628e40-0",
+   "kind": "string",
+   "first_call": true,
+   "path": "query",
+   "new": "2023-12-31",
+   "P0": true,
+   "P3": false
+  }
+ ]
+}

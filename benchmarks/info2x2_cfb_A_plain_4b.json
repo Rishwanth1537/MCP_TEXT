@@ -1,0 +1,1239 @@
+{
+ "provider": "nvidia",
+ "model": "nvidia/nemotron-3.5-bolt-e4b",
+ "split": "dev",
+ "variant": 0,
+ "prompt_hash": "9b59ae0a3fa5384a",
+ "seed": 0,
+ "judge": {
+  "false_block_rate": 0.225,
+  "detection_rate": 0.2833333333333333,
+  "balanced_accuracy": 0.5291666666666667,
+  "n": 100,
+  "n_genuine": 40,
+  "n_injected": 60,
+  "false_block_rate_95ci": [
+   0.1034,
+   0.3659
+  ],
+  "detection_rate_95ci": [
+   0.1724,
+   0.4035
+  ],
+  "n_unparseable": 0,
+  "latency_s_mean": 1.054,
+  "latency_s_p95": 1.512,
+  "tokens_mean": 1699.7
+ },
+ "deterministic_checker_same_cases": {
+  "false_block_rate": 0.75,
+  "detection_rate": 0.7333333333333333,
+  "balanced_accuracy": 0.49166666666666664,
+  "n": 100,
+  "n_genuine": 40,
+  "n_injected": 60,
+  "false_block_rate_95ci": [
+   0.617,
+   0.8696
+  ],
+  "detection_rate_95ci": [
+   0.6226,
+   0.8448
+  ]
+ },
+ "mcnemar_exact_judge_vs_checker": {
+  "only_a_correct": 28,
+  "only_b_correct": 34,
+  "p": 0.5258
+ },
+ "rows": [
+  {
+   "id": "cfb:Attraction-127|k2",
+   "query_id": "Attraction-127",
+   "label": true,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 1.495,
+   "prompt_tokens": 1466,
+   "completion_tokens": 14
+  },
+  {
+   "id": "cfb:Attraction-14|k2",
+   "query_id": "Attraction-14",
+   "label": true,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 1.005,
+   "prompt_tokens": 565,
+   "completion_tokens": 14
+  },
+  {
+   "id": "cfb:Attraction-34|k2",
+   "query_id": "Attraction-34",
+   "label": true,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.899,
+   "prompt_tokens": 1272,
+   "completion_tokens": 14
+  },
+  {
+   "id": "cfb:Attraction-3|k2|n1",
+   "query_id": "Attraction-3",
+   "label": false,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.831,
+   "prompt_tokens": 1263,
+   "completion_tokens": 14
+  },
+  {
+   "id": "cfb:Attraction-6|k2",
+   "query_id": "Attraction-6",
+   "label": true,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.898,
+   "prompt_tokens": 1177,
+   "completion_tokens": 14
+  },
+  {
+   "id": "cfb:Attraction-80|k2|n1",
+   "query_id": "Attraction-80",
+   "label": false,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.981,
+   "prompt_tokens": 657,
+   "completion_tokens": 14
+  },
+  {
+   "id": "cfb:Attraction-81|k2|n2",
+   "query_id": "Attraction-81",
+   "label": false,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 1.03,
+   "prompt_tokens": 1264,
+   "completion_tokens": 14
+  },
+  {
+   "id": "cfb:Attraction-99|k2|n2",
+   "query_id": "Attraction-99",
+   "label": false,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 1.038,
+   "prompt_tokens": 1249,
+   "completion_tokens": 14
+  },
+  {
+   "id": "cfb:Attraction-99|k3|n1",
+   "query_id": "Attraction-99",
+   "label": false,
+   "parsed": true,
+   "supported": false,
+   "unsupported_arguments": [
+    "slug"
+   ],
+   "latency_s": 1.063,
+   "prompt_tokens": 1403,
+   "completion_tokens": 15
+  },
+  {
+   "id": "cfb:Car-Rental-104|k3",
+   "query_id": "Car-Rental-104",
+   "label": true,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 1.112,
+   "prompt_tokens": 3030,
+   "completion_tokens": 14
+  },
+  {
+   "id": "cfb:Car-Rental-105|k3|n1",
+   "query_id": "Car-Rental-105",
+   "label": false,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.922,
+   "prompt_tokens": 2674,
+   "completion_tokens": 14
+  },
+  {
+   "id": "cfb:Car-Rental-106|k3",
+   "query_id": "Car-Rental-106",
+   "label": true,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 1.059,
+   "prompt_tokens": 2872,
+   "completion_tokens": 14
+  },
+  {
+   "id": "cfb:Car-Rental-106|k3|n3",
+   "query_id": "Car-Rental-106",
+   "label": false,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.895,
+   "prompt_tokens": 2875,
+   "completion_tokens": 14
+  },
+  {
+   "id": "cfb:Car-Rental-109|k3|n3",
+   "query_id": "Car-Rental-109",
+   "label": false,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 1.027,
+   "prompt_tokens": 3023,
+   "completion_tokens": 14
+  },
+  {
+   "id": "cfb:Car-Rental-113|k3",
+   "query_id": "Car-Rental-113",
+   "label": true,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.991,
+   "prompt_tokens": 2307,
+   "completion_tokens": 14
+  },
+  {
+   "id": "cfb:Car-Rental-113|k3|n1",
+   "query_id": "Car-Rental-113",
+   "label": false,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.874,
+   "prompt_tokens": 2305,
+   "completion_tokens": 14
+  },
+  {
+   "id": "cfb:Car-Rental-114|k3",
+   "query_id": "Car-Rental-114",
+   "label": true,
+   "parsed": true,
+   "supported": false,
+   "unsupported_arguments": [
+    "vehicle_id"
+   ],
+   "latency_s": 1.245,
+   "prompt_tokens": 2490,
+   "completion_tokens": 17
+  },
+  {
+   "id": "cfb:Car-Rental-116|k2",
+   "query_id": "Car-Rental-116",
+   "label": true,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 1.017,
+   "prompt_tokens": 831,
+   "completion_tokens": 14
+  },
+  {
+   "id": "cfb:Car-Rental-117|k3|n3",
+   "query_id": "Car-Rental-117",
+   "label": false,
+   "parsed": true,
+   "supported": false,
+   "unsupported_arguments": [
+    "vehicle_id"
+   ],
+   "latency_s": 1.072,
+   "prompt_tokens": 2494,
+   "completion_tokens": 17
+  },
+  {
+   "id": "cfb:Car-Rental-11|k2|n3",
+   "query_id": "Car-Rental-11",
+   "label": false,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.937,
+   "prompt_tokens": 1942,
+   "completion_tokens": 14
+  },
+  {
+   "id": "cfb:Car-Rental-123|k3|n1",
+   "query_id": "Car-Rental-123",
+   "label": false,
+   "parsed": true,
+   "supported": false,
+   "unsupported_arguments": [
+    "vehicle_id"
+   ],
+   "latency_s": 1.108,
+   "prompt_tokens": 2875,
+   "completion_tokens": 17
+  },
+  {
+   "id": "cfb:Car-Rental-133|k2",
+   "query_id": "Car-Rental-133",
+   "label": true,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.874,
+   "prompt_tokens": 846,
+   "completion_tokens": 14
+  },
+  {
+   "id": "cfb:Car-Rental-133|k3|n3",
+   "query_id": "Car-Rental-133",
+   "label": false,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.941,
+   "prompt_tokens": 2335,
+   "completion_tokens": 14
+  },
+  {
+   "id": "cfb:Car-Rental-139|k4",
+   "query_id": "Car-Rental-139",
+   "label": true,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 1.068,
+   "prompt_tokens": 2150,
+   "completion_tokens": 14
+  },
+  {
+   "id": "cfb:Car-Rental-19|k2|n1",
+   "query_id": "Car-Rental-19",
+   "label": false,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.877,
+   "prompt_tokens": 2145,
+   "completion_tokens": 14
+  },
+  {
+   "id": "cfb:Car-Rental-19|k2|n4",
+   "query_id": "Car-Rental-19",
+   "label": false,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.947,
+   "prompt_tokens": 2074,
+   "completion_tokens": 14
+  },
+  {
+   "id": "cfb:Car-Rental-1|k2",
+   "query_id": "Car-Rental-1",
+   "label": true,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.914,
+   "prompt_tokens": 884,
+   "completion_tokens": 14
+  },
+  {
+   "id": "cfb:Car-Rental-1|k2|n1",
+   "query_id": "Car-Rental-1",
+   "label": false,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.95,
+   "prompt_tokens": 884,
+   "completion_tokens": 14
+  },
+  {
+   "id": "cfb:Car-Rental-2|k2|n2",
+   "query_id": "Car-Rental-2",
+   "label": false,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.853,
+   "prompt_tokens": 802,
+   "completion_tokens": 14
+  },
+  {
+   "id": "cfb:Car-Rental-31|k1",
+   "query_id": "Car-Rental-31",
+   "label": true,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.827,
+   "prompt_tokens": 582,
+   "completion_tokens": 14
+  },
+  {
+   "id": "cfb:Car-Rental-31|k2|n2",
+   "query_id": "Car-Rental-31",
+   "label": false,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.888,
+   "prompt_tokens": 2108,
+   "completion_tokens": 14
+  },
+  {
+   "id": "cfb:Car-Rental-39|k2",
+   "query_id": "Car-Rental-39",
+   "label": true,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.848,
+   "prompt_tokens": 1921,
+   "completion_tokens": 14
+  },
+  {
+   "id": "cfb:Car-Rental-50|k2",
+   "query_id": "Car-Rental-50",
+   "label": true,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.88,
+   "prompt_tokens": 666,
+   "completion_tokens": 14
+  },
+  {
+   "id": "cfb:Car-Rental-52|k3|n1",
+   "query_id": "Car-Rental-52",
+   "label": false,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.929,
+   "prompt_tokens": 1995,
+   "completion_tokens": 14
+  },
+  {
+   "id": "cfb:Car-Rental-52|k3|n2",
+   "query_id": "Car-Rental-52",
+   "label": false,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.866,
+   "prompt_tokens": 2031,
+   "completion_tokens": 14
+  },
+  {
+   "id": "cfb:Car-Rental-53|k2|n1",
+   "query_id": "Car-Rental-53",
+   "label": false,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.863,
+   "prompt_tokens": 671,
+   "completion_tokens": 14
+  },
+  {
+   "id": "cfb:Car-Rental-53|k3",
+   "query_id": "Car-Rental-53",
+   "label": true,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 1.004,
+   "prompt_tokens": 1923,
+   "completion_tokens": 14
+  },
+  {
+   "id": "cfb:Car-Rental-55|k3|n3",
+   "query_id": "Car-Rental-55",
+   "label": false,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 1.074,
+   "prompt_tokens": 2026,
+   "completion_tokens": 14
+  },
+  {
+   "id": "cfb:Car-Rental-57|k2",
+   "query_id": "Car-Rental-57",
+   "label": true,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.934,
+   "prompt_tokens": 657,
+   "completion_tokens": 14
+  },
+  {
+   "id": "cfb:Car-Rental-57|k3|n1",
+   "query_id": "Car-Rental-57",
+   "label": false,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 1.002,
+   "prompt_tokens": 1856,
+   "completion_tokens": 14
+  },
+  {
+   "id": "cfb:Car-Rental-63|k3|n1",
+   "query_id": "Car-Rental-63",
+   "label": false,
+   "parsed": true,
+   "supported": false,
+   "unsupported_arguments": [
+    "vehicle_id"
+   ],
+   "latency_s": 1.178,
+   "prompt_tokens": 2002,
+   "completion_tokens": 17
+  },
+  {
+   "id": "cfb:Car-Rental-63|k3|n2",
+   "query_id": "Car-Rental-63",
+   "label": false,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.938,
+   "prompt_tokens": 2005,
+   "completion_tokens": 14
+  },
+  {
+   "id": "cfb:Car-Rental-63|k3|n3",
+   "query_id": "Car-Rental-63",
+   "label": false,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 1.217,
+   "prompt_tokens": 2006,
+   "completion_tokens": 14
+  },
+  {
+   "id": "cfb:Car-Rental-65|k3",
+   "query_id": "Car-Rental-65",
+   "label": true,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 1.009,
+   "prompt_tokens": 1926,
+   "completion_tokens": 14
+  },
+  {
+   "id": "cfb:Car-Rental-65|k3|n1",
+   "query_id": "Car-Rental-65",
+   "label": false,
+   "parsed": true,
+   "supported": false,
+   "unsupported_arguments": [
+    "vehicle_id"
+   ],
+   "latency_s": 1.048,
+   "prompt_tokens": 1925,
+   "completion_tokens": 17
+  },
+  {
+   "id": "cfb:Car-Rental-66|k3|n1",
+   "query_id": "Car-Rental-66",
+   "label": false,
+   "parsed": true,
+   "supported": false,
+   "unsupported_arguments": [
+    "vehicle_id"
+   ],
+   "latency_s": 1.117,
+   "prompt_tokens": 2030,
+   "completion_tokens": 17
+  },
+  {
+   "id": "cfb:Car-Rental-75|k3|n2",
+   "query_id": "Car-Rental-75",
+   "label": false,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 1.085,
+   "prompt_tokens": 2507,
+   "completion_tokens": 14
+  },
+  {
+   "id": "cfb:Car-Rental-75|k3|n3",
+   "query_id": "Car-Rental-75",
+   "label": false,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 1.16,
+   "prompt_tokens": 2617,
+   "completion_tokens": 14
+  },
+  {
+   "id": "cfb:Car-Rental-7|k2|n2",
+   "query_id": "Car-Rental-7",
+   "label": false,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.813,
+   "prompt_tokens": 882,
+   "completion_tokens": 14
+  },
+  {
+   "id": "cfb:Car-Rental-85|k3",
+   "query_id": "Car-Rental-85",
+   "label": true,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 1.093,
+   "prompt_tokens": 2602,
+   "completion_tokens": 14
+  },
+  {
+   "id": "cfb:Car-Rental-85|k3|n1",
+   "query_id": "Car-Rental-85",
+   "label": false,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.959,
+   "prompt_tokens": 2598,
+   "completion_tokens": 14
+  },
+  {
+   "id": "cfb:Car-Rental-90|k3",
+   "query_id": "Car-Rental-90",
+   "label": true,
+   "parsed": true,
+   "supported": false,
+   "unsupported_arguments": [
+    "vehicle_id",
+    "search_key"
+   ],
+   "latency_s": 1.143,
+   "prompt_tokens": 2217,
+   "completion_tokens": 22
+  },
+  {
+   "id": "cfb:Car-Rental-90|k3|n4",
+   "query_id": "Car-Rental-90",
+   "label": false,
+   "parsed": true,
+   "supported": false,
+   "unsupported_arguments": [
+    "vehicle_id",
+    "search_key"
+   ],
+   "latency_s": 0.901,
+   "prompt_tokens": 2217,
+   "completion_tokens": 22
+  },
+  {
+   "id": "cfb:Car-Rental-91|k3|n4",
+   "query_id": "Car-Rental-91",
+   "label": false,
+   "parsed": true,
+   "supported": false,
+   "unsupported_arguments": [
+    "vehicle_id",
+    "search_key"
+   ],
+   "latency_s": 1.203,
+   "prompt_tokens": 2242,
+   "completion_tokens": 22
+  },
+  {
+   "id": "cfb:Car-Rental-92|k3|n4",
+   "query_id": "Car-Rental-92",
+   "label": false,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 1.001,
+   "prompt_tokens": 2274,
+   "completion_tokens": 14
+  },
+  {
+   "id": "cfb:Car-Rental-93|k3|n3",
+   "query_id": "Car-Rental-93",
+   "label": false,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 1.841,
+   "prompt_tokens": 2281,
+   "completion_tokens": 14
+  },
+  {
+   "id": "cfb:Car-Rental-94|k3|n4",
+   "query_id": "Car-Rental-94",
+   "label": false,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 1.125,
+   "prompt_tokens": 2232,
+   "completion_tokens": 14
+  },
+  {
+   "id": "cfb:Car-Rental-96|k2|n1",
+   "query_id": "Car-Rental-96",
+   "label": false,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.673,
+   "prompt_tokens": 793,
+   "completion_tokens": 14
+  },
+  {
+   "id": "cfb:Car-Rental-96|k3|n4",
+   "query_id": "Car-Rental-96",
+   "label": false,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.966,
+   "prompt_tokens": 2258,
+   "completion_tokens": 14
+  },
+  {
+   "id": "cfb:Car-Rental-9|k2|n1",
+   "query_id": "Car-Rental-9",
+   "label": false,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.757,
+   "prompt_tokens": 889,
+   "completion_tokens": 14
+  },
+  {
+   "id": "cfb:Cross-117|k3",
+   "query_id": "Cross-117",
+   "label": true,
+   "parsed": true,
+   "supported": false,
+   "unsupported_arguments": [
+    "drop_off_latitude",
+    "drop_off_longitude",
+    "pick_up_date",
+    "drop_off_date",
+    "pick_up_time",
+    "drop_off_time"
+   ],
+   "latency_s": 1.393,
+   "prompt_tokens": 1694,
+   "completion_tokens": 54
+  },
+  {
+   "id": "cfb:Cross-117|k3|n3",
+   "query_id": "Cross-117",
+   "label": false,
+   "parsed": true,
+   "supported": false,
+   "unsupported_arguments": [
+    "drop_off_date",
+    "drop_off_time",
+    "pick_up_date",
+    "pick_up_time",
+    "drop_off_longitude"
+   ],
+   "latency_s": 1.274,
+   "prompt_tokens": 1694,
+   "completion_tokens": 47
+  },
+  {
+   "id": "cfb:Cross-118|k3",
+   "query_id": "Cross-118",
+   "label": true,
+   "parsed": true,
+   "supported": false,
+   "unsupported_arguments": [
+    "drop_off_latitude",
+    "drop_off_longitude",
+    "pick_up_date",
+    "drop_off_date",
+    "pick_up_time",
+    "drop_off_time"
+   ],
+   "latency_s": 4.2,
+   "prompt_tokens": 1650,
+   "completion_tokens": 54
+  },
+  {
+   "id": "cfb:Cross-12|k2",
+   "query_id": "Cross-12",
+   "label": true,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.792,
+   "prompt_tokens": 883,
+   "completion_tokens": 14
+  },
+  {
+   "id": "cfb:Cross-12|k2|n1",
+   "query_id": "Cross-12",
+   "label": false,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 2.764,
+   "prompt_tokens": 883,
+   "completion_tokens": 14
+  },
+  {
+   "id": "cfb:Cross-14|k2",
+   "query_id": "Cross-14",
+   "label": true,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.706,
+   "prompt_tokens": 878,
+   "completion_tokens": 14
+  },
+  {
+   "id": "cfb:Cross-151|k3",
+   "query_id": "Cross-151",
+   "label": true,
+   "parsed": true,
+   "supported": false,
+   "unsupported_arguments": [
+    "arrival_date",
+    "departure_date"
+   ],
+   "latency_s": 0.941,
+   "prompt_tokens": 2118,
+   "completion_tokens": 22
+  },
+  {
+   "id": "cfb:Cross-196|k3",
+   "query_id": "Cross-196",
+   "label": true,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.695,
+   "prompt_tokens": 947,
+   "completion_tokens": 14
+  },
+  {
+   "id": "cfb:Cross-1|k2",
+   "query_id": "Cross-1",
+   "label": true,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.67,
+   "prompt_tokens": 829,
+   "completion_tokens": 14
+  },
+  {
+   "id": "cfb:Cross-266|k4|n2",
+   "query_id": "Cross-266",
+   "label": false,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.732,
+   "prompt_tokens": 1770,
+   "completion_tokens": 14
+  },
+  {
+   "id": "cfb:Cross-320|k2|n1",
+   "query_id": "Cross-320",
+   "label": false,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.777,
+   "prompt_tokens": 868,
+   "completion_tokens": 14
+  },
+  {
+   "id": "cfb:Cross-323|k4|n1",
+   "query_id": "Cross-323",
+   "label": false,
+   "parsed": true,
+   "supported": false,
+   "unsupported_arguments": [
+    "pick_up_date",
+    "pick_up_time",
+    "drop_off_date",
+    "drop_off_time"
+   ],
+   "latency_s": 4.579,
+   "prompt_tokens": 2014,
+   "completion_tokens": 40
+  },
+  {
+   "id": "cfb:Cross-353|k2",
+   "query_id": "Cross-353",
+   "label": true,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.727,
+   "prompt_tokens": 1031,
+   "completion_tokens": 14
+  },
+  {
+   "id": "cfb:Cross-355|k2",
+   "query_id": "Cross-355",
+   "label": true,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.682,
+   "prompt_tokens": 1044,
+   "completion_tokens": 14
+  },
+  {
+   "id": "cfb:Cross-355|k2|n1",
+   "query_id": "Cross-355",
+   "label": false,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.956,
+   "prompt_tokens": 1044,
+   "completion_tokens": 14
+  },
+  {
+   "id": "cfb:Cross-367|k4",
+   "query_id": "Cross-367",
+   "label": true,
+   "parsed": true,
+   "supported": false,
+   "unsupported_arguments": [
+    "pick_up_latitude",
+    "pick_up_longitude",
+    "drop_off_latitude",
+    "drop_off_longitude",
+    "pick_up_date",
+    "drop_off_date",
+    "pick_up_time",
+    "drop_off_time"
+   ],
+   "latency_s": 1.947,
+   "prompt_tokens": 1527,
+   "completion_tokens": 68
+  },
+  {
+   "id": "cfb:Flights-113|k2|n3",
+   "query_id": "Flights-113",
+   "label": false,
+   "parsed": true,
+   "supported": false,
+   "unsupported_arguments": [
+    "legs"
+   ],
+   "latency_s": 0.749,
+   "prompt_tokens": 837,
+   "completion_tokens": 15
+  },
+  {
+   "id": "cfb:Flights-113|k4",
+   "query_id": "Flights-113",
+   "label": true,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.904,
+   "prompt_tokens": 2181,
+   "completion_tokens": 14
+  },
+  {
+   "id": "cfb:Flights-118|k2|n4",
+   "query_id": "Flights-118",
+   "label": false,
+   "parsed": true,
+   "supported": false,
+   "unsupported_arguments": [
+    "legs"
+   ],
+   "latency_s": 1.2,
+   "prompt_tokens": 898,
+   "completion_tokens": 15
+  },
+  {
+   "id": "cfb:Flights-125|k3",
+   "query_id": "Flights-125",
+   "label": true,
+   "parsed": true,
+   "supported": false,
+   "unsupported_arguments": [
+    "legs"
+   ],
+   "latency_s": 0.873,
+   "prompt_tokens": 1935,
+   "completion_tokens": 15
+  },
+  {
+   "id": "cfb:Flights-125|k4",
+   "query_id": "Flights-125",
+   "label": true,
+   "parsed": true,
+   "supported": false,
+   "unsupported_arguments": [
+    "token"
+   ],
+   "latency_s": 0.806,
+   "prompt_tokens": 2320,
+   "completion_tokens": 15
+  },
+  {
+   "id": "cfb:Flights-126|k3",
+   "query_id": "Flights-126",
+   "label": true,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 1.045,
+   "prompt_tokens": 1938,
+   "completion_tokens": 14
+  },
+  {
+   "id": "cfb:Flights-23|k3|n3",
+   "query_id": "Flights-23",
+   "label": false,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 1.45,
+   "prompt_tokens": 2402,
+   "completion_tokens": 14
+  },
+  {
+   "id": "cfb:Flights-26|k2|n1",
+   "query_id": "Flights-26",
+   "label": false,
+   "parsed": true,
+   "supported": false,
+   "unsupported_arguments": [
+    "children"
+   ],
+   "latency_s": 0.62,
+   "prompt_tokens": 743,
+   "completion_tokens": 15
+  },
+  {
+   "id": "cfb:Flights-32|k3",
+   "query_id": "Flights-32",
+   "label": true,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 1.225,
+   "prompt_tokens": 2714,
+   "completion_tokens": 14
+  },
+  {
+   "id": "cfb:Flights-32|k3|n1",
+   "query_id": "Flights-32",
+   "label": false,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.67,
+   "prompt_tokens": 2715,
+   "completion_tokens": 14
+  },
+  {
+   "id": "cfb:Flights-36|k3|n1",
+   "query_id": "Flights-36",
+   "label": false,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 1.09,
+   "prompt_tokens": 2626,
+   "completion_tokens": 14
+  },
+  {
+   "id": "cfb:Flights-45|k3|n2",
+   "query_id": "Flights-45",
+   "label": false,
+   "parsed": true,
+   "supported": false,
+   "unsupported_arguments": [
+    "token"
+   ],
+   "latency_s": 0.921,
+   "prompt_tokens": 2379,
+   "completion_tokens": 15
+  },
+  {
+   "id": "cfb:Flights-45|k3|n3",
+   "query_id": "Flights-45",
+   "label": false,
+   "parsed": true,
+   "supported": false,
+   "unsupported_arguments": [
+    "token"
+   ],
+   "latency_s": 0.867,
+   "prompt_tokens": 2307,
+   "completion_tokens": 15
+  },
+  {
+   "id": "cfb:Flights-60|k2|n1",
+   "query_id": "Flights-60",
+   "label": false,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.701,
+   "prompt_tokens": 876,
+   "completion_tokens": 14
+  },
+  {
+   "id": "cfb:Flights-70|k2|n1",
+   "query_id": "Flights-70",
+   "label": false,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.737,
+   "prompt_tokens": 1067,
+   "completion_tokens": 14
+  },
+  {
+   "id": "cfb:Flights-85|k4|n1",
+   "query_id": "Flights-85",
+   "label": false,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.904,
+   "prompt_tokens": 1711,
+   "completion_tokens": 14
+  },
+  {
+   "id": "cfb:Hotels-115|k2|n1",
+   "query_id": "Hotels-115",
+   "label": false,
+   "parsed": true,
+   "supported": false,
+   "unsupported_arguments": [
+    "departure_date",
+    "arrival_date"
+   ],
+   "latency_s": 0.802,
+   "prompt_tokens": 838,
+   "completion_tokens": 22
+  },
+  {
+   "id": "cfb:Hotels-118|k2",
+   "query_id": "Hotels-118",
+   "label": true,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.717,
+   "prompt_tokens": 846,
+   "completion_tokens": 14
+  },
+  {
+   "id": "cfb:Hotels-131|k3|n2",
+   "query_id": "Hotels-131",
+   "label": false,
+   "parsed": true,
+   "supported": false,
+   "unsupported_arguments": [
+    "dest_id",
+    "arrival_date",
+    "departure_date",
+    "adults",
+    "children_age",
+    "sort_by",
+    "categories_filter"
+   ],
+   "latency_s": 1.233,
+   "prompt_tokens": 1432,
+   "completion_tokens": 46
+  },
+  {
+   "id": "cfb:Hotels-143|k3",
+   "query_id": "Hotels-143",
+   "label": true,
+   "parsed": true,
+   "supported": false,
+   "unsupported_arguments": [
+    "latitude",
+    "longitude"
+   ],
+   "latency_s": 0.735,
+   "prompt_tokens": 1514,
+   "completion_tokens": 18
+  },
+  {
+   "id": "cfb:Hotels-144|k3",
+   "query_id": "Hotels-144",
+   "label": true,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.77,
+   "prompt_tokens": 1593,
+   "completion_tokens": 14
+  },
+  {
+   "id": "cfb:Hotels-31|k2|n1",
+   "query_id": "Hotels-31",
+   "label": false,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.834,
+   "prompt_tokens": 910,
+   "completion_tokens": 14
+  },
+  {
+   "id": "cfb:Hotels-42|k2",
+   "query_id": "Hotels-42",
+   "label": true,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.748,
+   "prompt_tokens": 755,
+   "completion_tokens": 14
+  },
+  {
+   "id": "cfb:Hotels-48|k2",
+   "query_id": "Hotels-48",
+   "label": true,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.708,
+   "prompt_tokens": 770,
+   "completion_tokens": 14
+  }
+ ]
+}

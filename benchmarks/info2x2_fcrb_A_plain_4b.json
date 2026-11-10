@@ -1,0 +1,2454 @@
+{
+ "provider": "nvidia",
+ "model": "nvidia/nemotron-3.5-bolt-e4b",
+ "split": "dev",
+ "variant": 0,
+ "prompt_hash": "9b59ae0a3fa5384a",
+ "seed": 0,
+ "judge": {
+  "false_block_rate": 0.1702127659574468,
+  "detection_rate": 0.5754716981132075,
+  "balanced_accuracy": 0.7026294660778803,
+  "n": 200,
+  "n_genuine": 94,
+  "n_injected": 106,
+  "false_block_rate_95ci": [
+   0.101,
+   0.2473
+  ],
+  "detection_rate_95ci": [
+   0.4804,
+   0.6733
+  ],
+  "n_unparseable": 0,
+  "latency_s_mean": 0.751,
+  "latency_s_p95": 0.956,
+  "tokens_mean": 413.2
+ },
+ "deterministic_checker_same_cases": {
+  "false_block_rate": 0.5638297872340425,
+  "detection_rate": 0.4339622641509434,
+  "balanced_accuracy": 0.43506623845845044,
+  "n": 200,
+  "n_genuine": 94,
+  "n_injected": 106,
+  "false_block_rate_95ci": [
+   0.4565,
+   0.6629
+  ],
+  "detection_rate_95ci": [
+   0.3398,
+   0.5273
+  ]
+ },
+ "mcnemar_exact_judge_vs_checker": {
+  "only_a_correct": 62,
+  "only_b_correct": 10,
+  "p": 0.0
+ },
+ "rows": [
+  {
+   "id": "fcrb:live_multiple_1014-243-0-neg",
+   "query_id": "live_multiple_1014-243-0",
+   "label": false,
+   "parsed": true,
+   "supported": false,
+   "unsupported_arguments": [
+    "include_rules"
+   ],
+   "latency_s": 0.658,
+   "prompt_tokens": 416,
+   "completion_tokens": 17
+  },
+  {
+   "id": "fcrb:live_multiple_1048-275-0",
+   "query_id": "live_multiple_1048-275-0",
+   "label": true,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.628,
+   "prompt_tokens": 380,
+   "completion_tokens": 14
+  },
+  {
+   "id": "fcrb:live_multiple_113-44-0-neg",
+   "query_id": "live_multiple_113-44-0",
+   "label": false,
+   "parsed": true,
+   "supported": false,
+   "unsupported_arguments": [
+    "server_type"
+   ],
+   "latency_s": 0.711,
+   "prompt_tokens": 368,
+   "completion_tokens": 17
+  },
+  {
+   "id": "fcrb:live_multiple_13-4-5-neg",
+   "query_id": "live_multiple_13-4-5",
+   "label": false,
+   "parsed": true,
+   "supported": false,
+   "unsupported_arguments": [
+    "location"
+   ],
+   "latency_s": 0.679,
+   "prompt_tokens": 413,
+   "completion_tokens": 15
+  },
+  {
+   "id": "fcrb:live_multiple_15-4-7",
+   "query_id": "live_multiple_15-4-7",
+   "label": true,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.877,
+   "prompt_tokens": 383,
+   "completion_tokens": 14
+  },
+  {
+   "id": "fcrb:live_multiple_15-4-7-neg",
+   "query_id": "live_multiple_15-4-7",
+   "label": false,
+   "parsed": true,
+   "supported": false,
+   "unsupported_arguments": [
+    "date_range"
+   ],
+   "latency_s": 0.88,
+   "prompt_tokens": 412,
+   "completion_tokens": 17
+  },
+  {
+   "id": "fcrb:live_multiple_157-60-0",
+   "query_id": "live_multiple_157-60-0",
+   "label": true,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [
+    "include_archived"
+   ],
+   "latency_s": 0.679,
+   "prompt_tokens": 427,
+   "completion_tokens": 18
+  },
+  {
+   "id": "fcrb:live_multiple_162-63-1",
+   "query_id": "live_multiple_162-63-1",
+   "label": true,
+   "parsed": true,
+   "supported": false,
+   "unsupported_arguments": [
+    "include_financials"
+   ],
+   "latency_s": 0.725,
+   "prompt_tokens": 395,
+   "completion_tokens": 18
+  },
+  {
+   "id": "fcrb:live_multiple_162-63-1-neg",
+   "query_id": "live_multiple_162-63-1",
+   "label": false,
+   "parsed": true,
+   "supported": false,
+   "unsupported_arguments": [
+    "include_financials"
+   ],
+   "latency_s": 0.82,
+   "prompt_tokens": 395,
+   "completion_tokens": 18
+  },
+  {
+   "id": "fcrb:live_multiple_21-4-13",
+   "query_id": "live_multiple_21-4-13",
+   "label": true,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.569,
+   "prompt_tokens": 358,
+   "completion_tokens": 14
+  },
+  {
+   "id": "fcrb:live_multiple_212-91-6-neg",
+   "query_id": "live_multiple_212-91-6",
+   "label": false,
+   "parsed": true,
+   "supported": false,
+   "unsupported_arguments": [
+    "start_date"
+   ],
+   "latency_s": 0.692,
+   "prompt_tokens": 408,
+   "completion_tokens": 17
+  },
+  {
+   "id": "fcrb:live_multiple_215-91-9-neg",
+   "query_id": "live_multiple_215-91-9",
+   "label": false,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.643,
+   "prompt_tokens": 393,
+   "completion_tokens": 14
+  },
+  {
+   "id": "fcrb:live_multiple_221-95-0",
+   "query_id": "live_multiple_221-95-0",
+   "label": true,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.635,
+   "prompt_tokens": 365,
+   "completion_tokens": 14
+  },
+  {
+   "id": "fcrb:live_multiple_227-101-0-neg",
+   "query_id": "live_multiple_227-101-0",
+   "label": false,
+   "parsed": true,
+   "supported": false,
+   "unsupported_arguments": [
+    "excludeInactive"
+   ],
+   "latency_s": 0.639,
+   "prompt_tokens": 464,
+   "completion_tokens": 16
+  },
+  {
+   "id": "fcrb:live_multiple_241-107-2",
+   "query_id": "live_multiple_241-107-2",
+   "label": true,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.628,
+   "prompt_tokens": 387,
+   "completion_tokens": 14
+  },
+  {
+   "id": "fcrb:live_multiple_256-120-0",
+   "query_id": "live_multiple_256-120-0",
+   "label": true,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.6,
+   "prompt_tokens": 457,
+   "completion_tokens": 14
+  },
+  {
+   "id": "fcrb:live_multiple_284-128-7",
+   "query_id": "live_multiple_284-128-7",
+   "label": true,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.712,
+   "prompt_tokens": 382,
+   "completion_tokens": 14
+  },
+  {
+   "id": "fcrb:live_multiple_292-130-1",
+   "query_id": "live_multiple_292-130-1",
+   "label": true,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.781,
+   "prompt_tokens": 406,
+   "completion_tokens": 14
+  },
+  {
+   "id": "fcrb:live_multiple_298-130-7-neg",
+   "query_id": "live_multiple_298-130-7",
+   "label": false,
+   "parsed": true,
+   "supported": false,
+   "unsupported_arguments": [
+    "where_to",
+    "has_laundry_service"
+   ],
+   "latency_s": 0.784,
+   "prompt_tokens": 397,
+   "completion_tokens": 25
+  },
+  {
+   "id": "fcrb:live_multiple_302-131-1",
+   "query_id": "live_multiple_302-131-1",
+   "label": true,
+   "parsed": true,
+   "supported": false,
+   "unsupported_arguments": [
+    "location"
+   ],
+   "latency_s": 0.639,
+   "prompt_tokens": 368,
+   "completion_tokens": 15
+  },
+  {
+   "id": "fcrb:live_multiple_302-131-1-neg",
+   "query_id": "live_multiple_302-131-1",
+   "label": false,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.641,
+   "prompt_tokens": 379,
+   "completion_tokens": 14
+  },
+  {
+   "id": "fcrb:live_multiple_308-131-7-neg",
+   "query_id": "live_multiple_308-131-7",
+   "label": false,
+   "parsed": true,
+   "supported": false,
+   "unsupported_arguments": [
+    "star_rating",
+    "smoking_allowed",
+    "number_of_rooms"
+   ],
+   "latency_s": 0.864,
+   "prompt_tokens": 393,
+   "completion_tokens": 29
+  },
+  {
+   "id": "fcrb:live_multiple_319-132-9-neg",
+   "query_id": "live_multiple_319-132-9",
+   "label": false,
+   "parsed": true,
+   "supported": false,
+   "unsupported_arguments": [
+    "directed_by",
+    "cast"
+   ],
+   "latency_s": 0.696,
+   "prompt_tokens": 389,
+   "completion_tokens": 20
+  },
+  {
+   "id": "fcrb:live_multiple_324-132-14-neg",
+   "query_id": "live_multiple_324-132-14",
+   "label": false,
+   "parsed": true,
+   "supported": false,
+   "unsupported_arguments": [
+    "directed_by"
+   ],
+   "latency_s": 0.749,
+   "prompt_tokens": 372,
+   "completion_tokens": 17
+  },
+  {
+   "id": "fcrb:live_multiple_327-132-17",
+   "query_id": "live_multiple_327-132-17",
+   "label": true,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.667,
+   "prompt_tokens": 395,
+   "completion_tokens": 14
+  },
+  {
+   "id": "fcrb:live_multiple_327-132-17-neg",
+   "query_id": "live_multiple_327-132-17",
+   "label": false,
+   "parsed": true,
+   "supported": false,
+   "unsupported_arguments": [
+    "directed_by",
+    "cast"
+   ],
+   "latency_s": 0.843,
+   "prompt_tokens": 393,
+   "completion_tokens": 20
+  },
+  {
+   "id": "fcrb:live_multiple_341-133-5-neg",
+   "query_id": "live_multiple_341-133-5",
+   "label": false,
+   "parsed": true,
+   "supported": false,
+   "unsupported_arguments": [
+    "album",
+    "year"
+   ],
+   "latency_s": 0.65,
+   "prompt_tokens": 394,
+   "completion_tokens": 18
+  },
+  {
+   "id": "fcrb:live_multiple_346-133-10-neg",
+   "query_id": "live_multiple_346-133-10",
+   "label": false,
+   "parsed": true,
+   "supported": false,
+   "unsupported_arguments": [
+    "album"
+   ],
+   "latency_s": 0.769,
+   "prompt_tokens": 387,
+   "completion_tokens": 15
+  },
+  {
+   "id": "fcrb:live_multiple_349-133-13",
+   "query_id": "live_multiple_349-133-13",
+   "label": true,
+   "parsed": true,
+   "supported": false,
+   "unsupported_arguments": [
+    "album"
+   ],
+   "latency_s": 0.637,
+   "prompt_tokens": 398,
+   "completion_tokens": 15
+  },
+  {
+   "id": "fcrb:live_multiple_349-133-13-neg",
+   "query_id": "live_multiple_349-133-13",
+   "label": false,
+   "parsed": true,
+   "supported": false,
+   "unsupported_arguments": [
+    "album",
+    "genre"
+   ],
+   "latency_s": 0.733,
+   "prompt_tokens": 398,
+   "completion_tokens": 18
+  },
+  {
+   "id": "fcrb:live_multiple_35-11-1",
+   "query_id": "live_multiple_35-11-1",
+   "label": true,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 1.473,
+   "prompt_tokens": 370,
+   "completion_tokens": 14
+  },
+  {
+   "id": "fcrb:live_multiple_35-11-1-neg",
+   "query_id": "live_multiple_35-11-1",
+   "label": false,
+   "parsed": true,
+   "supported": false,
+   "unsupported_arguments": [
+    "radius",
+    "limit"
+   ],
+   "latency_s": 0.89,
+   "prompt_tokens": 383,
+   "completion_tokens": 18
+  },
+  {
+   "id": "fcrb:live_multiple_352-133-16",
+   "query_id": "live_multiple_352-133-16",
+   "label": true,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.668,
+   "prompt_tokens": 378,
+   "completion_tokens": 14
+  },
+  {
+   "id": "fcrb:live_multiple_357-134-2",
+   "query_id": "live_multiple_357-134-2",
+   "label": true,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.617,
+   "prompt_tokens": 385,
+   "completion_tokens": 14
+  },
+  {
+   "id": "fcrb:live_multiple_365-134-10",
+   "query_id": "live_multiple_365-134-10",
+   "label": true,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.679,
+   "prompt_tokens": 400,
+   "completion_tokens": 14
+  },
+  {
+   "id": "fcrb:live_multiple_365-134-10-neg",
+   "query_id": "live_multiple_365-134-10",
+   "label": false,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [
+    "directed_by"
+   ],
+   "latency_s": 0.774,
+   "prompt_tokens": 397,
+   "completion_tokens": 17
+  },
+  {
+   "id": "fcrb:live_multiple_370-134-15",
+   "query_id": "live_multiple_370-134-15",
+   "label": true,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.742,
+   "prompt_tokens": 400,
+   "completion_tokens": 14
+  },
+  {
+   "id": "fcrb:live_multiple_370-134-15-neg",
+   "query_id": "live_multiple_370-134-15",
+   "label": false,
+   "parsed": true,
+   "supported": false,
+   "unsupported_arguments": [
+    "directed_by"
+   ],
+   "latency_s": 0.803,
+   "prompt_tokens": 407,
+   "completion_tokens": 17
+  },
+  {
+   "id": "fcrb:live_multiple_371-134-16-neg",
+   "query_id": "live_multiple_371-134-16",
+   "label": false,
+   "parsed": true,
+   "supported": false,
+   "unsupported_arguments": [
+    "directed_by",
+    "cast"
+   ],
+   "latency_s": 0.787,
+   "prompt_tokens": 391,
+   "completion_tokens": 20
+  },
+  {
+   "id": "fcrb:live_multiple_376-135-0-neg",
+   "query_id": "live_multiple_376-135-0",
+   "label": false,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.652,
+   "prompt_tokens": 373,
+   "completion_tokens": 14
+  },
+  {
+   "id": "fcrb:live_multiple_388-137-6-neg",
+   "query_id": "live_multiple_388-137-6",
+   "label": false,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.603,
+   "prompt_tokens": 363,
+   "completion_tokens": 14
+  },
+  {
+   "id": "fcrb:live_multiple_389-137-7-neg",
+   "query_id": "live_multiple_389-137-7",
+   "label": false,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.62,
+   "prompt_tokens": 382,
+   "completion_tokens": 14
+  },
+  {
+   "id": "fcrb:live_multiple_395-138-3-neg",
+   "query_id": "live_multiple_395-138-3",
+   "label": false,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.611,
+   "prompt_tokens": 365,
+   "completion_tokens": 14
+  },
+  {
+   "id": "fcrb:live_multiple_396-139-0",
+   "query_id": "live_multiple_396-139-0",
+   "label": true,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.788,
+   "prompt_tokens": 416,
+   "completion_tokens": 14
+  },
+  {
+   "id": "fcrb:live_multiple_396-139-0-neg",
+   "query_id": "live_multiple_396-139-0",
+   "label": false,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.744,
+   "prompt_tokens": 416,
+   "completion_tokens": 14
+  },
+  {
+   "id": "fcrb:live_multiple_398-139-2-neg",
+   "query_id": "live_multiple_398-139-2",
+   "label": false,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.702,
+   "prompt_tokens": 397,
+   "completion_tokens": 14
+  },
+  {
+   "id": "fcrb:live_multiple_404-140-0",
+   "query_id": "live_multiple_404-140-0",
+   "label": true,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.649,
+   "prompt_tokens": 406,
+   "completion_tokens": 14
+  },
+  {
+   "id": "fcrb:live_multiple_404-140-0-neg",
+   "query_id": "live_multiple_404-140-0",
+   "label": false,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.629,
+   "prompt_tokens": 411,
+   "completion_tokens": 14
+  },
+  {
+   "id": "fcrb:live_multiple_417-141-6",
+   "query_id": "live_multiple_417-141-6",
+   "label": true,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.707,
+   "prompt_tokens": 367,
+   "completion_tokens": 14
+  },
+  {
+   "id": "fcrb:live_multiple_427-141-16",
+   "query_id": "live_multiple_427-141-16",
+   "label": true,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.601,
+   "prompt_tokens": 422,
+   "completion_tokens": 14
+  },
+  {
+   "id": "fcrb:live_multiple_430-141-19",
+   "query_id": "live_multiple_430-141-19",
+   "label": true,
+   "parsed": true,
+   "supported": false,
+   "unsupported_arguments": [
+    "location",
+    "show_type"
+   ],
+   "latency_s": 0.875,
+   "prompt_tokens": 452,
+   "completion_tokens": 20
+  },
+  {
+   "id": "fcrb:live_multiple_437-142-3-neg",
+   "query_id": "live_multiple_437-142-3",
+   "label": false,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.649,
+   "prompt_tokens": 442,
+   "completion_tokens": 14
+  },
+  {
+   "id": "fcrb:live_multiple_443-144-3-neg",
+   "query_id": "live_multiple_443-144-3",
+   "label": false,
+   "parsed": true,
+   "supported": false,
+   "unsupported_arguments": [
+    "accepts_insurance"
+   ],
+   "latency_s": 0.708,
+   "prompt_tokens": 383,
+   "completion_tokens": 18
+  },
+  {
+   "id": "fcrb:live_multiple_447-144-7",
+   "query_id": "live_multiple_447-144-7",
+   "label": true,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [
+    "accepts_insurance"
+   ],
+   "latency_s": 0.701,
+   "prompt_tokens": 384,
+   "completion_tokens": 18
+  },
+  {
+   "id": "fcrb:live_multiple_45-18-0-neg",
+   "query_id": "live_multiple_45-18-0",
+   "label": false,
+   "parsed": true,
+   "supported": false,
+   "unsupported_arguments": [
+    "size"
+   ],
+   "latency_s": 2.409,
+   "prompt_tokens": 370,
+   "completion_tokens": 15
+  },
+  {
+   "id": "fcrb:live_multiple_463-145-14",
+   "query_id": "live_multiple_463-145-14",
+   "label": true,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [
+    "category",
+    "good_for_kids"
+   ],
+   "latency_s": 0.866,
+   "prompt_tokens": 396,
+   "completion_tokens": 22
+  },
+  {
+   "id": "fcrb:live_multiple_463-145-14-neg",
+   "query_id": "live_multiple_463-145-14",
+   "label": false,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.727,
+   "prompt_tokens": 385,
+   "completion_tokens": 14
+  },
+  {
+   "id": "fcrb:live_multiple_464-145-15",
+   "query_id": "live_multiple_464-145-15",
+   "label": true,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.679,
+   "prompt_tokens": 402,
+   "completion_tokens": 14
+  },
+  {
+   "id": "fcrb:live_multiple_468-145-19",
+   "query_id": "live_multiple_468-145-19",
+   "label": true,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.695,
+   "prompt_tokens": 378,
+   "completion_tokens": 14
+  },
+  {
+   "id": "fcrb:live_multiple_468-145-19-neg",
+   "query_id": "live_multiple_468-145-19",
+   "label": false,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.745,
+   "prompt_tokens": 378,
+   "completion_tokens": 14
+  },
+  {
+   "id": "fcrb:live_multiple_469-145-20",
+   "query_id": "live_multiple_469-145-20",
+   "label": true,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.618,
+   "prompt_tokens": 416,
+   "completion_tokens": 14
+  },
+  {
+   "id": "fcrb:live_multiple_469-145-20-neg",
+   "query_id": "live_multiple_469-145-20",
+   "label": false,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.684,
+   "prompt_tokens": 416,
+   "completion_tokens": 14
+  },
+  {
+   "id": "fcrb:live_multiple_494-148-4-neg",
+   "query_id": "live_multiple_494-148-4",
+   "label": false,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.618,
+   "prompt_tokens": 408,
+   "completion_tokens": 14
+  },
+  {
+   "id": "fcrb:live_multiple_547-152-9-neg",
+   "query_id": "live_multiple_547-152-9",
+   "label": false,
+   "parsed": true,
+   "supported": false,
+   "unsupported_arguments": [
+    "number_of_baths"
+   ],
+   "latency_s": 0.787,
+   "prompt_tokens": 410,
+   "completion_tokens": 20
+  },
+  {
+   "id": "fcrb:live_multiple_553-153-2",
+   "query_id": "live_multiple_553-153-2",
+   "label": true,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.639,
+   "prompt_tokens": 375,
+   "completion_tokens": 14
+  },
+  {
+   "id": "fcrb:live_multiple_554-154-0",
+   "query_id": "live_multiple_554-154-0",
+   "label": true,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.864,
+   "prompt_tokens": 438,
+   "completion_tokens": 14
+  },
+  {
+   "id": "fcrb:live_multiple_570-155-10-neg",
+   "query_id": "live_multiple_570-155-10",
+   "label": false,
+   "parsed": true,
+   "supported": false,
+   "unsupported_arguments": [
+    "date"
+   ],
+   "latency_s": 0.679,
+   "prompt_tokens": 393,
+   "completion_tokens": 15
+  },
+  {
+   "id": "fcrb:live_multiple_574-156-0-neg",
+   "query_id": "live_multiple_574-156-0",
+   "label": false,
+   "parsed": true,
+   "supported": false,
+   "unsupported_arguments": [
+    "is_unisex"
+   ],
+   "latency_s": 0.853,
+   "prompt_tokens": 384,
+   "completion_tokens": 18
+  },
+  {
+   "id": "fcrb:live_multiple_576-156-2",
+   "query_id": "live_multiple_576-156-2",
+   "label": true,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.601,
+   "prompt_tokens": 374,
+   "completion_tokens": 14
+  },
+  {
+   "id": "fcrb:live_multiple_576-156-2-neg",
+   "query_id": "live_multiple_576-156-2",
+   "label": false,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.686,
+   "prompt_tokens": 372,
+   "completion_tokens": 14
+  },
+  {
+   "id": "fcrb:live_multiple_584-157-5",
+   "query_id": "live_multiple_584-157-5",
+   "label": true,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.581,
+   "prompt_tokens": 384,
+   "completion_tokens": 14
+  },
+  {
+   "id": "fcrb:live_multiple_602-158-8",
+   "query_id": "live_multiple_602-158-8",
+   "label": true,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.58,
+   "prompt_tokens": 379,
+   "completion_tokens": 14
+  },
+  {
+   "id": "fcrb:live_multiple_604-158-10",
+   "query_id": "live_multiple_604-158-10",
+   "label": true,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.698,
+   "prompt_tokens": 372,
+   "completion_tokens": 14
+  },
+  {
+   "id": "fcrb:live_multiple_610-159-3-neg",
+   "query_id": "live_multiple_610-159-3",
+   "label": false,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.665,
+   "prompt_tokens": 399,
+   "completion_tokens": 14
+  },
+  {
+   "id": "fcrb:live_multiple_619-159-12-neg",
+   "query_id": "live_multiple_619-159-12",
+   "label": false,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.603,
+   "prompt_tokens": 404,
+   "completion_tokens": 14
+  },
+  {
+   "id": "fcrb:live_multiple_621-160-1",
+   "query_id": "live_multiple_621-160-1",
+   "label": true,
+   "parsed": true,
+   "supported": false,
+   "unsupported_arguments": [
+    "receiver"
+   ],
+   "latency_s": 0.594,
+   "prompt_tokens": 404,
+   "completion_tokens": 15
+  },
+  {
+   "id": "fcrb:live_multiple_621-160-1-neg",
+   "query_id": "live_multiple_621-160-1",
+   "label": false,
+   "parsed": true,
+   "supported": false,
+   "unsupported_arguments": [
+    "receiver"
+   ],
+   "latency_s": 0.614,
+   "prompt_tokens": 399,
+   "completion_tokens": 15
+  },
+  {
+   "id": "fcrb:live_multiple_624-160-4-neg",
+   "query_id": "live_multiple_624-160-4",
+   "label": false,
+   "parsed": true,
+   "supported": false,
+   "unsupported_arguments": [
+    "amount"
+   ],
+   "latency_s": 0.6,
+   "prompt_tokens": 404,
+   "completion_tokens": 15
+  },
+  {
+   "id": "fcrb:live_multiple_626-160-6-neg",
+   "query_id": "live_multiple_626-160-6",
+   "label": false,
+   "parsed": true,
+   "supported": false,
+   "unsupported_arguments": [
+    "amount"
+   ],
+   "latency_s": 0.644,
+   "prompt_tokens": 408,
+   "completion_tokens": 15
+  },
+  {
+   "id": "fcrb:live_multiple_674-162-16",
+   "query_id": "live_multiple_674-162-16",
+   "label": true,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.716,
+   "prompt_tokens": 380,
+   "completion_tokens": 14
+  },
+  {
+   "id": "fcrb:live_multiple_684-164-0",
+   "query_id": "live_multiple_684-164-0",
+   "label": true,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.684,
+   "prompt_tokens": 391,
+   "completion_tokens": 14
+  },
+  {
+   "id": "fcrb:live_multiple_686-164-2",
+   "query_id": "live_multiple_686-164-2",
+   "label": true,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.568,
+   "prompt_tokens": 385,
+   "completion_tokens": 14
+  },
+  {
+   "id": "fcrb:live_multiple_686-164-2-neg",
+   "query_id": "live_multiple_686-164-2",
+   "label": false,
+   "parsed": true,
+   "supported": false,
+   "unsupported_arguments": [
+    "directed_by"
+   ],
+   "latency_s": 0.826,
+   "prompt_tokens": 378,
+   "completion_tokens": 17
+  },
+  {
+   "id": "fcrb:live_multiple_690-164-6-neg",
+   "query_id": "live_multiple_690-164-6",
+   "label": false,
+   "parsed": true,
+   "supported": false,
+   "unsupported_arguments": [
+    "directed_by"
+   ],
+   "latency_s": 0.66,
+   "prompt_tokens": 375,
+   "completion_tokens": 17
+  },
+  {
+   "id": "fcrb:live_multiple_702-164-18-neg",
+   "query_id": "live_multiple_702-164-18",
+   "label": false,
+   "parsed": true,
+   "supported": false,
+   "unsupported_arguments": [
+    "directed_by"
+   ],
+   "latency_s": 0.738,
+   "prompt_tokens": 397,
+   "completion_tokens": 17
+  },
+  {
+   "id": "fcrb:live_multiple_705-164-21",
+   "query_id": "live_multiple_705-164-21",
+   "label": true,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.612,
+   "prompt_tokens": 397,
+   "completion_tokens": 14
+  },
+  {
+   "id": "fcrb:live_multiple_705-164-21-neg",
+   "query_id": "live_multiple_705-164-21",
+   "label": false,
+   "parsed": true,
+   "supported": false,
+   "unsupported_arguments": [
+    "directed_by",
+    "genre",
+    "cast"
+   ],
+   "latency_s": 0.804,
+   "prompt_tokens": 398,
+   "completion_tokens": 23
+  },
+  {
+   "id": "fcrb:live_multiple_707-164-23",
+   "query_id": "live_multiple_707-164-23",
+   "label": true,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.661,
+   "prompt_tokens": 372,
+   "completion_tokens": 14
+  },
+  {
+   "id": "fcrb:live_multiple_71-31-0",
+   "query_id": "live_multiple_71-31-0",
+   "label": true,
+   "parsed": true,
+   "supported": false,
+   "unsupported_arguments": [
+    "port"
+   ],
+   "latency_s": 0.74,
+   "prompt_tokens": 457,
+   "completion_tokens": 15
+  },
+  {
+   "id": "fcrb:live_multiple_721-165-8",
+   "query_id": "live_multiple_721-165-8",
+   "label": true,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.597,
+   "prompt_tokens": 413,
+   "completion_tokens": 14
+  },
+  {
+   "id": "fcrb:live_multiple_725-166-0",
+   "query_id": "live_multiple_725-166-0",
+   "label": true,
+   "parsed": true,
+   "supported": false,
+   "unsupported_arguments": [
+    "is_unisex"
+   ],
+   "latency_s": 0.731,
+   "prompt_tokens": 380,
+   "completion_tokens": 18
+  },
+  {
+   "id": "fcrb:live_multiple_727-166-2",
+   "query_id": "live_multiple_727-166-2",
+   "label": true,
+   "parsed": true,
+   "supported": false,
+   "unsupported_arguments": [
+    "stylist_name"
+   ],
+   "latency_s": 0.956,
+   "prompt_tokens": 415,
+   "completion_tokens": 18
+  },
+  {
+   "id": "fcrb:live_multiple_748-169-3-neg",
+   "query_id": "live_multiple_748-169-3",
+   "label": false,
+   "parsed": true,
+   "supported": false,
+   "unsupported_arguments": [
+    "genre"
+   ],
+   "latency_s": 0.629,
+   "prompt_tokens": 372,
+   "completion_tokens": 15
+  },
+  {
+   "id": "fcrb:live_multiple_801-175-7",
+   "query_id": "live_multiple_801-175-7",
+   "label": true,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.587,
+   "prompt_tokens": 368,
+   "completion_tokens": 14
+  },
+  {
+   "id": "fcrb:live_multiple_801-175-7-neg",
+   "query_id": "live_multiple_801-175-7",
+   "label": false,
+   "parsed": true,
+   "supported": false,
+   "unsupported_arguments": [
+    "date"
+   ],
+   "latency_s": 0.76,
+   "prompt_tokens": 383,
+   "completion_tokens": 15
+  },
+  {
+   "id": "fcrb:live_multiple_81-36-2",
+   "query_id": "live_multiple_81-36-2",
+   "label": true,
+   "parsed": true,
+   "supported": false,
+   "unsupported_arguments": [
+    "name"
+   ],
+   "latency_s": 0.729,
+   "prompt_tokens": 417,
+   "completion_tokens": 15
+  },
+  {
+   "id": "fcrb:live_multiple_813-176-4",
+   "query_id": "live_multiple_813-176-4",
+   "label": true,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.589,
+   "prompt_tokens": 396,
+   "completion_tokens": 14
+  },
+  {
+   "id": "fcrb:live_multiple_823-177-6",
+   "query_id": "live_multiple_823-177-6",
+   "label": true,
+   "parsed": true,
+   "supported": false,
+   "unsupported_arguments": [
+    "date",
+    "city"
+   ],
+   "latency_s": 0.701,
+   "prompt_tokens": 411,
+   "completion_tokens": 18
+  },
+  {
+   "id": "fcrb:live_multiple_828-178-3",
+   "query_id": "live_multiple_828-178-3",
+   "label": true,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.587,
+   "prompt_tokens": 382,
+   "completion_tokens": 14
+  },
+  {
+   "id": "fcrb:live_multiple_830-178-5",
+   "query_id": "live_multiple_830-178-5",
+   "label": true,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.707,
+   "prompt_tokens": 395,
+   "completion_tokens": 14
+  },
+  {
+   "id": "fcrb:live_multiple_851-179-5-neg",
+   "query_id": "live_multiple_851-179-5",
+   "label": false,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.768,
+   "prompt_tokens": 367,
+   "completion_tokens": 14
+  },
+  {
+   "id": "fcrb:live_multiple_861-181-2-neg",
+   "query_id": "live_multiple_861-181-2",
+   "label": false,
+   "parsed": true,
+   "supported": false,
+   "unsupported_arguments": [
+    "number_of_adults",
+    "trip_protection",
+    "_class"
+   ],
+   "latency_s": 0.953,
+   "prompt_tokens": 451,
+   "completion_tokens": 28
+  },
+  {
+   "id": "fcrb:live_multiple_867-182-4-neg",
+   "query_id": "live_multiple_867-182-4",
+   "label": false,
+   "parsed": true,
+   "supported": false,
+   "unsupported_arguments": [
+    "show_type"
+   ],
+   "latency_s": 0.641,
+   "prompt_tokens": 386,
+   "completion_tokens": 17
+  },
+  {
+   "id": "fcrb:live_multiple_876-183-1-neg",
+   "query_id": "live_multiple_876-183-1",
+   "label": false,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.686,
+   "prompt_tokens": 396,
+   "completion_tokens": 14
+  },
+  {
+   "id": "fcrb:live_multiple_881-183-6-neg",
+   "query_id": "live_multiple_881-183-6",
+   "label": false,
+   "parsed": true,
+   "supported": false,
+   "unsupported_arguments": [
+    "category"
+   ],
+   "latency_s": 0.731,
+   "prompt_tokens": 403,
+   "completion_tokens": 15
+  },
+  {
+   "id": "fcrb:live_multiple_919-191-7",
+   "query_id": "live_multiple_919-191-7",
+   "label": true,
+   "parsed": true,
+   "supported": false,
+   "unsupported_arguments": [
+    "service_id",
+    "avg_rating"
+   ],
+   "latency_s": 0.828,
+   "prompt_tokens": 452,
+   "completion_tokens": 22
+  },
+  {
+   "id": "fcrb:live_multiple_923-191-11-neg",
+   "query_id": "live_multiple_923-191-11",
+   "label": false,
+   "parsed": true,
+   "supported": false,
+   "unsupported_arguments": [
+    "province_id",
+    "service_id"
+   ],
+   "latency_s": 1.609,
+   "prompt_tokens": 438,
+   "completion_tokens": 22
+  },
+  {
+   "id": "fcrb:live_multiple_926-191-14",
+   "query_id": "live_multiple_926-191-14",
+   "label": true,
+   "parsed": true,
+   "supported": false,
+   "unsupported_arguments": [
+    "province_id",
+    "service_id"
+   ],
+   "latency_s": 0.812,
+   "prompt_tokens": 449,
+   "completion_tokens": 22
+  },
+  {
+   "id": "fcrb:live_multiple_933-191-21-neg",
+   "query_id": "live_multiple_933-191-21",
+   "label": false,
+   "parsed": true,
+   "supported": false,
+   "unsupported_arguments": [
+    "end_available_date",
+    "province_id"
+   ],
+   "latency_s": 0.786,
+   "prompt_tokens": 445,
+   "completion_tokens": 24
+  },
+  {
+   "id": "fcrb:live_multiple_940-194-2",
+   "query_id": "live_multiple_940-194-2",
+   "label": true,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.805,
+   "prompt_tokens": 356,
+   "completion_tokens": 14
+  },
+  {
+   "id": "fcrb:live_multiple_943-196-1-neg",
+   "query_id": "live_multiple_943-196-1",
+   "label": false,
+   "parsed": true,
+   "supported": false,
+   "unsupported_arguments": [
+    "volume"
+   ],
+   "latency_s": 0.774,
+   "prompt_tokens": 369,
+   "completion_tokens": 15
+  },
+  {
+   "id": "fcrb:live_multiple_960-205-0-neg",
+   "query_id": "live_multiple_960-205-0",
+   "label": false,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.731,
+   "prompt_tokens": 356,
+   "completion_tokens": 14
+  },
+  {
+   "id": "fcrb:live_multiple_961-205-1-neg",
+   "query_id": "live_multiple_961-205-1",
+   "label": false,
+   "parsed": true,
+   "supported": false,
+   "unsupported_arguments": [
+    "results_limit",
+    "language",
+    "safe_search"
+   ],
+   "latency_s": 1.018,
+   "prompt_tokens": 381,
+   "completion_tokens": 25
+  },
+  {
+   "id": "fcrb:live_multiple_968-210-0-neg",
+   "query_id": "live_multiple_968-210-0",
+   "label": false,
+   "parsed": true,
+   "supported": false,
+   "unsupported_arguments": [
+    "loc",
+    "time"
+   ],
+   "latency_s": 0.783,
+   "prompt_tokens": 401,
+   "completion_tokens": 18
+  },
+  {
+   "id": "fcrb:live_multiple_972-212-1",
+   "query_id": "live_multiple_972-212-1",
+   "label": true,
+   "parsed": true,
+   "supported": false,
+   "unsupported_arguments": [
+    "province_id"
+   ],
+   "latency_s": 0.852,
+   "prompt_tokens": 402,
+   "completion_tokens": 17
+  },
+  {
+   "id": "fcrb:live_multiple_977-215-1",
+   "query_id": "live_multiple_977-215-1",
+   "label": true,
+   "parsed": true,
+   "supported": false,
+   "unsupported_arguments": [
+    "province_id",
+    "district_name"
+   ],
+   "latency_s": 0.822,
+   "prompt_tokens": 451,
+   "completion_tokens": 22
+  },
+  {
+   "id": "fcrb:live_multiple_996-227-0",
+   "query_id": "live_multiple_996-227-0",
+   "label": true,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.792,
+   "prompt_tokens": 445,
+   "completion_tokens": 14
+  },
+  {
+   "id": "fcrb:live_multiple_996-227-0-neg",
+   "query_id": "live_multiple_996-227-0",
+   "label": false,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.656,
+   "prompt_tokens": 447,
+   "completion_tokens": 14
+  },
+  {
+   "id": "fcrb:live_simple_101-60-0-neg",
+   "query_id": "live_simple_101-60-0",
+   "label": false,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.696,
+   "prompt_tokens": 435,
+   "completion_tokens": 14
+  },
+  {
+   "id": "fcrb:live_simple_104-61-2",
+   "query_id": "live_simple_104-61-2",
+   "label": true,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.697,
+   "prompt_tokens": 382,
+   "completion_tokens": 14
+  },
+  {
+   "id": "fcrb:live_simple_105-62-0-neg",
+   "query_id": "live_simple_105-62-0",
+   "label": false,
+   "parsed": true,
+   "supported": false,
+   "unsupported_arguments": [
+    "clean_hello",
+    "faq_link_accounts_start"
+   ],
+   "latency_s": 0.972,
+   "prompt_tokens": 398,
+   "completion_tokens": 26
+  },
+  {
+   "id": "fcrb:live_simple_109-66-0-neg",
+   "query_id": "live_simple_109-66-0",
+   "label": false,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.738,
+   "prompt_tokens": 515,
+   "completion_tokens": 14
+  },
+  {
+   "id": "fcrb:live_simple_141-94-0-neg",
+   "query_id": "live_simple_141-94-0",
+   "label": false,
+   "parsed": true,
+   "supported": false,
+   "unsupported_arguments": [
+    "unit"
+   ],
+   "latency_s": 0.682,
+   "prompt_tokens": 369,
+   "completion_tokens": 15
+  },
+  {
+   "id": "fcrb:live_simple_147-95-4",
+   "query_id": "live_simple_147-95-4",
+   "label": true,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.755,
+   "prompt_tokens": 375,
+   "completion_tokens": 14
+  },
+  {
+   "id": "fcrb:live_simple_147-95-4-neg",
+   "query_id": "live_simple_147-95-4",
+   "label": false,
+   "parsed": true,
+   "supported": false,
+   "unsupported_arguments": [
+    "unit"
+   ],
+   "latency_s": 0.852,
+   "prompt_tokens": 379,
+   "completion_tokens": 15
+  },
+  {
+   "id": "fcrb:live_simple_148-95-5-neg",
+   "query_id": "live_simple_148-95-5",
+   "label": false,
+   "parsed": true,
+   "supported": false,
+   "unsupported_arguments": [
+    "unit"
+   ],
+   "latency_s": 0.921,
+   "prompt_tokens": 367,
+   "completion_tokens": 15
+  },
+  {
+   "id": "fcrb:live_simple_149-95-6-neg",
+   "query_id": "live_simple_149-95-6",
+   "label": false,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.786,
+   "prompt_tokens": 359,
+   "completion_tokens": 14
+  },
+  {
+   "id": "fcrb:live_simple_164-97-0",
+   "query_id": "live_simple_164-97-0",
+   "label": true,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.623,
+   "prompt_tokens": 546,
+   "completion_tokens": 14
+  },
+  {
+   "id": "fcrb:live_simple_164-97-0-neg",
+   "query_id": "live_simple_164-97-0",
+   "label": false,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.724,
+   "prompt_tokens": 562,
+   "completion_tokens": 14
+  },
+  {
+   "id": "fcrb:live_simple_17-3-13-neg",
+   "query_id": "live_simple_17-3-13",
+   "label": false,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.693,
+   "prompt_tokens": 366,
+   "completion_tokens": 14
+  },
+  {
+   "id": "fcrb:live_simple_18-3-14",
+   "query_id": "live_simple_18-3-14",
+   "label": true,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.644,
+   "prompt_tokens": 376,
+   "completion_tokens": 14
+  },
+  {
+   "id": "fcrb:live_simple_18-3-14-neg",
+   "query_id": "live_simple_18-3-14",
+   "label": false,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.741,
+   "prompt_tokens": 374,
+   "completion_tokens": 14
+  },
+  {
+   "id": "fcrb:live_simple_185-110-0-neg",
+   "query_id": "live_simple_185-110-0",
+   "label": false,
+   "parsed": true,
+   "supported": false,
+   "unsupported_arguments": [
+    "service_id",
+    "province_id",
+    "start_available_date"
+   ],
+   "latency_s": 0.897,
+   "prompt_tokens": 429,
+   "completion_tokens": 29
+  },
+  {
+   "id": "fcrb:live_simple_187-112-0-neg",
+   "query_id": "live_simple_187-112-0",
+   "label": false,
+   "parsed": true,
+   "supported": false,
+   "unsupported_arguments": [
+    "service_id",
+    "province_id",
+    "district_name",
+    "sub_district_name",
+    "end_available_date",
+    "has_late_check_in"
+   ],
+   "latency_s": 1.249,
+   "prompt_tokens": 509,
+   "completion_tokens": 50
+  },
+  {
+   "id": "fcrb:live_simple_19-3-15",
+   "query_id": "live_simple_19-3-15",
+   "label": true,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.668,
+   "prompt_tokens": 391,
+   "completion_tokens": 14
+  },
+  {
+   "id": "fcrb:live_simple_19-3-15-neg",
+   "query_id": "live_simple_19-3-15",
+   "label": false,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.843,
+   "prompt_tokens": 391,
+   "completion_tokens": 14
+  },
+  {
+   "id": "fcrb:live_simple_192-116-0",
+   "query_id": "live_simple_192-116-0",
+   "label": true,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.708,
+   "prompt_tokens": 390,
+   "completion_tokens": 14
+  },
+  {
+   "id": "fcrb:live_simple_203-116-11-neg",
+   "query_id": "live_simple_203-116-11",
+   "label": false,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.593,
+   "prompt_tokens": 395,
+   "completion_tokens": 14
+  },
+  {
+   "id": "fcrb:live_simple_204-116-12-neg",
+   "query_id": "live_simple_204-116-12",
+   "label": false,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.58,
+   "prompt_tokens": 397,
+   "completion_tokens": 14
+  },
+  {
+   "id": "fcrb:live_simple_209-117-1",
+   "query_id": "live_simple_209-117-1",
+   "label": true,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [
+    "genre"
+   ],
+   "latency_s": 0.615,
+   "prompt_tokens": 400,
+   "completion_tokens": 15
+  },
+  {
+   "id": "fcrb:live_simple_211-117-3",
+   "query_id": "live_simple_211-117-3",
+   "label": true,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.687,
+   "prompt_tokens": 388,
+   "completion_tokens": 14
+  },
+  {
+   "id": "fcrb:live_simple_218-117-10-neg",
+   "query_id": "live_simple_218-117-10",
+   "label": false,
+   "parsed": true,
+   "supported": false,
+   "unsupported_arguments": [
+    "directed_by",
+    "genre",
+    "cast"
+   ],
+   "latency_s": 0.963,
+   "prompt_tokens": 417,
+   "completion_tokens": 23
+  },
+  {
+   "id": "fcrb:live_simple_219-117-11",
+   "query_id": "live_simple_219-117-11",
+   "label": true,
+   "parsed": true,
+   "supported": false,
+   "unsupported_arguments": [
+    "cast"
+   ],
+   "latency_s": 0.724,
+   "prompt_tokens": 397,
+   "completion_tokens": 15
+  },
+  {
+   "id": "fcrb:live_simple_219-117-11-neg",
+   "query_id": "live_simple_219-117-11",
+   "label": false,
+   "parsed": true,
+   "supported": false,
+   "unsupported_arguments": [
+    "cast"
+   ],
+   "latency_s": 0.781,
+   "prompt_tokens": 396,
+   "completion_tokens": 15
+  },
+  {
+   "id": "fcrb:live_simple_235-124-0",
+   "query_id": "live_simple_235-124-0",
+   "label": true,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.662,
+   "prompt_tokens": 368,
+   "completion_tokens": 14
+  },
+  {
+   "id": "fcrb:live_simple_236-124-1",
+   "query_id": "live_simple_236-124-1",
+   "label": true,
+   "parsed": true,
+   "supported": false,
+   "unsupported_arguments": [
+    "shuffle",
+    "volume"
+   ],
+   "latency_s": 0.734,
+   "prompt_tokens": 393,
+   "completion_tokens": 18
+  },
+  {
+   "id": "fcrb:live_simple_236-124-1-neg",
+   "query_id": "live_simple_236-124-1",
+   "label": false,
+   "parsed": true,
+   "supported": false,
+   "unsupported_arguments": [
+    "shuffle",
+    "volume"
+   ],
+   "latency_s": 0.806,
+   "prompt_tokens": 385,
+   "completion_tokens": 18
+  },
+  {
+   "id": "fcrb:live_simple_241-125-4-neg",
+   "query_id": "live_simple_241-125-4",
+   "label": false,
+   "parsed": true,
+   "supported": false,
+   "unsupported_arguments": [
+    "artist"
+   ],
+   "latency_s": 0.59,
+   "prompt_tokens": 363,
+   "completion_tokens": 15
+  },
+  {
+   "id": "fcrb:live_simple_248-130-0-neg",
+   "query_id": "live_simple_248-130-0",
+   "label": false,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.745,
+   "prompt_tokens": 385,
+   "completion_tokens": 14
+  },
+  {
+   "id": "fcrb:live_simple_257-137-1-neg",
+   "query_id": "live_simple_257-137-1",
+   "label": false,
+   "parsed": true,
+   "supported": false,
+   "unsupported_arguments": [
+    "statement"
+   ],
+   "latency_s": 0.713,
+   "prompt_tokens": 370,
+   "completion_tokens": 15
+  },
+  {
+   "id": "fcrb:live_simple_28-7-1",
+   "query_id": "live_simple_28-7-1",
+   "label": true,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.623,
+   "prompt_tokens": 435,
+   "completion_tokens": 14
+  },
+  {
+   "id": "fcrb:live_simple_3-2-1-neg",
+   "query_id": "live_simple_3-2-1",
+   "label": false,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.601,
+   "prompt_tokens": 411,
+   "completion_tokens": 14
+  },
+  {
+   "id": "fcrb:live_simple_32-9-0",
+   "query_id": "live_simple_32-9-0",
+   "label": true,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.721,
+   "prompt_tokens": 394,
+   "completion_tokens": 14
+  },
+  {
+   "id": "fcrb:live_simple_33-10-0",
+   "query_id": "live_simple_33-10-0",
+   "label": true,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.705,
+   "prompt_tokens": 394,
+   "completion_tokens": 14
+  },
+  {
+   "id": "fcrb:live_simple_49-21-1",
+   "query_id": "live_simple_49-21-1",
+   "label": true,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.658,
+   "prompt_tokens": 423,
+   "completion_tokens": 14
+  },
+  {
+   "id": "fcrb:live_simple_6-3-2-neg",
+   "query_id": "live_simple_6-3-2",
+   "label": false,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.728,
+   "prompt_tokens": 383,
+   "completion_tokens": 14
+  },
+  {
+   "id": "fcrb:live_simple_70-34-0",
+   "query_id": "live_simple_70-34-0",
+   "label": true,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.697,
+   "prompt_tokens": 407,
+   "completion_tokens": 14
+  },
+  {
+   "id": "fcrb:live_simple_8-3-4",
+   "query_id": "live_simple_8-3-4",
+   "label": true,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.668,
+   "prompt_tokens": 377,
+   "completion_tokens": 14
+  },
+  {
+   "id": "fcrb:live_simple_85-46-0-neg",
+   "query_id": "live_simple_85-46-0",
+   "label": false,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.592,
+   "prompt_tokens": 404,
+   "completion_tokens": 14
+  },
+  {
+   "id": "fcrb:live_simple_88-49-0",
+   "query_id": "live_simple_88-49-0",
+   "label": true,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.706,
+   "prompt_tokens": 413,
+   "completion_tokens": 14
+  },
+  {
+   "id": "fcrb:live_simple_9-3-5",
+   "query_id": "live_simple_9-3-5",
+   "label": true,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.632,
+   "prompt_tokens": 368,
+   "completion_tokens": 14
+  },
+  {
+   "id": "fcrb:live_simple_9-3-5-neg",
+   "query_id": "live_simple_9-3-5",
+   "label": false,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 1.346,
+   "prompt_tokens": 368,
+   "completion_tokens": 14
+  },
+  {
+   "id": "fcrb:multiple_149",
+   "query_id": "multiple_149",
+   "label": true,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.714,
+   "prompt_tokens": 389,
+   "completion_tokens": 14
+  },
+  {
+   "id": "fcrb:multiple_161",
+   "query_id": "multiple_161",
+   "label": true,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.665,
+   "prompt_tokens": 390,
+   "completion_tokens": 14
+  },
+  {
+   "id": "fcrb:multiple_161-neg",
+   "query_id": "multiple_161",
+   "label": false,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.698,
+   "prompt_tokens": 381,
+   "completion_tokens": 14
+  },
+  {
+   "id": "fcrb:multiple_190",
+   "query_id": "multiple_190",
+   "label": true,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.621,
+   "prompt_tokens": 417,
+   "completion_tokens": 14
+  },
+  {
+   "id": "fcrb:multiple_193",
+   "query_id": "multiple_193",
+   "label": true,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.691,
+   "prompt_tokens": 387,
+   "completion_tokens": 14
+  },
+  {
+   "id": "fcrb:multiple_193-neg",
+   "query_id": "multiple_193",
+   "label": false,
+   "parsed": true,
+   "supported": false,
+   "unsupported_arguments": [
+    "start_location",
+    "end_location",
+    "traffic"
+   ],
+   "latency_s": 0.93,
+   "prompt_tokens": 387,
+   "completion_tokens": 25
+  },
+  {
+   "id": "fcrb:multiple_39-neg",
+   "query_id": "multiple_39",
+   "label": false,
+   "parsed": true,
+   "supported": false,
+   "unsupported_arguments": [
+    "max_cost"
+   ],
+   "latency_s": 0.738,
+   "prompt_tokens": 389,
+   "completion_tokens": 17
+  },
+  {
+   "id": "fcrb:multiple_54-neg",
+   "query_id": "multiple_54",
+   "label": false,
+   "parsed": true,
+   "supported": false,
+   "unsupported_arguments": [
+    "frequency"
+   ],
+   "latency_s": 0.622,
+   "prompt_tokens": 381,
+   "completion_tokens": 15
+  },
+  {
+   "id": "fcrb:multiple_64",
+   "query_id": "multiple_64",
+   "label": true,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.67,
+   "prompt_tokens": 387,
+   "completion_tokens": 14
+  },
+  {
+   "id": "fcrb:multiple_67-neg",
+   "query_id": "multiple_67",
+   "label": false,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.772,
+   "prompt_tokens": 379,
+   "completion_tokens": 14
+  },
+  {
+   "id": "fcrb:multiple_91",
+   "query_id": "multiple_91",
+   "label": true,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.708,
+   "prompt_tokens": 374,
+   "completion_tokens": 14
+  },
+  {
+   "id": "fcrb:multiple_91-neg",
+   "query_id": "multiple_91",
+   "label": false,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.679,
+   "prompt_tokens": 374,
+   "completion_tokens": 14
+  },
+  {
+   "id": "fcrb:multiple_93",
+   "query_id": "multiple_93",
+   "label": true,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.647,
+   "prompt_tokens": 395,
+   "completion_tokens": 14
+  },
+  {
+   "id": "fcrb:simple_126-neg",
+   "query_id": "simple_126",
+   "label": false,
+   "parsed": true,
+   "supported": false,
+   "unsupported_arguments": [
+    "dependent_variable"
+   ],
+   "latency_s": 3.792,
+   "prompt_tokens": 425,
+   "completion_tokens": 17
+  },
+  {
+   "id": "fcrb:simple_143",
+   "query_id": "simple_143",
+   "label": true,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.818,
+   "prompt_tokens": 378,
+   "completion_tokens": 14
+  },
+  {
+   "id": "fcrb:simple_144-neg",
+   "query_id": "simple_144",
+   "label": false,
+   "parsed": true,
+   "supported": false,
+   "unsupported_arguments": [
+    "indexes"
+   ],
+   "latency_s": 0.738,
+   "prompt_tokens": 389,
+   "completion_tokens": 15
+  },
+  {
+   "id": "fcrb:simple_150-neg",
+   "query_id": "simple_150",
+   "label": false,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.665,
+   "prompt_tokens": 402,
+   "completion_tokens": 14
+  },
+  {
+   "id": "fcrb:simple_158",
+   "query_id": "simple_158",
+   "label": true,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.624,
+   "prompt_tokens": 410,
+   "completion_tokens": 14
+  },
+  {
+   "id": "fcrb:simple_158-neg",
+   "query_id": "simple_158",
+   "label": false,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.667,
+   "prompt_tokens": 408,
+   "completion_tokens": 14
+  },
+  {
+   "id": "fcrb:simple_159",
+   "query_id": "simple_159",
+   "label": true,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.662,
+   "prompt_tokens": 384,
+   "completion_tokens": 14
+  },
+  {
+   "id": "fcrb:simple_194",
+   "query_id": "simple_194",
+   "label": true,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.594,
+   "prompt_tokens": 380,
+   "completion_tokens": 14
+  },
+  {
+   "id": "fcrb:simple_207-neg",
+   "query_id": "simple_207",
+   "label": false,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.663,
+   "prompt_tokens": 386,
+   "completion_tokens": 14
+  },
+  {
+   "id": "fcrb:simple_244",
+   "query_id": "simple_244",
+   "label": true,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.612,
+   "prompt_tokens": 376,
+   "completion_tokens": 14
+  },
+  {
+   "id": "fcrb:simple_267-neg",
+   "query_id": "simple_267",
+   "label": false,
+   "parsed": true,
+   "supported": false,
+   "unsupported_arguments": [
+    "location",
+    "month"
+   ],
+   "latency_s": 0.788,
+   "prompt_tokens": 386,
+   "completion_tokens": 18
+  },
+  {
+   "id": "fcrb:simple_307-neg",
+   "query_id": "simple_307",
+   "label": false,
+   "parsed": true,
+   "supported": false,
+   "unsupported_arguments": [
+    "venue"
+   ],
+   "latency_s": 1.631,
+   "prompt_tokens": 400,
+   "completion_tokens": 15
+  },
+  {
+   "id": "fcrb:simple_317",
+   "query_id": "simple_317",
+   "label": true,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.679,
+   "prompt_tokens": 392,
+   "completion_tokens": 14
+  },
+  {
+   "id": "fcrb:simple_317-neg",
+   "query_id": "simple_317",
+   "label": false,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.802,
+   "prompt_tokens": 394,
+   "completion_tokens": 14
+  },
+  {
+   "id": "fcrb:simple_318",
+   "query_id": "simple_318",
+   "label": true,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.616,
+   "prompt_tokens": 383,
+   "completion_tokens": 14
+  },
+  {
+   "id": "fcrb:simple_323-neg",
+   "query_id": "simple_323",
+   "label": false,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.63,
+   "prompt_tokens": 367,
+   "completion_tokens": 14
+  },
+  {
+   "id": "fcrb:simple_344",
+   "query_id": "simple_344",
+   "label": true,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.597,
+   "prompt_tokens": 401,
+   "completion_tokens": 14
+  },
+  {
+   "id": "fcrb:simple_35",
+   "query_id": "simple_35",
+   "label": true,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.599,
+   "prompt_tokens": 383,
+   "completion_tokens": 14
+  },
+  {
+   "id": "fcrb:simple_35-neg",
+   "query_id": "simple_35",
+   "label": false,
+   "parsed": true,
+   "supported": false,
+   "unsupported_arguments": [
+    "operating_hours"
+   ],
+   "latency_s": 0.793,
+   "prompt_tokens": 383,
+   "completion_tokens": 17
+  },
+  {
+   "id": "fcrb:simple_393",
+   "query_id": "simple_393",
+   "label": true,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.626,
+   "prompt_tokens": 386,
+   "completion_tokens": 14
+  },
+  {
+   "id": "fcrb:simple_393-neg",
+   "query_id": "simple_393",
+   "label": false,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.648,
+   "prompt_tokens": 389,
+   "completion_tokens": 14
+  },
+  {
+   "id": "fcrb:simple_52",
+   "query_id": "simple_52",
+   "label": true,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.636,
+   "prompt_tokens": 389,
+   "completion_tokens": 14
+  },
+  {
+   "id": "fcrb:simple_52-neg",
+   "query_id": "simple_52",
+   "label": false,
+   "parsed": true,
+   "supported": false,
+   "unsupported_arguments": [
+    "volume"
+   ],
+   "latency_s": 0.723,
+   "prompt_tokens": 397,
+   "completion_tokens": 15
+  },
+  {
+   "id": "fcrb:simple_57-neg",
+   "query_id": "simple_57",
+   "label": false,
+   "parsed": true,
+   "supported": false,
+   "unsupported_arguments": [
+    "calibration_factor"
+   ],
+   "latency_s": 0.674,
+   "prompt_tokens": 402,
+   "completion_tokens": 17
+  },
+  {
+   "id": "fcrb:simple_83",
+   "query_id": "simple_83",
+   "label": true,
+   "parsed": true,
+   "supported": true,
+   "unsupported_arguments": [],
+   "latency_s": 0.713,
+   "prompt_tokens": 447,
+   "completion_tokens": 14
+  }
+ ]
+}
