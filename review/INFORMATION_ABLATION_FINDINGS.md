@@ -16,7 +16,7 @@ Condition "with": the tool definition is appended to the conversation and one se
 Contract tier alone: 15.9% / 25.6%.
 
 Reading:
-1. **Information moves detection, model size barely does.** Across the three Claude models detection spans 50.0 to 53.5% without the definition (3.5 points) and 66.3 to 72.1% with it (5.8 points), while adding the definition raises each judge by 16 to 20 points. The effect of model size inside a condition is small and not tested for significance here; the information effect is the same size for all three.
+1. **Information moves detection, model size barely does.** Across the three Claude models detection spans 50.0 to 53.5% without the definition (3.5 points) and 66.3 to 72.1% with it (5.8 points), while clean re-runs in Deviation 22 show the definition gives +9.3 points for the 550B judge, not significant (p = 0.24, mostly attributable to one 'City, State' rule), and +10.8 points for 4B (not significant). The earlier '+16 to 20 points' claim confounded definition text with instruction rules and format conventions. The effect of model size inside a condition is small and not tested for significance here; the information effect is the same size for all three.
 2. **The deterministic contract tier recovers a large part of the gain without any model**: judge-without OR contract reaches 66 to 71%, close to judge-with (66 to 72%). The trade is more false blocks for the weaker judges (Haiku 32.9% to 43.9%).
 3. Combining both (judge with definition OR contract tier) gives 74 to 76% detection at 21 to 32% false blocks.
 

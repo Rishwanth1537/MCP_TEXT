@@ -99,7 +99,14 @@ Paired bootstrap on AUROC: B minus A +0.069 (95% CI 0.059 to 0.079); B minus C -
 ---
 
 ### Current research findings (development halves, exploratory)
-The deterministic argument checker is a cheap first stage for values that are absent from the context, but on natural tool-call errors LLM judges (Groq gpt-oss, Claude Haiku/Sonnet/Opus) clearly beat it. Detection of natural errors is limited by the information available to the verifier: giving a judge the tool definition raises detection by 16 to 20 points, while model size matters little. Cross-model agreement is a strong but costly signal whose advantage over a schema-aware judge is not statistically established. Full tables, caveats and corrections: `review/EXPERIMENTS_2026-10-30.md`, `review/DEV_PILOT_RESULTS.md`, `review/INFORMATION_ABLATION_FINDINGS.md`, `review/CONSENSUS_FINDINGS.md`. The plan for the next phase is `review/NOVEL_PROJECT_PLAN.md`.
+The deterministic argument checker is a cheap first stage for values that are absent from the context, but on natural tool-call errors LLM judges (Groq gpt-oss, Claude Haiku/Sonnet/Opus) clearly beat it. Detection of natural errors is limited by the information available to the verifier: clean re-runs show the tool definition gives +9.3 points for the 550B judge, not significant (p = 0.24), mostly attributable to one 'City, State' format rule; 4B shows +10.8 points, not significant (the earlier '+16 to 20 points' claim confounded definition with instruction rules and format conventions). Cross-model agreement is a strong but costly signal whose advantage over a schema-aware judge is not statistically established. Full tables, caveats and corrections: `review/EXPERIMENTS_2026-10-30.md`, `review/DEV_PILOT_RESULTS.md`, `review/INFORMATION_ABLATION_FINDINGS.md`, `review/CONSENSUS_FINDINGS.md`. The plan for the next phase is `review/NOVEL_PROJECT_PLAN.md`.
+
+## Claims We Do NOT Make
+
+1. **No claim on natural selection errors**: We do NOT claim that deterministic grounding detects wrong-but-present argument choices (selecting the wrong account or item among options in context). Call-level AUROC on natural errors in DeRef is near chance (0.48-0.56).
+2. **No claim on live state lookups**: We do NOT claim the checker verifies live backend state or environment consistency; on tau-bench state lookups caught 0 of 538 accepted errors.
+3. **No claim on prompt injection defence**: Whole-conversation grounding blocks only 19.6% of attacker-goal calls on AgentDojo at 14.7% false blocks because planted attack values appear in tool outputs. We make no general injection defence claim.
+4. **No claim of superiority over LLM judges on natural errors**: LLM judges beat the deterministic context checker on natural errors. The checker is positioned solely as a cheap (0.3-0.9 ms, no tokens), deterministic first line of defence for values absent from context.
 
 ## What Can It Detect?
 
@@ -434,9 +441,22 @@ cleanup pass that runs every 5 minutes.
 
 ---
 
-## Known Limitations
+## Known Limitations (By Module)
 
-**Content-type false negatives**: The GED threshold (0.35) is calibrated for clear
+**Argument Grounding (`server/pipeline/arg_ground.py`)**:
+- Handles spelled-out numbers up to 99, currency codes, ISO dates, and fuzzy strings (ratio >= 0.88).
+- Does NOT handle spelled-out numbers beyond 99, fractions, unit conversions (km/mi, kg/lb, C/F), or world knowledge (e.g., ticker symbol 'MSFT' for 'Microsoft' is ungrounded).
+- Does NOT detect wrong-but-present values (if both valid and invalid values appear in context, choosing the wrong one passes).
+
+**Value Checking (`server/pipeline/value_check.py`)**:
+- Numeric/version/time regex check used in `grounded` mode.
+- Does NOT handle spelled-out numbers (e.g. 'fifty'), unit conversions, or ranges (unlike `arg_ground.py`).
+
+**Logic Verification (`server/tools/verify_grounded.py` & `verify_logic.py`)**:
+- Plans phrased as future actions ('The agent will download X as requested') are often judged not entailed by request-style premises.
+- GED hybrid mode (`verify_logic.py`) has near-chance classification accuracy (AUROC 0.52-0.53) and flags 23/35 identical text pairs as inconsistent; default is `grounded` mode.
+
+**Content-type false negatives in GED**: The GED threshold (0.35) is calibrated for clear
 structural mutations. Paraphrases of consistent facts (T01, T04, T06) score
 above the threshold because their graphs are structurally similar — this is
 expected behaviour rather than a bug.
