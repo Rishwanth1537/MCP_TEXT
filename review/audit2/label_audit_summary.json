@@ -1,0 +1,42 @@
+{
+  "bfcl_stats": {
+    "orig_correct": 424,
+    "confirmed_error": 24,
+    "reclassified_as_acceptable": 43
+  },
+  "fcrb_stats": {
+    "orig_correct": 630,
+    "natural_error": 600,
+    "audited_false_alarm": 6,
+    "audited_error": 24
+  },
+  "auroc_results": {
+    "raw_benchmark": {
+      "n": 491,
+      "n_wrong": 67,
+      "auroc": 0.8432,
+      "ci95": [
+        0.7565,
+        0.9037
+      ]
+    },
+    "cleaned_high_confidence_subset": {
+      "n": 448,
+      "n_wrong": 24,
+      "auroc": 0.9472,
+      "ci95": [
+        0.9155,
+        0.9743
+      ]
+    },
+    "all_cases_cleaned_labels": {
+      "n": 491,
+      "n_wrong": 24,
+      "auroc": 0.917,
+      "ci95": [
+        0.8768,
+        0.9518
+      ]
+    }
+  }
+}
