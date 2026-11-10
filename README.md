@@ -60,6 +60,10 @@ On real model-made and human-annotated errors, deterministic grounding behaves v
    - Adding prior tool outputs (P1) reduces false blocks to **29.4%**.
    - Typed argument rules (P3) reduces false blocks to **19.5%** (still too high for an autonomous gate).
 
+4. **Cross-model consensus on BFCL (Task A6 audit)**:
+   - **Raw benchmark labels**: AUROC **0.843** [0.756, 0.904] (dev 56 cases, n=491 calls) / **0.889** [0.825, 0.941] (200 cases) / **0.930** [0.858, 0.979] (all 19,443 argument instances).
+   - **Cleaned high-confidence subset**: Multi-annotator AI consensus revealed that 64.2% (43/67) of benchmark 'errors' are harmless format variants or acceptable alternatives. On the cleaned subset with valid errors only, consensus AUROC rises to **0.947** [0.915, 0.974]. Both numbers are reported to avoid format-convention inflation.
+
 ---
 
 ### Synthetic Regression Tests (Demoted from Headline Metrics)

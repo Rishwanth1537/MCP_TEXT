@@ -114,39 +114,66 @@ def is_format_error(arg_name: str, val: Any, context: str, definition: str = "")
     return False
 
 
-def classify_call_error(
+def classify_call_error_independent(
+    case: Dict[str, Any],
     call: Dict[str, Any],
     context: str,
     definition: str = "",
-    mutation: Optional[str] = None,
 ) -> str:
-    """Classifies an error call into exactly one taxonomy category."""
+    """
+    Classifies an error call into exactly one taxonomy category INDEPENDENTLY of the checker.
+    Never calls check_arguments or call_score.
+    Uses dataset ground-truth metadata (e.g. args_meta path in DeRef) or independent string/regex checks.
+    """
     args = call.get("arguments", {}) or {}
     if not args:
         return "other"
 
-    # Check for slot swap
+    # Check for slot swap first
     if is_swapped_slot(args, context):
         return "swapped_slot"
 
-    # Check individual argument verdicts via arg_ground
-    verdicts = check_arguments(args, context)
-    ungrounded_verdicts = [v for v in verdicts if v.verdict == "UNGROUNDED"]
-
-    if not ungrounded_verdicts:
-        # Every value is found in the context!
-        # Since this call is labeled an error, the value is visible but the WRONG choice
-        return "wrong_selection"
-
-    # Some argument is ungrounded. Is it an absent/fabricated value or format error?
-    for uv in ungrounded_verdicts:
-        arg_name = uv.argument
-        val = uv.value
-        if is_format_error(arg_name, val, context, definition):
+    # 1. If DeRef metadata is available, use author ground-truth path labels
+    meta = case.get("args_meta")
+    if meta and isinstance(meta, list):
+        wrong_args = [m for m in meta if m.get("label") == "wrong"]
+        paths = {m.get("path") for m in wrong_args}
+        if "no_source" in paths:
+            return "fabricated_value"
+        if "format" in paths:
             return "wrong_format"
+        if "visible" in paths:
+            return "wrong_selection"
+        if "default" in paths or "placeholder" in paths:
+            return "other"
 
-    # If the ungrounded value is a number or entity string completely absent:
-    return "fabricated_value"
+    # 2. For AgentHallu / other datasets: check values against context independently
+    c_low = context.lower()
+    has_absent = False
+    has_format = False
+    for k, v in args.items():
+        sv = str(v).strip().lower()
+        if not sv:
+            continue
+        if sv not in c_low:
+            # Check if it's format error (numbers match but format differs)
+            nums = re.findall(r"\d+", sv)
+            if nums and all(n in c_low for n in nums):
+                has_format = True
+            else:
+                has_absent = True
+        else:
+            # Check format error on city/state
+            if ("city" in k.lower() or "loc" in k.lower()) and "state" in definition.lower() and "," not in str(v):
+                has_format = True
+
+    if has_absent:
+        return "fabricated_value"
+    if has_format:
+        return "wrong_format"
+
+    # All values are verbatim in context, yet this call is an error -> wrong selection
+    return "wrong_selection"
 
 
 def blocked_from_row(r: Dict[str, Any]) -> bool:
@@ -206,7 +233,7 @@ def run_error_taxonomy():
             call = lit(c.get("call", {}))
             ctx = d_info["context"](c)
             defn = d_info["def"](c)
-            cat = classify_call_error(call, ctx, defn, c.get("mutation"))
+            cat = classify_call_error_independent(c, call, ctx, defn)
 
             rec = {
                 "id": c["id"],
@@ -256,7 +283,7 @@ def run_error_taxonomy():
         if is_err:
             call = lit(c.get("call", {}))
             ctx = c.get("premise", "")
-            cat = classify_call_error(call, ctx)
+            cat = classify_call_error_independent(c, call, ctx, c.get("definition", ""))
             errors_by_cat[cat].append(i)
         else:
             clean_sample_ids.append(i)

@@ -33,6 +33,11 @@ The project provides MCP verification tools (`verify_logic_chain`, `verify_schem
 
 NLI-only beats the current hybrid (exact McNemar p = 0.008). The asymmetric variant's improvement is not significant at n = 35. Command: `PYTHONPATH=. python benchmarks/ablation_local.py`.
 
+### BFCL Consensus & Cleaned Label Audit (Task A6)
+
+- **Raw benchmark labels**: Consensus AUROC **0.843** [0.756, 0.904] (dev 56 cases, n=491) / **0.889** [0.825, 0.941] (200 cases) / **0.930** [0.858, 0.979] (all 19,443 argument instances).
+- **Cleaned high-confidence subset**: 64.2% of benchmark errors (43/67) were harmless format variants or acceptable alternatives. On genuine errors, consensus AUROC reaches **0.947** [0.915, 0.974]. Both numbers are reported honestly.
+
 ### Argument-level grounding (new)
 
 `verify_argument_grounding` / `InterceptingToolProxy(logic_mode="arguments")`: per-argument, type-aware, deterministic grounding with an optional conformal threshold for a false-block budget. On ArgGround-Bench (public LLM-generated Glaive v2 conversations; one injected argument change per hallucinated case; held-out half, 1,751 calls):

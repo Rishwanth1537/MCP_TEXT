@@ -2,7 +2,7 @@
   {
     "id": "agenthallu:BFCL/140:s6",
     "dataset": "AgentHallu",
-    "category": "fabricated_value",
+    "category": "wrong_format",
     "call": {
       "name": "send_message",
       "arguments": {
@@ -15,7 +15,7 @@
   {
     "id": "agenthallu:BFCL/054:s3",
     "dataset": "AgentHallu",
-    "category": "wrong_selection",
+    "category": "wrong_format",
     "call": {
       "name": "fillFuelTank",
       "arguments": {
@@ -40,7 +40,7 @@
   {
     "id": "agenthallu:BFCL/049:s7",
     "dataset": "AgentHallu",
-    "category": "fabricated_value",
+    "category": "wrong_selection",
     "call": {
       "name": "fillFuelTank",
       "arguments": {
@@ -52,7 +52,7 @@
   {
     "id": "agenthallu:BFCL/082:s11",
     "dataset": "AgentHallu",
-    "category": "wrong_selection",
+    "category": "fabricated_value",
     "call": {
       "name": "send_message",
       "arguments": {
@@ -65,7 +65,7 @@
   {
     "id": "agenthallu:BFCL/118:s5",
     "dataset": "AgentHallu",
-    "category": "wrong_selection",
+    "category": "fabricated_value",
     "call": {
       "name": "mention",
       "arguments": {
@@ -81,7 +81,7 @@
   {
     "id": "agenthallu:BFCL/042:s8",
     "dataset": "AgentHallu",
-    "category": "wrong_selection",
+    "category": "fabricated_value",
     "call": {
       "name": "post_tweet",
       "arguments": {
@@ -126,7 +126,7 @@
   {
     "id": "agenthallu:BFCL/008:s3",
     "dataset": "AgentHallu",
-    "category": "wrong_selection",
+    "category": "wrong_format",
     "call": {
       "name": "post_tweet",
       "arguments": {
@@ -155,7 +155,7 @@
   {
     "id": "agenthallu:BFCL/133:s8",
     "dataset": "AgentHallu",
-    "category": "wrong_selection",
+    "category": "wrong_format",
     "call": {
       "name": "book_flight",
       "arguments": {
@@ -198,7 +198,7 @@
   {
     "id": "agenthallu:BFCL/123:s7",
     "dataset": "AgentHallu",
-    "category": "fabricated_value",
+    "category": "wrong_format",
     "call": {
       "name": "create_ticket",
       "arguments": {
@@ -258,7 +258,7 @@
   {
     "id": "agenthallu:BFCL/021:s9",
     "dataset": "AgentHallu",
-    "category": "wrong_selection",
+    "category": "fabricated_value",
     "call": {
       "name": "create_ticket",
       "arguments": {
@@ -288,7 +288,7 @@
   {
     "id": "agenthallu:BFCL/104:s12",
     "dataset": "AgentHallu",
-    "category": "wrong_selection",
+    "category": "fabricated_value",
     "call": {
       "name": "resolve_ticket",
       "arguments": {
@@ -301,7 +301,7 @@
   {
     "id": "agenthallu:BFCL/006:s6",
     "dataset": "AgentHallu",
-    "category": "fabricated_value",
+    "category": "wrong_format",
     "call": {
       "name": "post_tweet",
       "arguments": {
@@ -313,7 +313,7 @@
   {
     "id": "agenthallu:BFCL/144:s4",
     "dataset": "AgentHallu",
-    "category": "fabricated_value",
+    "category": "wrong_format",
     "call": {
       "name": "create_ticket",
       "arguments": {
@@ -327,7 +327,7 @@
   {
     "id": "agenthallu:BFCL/156:s10",
     "dataset": "AgentHallu",
-    "category": "fabricated_value",
+    "category": "wrong_format",
     "call": {
       "name": "contact_customer_support",
       "arguments": {
@@ -353,7 +353,7 @@
   {
     "id": "agenthallu:BFCL/087:s12",
     "dataset": "AgentHallu",
-    "category": "fabricated_value",
+    "category": "wrong_format",
     "call": {
       "name": "send_message",
       "arguments": {
@@ -379,7 +379,7 @@
   {
     "id": "agenthallu:BFCL/059:s6",
     "dataset": "AgentHallu",
-    "category": "fabricated_value",
+    "category": "wrong_selection",
     "call": {
       "name": "fillFuelTank",
       "arguments": {
@@ -406,7 +406,7 @@
   {
     "id": "agenthallu:BFCL/151:s9",
     "dataset": "AgentHallu",
-    "category": "fabricated_value",
+    "category": "wrong_format",
     "call": {
       "name": "contact_customer_support",
       "arguments": {
@@ -419,7 +419,7 @@
   {
     "id": "agenthallu:BFCL/155:s6",
     "dataset": "AgentHallu",
-    "category": "wrong_selection",
+    "category": "wrong_format",
     "call": {
       "name": "purchase_insurance",
       "arguments": {
@@ -475,7 +475,7 @@
   {
     "id": "fcrb:live_multiple_1014-243-0-neg",
     "dataset": "DeRef fcrb",
-    "category": "wrong_selection",
+    "category": "fabricated_value",
     "call": {
       "name": "get_identity_provider_patch",
       "arguments": {
@@ -488,7 +488,7 @@
   {
     "id": "fcrb:live_multiple_1016-245-0-neg",
     "dataset": "DeRef fcrb",
-    "category": "wrong_selection",
+    "category": "fabricated_value",
     "call": {
       "name": "create_global_application_alert_config",
       "arguments": {
@@ -587,7 +587,7 @@
   {
     "id": "fcrb:live_multiple_1042-269-0-neg",
     "dataset": "DeRef fcrb",
-    "category": "wrong_selection",
+    "category": "fabricated_value",
     "call": {
       "name": "Weather_1_GetWeather",
       "arguments": {
@@ -613,7 +613,7 @@
   {
     "id": "fcrb:live_multiple_1044-271-0-neg",
     "dataset": "DeRef fcrb",
-    "category": "wrong_format",
+    "category": "fabricated_value",
     "call": {
       "name": "Weather_1_GetWeather",
       "arguments": {
@@ -695,7 +695,7 @@
   {
     "id": "fcrb:live_multiple_121-46-0-neg",
     "dataset": "DeRef fcrb",
-    "category": "wrong_selection",
+    "category": "fabricated_value",
     "call": {
       "name": "get_headway",
       "arguments": {
@@ -725,7 +725,7 @@
   {
     "id": "fcrb:live_multiple_127-49-0-neg",
     "dataset": "DeRef fcrb",
-    "category": "wrong_selection",
+    "category": "fabricated_value",
     "call": {
       "name": "search_engine_query",
       "arguments": {
@@ -777,7 +777,7 @@
   {
     "id": "fcrb:live_multiple_142-55-0-neg",
     "dataset": "DeRef fcrb",
-    "category": "fabricated_value",
+    "category": "wrong_selection",
     "call": {
       "name": "weather_get_weather_data",
       "arguments": {
@@ -806,7 +806,7 @@
   {
     "id": "fcrb:live_multiple_157-60-0-neg",
     "dataset": "DeRef fcrb",
-    "category": "wrong_selection",
+    "category": "fabricated_value",
     "call": {
       "name": "get_adriel_projects",
       "arguments": {
@@ -834,7 +834,7 @@
   {
     "id": "fcrb:live_multiple_161-63-0-neg",
     "dataset": "DeRef fcrb",
-    "category": "wrong_selection",
+    "category": "fabricated_value",
     "call": {
       "name": "get_detail_adriel_project",
       "arguments": {
@@ -847,7 +847,7 @@
   {
     "id": "fcrb:live_multiple_162-63-1-neg",
     "dataset": "DeRef fcrb",
-    "category": "wrong_selection",
+    "category": "fabricated_value",
     "call": {
       "name": "get_detail_adriel_project",
       "arguments": {
@@ -916,7 +916,7 @@
   {
     "id": "fcrb:live_multiple_172-71-1-neg",
     "dataset": "DeRef fcrb",
-    "category": "wrong_selection",
+    "category": "fabricated_value",
     "call": {
       "name": "get_adriel_list_projects",
       "arguments": {
@@ -929,7 +929,7 @@
   {
     "id": "fcrb:live_multiple_175-72-1-neg",
     "dataset": "DeRef fcrb",
-    "category": "wrong_selection",
+    "category": "fabricated_value",
     "call": {
       "name": "get_adriel_list_projects",
       "arguments": {
@@ -987,7 +987,7 @@
   {
     "id": "fcrb:live_multiple_195-87-2-neg",
     "dataset": "DeRef fcrb",
-    "category": "wrong_selection",
+    "category": "other",
     "call": {
       "name": "getCurrentTime",
       "arguments": {
@@ -1025,7 +1025,7 @@
   {
     "id": "fcrb:live_multiple_200-90-2-neg",
     "dataset": "DeRef fcrb",
-    "category": "wrong_selection",
+    "category": "fabricated_value",
     "call": {
       "name": "adriel_list_projects",
       "arguments": {
@@ -1066,7 +1066,7 @@
   {
     "id": "fcrb:live_multiple_207-91-1-neg",
     "dataset": "DeRef fcrb",
-    "category": "wrong_selection",
+    "category": "fabricated_value",
     "call": {
       "name": "get_tech_stack",
       "arguments": {
@@ -1119,7 +1119,7 @@
   {
     "id": "fcrb:live_multiple_210-91-4-neg",
     "dataset": "DeRef fcrb",
-    "category": "wrong_selection",
+    "category": "wrong_format",
     "call": {
       "name": "detail_experience_and_education",
       "arguments": {
@@ -1146,7 +1146,7 @@
   {
     "id": "fcrb:live_multiple_213-91-7-neg",
     "dataset": "DeRef fcrb",
-    "category": "wrong_selection",
+    "category": "wrong_format",
     "call": {
       "name": "detail_experience_and_education",
       "arguments": {
@@ -1159,7 +1159,7 @@
   {
     "id": "fcrb:live_multiple_215-91-9-neg",
     "dataset": "DeRef fcrb",
-    "category": "wrong_selection",
+    "category": "other",
     "call": {
       "name": "experiences_and_education",
       "arguments": {
@@ -1200,7 +1200,7 @@
   {
     "id": "fcrb:live_multiple_224-98-0-neg",
     "dataset": "DeRef fcrb",
-    "category": "fabricated_value",
+    "category": "wrong_format",
     "call": {
       "name": "reschedule",
       "arguments": {
@@ -1213,7 +1213,7 @@
   {
     "id": "fcrb:live_multiple_227-101-0-neg",
     "dataset": "DeRef fcrb",
-    "category": "wrong_selection",
+    "category": "fabricated_value",
     "call": {
       "name": "project_api_ProjectApi_get_children_projects_by_tag",
       "arguments": {
@@ -1292,7 +1292,7 @@
   {
     "id": "fcrb:live_multiple_241-107-2-neg",
     "dataset": "DeRef fcrb",
-    "category": "wrong_selection",
+    "category": "fabricated_value",
     "call": {
       "name": "search_web_tool",
       "arguments": {
@@ -1304,7 +1304,7 @@
   {
     "id": "fcrb:live_multiple_256-120-0-neg",
     "dataset": "DeRef fcrb",
-    "category": "wrong_selection",
+    "category": "fabricated_value",
     "call": {
       "name": "vex_api_VexApi_export_project_as_cyclone_dx1",
       "arguments": {
@@ -1357,7 +1357,7 @@
   {
     "id": "fcrb:live_multiple_275-127-10-neg",
     "dataset": "DeRef fcrb",
-    "category": "wrong_selection",
+    "category": "fabricated_value",
     "call": {
       "name": "Weather_1_GetWeather",
       "arguments": {
@@ -1383,7 +1383,7 @@
   {
     "id": "fcrb:live_multiple_277-128-0-neg",
     "dataset": "DeRef fcrb",
-    "category": "fabricated_value",
+    "category": "wrong_selection",
     "call": {
       "name": "Restaurants_2_FindRestaurants",
       "arguments": {
@@ -1426,7 +1426,7 @@
   {
     "id": "fcrb:live_multiple_284-128-7-neg",
     "dataset": "DeRef fcrb",
-    "category": "wrong_selection",
+    "category": "fabricated_value",
     "call": {
       "name": "Restaurants_2_FindRestaurants",
       "arguments": {
@@ -1453,7 +1453,7 @@
   {
     "id": "fcrb:live_multiple_286-129-1-neg",
     "dataset": "DeRef fcrb",
-    "category": "fabricated_value",
+    "category": "wrong_format",
     "call": {
       "name": "Services_4_FindProvider",
       "arguments": {
@@ -1466,7 +1466,7 @@
   {
     "id": "fcrb:live_multiple_290-129-5-neg",
     "dataset": "DeRef fcrb",
-    "category": "fabricated_value",
+    "category": "wrong_selection",
     "call": {
       "name": "Services_4_FindProvider",
       "arguments": {
@@ -1495,7 +1495,7 @@
   {
     "id": "fcrb:live_multiple_292-130-1-neg",
     "dataset": "DeRef fcrb",
-    "category": "fabricated_value",
+    "category": "wrong_selection",
     "call": {
       "name": "Hotels_2_SearchHouse",
       "arguments": {
@@ -1510,7 +1510,7 @@
   {
     "id": "fcrb:live_multiple_293-130-2-neg",
     "dataset": "DeRef fcrb",
-    "category": "fabricated_value",
+    "category": "wrong_selection",
     "call": {
       "name": "Hotels_2_SearchHouse",
       "arguments": {
@@ -1580,7 +1580,7 @@
   {
     "id": "fcrb:live_multiple_301-131-0-neg",
     "dataset": "DeRef fcrb",
-    "category": "fabricated_value",
+    "category": "wrong_selection",
     "call": {
       "name": "Hotels_4_SearchHotel",
       "arguments": {
@@ -1595,7 +1595,7 @@
   {
     "id": "fcrb:live_multiple_302-131-1-neg",
     "dataset": "DeRef fcrb",
-    "category": "wrong_selection",
+    "category": "fabricated_value",
     "call": {
       "name": "Hotels_4_SearchHotel",
       "arguments": {
@@ -1622,7 +1622,7 @@
   {
     "id": "fcrb:live_multiple_304-131-3-neg",
     "dataset": "DeRef fcrb",
-    "category": "fabricated_value",
+    "category": "other",
     "call": {
       "name": "Hotels_4_SearchHotel",
       "arguments": {
@@ -1637,7 +1637,7 @@
   {
     "id": "fcrb:live_multiple_307-131-6-neg",
     "dataset": "DeRef fcrb",
-    "category": "fabricated_value",
+    "category": "other",
     "call": {
       "name": "Hotels_4_SearchHotel",
       "arguments": {
@@ -1652,7 +1652,7 @@
   {
     "id": "fcrb:live_multiple_308-131-7-neg",
     "dataset": "DeRef fcrb",
-    "category": "fabricated_value",
+    "category": "other",
     "call": {
       "name": "Hotels_4_SearchHotel",
       "arguments": {
@@ -1681,7 +1681,7 @@
   {
     "id": "fcrb:live_multiple_311-132-1-neg",
     "dataset": "DeRef fcrb",
-    "category": "fabricated_value",
+    "category": "other",
     "call": {
       "name": "Movies_3_FindMovies",
       "arguments": {
@@ -1695,7 +1695,7 @@
   {
     "id": "fcrb:live_multiple_312-132-2-neg",
     "dataset": "DeRef fcrb",
-    "category": "wrong_selection",
+    "category": "fabricated_value",
     "call": {
       "name": "Movies_3_FindMovies",
       "arguments": {
@@ -1723,7 +1723,7 @@
   {
     "id": "fcrb:live_multiple_315-132-5-neg",
     "dataset": "DeRef fcrb",
-    "category": "fabricated_value",
+    "category": "other",
     "call": {
       "name": "Movies_3_FindMovies",
       "arguments": {
@@ -1737,7 +1737,7 @@
   {
     "id": "fcrb:live_multiple_318-132-8-neg",
     "dataset": "DeRef fcrb",
-    "category": "wrong_selection",
+    "category": "fabricated_value",
     "call": {
       "name": "Movies_3_FindMovies",
       "arguments": {
@@ -1749,7 +1749,7 @@
   {
     "id": "fcrb:live_multiple_319-132-9-neg",
     "dataset": "DeRef fcrb",
-    "category": "fabricated_value",
+    "category": "wrong_selection",
     "call": {
       "name": "Movies_3_FindMovies",
       "arguments": {
@@ -1763,7 +1763,7 @@
   {
     "id": "fcrb:live_multiple_322-132-12-neg",
     "dataset": "DeRef fcrb",
-    "category": "fabricated_value",
+    "category": "other",
     "call": {
       "name": "Movies_3_FindMovies",
       "arguments": {
@@ -1803,7 +1803,7 @@
   {
     "id": "fcrb:live_multiple_327-132-17-neg",
     "dataset": "DeRef fcrb",
-    "category": "fabricated_value",
+    "category": "wrong_selection",
     "call": {
       "name": "Movies_3_FindMovies",
       "arguments": {
@@ -1844,7 +1844,7 @@
   {
     "id": "fcrb:live_multiple_330-132-20-neg",
     "dataset": "DeRef fcrb",
-    "category": "fabricated_value",
+    "category": "other",
     "call": {
       "name": "Movies_3_FindMovies",
       "arguments": {
@@ -1858,7 +1858,7 @@
   {
     "id": "fcrb:live_multiple_332-132-22-neg",
     "dataset": "DeRef fcrb",
-    "category": "fabricated_value",
+    "category": "other",
     "call": {
       "name": "Movies_3_FindMovies",
       "arguments": {
@@ -1887,7 +1887,7 @@
   {
     "id": "fcrb:live_multiple_34-11-0-neg",
     "dataset": "DeRef fcrb",
-    "category": "wrong_selection",
+    "category": "fabricated_value",
     "call": {
       "name": "get_news_report",
       "arguments": {
@@ -1914,7 +1914,7 @@
   {
     "id": "fcrb:live_multiple_342-133-6-neg",
     "dataset": "DeRef fcrb",
-    "category": "fabricated_value",
+    "category": "wrong_selection",
     "call": {
       "name": "Music_3_LookupMusic",
       "arguments": {
@@ -1929,7 +1929,7 @@
   {
     "id": "fcrb:live_multiple_343-133-7-neg",
     "dataset": "DeRef fcrb",
-    "category": "fabricated_value",
+    "category": "other",
     "call": {
       "name": "Music_3_LookupMusic",
       "arguments": {
@@ -2099,7 +2099,7 @@
   {
     "id": "fcrb:live_multiple_361-134-6-neg",
     "dataset": "DeRef fcrb",
-    "category": "fabricated_value",
+    "category": "other",
     "call": {
       "name": "Movies_3_FindMovies",
       "arguments": {
@@ -2113,7 +2113,7 @@
   {
     "id": "fcrb:live_multiple_365-134-10-neg",
     "dataset": "DeRef fcrb",
-    "category": "fabricated_value",
+    "category": "other",
     "call": {
       "name": "Movies_3_FindMovies",
       "arguments": {
@@ -2127,7 +2127,7 @@
   {
     "id": "fcrb:live_multiple_367-134-12-neg",
     "dataset": "DeRef fcrb",
-    "category": "fabricated_value",
+    "category": "wrong_selection",
     "call": {
       "name": "Movies_3_FindMovies",
       "arguments": {
@@ -2141,7 +2141,7 @@
   {
     "id": "fcrb:live_multiple_368-134-13-neg",
     "dataset": "DeRef fcrb",
-    "category": "wrong_selection",
+    "category": "wrong_format",
     "call": {
       "name": "Movies_3_FindMovies",
       "arguments": {
@@ -2156,7 +2156,7 @@
   {
     "id": "fcrb:live_multiple_370-134-15-neg",
     "dataset": "DeRef fcrb",
-    "category": "fabricated_value",
+    "category": "wrong_selection",
     "call": {
       "name": "Movies_3_FindMovies",
       "arguments": {
@@ -2171,7 +2171,7 @@
   {
     "id": "fcrb:live_multiple_371-134-16-neg",
     "dataset": "DeRef fcrb",
-    "category": "fabricated_value",
+    "category": "other",
     "call": {
       "name": "Movies_3_FindMovies",
       "arguments": {
@@ -2198,7 +2198,7 @@
   {
     "id": "fcrb:live_multiple_378-135-2-neg",
     "dataset": "DeRef fcrb",
-    "category": "fabricated_value",
+    "category": "wrong_selection",
     "call": {
       "name": "Services_4_FindProvider",
       "arguments": {
@@ -2211,7 +2211,7 @@
   {
     "id": "fcrb:live_multiple_380-136-1-neg",
     "dataset": "DeRef fcrb",
-    "category": "wrong_selection",
+    "category": "fabricated_value",
     "call": {
       "name": "Alarm_1_GetAlarms",
       "arguments": {
@@ -2224,7 +2224,7 @@
   {
     "id": "fcrb:live_multiple_381-136-2-neg",
     "dataset": "DeRef fcrb",
-    "category": "wrong_selection",
+    "category": "fabricated_value",
     "call": {
       "name": "Alarm_1_GetAlarms",
       "arguments": {
@@ -2337,7 +2337,7 @@
   {
     "id": "fcrb:live_multiple_394-138-2-neg",
     "dataset": "DeRef fcrb",
-    "category": "wrong_selection",
+    "category": "fabricated_value",
     "call": {
       "name": "Services_1_FindProvider",
       "arguments": {
@@ -2390,7 +2390,7 @@
   {
     "id": "fcrb:live_multiple_399-139-3-neg",
     "dataset": "DeRef fcrb",
-    "category": "fabricated_value",
+    "category": "wrong_selection",
     "call": {
       "name": "Events_3_FindEvents",
       "arguments": {
@@ -2404,7 +2404,7 @@
   {
     "id": "fcrb:live_multiple_4-2-1-neg",
     "dataset": "DeRef fcrb",
-    "category": "wrong_selection",
+    "category": "fabricated_value",
     "call": {
       "name": "uber_ride",
       "arguments": {
@@ -2418,7 +2418,7 @@
   {
     "id": "fcrb:live_multiple_401-139-5-neg",
     "dataset": "DeRef fcrb",
-    "category": "wrong_format",
+    "category": "wrong_selection",
     "call": {
       "name": "Events_3_FindEvents",
       "arguments": {
@@ -2486,7 +2486,7 @@
   {
     "id": "fcrb:live_multiple_410-140-6-neg",
     "dataset": "DeRef fcrb",
-    "category": "fabricated_value",
+    "category": "other",
     "call": {
       "name": "RideSharing_2_GetRide",
       "arguments": {
@@ -2500,7 +2500,7 @@
   {
     "id": "fcrb:live_multiple_412-141-1-neg",
     "dataset": "DeRef fcrb",
-    "category": "wrong_format",
+    "category": "fabricated_value",
     "call": {
       "name": "Movies_1_BuyMovieTickets",
       "arguments": {
@@ -2560,7 +2560,7 @@
   {
     "id": "fcrb:live_multiple_418-141-7-neg",
     "dataset": "DeRef fcrb",
-    "category": "fabricated_value",
+    "category": "wrong_selection",
     "call": {
       "name": "Movies_1_BuyMovieTickets",
       "arguments": {
@@ -2607,7 +2607,7 @@
   {
     "id": "fcrb:live_multiple_430-141-19-neg",
     "dataset": "DeRef fcrb",
-    "category": "fabricated_value",
+    "category": "wrong_selection",
     "call": {
       "name": "Movies_1_BuyMovieTickets",
       "arguments": {
@@ -2654,7 +2654,7 @@
   {
     "id": "fcrb:live_multiple_437-142-3-neg",
     "dataset": "DeRef fcrb",
-    "category": "fabricated_value",
+    "category": "wrong_selection",
     "call": {
       "name": "RentalCars_3_GetCarsAvailable",
       "arguments": {
@@ -2683,7 +2683,7 @@
   {
     "id": "fcrb:live_multiple_443-144-3-neg",
     "dataset": "DeRef fcrb",
-    "category": "wrong_selection",
+    "category": "fabricated_value",
     "call": {
       "name": "Services_4_FindProvider",
       "arguments": {
@@ -2710,7 +2710,7 @@
   {
     "id": "fcrb:live_multiple_447-144-7-neg",
     "dataset": "DeRef fcrb",
-    "category": "wrong_selection",
+    "category": "fabricated_value",
     "call": {
       "name": "Services_4_FindProvider",
       "arguments": {
@@ -2737,7 +2737,7 @@
   {
     "id": "fcrb:live_multiple_45-18-0-neg",
     "dataset": "DeRef fcrb",
-    "category": "fabricated_value",
+    "category": "wrong_selection",
     "call": {
       "name": "product_search",
       "arguments": {
@@ -2769,7 +2769,7 @@
   {
     "id": "fcrb:live_multiple_456-145-7-neg",
     "dataset": "DeRef fcrb",
-    "category": "fabricated_value",
+    "category": "wrong_selection",
     "call": {
       "name": "Travel_1_FindAttractions",
       "arguments": {
@@ -2798,7 +2798,7 @@
   {
     "id": "fcrb:live_multiple_458-145-9-neg",
     "dataset": "DeRef fcrb",
-    "category": "fabricated_value",
+    "category": "other",
     "call": {
       "name": "Travel_1_FindAttractions",
       "arguments": {
@@ -2826,7 +2826,7 @@
   {
     "id": "fcrb:live_multiple_463-145-14-neg",
     "dataset": "DeRef fcrb",
-    "category": "fabricated_value",
+    "category": "wrong_format",
     "call": {
       "name": "Travel_1_FindAttractions",
       "arguments": {
@@ -2867,7 +2867,7 @@
   {
     "id": "fcrb:live_multiple_466-145-17-neg",
     "dataset": "DeRef fcrb",
-    "category": "fabricated_value",
+    "category": "wrong_selection",
     "call": {
       "name": "Travel_1_FindAttractions",
       "arguments": {
@@ -2955,7 +2955,7 @@
   {
     "id": "fcrb:live_multiple_473-145-24-neg",
     "dataset": "DeRef fcrb",
-    "category": "fabricated_value",
+    "category": "wrong_selection",
     "call": {
       "name": "Travel_1_FindAttractions",
       "arguments": {
@@ -3010,7 +3010,7 @@
   {
     "id": "fcrb:live_multiple_493-148-3-neg",
     "dataset": "DeRef fcrb",
-    "category": "fabricated_value",
+    "category": "wrong_selection",
     "call": {
       "name": "Events_3_FindEvents",
       "arguments": {
@@ -3024,7 +3024,7 @@
   {
     "id": "fcrb:live_multiple_494-148-4-neg",
     "dataset": "DeRef fcrb",
-    "category": "fabricated_value",
+    "category": "wrong_selection",
     "call": {
       "name": "Events_3_FindEvents",
       "arguments": {
@@ -3052,7 +3052,7 @@
   {
     "id": "fcrb:live_multiple_498-148-8-neg",
     "dataset": "DeRef fcrb",
-    "category": "fabricated_value",
+    "category": "wrong_selection",
     "call": {
       "name": "Events_3_FindEvents",
       "arguments": {
@@ -3153,7 +3153,7 @@
   {
     "id": "fcrb:live_multiple_511-149-8-neg",
     "dataset": "DeRef fcrb",
-    "category": "wrong_selection",
+    "category": "fabricated_value",
     "call": {
       "name": "Flights_4_SearchOnewayFlight",
       "arguments": {
@@ -3265,7 +3265,7 @@
   {
     "id": "fcrb:live_multiple_534-151-10-neg",
     "dataset": "DeRef fcrb",
-    "category": "wrong_selection",
+    "category": "wrong_format",
     "call": {
       "name": "Events_3_FindEvents",
       "arguments": {
@@ -3323,7 +3323,7 @@
   {
     "id": "fcrb:live_multiple_544-152-6-neg",
     "dataset": "DeRef fcrb",
-    "category": "wrong_selection",
+    "category": "fabricated_value",
     "call": {
       "name": "Homes_2_FindHomeByArea",
       "arguments": {
@@ -3340,7 +3340,7 @@
   {
     "id": "fcrb:live_multiple_547-152-9-neg",
     "dataset": "DeRef fcrb",
-    "category": "fabricated_value",
+    "category": "other",
     "call": {
       "name": "Homes_2_FindHomeByArea",
       "arguments": {
@@ -3373,7 +3373,7 @@
   {
     "id": "fcrb:live_multiple_550-152-12-neg",
     "dataset": "DeRef fcrb",
-    "category": "wrong_selection",
+    "category": "fabricated_value",
     "call": {
       "name": "Homes_2_FindHomeByArea",
       "arguments": {
@@ -3402,7 +3402,7 @@
   {
     "id": "fcrb:live_multiple_554-154-0-neg",
     "dataset": "DeRef fcrb",
-    "category": "fabricated_value",
+    "category": "wrong_selection",
     "call": {
       "name": "RentalCars_3_GetCarsAvailable",
       "arguments": {
@@ -3463,7 +3463,7 @@
   {
     "id": "fcrb:live_multiple_567-155-7-neg",
     "dataset": "DeRef fcrb",
-    "category": "wrong_selection",
+    "category": "fabricated_value",
     "call": {
       "name": "Events_3_FindEvents",
       "arguments": {
@@ -3477,7 +3477,7 @@
   {
     "id": "fcrb:live_multiple_568-155-8-neg",
     "dataset": "DeRef fcrb",
-    "category": "fabricated_value",
+    "category": "wrong_selection",
     "call": {
       "name": "Events_3_FindEvents",
       "arguments": {
@@ -3491,7 +3491,7 @@
   {
     "id": "fcrb:live_multiple_569-155-9-neg",
     "dataset": "DeRef fcrb",
-    "category": "fabricated_value",
+    "category": "wrong_selection",
     "call": {
       "name": "Events_3_FindEvents",
       "arguments": {
@@ -3533,7 +3533,7 @@
   {
     "id": "fcrb:live_multiple_574-156-0-neg",
     "dataset": "DeRef fcrb",
-    "category": "fabricated_value",
+    "category": "other",
     "call": {
       "name": "Services_1_FindProvider",
       "arguments": {
@@ -3572,7 +3572,7 @@
   {
     "id": "fcrb:live_multiple_584-157-5-neg",
     "dataset": "DeRef fcrb",
-    "category": "fabricated_value",
+    "category": "other",
     "call": {
       "name": "Media_3_FindMovies",
       "arguments": {
@@ -3613,7 +3613,7 @@
   {
     "id": "fcrb:live_multiple_602-158-8-neg",
     "dataset": "DeRef fcrb",
-    "category": "fabricated_value",
+    "category": "wrong_selection",
     "call": {
       "name": "Hotels_4_SearchHotel",
       "arguments": {
@@ -3741,7 +3741,7 @@
   {
     "id": "fcrb:live_multiple_617-159-10-neg",
     "dataset": "DeRef fcrb",
-    "category": "fabricated_value",
+    "category": "wrong_selection",
     "call": {
       "name": "Events_3_FindEvents",
       "arguments": {
@@ -3868,7 +3868,7 @@
   {
     "id": "fcrb:live_multiple_63-25-0-neg",
     "dataset": "DeRef fcrb",
-    "category": "wrong_selection",
+    "category": "fabricated_value",
     "call": {
       "name": "uber_eat_order",
       "arguments": {
@@ -3890,7 +3890,7 @@
   {
     "id": "fcrb:live_multiple_630-160-10-neg",
     "dataset": "DeRef fcrb",
-    "category": "wrong_selection",
+    "category": "fabricated_value",
     "call": {
       "name": "Payment_1_RequestPayment",
       "arguments": {
@@ -3904,7 +3904,7 @@
   {
     "id": "fcrb:live_multiple_631-160-11-neg",
     "dataset": "DeRef fcrb",
-    "category": "wrong_selection",
+    "category": "wrong_format",
     "call": {
       "name": "Payment_1_RequestPayment",
       "arguments": {
@@ -3917,7 +3917,7 @@
   {
     "id": "fcrb:live_multiple_634-161-2-neg",
     "dataset": "DeRef fcrb",
-    "category": "fabricated_value",
+    "category": "wrong_selection",
     "call": {
       "name": "Music_3_LookupMusic",
       "arguments": {
@@ -3969,7 +3969,7 @@
   {
     "id": "fcrb:live_multiple_642-161-10-neg",
     "dataset": "DeRef fcrb",
-    "category": "fabricated_value",
+    "category": "wrong_selection",
     "call": {
       "name": "Music_3_LookupMusic",
       "arguments": {
@@ -3985,7 +3985,7 @@
   {
     "id": "fcrb:live_multiple_646-161-14-neg",
     "dataset": "DeRef fcrb",
-    "category": "fabricated_value",
+    "category": "other",
     "call": {
       "name": "Music_3_LookupMusic",
       "arguments": {
@@ -4145,7 +4145,7 @@
   {
     "id": "fcrb:live_multiple_677-163-2-neg",
     "dataset": "DeRef fcrb",
-    "category": "wrong_format",
+    "category": "fabricated_value",
     "call": {
       "name": "Weather_1_GetWeather",
       "arguments": {
@@ -4214,7 +4214,7 @@
   {
     "id": "fcrb:live_multiple_684-164-0-neg",
     "dataset": "DeRef fcrb",
-    "category": "fabricated_value",
+    "category": "other",
     "call": {
       "name": "Movies_3_FindMovies",
       "arguments": {
@@ -4228,7 +4228,7 @@
   {
     "id": "fcrb:live_multiple_685-164-1-neg",
     "dataset": "DeRef fcrb",
-    "category": "fabricated_value",
+    "category": "other",
     "call": {
       "name": "Movies_3_FindMovies",
       "arguments": {
@@ -4242,7 +4242,7 @@
   {
     "id": "fcrb:live_multiple_686-164-2-neg",
     "dataset": "DeRef fcrb",
-    "category": "fabricated_value",
+    "category": "wrong_selection",
     "call": {
       "name": "Movies_3_FindMovies",
       "arguments": {
@@ -4255,7 +4255,7 @@
   {
     "id": "fcrb:live_multiple_688-164-4-neg",
     "dataset": "DeRef fcrb",
-    "category": "fabricated_value",
+    "category": "other",
     "call": {
       "name": "Movies_3_FindMovies",
       "arguments": {
@@ -4293,7 +4293,7 @@
   {
     "id": "fcrb:live_multiple_694-164-10-neg",
     "dataset": "DeRef fcrb",
-    "category": "fabricated_value",
+    "category": "wrong_selection",
     "call": {
       "name": "Movies_3_FindMovies",
       "arguments": {
@@ -4306,7 +4306,7 @@
   {
     "id": "fcrb:live_multiple_695-164-11-neg",
     "dataset": "DeRef fcrb",
-    "category": "fabricated_value",
+    "category": "other",
     "call": {
       "name": "Movies_3_FindMovies",
       "arguments": {
@@ -4320,7 +4320,7 @@
   {
     "id": "fcrb:live_multiple_696-164-12-neg",
     "dataset": "DeRef fcrb",
-    "category": "fabricated_value",
+    "category": "other",
     "call": {
       "name": "Movies_3_FindMovies",
       "arguments": {
@@ -4334,7 +4334,7 @@
   {
     "id": "fcrb:live_multiple_701-164-17-neg",
     "dataset": "DeRef fcrb",
-    "category": "fabricated_value",
+    "category": "other",
     "call": {
       "name": "Movies_3_FindMovies",
       "arguments": {
@@ -4347,7 +4347,7 @@
   {
     "id": "fcrb:live_multiple_702-164-18-neg",
     "dataset": "DeRef fcrb",
-    "category": "fabricated_value",
+    "category": "wrong_selection",
     "call": {
       "name": "Movies_3_FindMovies",
       "arguments": {
@@ -4360,7 +4360,7 @@
   {
     "id": "fcrb:live_multiple_703-164-19-neg",
     "dataset": "DeRef fcrb",
-    "category": "fabricated_value",
+    "category": "other",
     "call": {
       "name": "Movies_3_FindMovies",
       "arguments": {
@@ -4374,7 +4374,7 @@
   {
     "id": "fcrb:live_multiple_705-164-21-neg",
     "dataset": "DeRef fcrb",
-    "category": "fabricated_value",
+    "category": "wrong_format",
     "call": {
       "name": "Movies_3_FindMovies",
       "arguments": {
@@ -4417,7 +4417,7 @@
   {
     "id": "fcrb:live_multiple_711-164-27-neg",
     "dataset": "DeRef fcrb",
-    "category": "fabricated_value",
+    "category": "other",
     "call": {
       "name": "Movies_3_FindMovies",
       "arguments": {
@@ -4431,7 +4431,7 @@
   {
     "id": "fcrb:live_multiple_714-165-1-neg",
     "dataset": "DeRef fcrb",
-    "category": "fabricated_value",
+    "category": "wrong_selection",
     "call": {
       "name": "Hotels_2_SearchHouse",
       "arguments": {
@@ -4474,7 +4474,7 @@
   {
     "id": "fcrb:live_multiple_721-165-8-neg",
     "dataset": "DeRef fcrb",
-    "category": "fabricated_value",
+    "category": "wrong_selection",
     "call": {
       "name": "Hotels_2_SearchHouse",
       "arguments": {
@@ -4503,7 +4503,7 @@
   {
     "id": "fcrb:live_multiple_725-166-0-neg",
     "dataset": "DeRef fcrb",
-    "category": "wrong_selection",
+    "category": "fabricated_value",
     "call": {
       "name": "Services_1_FindProvider",
       "arguments": {
@@ -4543,7 +4543,7 @@
   {
     "id": "fcrb:live_multiple_732-167-3-neg",
     "dataset": "DeRef fcrb",
-    "category": "fabricated_value",
+    "category": "other",
     "call": {
       "name": "Homes_2_FindHomeByArea",
       "arguments": {
@@ -4560,7 +4560,7 @@
   {
     "id": "fcrb:live_multiple_737-167-8-neg",
     "dataset": "DeRef fcrb",
-    "category": "fabricated_value",
+    "category": "other",
     "call": {
       "name": "Homes_2_FindHomeByArea",
       "arguments": {
@@ -4577,7 +4577,7 @@
   {
     "id": "fcrb:live_multiple_738-168-0-neg",
     "dataset": "DeRef fcrb",
-    "category": "wrong_selection",
+    "category": "fabricated_value",
     "call": {
       "name": "Payment_1_MakePayment",
       "arguments": {
@@ -4592,7 +4592,7 @@
   {
     "id": "fcrb:live_multiple_74-34-0-neg",
     "dataset": "DeRef fcrb",
-    "category": "wrong_selection",
+    "category": "fabricated_value",
     "call": {
       "name": "dartfx_help",
       "arguments": {
@@ -4619,7 +4619,7 @@
   {
     "id": "fcrb:live_multiple_75-34-1-neg",
     "dataset": "DeRef fcrb",
-    "category": "fabricated_value",
+    "category": "wrong_format",
     "call": {
       "name": "add_postgres_server",
       "arguments": {
@@ -4705,7 +4705,7 @@
   {
     "id": "fcrb:live_multiple_769-171-2-neg",
     "dataset": "DeRef fcrb",
-    "category": "wrong_selection",
+    "category": "fabricated_value",
     "call": {
       "name": "Services_1_FindProvider",
       "arguments": {
@@ -4801,7 +4801,7 @@
   {
     "id": "fcrb:live_multiple_782-173-4-neg",
     "dataset": "DeRef fcrb",
-    "category": "fabricated_value",
+    "category": "wrong_selection",
     "call": {
       "name": "Services_4_FindProvider",
       "arguments": {
@@ -4924,7 +4924,7 @@
   {
     "id": "fcrb:live_multiple_800-175-6-neg",
     "dataset": "DeRef fcrb",
-    "category": "wrong_selection",
+    "category": "wrong_format",
     "call": {
       "name": "Weather_1_GetWeather",
       "arguments": {
@@ -4937,7 +4937,7 @@
   {
     "id": "fcrb:live_multiple_801-175-7-neg",
     "dataset": "DeRef fcrb",
-    "category": "fabricated_value",
+    "category": "wrong_selection",
     "call": {
       "name": "Weather_1_GetWeather",
       "arguments": {
@@ -4990,7 +4990,7 @@
   {
     "id": "fcrb:live_multiple_813-176-4-neg",
     "dataset": "DeRef fcrb",
-    "category": "wrong_selection",
+    "category": "fabricated_value",
     "call": {
       "name": "Alarm_1_AddAlarm",
       "arguments": {
@@ -5016,7 +5016,7 @@
   {
     "id": "fcrb:live_multiple_823-177-6-neg",
     "dataset": "DeRef fcrb",
-    "category": "fabricated_value",
+    "category": "wrong_format",
     "call": {
       "name": "Events_3_BuyEventTickets",
       "arguments": {
@@ -5102,7 +5102,7 @@
   {
     "id": "fcrb:live_multiple_835-178-10-neg",
     "dataset": "DeRef fcrb",
-    "category": "fabricated_value",
+    "category": "wrong_selection",
     "call": {
       "name": "Music_3_LookupMusic",
       "arguments": {
@@ -5117,7 +5117,7 @@
   {
     "id": "fcrb:live_multiple_839-178-14-neg",
     "dataset": "DeRef fcrb",
-    "category": "fabricated_value",
+    "category": "wrong_format",
     "call": {
       "name": "Music_3_LookupMusic",
       "arguments": {
@@ -5132,7 +5132,7 @@
   {
     "id": "fcrb:live_multiple_840-178-15-neg",
     "dataset": "DeRef fcrb",
-    "category": "fabricated_value",
+    "category": "wrong_selection",
     "call": {
       "name": "Music_3_LookupMusic",
       "arguments": {
@@ -5202,7 +5202,7 @@
   {
     "id": "fcrb:live_multiple_852-180-0-neg",
     "dataset": "DeRef fcrb",
-    "category": "wrong_selection",
+    "category": "wrong_format",
     "call": {
       "name": "Buses_3_FindBus",
       "arguments": {
@@ -5494,7 +5494,7 @@
   {
     "id": "fcrb:live_multiple_921-191-9-neg",
     "dataset": "DeRef fcrb",
-    "category": "fabricated_value",
+    "category": "wrong_format",
     "call": {
       "name": "get_service_providers",
       "arguments": {
@@ -5524,7 +5524,7 @@
   {
     "id": "fcrb:live_multiple_924-191-12-neg",
     "dataset": "DeRef fcrb",
-    "category": "fabricated_value",
+    "category": "wrong_selection",
     "call": {
       "name": "get_service_providers",
       "arguments": {
@@ -5605,7 +5605,7 @@
   {
     "id": "fcrb:live_multiple_933-191-21-neg",
     "dataset": "DeRef fcrb",
-    "category": "fabricated_value",
+    "category": "wrong_format",
     "call": {
       "name": "get_service_providers",
       "arguments": {
@@ -5620,7 +5620,7 @@
   {
     "id": "fcrb:live_multiple_936-192-1-neg",
     "dataset": "DeRef fcrb",
-    "category": "wrong_selection",
+    "category": "fabricated_value",
     "call": {
       "name": "set_alarm",
       "arguments": {
@@ -5633,7 +5633,7 @@
   {
     "id": "fcrb:live_multiple_937-193-0-neg",
     "dataset": "DeRef fcrb",
-    "category": "wrong_selection",
+    "category": "fabricated_value",
     "call": {
       "name": "acl_api_AclApi_retrieve_projects",
       "arguments": {
@@ -5764,7 +5764,7 @@
   {
     "id": "fcrb:live_multiple_952-201-0-neg",
     "dataset": "DeRef fcrb",
-    "category": "wrong_selection",
+    "category": "fabricated_value",
     "call": {
       "name": "uber_eat_order",
       "arguments": {
@@ -5782,7 +5782,7 @@
   {
     "id": "fcrb:live_multiple_96-42-0-neg",
     "dataset": "DeRef fcrb",
-    "category": "wrong_selection",
+    "category": "fabricated_value",
     "call": {
       "name": "list_files",
       "arguments": {
@@ -5808,7 +5808,7 @@
   {
     "id": "fcrb:live_multiple_961-205-1-neg",
     "dataset": "DeRef fcrb",
-    "category": "fabricated_value",
+    "category": "wrong_format",
     "call": {
       "name": "web_search",
       "arguments": {
@@ -5852,7 +5852,7 @@
   {
     "id": "fcrb:live_multiple_969-210-1-neg",
     "dataset": "DeRef fcrb",
-    "category": "wrong_selection",
+    "category": "fabricated_value",
     "call": {
       "name": "uber_eat_order",
       "arguments": {
@@ -5980,7 +5980,7 @@
   {
     "id": "fcrb:live_multiple_978-215-2-neg",
     "dataset": "DeRef fcrb",
-    "category": "fabricated_value",
+    "category": "wrong_format",
     "call": {
       "name": "get_service_providers",
       "arguments": {
@@ -6012,7 +6012,7 @@
   {
     "id": "fcrb:live_multiple_989-220-0-neg",
     "dataset": "DeRef fcrb",
-    "category": "wrong_selection",
+    "category": "fabricated_value",
     "call": {
       "name": "get_websites",
       "arguments": {
@@ -6025,7 +6025,7 @@
   {
     "id": "fcrb:live_multiple_996-227-0-neg",
     "dataset": "DeRef fcrb",
-    "category": "wrong_selection",
+    "category": "fabricated_value",
     "call": {
       "name": "add_service_config",
       "arguments": {
@@ -6043,7 +6043,7 @@
   {
     "id": "fcrb:live_simple_10-3-6-neg",
     "dataset": "DeRef fcrb",
-    "category": "wrong_selection",
+    "category": "fabricated_value",
     "call": {
       "name": "get_current_weather",
       "arguments": {
@@ -6174,7 +6174,7 @@
   {
     "id": "fcrb:live_simple_114-70-0-neg",
     "dataset": "DeRef fcrb",
-    "category": "wrong_selection",
+    "category": "fabricated_value",
     "call": {
       "name": "update_user_profile",
       "arguments": {
@@ -6236,7 +6236,7 @@
   {
     "id": "fcrb:live_simple_126-82-0-neg",
     "dataset": "DeRef fcrb",
-    "category": "wrong_selection",
+    "category": "fabricated_value",
     "call": {
       "name": "telemetry_flowrules_interfaceInfo_get",
       "arguments": {
@@ -6252,7 +6252,7 @@
   {
     "id": "fcrb:live_simple_127-82-1-neg",
     "dataset": "DeRef fcrb",
-    "category": "wrong_selection",
+    "category": "fabricated_value",
     "call": {
       "name": "telemetry_flowrules_interfaceInfo_get",
       "arguments": {
@@ -6319,7 +6319,7 @@
   {
     "id": "fcrb:live_simple_132-85-0-neg",
     "dataset": "DeRef fcrb",
-    "category": "wrong_selection",
+    "category": "fabricated_value",
     "call": {
       "name": "requests_get",
       "arguments": {
@@ -6335,7 +6335,7 @@
   {
     "id": "fcrb:live_simple_133-86-0-neg",
     "dataset": "DeRef fcrb",
-    "category": "wrong_selection",
+    "category": "fabricated_value",
     "call": {
       "name": "requests_get",
       "arguments": {
@@ -6351,7 +6351,7 @@
   {
     "id": "fcrb:live_simple_134-87-0-neg",
     "dataset": "DeRef fcrb",
-    "category": "wrong_selection",
+    "category": "fabricated_value",
     "call": {
       "name": "requests_get",
       "arguments": {
@@ -6398,7 +6398,7 @@
   {
     "id": "fcrb:live_simple_14-3-10-neg",
     "dataset": "DeRef fcrb",
-    "category": "wrong_selection",
+    "category": "fabricated_value",
     "call": {
       "name": "get_current_weather",
       "arguments": {
@@ -6501,7 +6501,7 @@
   {
     "id": "fcrb:live_simple_149-95-6-neg",
     "dataset": "DeRef fcrb",
-    "category": "wrong_selection",
+    "category": "fabricated_value",
     "call": {
       "name": "cmd_controller_execute",
       "arguments": {
@@ -6539,7 +6539,7 @@
   {
     "id": "fcrb:live_simple_153-95-10-neg",
     "dataset": "DeRef fcrb",
-    "category": "wrong_selection",
+    "category": "fabricated_value",
     "call": {
       "name": "cmd_controller_execute",
       "arguments": {
@@ -6576,7 +6576,7 @@
   {
     "id": "fcrb:live_simple_159-95-16-neg",
     "dataset": "DeRef fcrb",
-    "category": "wrong_selection",
+    "category": "fabricated_value",
     "call": {
       "name": "cmd_controller_execute",
       "arguments": {
@@ -6673,7 +6673,7 @@
   {
     "id": "fcrb:live_simple_169-99-3-neg",
     "dataset": "DeRef fcrb",
-    "category": "wrong_selection",
+    "category": "fabricated_value",
     "call": {
       "name": "cmd_controller_execute",
       "arguments": {
@@ -6789,7 +6789,7 @@
   {
     "id": "fcrb:live_simple_185-110-0-neg",
     "dataset": "DeRef fcrb",
-    "category": "wrong_format",
+    "category": "fabricated_value",
     "call": {
       "name": "get_service_providers",
       "arguments": {
@@ -6804,7 +6804,7 @@
   {
     "id": "fcrb:live_simple_187-112-0-neg",
     "dataset": "DeRef fcrb",
-    "category": "wrong_format",
+    "category": "fabricated_value",
     "call": {
       "name": "get_service_providers",
       "arguments": {
@@ -6823,7 +6823,7 @@
   {
     "id": "fcrb:live_simple_19-3-15-neg",
     "dataset": "DeRef fcrb",
-    "category": "wrong_selection",
+    "category": "fabricated_value",
     "call": {
       "name": "get_current_weather",
       "arguments": {
@@ -6875,7 +6875,7 @@
   {
     "id": "fcrb:live_simple_205-116-13-neg",
     "dataset": "DeRef fcrb",
-    "category": "wrong_selection",
+    "category": "wrong_format",
     "call": {
       "name": "Weather_1_GetWeather",
       "arguments": {
@@ -6915,7 +6915,7 @@
   {
     "id": "fcrb:live_simple_209-117-1-neg",
     "dataset": "DeRef fcrb",
-    "category": "fabricated_value",
+    "category": "other",
     "call": {
       "name": "Movies_3_FindMovies",
       "arguments": {
@@ -6942,7 +6942,7 @@
   {
     "id": "fcrb:live_simple_212-117-4-neg",
     "dataset": "DeRef fcrb",
-    "category": "fabricated_value",
+    "category": "other",
     "call": {
       "name": "Movies_3_FindMovies",
       "arguments": {
@@ -6956,7 +6956,7 @@
   {
     "id": "fcrb:live_simple_214-117-6-neg",
     "dataset": "DeRef fcrb",
-    "category": "fabricated_value",
+    "category": "wrong_selection",
     "call": {
       "name": "Movies_3_FindMovies",
       "arguments": {
@@ -6970,7 +6970,7 @@
   {
     "id": "fcrb:live_simple_216-117-8-neg",
     "dataset": "DeRef fcrb",
-    "category": "fabricated_value",
+    "category": "other",
     "call": {
       "name": "Movies_3_FindMovies",
       "arguments": {
@@ -6984,7 +6984,7 @@
   {
     "id": "fcrb:live_simple_218-117-10-neg",
     "dataset": "DeRef fcrb",
-    "category": "fabricated_value",
+    "category": "other",
     "call": {
       "name": "Movies_3_FindMovies",
       "arguments": {
@@ -6998,7 +6998,7 @@
   {
     "id": "fcrb:live_simple_219-117-11-neg",
     "dataset": "DeRef fcrb",
-    "category": "fabricated_value",
+    "category": "other",
     "call": {
       "name": "Movies_3_FindMovies",
       "arguments": {
@@ -7012,7 +7012,7 @@
   {
     "id": "fcrb:live_simple_22-5-0-neg",
     "dataset": "DeRef fcrb",
-    "category": "wrong_selection",
+    "category": "wrong_format",
     "call": {
       "name": "ChaFod",
       "arguments": {
@@ -7039,7 +7039,7 @@
   {
     "id": "fcrb:live_simple_223-117-15-neg",
     "dataset": "DeRef fcrb",
-    "category": "fabricated_value",
+    "category": "wrong_selection",
     "call": {
       "name": "Movies_3_FindMovies",
       "arguments": {
@@ -7124,7 +7124,7 @@
   {
     "id": "fcrb:live_simple_235-124-0-neg",
     "dataset": "DeRef fcrb",
-    "category": "wrong_selection",
+    "category": "fabricated_value",
     "call": {
       "name": "play_spotify_song",
       "arguments": {
@@ -7136,7 +7136,7 @@
   {
     "id": "fcrb:live_simple_236-124-1-neg",
     "dataset": "DeRef fcrb",
-    "category": "fabricated_value",
+    "category": "wrong_selection",
     "call": {
       "name": "play_spotify_song",
       "arguments": {
@@ -7187,7 +7187,7 @@
   {
     "id": "fcrb:live_simple_248-130-0-neg",
     "dataset": "DeRef fcrb",
-    "category": "wrong_selection",
+    "category": "other",
     "call": {
       "name": "acl_api_AclApi_retrieve_projects",
       "arguments": {
@@ -7201,7 +7201,7 @@
   {
     "id": "fcrb:live_simple_25-5-3-neg",
     "dataset": "DeRef fcrb",
-    "category": "wrong_selection",
+    "category": "wrong_format",
     "call": {
       "name": "ChaFod",
       "arguments": {
@@ -7325,7 +7325,7 @@
   {
     "id": "fcrb:live_simple_3-2-1-neg",
     "dataset": "DeRef fcrb",
-    "category": "wrong_selection",
+    "category": "fabricated_value",
     "call": {
       "name": "uber_ride",
       "arguments": {
@@ -7339,7 +7339,7 @@
   {
     "id": "fcrb:live_simple_30-8-0-neg",
     "dataset": "DeRef fcrb",
-    "category": "wrong_selection",
+    "category": "wrong_format",
     "call": {
       "name": "aws_lexv2_models_list_exports",
       "arguments": {
@@ -7357,7 +7357,7 @@
   {
     "id": "fcrb:live_simple_31-8-1-neg",
     "dataset": "DeRef fcrb",
-    "category": "wrong_selection",
+    "category": "wrong_format",
     "call": {
       "name": "aws_lexv2_models_list_exports",
       "arguments": {
@@ -7374,7 +7374,7 @@
   {
     "id": "fcrb:live_simple_32-9-0-neg",
     "dataset": "DeRef fcrb",
-    "category": "wrong_selection",
+    "category": "other",
     "call": {
       "name": "answer_string",
       "arguments": {
@@ -7386,7 +7386,7 @@
   {
     "id": "fcrb:live_simple_33-10-0-neg",
     "dataset": "DeRef fcrb",
-    "category": "wrong_selection",
+    "category": "fabricated_value",
     "call": {
       "name": "answer_string",
       "arguments": {
@@ -7398,7 +7398,7 @@
   {
     "id": "fcrb:live_simple_35-12-0-neg",
     "dataset": "DeRef fcrb",
-    "category": "wrong_selection",
+    "category": "other",
     "call": {
       "name": "answer_string",
       "arguments": {
@@ -7462,7 +7462,7 @@
   {
     "id": "fcrb:live_simple_40-17-0-neg",
     "dataset": "DeRef fcrb",
-    "category": "wrong_selection",
+    "category": "fabricated_value",
     "call": {
       "name": "ThinQ_Connect",
       "arguments": {
@@ -7478,7 +7478,7 @@
   {
     "id": "fcrb:live_simple_45-18-1-neg",
     "dataset": "DeRef fcrb",
-    "category": "wrong_selection",
+    "category": "fabricated_value",
     "call": {
       "name": "ThinQ_Connect",
       "arguments": {
@@ -7512,7 +7512,7 @@
   {
     "id": "fcrb:live_simple_5-3-1-neg",
     "dataset": "DeRef fcrb",
-    "category": "wrong_selection",
+    "category": "fabricated_value",
     "call": {
       "name": "get_current_weather",
       "arguments": {
@@ -7525,7 +7525,7 @@
   {
     "id": "fcrb:live_simple_52-23-1-neg",
     "dataset": "DeRef fcrb",
-    "category": "wrong_selection",
+    "category": "fabricated_value",
     "call": {
       "name": "ThinQ_Connect",
       "arguments": {
@@ -7614,7 +7614,7 @@
   {
     "id": "fcrb:live_simple_77-38-0-neg",
     "dataset": "DeRef fcrb",
-    "category": "fabricated_value",
+    "category": "wrong_selection",
     "call": {
       "name": "weather_get",
       "arguments": {
@@ -7659,7 +7659,7 @@
   {
     "id": "fcrb:live_simple_85-46-0-neg",
     "dataset": "DeRef fcrb",
-    "category": "wrong_selection",
+    "category": "wrong_format",
     "call": {
       "name": "open_meteo_api_fetch_weather_data",
       "arguments": {
@@ -7689,7 +7689,7 @@
   {
     "id": "fcrb:live_simple_9-3-5-neg",
     "dataset": "DeRef fcrb",
-    "category": "wrong_selection",
+    "category": "fabricated_value",
     "call": {
       "name": "get_current_weather",
       "arguments": {
@@ -7741,7 +7741,7 @@
   {
     "id": "fcrb:multiple_10-neg",
     "dataset": "DeRef fcrb",
-    "category": "fabricated_value",
+    "category": "wrong_selection",
     "call": {
       "name": "database_modify_columns",
       "arguments": {
@@ -7759,7 +7759,7 @@
   {
     "id": "fcrb:multiple_12-neg",
     "dataset": "DeRef fcrb",
-    "category": "wrong_selection",
+    "category": "fabricated_value",
     "call": {
       "name": "corporate_finance_calculate_YOY_growth_rate",
       "arguments": {
@@ -7789,7 +7789,7 @@
   {
     "id": "fcrb:multiple_149-neg",
     "dataset": "DeRef fcrb",
-    "category": "wrong_selection",
+    "category": "fabricated_value",
     "call": {
       "name": "sentiment_analysis",
       "arguments": {
@@ -7802,7 +7802,7 @@
   {
     "id": "fcrb:multiple_151-neg",
     "dataset": "DeRef fcrb",
-    "category": "fabricated_value",
+    "category": "wrong_selection",
     "call": {
       "name": "social_media_analytics_most_followed",
       "arguments": {
@@ -7832,7 +7832,7 @@
   {
     "id": "fcrb:multiple_190-neg",
     "dataset": "DeRef fcrb",
-    "category": "wrong_selection",
+    "category": "wrong_format",
     "call": {
       "name": "book_hotel",
       "arguments": {
@@ -7921,7 +7921,7 @@
   {
     "id": "fcrb:multiple_38-neg",
     "dataset": "DeRef fcrb",
-    "category": "wrong_selection",
+    "category": "fabricated_value",
     "call": {
       "name": "library_search_book",
       "arguments": {
@@ -8030,7 +8030,7 @@
   {
     "id": "fcrb:multiple_67-neg",
     "dataset": "DeRef fcrb",
-    "category": "wrong_selection",
+    "category": "fabricated_value",
     "call": {
       "name": "translate",
       "arguments": {
@@ -8070,7 +8070,7 @@
   {
     "id": "fcrb:multiple_80-neg",
     "dataset": "DeRef fcrb",
-    "category": "wrong_selection",
+    "category": "fabricated_value",
     "call": {
       "name": "music_shop_find_nearby",
       "arguments": {
@@ -8103,7 +8103,7 @@
   {
     "id": "fcrb:multiple_92-neg",
     "dataset": "DeRef fcrb",
-    "category": "fabricated_value",
+    "category": "wrong_selection",
     "call": {
       "name": "walmart_vegan_products",
       "arguments": {
@@ -8196,7 +8196,7 @@
   {
     "id": "fcrb:simple_127-neg",
     "dataset": "DeRef fcrb",
-    "category": "fabricated_value",
+    "category": "wrong_selection",
     "call": {
       "name": "calculate_NPV",
       "arguments": {
@@ -8328,7 +8328,7 @@
   {
     "id": "fcrb:simple_17-neg",
     "dataset": "DeRef fcrb",
-    "category": "wrong_selection",
+    "category": "fabricated_value",
     "call": {
       "name": "get_prime_factors",
       "arguments": {
@@ -8482,7 +8482,7 @@
   {
     "id": "fcrb:simple_209-neg",
     "dataset": "DeRef fcrb",
-    "category": "wrong_selection",
+    "category": "wrong_format",
     "call": {
       "name": "public_library_find_nearby",
       "arguments": {
@@ -8498,7 +8498,7 @@
   {
     "id": "fcrb:simple_214-neg",
     "dataset": "DeRef fcrb",
-    "category": "fabricated_value",
+    "category": "wrong_selection",
     "call": {
       "name": "event_finder_find_upcoming",
       "arguments": {
@@ -8568,7 +8568,7 @@
   {
     "id": "fcrb:simple_225-neg",
     "dataset": "DeRef fcrb",
-    "category": "wrong_selection",
+    "category": "fabricated_value",
     "call": {
       "name": "psych_research_get_preference",
       "arguments": {
@@ -8679,7 +8679,7 @@
   {
     "id": "fcrb:simple_267-neg",
     "dataset": "DeRef fcrb",
-    "category": "fabricated_value",
+    "category": "wrong_selection",
     "call": {
       "name": "find_exhibition",
       "arguments": {
@@ -8877,7 +8877,7 @@
   {
     "id": "fcrb:simple_323-neg",
     "dataset": "DeRef fcrb",
-    "category": "wrong_selection",
+    "category": "fabricated_value",
     "call": {
       "name": "sports_ranking_get_top_player",
       "arguments": {
@@ -8936,7 +8936,7 @@
   {
     "id": "fcrb:simple_340-neg",
     "dataset": "DeRef fcrb",
-    "category": "wrong_selection",
+    "category": "fabricated_value",
     "call": {
       "name": "card_games_poker_determine_winner",
       "arguments": {
@@ -8990,7 +8990,7 @@
   {
     "id": "fcrb:simple_358-neg",
     "dataset": "DeRef fcrb",
-    "category": "wrong_selection",
+    "category": "fabricated_value",
     "call": {
       "name": "recipe_search",
       "arguments": {
@@ -9048,7 +9048,7 @@
   {
     "id": "fcrb:simple_369-neg",
     "dataset": "DeRef fcrb",
-    "category": "fabricated_value",
+    "category": "wrong_format",
     "call": {
       "name": "grocery_store_find_nearby",
       "arguments": {
@@ -9171,7 +9171,7 @@
   {
     "id": "fcrb:simple_387-neg",
     "dataset": "DeRef fcrb",
-    "category": "fabricated_value",
+    "category": "wrong_selection",
     "call": {
       "name": "hotel_booking",
       "arguments": {
@@ -9227,7 +9227,7 @@
   {
     "id": "fcrb:simple_395-neg",
     "dataset": "DeRef fcrb",
-    "category": "wrong_selection",
+    "category": "fabricated_value",
     "call": {
       "name": "parking_lot_find_nearest",
       "arguments": {
@@ -9253,7 +9253,7 @@
   {
     "id": "fcrb:simple_45-neg",
     "dataset": "DeRef fcrb",
-    "category": "wrong_selection",
+    "category": "fabricated_value",
     "call": {
       "name": "thermo_calculate_energy",
       "arguments": {
@@ -9298,7 +9298,7 @@
   {
     "id": "fcrb:simple_51-neg",
     "dataset": "DeRef fcrb",
-    "category": "wrong_selection",
+    "category": "fabricated_value",
     "call": {
       "name": "calculate_entropy_change",
       "arguments": {
@@ -9396,7 +9396,7 @@
   {
     "id": "fcrb:simple_69-neg",
     "dataset": "DeRef fcrb",
-    "category": "wrong_selection",
+    "category": "fabricated_value",
     "call": {
       "name": "ecology_get_turtle_population",
       "arguments": {
@@ -9455,7 +9455,7 @@
   {
     "id": "fcrb:simple_83-neg",
     "dataset": "DeRef fcrb",
-    "category": "fabricated_value",
+    "category": "wrong_selection",
     "call": {
       "name": "calculate_distance",
       "arguments": {
@@ -9475,7 +9475,7 @@
   {
     "id": "fcrb:simple_89-neg",
     "dataset": "DeRef fcrb",
-    "category": "fabricated_value",
+    "category": "wrong_selection",
     "call": {
       "name": "db_fetch_records",
       "arguments": {
