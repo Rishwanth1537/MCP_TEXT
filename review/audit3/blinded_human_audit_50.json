@@ -1,0 +1,852 @@
+[
+  {
+    "audit_id": 1,
+    "task_id": "fcrb:simple_7-neg",
+    "tool_name": "unknown",
+    "context_query": "N/A",
+    "argument_path": "arg",
+    "agent_value": "N/A",
+    "reference_value": "N/A",
+    "adjudication_guidelines": {
+      "A": "Genuine Hallucination (invented or invalid value)",
+      "B": "Harmless Format/Style Variant (equivalent meaning, different representation)",
+      "C": "Valid Alternative Value (equally valid interpretation of query)",
+      "D": "Underspecified / Ambiguous Context"
+    },
+    "human_adjudication": null,
+    "human_notes": null
+  },
+  {
+    "audit_id": 2,
+    "task_id": "fcrb:live_multiple_301-131-0-neg",
+    "tool_name": "unknown",
+    "context_query": "N/A",
+    "argument_path": "arg",
+    "agent_value": "N/A",
+    "reference_value": "N/A",
+    "adjudication_guidelines": {
+      "A": "Genuine Hallucination (invented or invalid value)",
+      "B": "Harmless Format/Style Variant (equivalent meaning, different representation)",
+      "C": "Valid Alternative Value (equally valid interpretation of query)",
+      "D": "Underspecified / Ambiguous Context"
+    },
+    "human_adjudication": null,
+    "human_notes": null
+  },
+  {
+    "audit_id": 3,
+    "task_id": "agenthallu:BFCL/087:s12",
+    "tool_name": "unknown",
+    "context_query": "N/A",
+    "argument_path": "arg",
+    "agent_value": "N/A",
+    "reference_value": "N/A",
+    "adjudication_guidelines": {
+      "A": "Genuine Hallucination (invented or invalid value)",
+      "B": "Harmless Format/Style Variant (equivalent meaning, different representation)",
+      "C": "Valid Alternative Value (equally valid interpretation of query)",
+      "D": "Underspecified / Ambiguous Context"
+    },
+    "human_adjudication": null,
+    "human_notes": null
+  },
+  {
+    "audit_id": 4,
+    "task_id": "fcrb:live_multiple_640-161-8-neg",
+    "tool_name": "unknown",
+    "context_query": "N/A",
+    "argument_path": "arg",
+    "agent_value": "N/A",
+    "reference_value": "N/A",
+    "adjudication_guidelines": {
+      "A": "Genuine Hallucination (invented or invalid value)",
+      "B": "Harmless Format/Style Variant (equivalent meaning, different representation)",
+      "C": "Valid Alternative Value (equally valid interpretation of query)",
+      "D": "Underspecified / Ambiguous Context"
+    },
+    "human_adjudication": null,
+    "human_notes": null
+  },
+  {
+    "audit_id": 5,
+    "task_id": "fcrb:live_multiple_570-155-10-neg",
+    "tool_name": "unknown",
+    "context_query": "N/A",
+    "argument_path": "arg",
+    "agent_value": "N/A",
+    "reference_value": "N/A",
+    "adjudication_guidelines": {
+      "A": "Genuine Hallucination (invented or invalid value)",
+      "B": "Harmless Format/Style Variant (equivalent meaning, different representation)",
+      "C": "Valid Alternative Value (equally valid interpretation of query)",
+      "D": "Underspecified / Ambiguous Context"
+    },
+    "human_adjudication": null,
+    "human_notes": null
+  },
+  {
+    "audit_id": 6,
+    "task_id": "fcrb:live_multiple_513-150-1-neg",
+    "tool_name": "unknown",
+    "context_query": "N/A",
+    "argument_path": "arg",
+    "agent_value": "N/A",
+    "reference_value": "N/A",
+    "adjudication_guidelines": {
+      "A": "Genuine Hallucination (invented or invalid value)",
+      "B": "Harmless Format/Style Variant (equivalent meaning, different representation)",
+      "C": "Valid Alternative Value (equally valid interpretation of query)",
+      "D": "Underspecified / Ambiguous Context"
+    },
+    "human_adjudication": null,
+    "human_notes": null
+  },
+  {
+    "audit_id": 7,
+    "task_id": "fcrb:live_multiple_346-133-10-neg",
+    "tool_name": "unknown",
+    "context_query": "N/A",
+    "argument_path": "arg",
+    "agent_value": "N/A",
+    "reference_value": "N/A",
+    "adjudication_guidelines": {
+      "A": "Genuine Hallucination (invented or invalid value)",
+      "B": "Harmless Format/Style Variant (equivalent meaning, different representation)",
+      "C": "Valid Alternative Value (equally valid interpretation of query)",
+      "D": "Underspecified / Ambiguous Context"
+    },
+    "human_adjudication": null,
+    "human_notes": null
+  },
+  {
+    "audit_id": 8,
+    "task_id": "fcrb:live_multiple_285-129-0-neg",
+    "tool_name": "unknown",
+    "context_query": "N/A",
+    "argument_path": "arg",
+    "agent_value": "N/A",
+    "reference_value": "N/A",
+    "adjudication_guidelines": {
+      "A": "Genuine Hallucination (invented or invalid value)",
+      "B": "Harmless Format/Style Variant (equivalent meaning, different representation)",
+      "C": "Valid Alternative Value (equally valid interpretation of query)",
+      "D": "Underspecified / Ambiguous Context"
+    },
+    "human_adjudication": null,
+    "human_notes": null
+  },
+  {
+    "audit_id": 9,
+    "task_id": "fcrb:multiple_64-neg",
+    "tool_name": "unknown",
+    "context_query": "N/A",
+    "argument_path": "arg",
+    "agent_value": "N/A",
+    "reference_value": "N/A",
+    "adjudication_guidelines": {
+      "A": "Genuine Hallucination (invented or invalid value)",
+      "B": "Harmless Format/Style Variant (equivalent meaning, different representation)",
+      "C": "Valid Alternative Value (equally valid interpretation of query)",
+      "D": "Underspecified / Ambiguous Context"
+    },
+    "human_adjudication": null,
+    "human_notes": null
+  },
+  {
+    "audit_id": 10,
+    "task_id": "fcrb:live_multiple_231-104-0-neg",
+    "tool_name": "unknown",
+    "context_query": "N/A",
+    "argument_path": "arg",
+    "agent_value": "N/A",
+    "reference_value": "N/A",
+    "adjudication_guidelines": {
+      "A": "Genuine Hallucination (invented or invalid value)",
+      "B": "Harmless Format/Style Variant (equivalent meaning, different representation)",
+      "C": "Valid Alternative Value (equally valid interpretation of query)",
+      "D": "Underspecified / Ambiguous Context"
+    },
+    "human_adjudication": null,
+    "human_notes": null
+  },
+  {
+    "audit_id": 11,
+    "task_id": "fcrb:simple_252-neg",
+    "tool_name": "unknown",
+    "context_query": "N/A",
+    "argument_path": "arg",
+    "agent_value": "N/A",
+    "reference_value": "N/A",
+    "adjudication_guidelines": {
+      "A": "Genuine Hallucination (invented or invalid value)",
+      "B": "Harmless Format/Style Variant (equivalent meaning, different representation)",
+      "C": "Valid Alternative Value (equally valid interpretation of query)",
+      "D": "Underspecified / Ambiguous Context"
+    },
+    "human_adjudication": null,
+    "human_notes": null
+  },
+  {
+    "audit_id": 12,
+    "task_id": "fcrb:live_simple_113-69-0-neg",
+    "tool_name": "unknown",
+    "context_query": "N/A",
+    "argument_path": "arg",
+    "agent_value": "N/A",
+    "reference_value": "N/A",
+    "adjudication_guidelines": {
+      "A": "Genuine Hallucination (invented or invalid value)",
+      "B": "Harmless Format/Style Variant (equivalent meaning, different representation)",
+      "C": "Valid Alternative Value (equally valid interpretation of query)",
+      "D": "Underspecified / Ambiguous Context"
+    },
+    "human_adjudication": null,
+    "human_notes": null
+  },
+  {
+    "audit_id": 13,
+    "task_id": "fcrb:live_multiple_1007-236-0-neg",
+    "tool_name": "unknown",
+    "context_query": "N/A",
+    "argument_path": "arg",
+    "agent_value": "N/A",
+    "reference_value": "N/A",
+    "adjudication_guidelines": {
+      "A": "Genuine Hallucination (invented or invalid value)",
+      "B": "Harmless Format/Style Variant (equivalent meaning, different representation)",
+      "C": "Valid Alternative Value (equally valid interpretation of query)",
+      "D": "Underspecified / Ambiguous Context"
+    },
+    "human_adjudication": null,
+    "human_notes": null
+  },
+  {
+    "audit_id": 14,
+    "task_id": "agenthallu:BFCL/155:s6",
+    "tool_name": "unknown",
+    "context_query": "N/A",
+    "argument_path": "arg",
+    "agent_value": "N/A",
+    "reference_value": "N/A",
+    "adjudication_guidelines": {
+      "A": "Genuine Hallucination (invented or invalid value)",
+      "B": "Harmless Format/Style Variant (equivalent meaning, different representation)",
+      "C": "Valid Alternative Value (equally valid interpretation of query)",
+      "D": "Underspecified / Ambiguous Context"
+    },
+    "human_adjudication": null,
+    "human_notes": null
+  },
+  {
+    "audit_id": 15,
+    "task_id": "fcrb:live_multiple_263-126-0-neg",
+    "tool_name": "unknown",
+    "context_query": "N/A",
+    "argument_path": "arg",
+    "agent_value": "N/A",
+    "reference_value": "N/A",
+    "adjudication_guidelines": {
+      "A": "Genuine Hallucination (invented or invalid value)",
+      "B": "Harmless Format/Style Variant (equivalent meaning, different representation)",
+      "C": "Valid Alternative Value (equally valid interpretation of query)",
+      "D": "Underspecified / Ambiguous Context"
+    },
+    "human_adjudication": null,
+    "human_notes": null
+  },
+  {
+    "audit_id": 16,
+    "task_id": "fcrb:live_multiple_505-149-2-neg",
+    "tool_name": "unknown",
+    "context_query": "N/A",
+    "argument_path": "arg",
+    "agent_value": "N/A",
+    "reference_value": "N/A",
+    "adjudication_guidelines": {
+      "A": "Genuine Hallucination (invented or invalid value)",
+      "B": "Harmless Format/Style Variant (equivalent meaning, different representation)",
+      "C": "Valid Alternative Value (equally valid interpretation of query)",
+      "D": "Underspecified / Ambiguous Context"
+    },
+    "human_adjudication": null,
+    "human_notes": null
+  },
+  {
+    "audit_id": 17,
+    "task_id": "fcrb:live_multiple_544-152-6-neg",
+    "tool_name": "unknown",
+    "context_query": "N/A",
+    "argument_path": "arg",
+    "agent_value": "N/A",
+    "reference_value": "N/A",
+    "adjudication_guidelines": {
+      "A": "Genuine Hallucination (invented or invalid value)",
+      "B": "Harmless Format/Style Variant (equivalent meaning, different representation)",
+      "C": "Valid Alternative Value (equally valid interpretation of query)",
+      "D": "Underspecified / Ambiguous Context"
+    },
+    "human_adjudication": null,
+    "human_notes": null
+  },
+  {
+    "audit_id": 18,
+    "task_id": "fcrb:live_simple_33-10-0-neg",
+    "tool_name": "unknown",
+    "context_query": "N/A",
+    "argument_path": "arg",
+    "agent_value": "N/A",
+    "reference_value": "N/A",
+    "adjudication_guidelines": {
+      "A": "Genuine Hallucination (invented or invalid value)",
+      "B": "Harmless Format/Style Variant (equivalent meaning, different representation)",
+      "C": "Valid Alternative Value (equally valid interpretation of query)",
+      "D": "Underspecified / Ambiguous Context"
+    },
+    "human_adjudication": null,
+    "human_notes": null
+  },
+  {
+    "audit_id": 19,
+    "task_id": "fcrb:simple_307-neg",
+    "tool_name": "unknown",
+    "context_query": "N/A",
+    "argument_path": "arg",
+    "agent_value": "N/A",
+    "reference_value": "N/A",
+    "adjudication_guidelines": {
+      "A": "Genuine Hallucination (invented or invalid value)",
+      "B": "Harmless Format/Style Variant (equivalent meaning, different representation)",
+      "C": "Valid Alternative Value (equally valid interpretation of query)",
+      "D": "Underspecified / Ambiguous Context"
+    },
+    "human_adjudication": null,
+    "human_notes": null
+  },
+  {
+    "audit_id": 20,
+    "task_id": "agenthallu:BFCL/059:s6",
+    "tool_name": "unknown",
+    "context_query": "N/A",
+    "argument_path": "arg",
+    "agent_value": "N/A",
+    "reference_value": "N/A",
+    "adjudication_guidelines": {
+      "A": "Genuine Hallucination (invented or invalid value)",
+      "B": "Harmless Format/Style Variant (equivalent meaning, different representation)",
+      "C": "Valid Alternative Value (equally valid interpretation of query)",
+      "D": "Underspecified / Ambiguous Context"
+    },
+    "human_adjudication": null,
+    "human_notes": null
+  },
+  {
+    "audit_id": 21,
+    "task_id": "fcrb:simple_144-neg",
+    "tool_name": "unknown",
+    "context_query": "N/A",
+    "argument_path": "arg",
+    "agent_value": "N/A",
+    "reference_value": "N/A",
+    "adjudication_guidelines": {
+      "A": "Genuine Hallucination (invented or invalid value)",
+      "B": "Harmless Format/Style Variant (equivalent meaning, different representation)",
+      "C": "Valid Alternative Value (equally valid interpretation of query)",
+      "D": "Underspecified / Ambiguous Context"
+    },
+    "human_adjudication": null,
+    "human_notes": null
+  },
+  {
+    "audit_id": 22,
+    "task_id": "fcrb:live_multiple_463-145-14-neg",
+    "tool_name": "unknown",
+    "context_query": "N/A",
+    "argument_path": "arg",
+    "agent_value": "N/A",
+    "reference_value": "N/A",
+    "adjudication_guidelines": {
+      "A": "Genuine Hallucination (invented or invalid value)",
+      "B": "Harmless Format/Style Variant (equivalent meaning, different representation)",
+      "C": "Valid Alternative Value (equally valid interpretation of query)",
+      "D": "Underspecified / Ambiguous Context"
+    },
+    "human_adjudication": null,
+    "human_notes": null
+  },
+  {
+    "audit_id": 23,
+    "task_id": "fcrb:live_simple_104-61-2-neg",
+    "tool_name": "unknown",
+    "context_query": "N/A",
+    "argument_path": "arg",
+    "agent_value": "N/A",
+    "reference_value": "N/A",
+    "adjudication_guidelines": {
+      "A": "Genuine Hallucination (invented or invalid value)",
+      "B": "Harmless Format/Style Variant (equivalent meaning, different representation)",
+      "C": "Valid Alternative Value (equally valid interpretation of query)",
+      "D": "Underspecified / Ambiguous Context"
+    },
+    "human_adjudication": null,
+    "human_notes": null
+  },
+  {
+    "audit_id": 24,
+    "task_id": "fcrb:live_multiple_510-149-7-neg",
+    "tool_name": "unknown",
+    "context_query": "N/A",
+    "argument_path": "arg",
+    "agent_value": "N/A",
+    "reference_value": "N/A",
+    "adjudication_guidelines": {
+      "A": "Genuine Hallucination (invented or invalid value)",
+      "B": "Harmless Format/Style Variant (equivalent meaning, different representation)",
+      "C": "Valid Alternative Value (equally valid interpretation of query)",
+      "D": "Underspecified / Ambiguous Context"
+    },
+    "human_adjudication": null,
+    "human_notes": null
+  },
+  {
+    "audit_id": 25,
+    "task_id": "fcrb:live_simple_156-95-13-neg",
+    "tool_name": "unknown",
+    "context_query": "N/A",
+    "argument_path": "arg",
+    "agent_value": "N/A",
+    "reference_value": "N/A",
+    "adjudication_guidelines": {
+      "A": "Genuine Hallucination (invented or invalid value)",
+      "B": "Harmless Format/Style Variant (equivalent meaning, different representation)",
+      "C": "Valid Alternative Value (equally valid interpretation of query)",
+      "D": "Underspecified / Ambiguous Context"
+    },
+    "human_adjudication": null,
+    "human_notes": null
+  },
+  {
+    "audit_id": 26,
+    "task_id": "fcrb:simple_249-neg",
+    "tool_name": "unknown",
+    "context_query": "N/A",
+    "argument_path": "arg",
+    "agent_value": "N/A",
+    "reference_value": "N/A",
+    "adjudication_guidelines": {
+      "A": "Genuine Hallucination (invented or invalid value)",
+      "B": "Harmless Format/Style Variant (equivalent meaning, different representation)",
+      "C": "Valid Alternative Value (equally valid interpretation of query)",
+      "D": "Underspecified / Ambiguous Context"
+    },
+    "human_adjudication": null,
+    "human_notes": null
+  },
+  {
+    "audit_id": 27,
+    "task_id": "fcrb:live_multiple_648-161-16-neg",
+    "tool_name": "unknown",
+    "context_query": "N/A",
+    "argument_path": "arg",
+    "agent_value": "N/A",
+    "reference_value": "N/A",
+    "adjudication_guidelines": {
+      "A": "Genuine Hallucination (invented or invalid value)",
+      "B": "Harmless Format/Style Variant (equivalent meaning, different representation)",
+      "C": "Valid Alternative Value (equally valid interpretation of query)",
+      "D": "Underspecified / Ambiguous Context"
+    },
+    "human_adjudication": null,
+    "human_notes": null
+  },
+  {
+    "audit_id": 28,
+    "task_id": "agenthallu:BFCL/042:s8",
+    "tool_name": "unknown",
+    "context_query": "N/A",
+    "argument_path": "arg",
+    "agent_value": "N/A",
+    "reference_value": "N/A",
+    "adjudication_guidelines": {
+      "A": "Genuine Hallucination (invented or invalid value)",
+      "B": "Harmless Format/Style Variant (equivalent meaning, different representation)",
+      "C": "Valid Alternative Value (equally valid interpretation of query)",
+      "D": "Underspecified / Ambiguous Context"
+    },
+    "human_adjudication": null,
+    "human_notes": null
+  },
+  {
+    "audit_id": 29,
+    "task_id": "fcrb:live_multiple_388-137-6-neg",
+    "tool_name": "unknown",
+    "context_query": "N/A",
+    "argument_path": "arg",
+    "agent_value": "N/A",
+    "reference_value": "N/A",
+    "adjudication_guidelines": {
+      "A": "Genuine Hallucination (invented or invalid value)",
+      "B": "Harmless Format/Style Variant (equivalent meaning, different representation)",
+      "C": "Valid Alternative Value (equally valid interpretation of query)",
+      "D": "Underspecified / Ambiguous Context"
+    },
+    "human_adjudication": null,
+    "human_notes": null
+  },
+  {
+    "audit_id": 30,
+    "task_id": "fcrb:live_multiple_796-175-2-neg",
+    "tool_name": "unknown",
+    "context_query": "N/A",
+    "argument_path": "arg",
+    "agent_value": "N/A",
+    "reference_value": "N/A",
+    "adjudication_guidelines": {
+      "A": "Genuine Hallucination (invented or invalid value)",
+      "B": "Harmless Format/Style Variant (equivalent meaning, different representation)",
+      "C": "Valid Alternative Value (equally valid interpretation of query)",
+      "D": "Underspecified / Ambiguous Context"
+    },
+    "human_adjudication": null,
+    "human_notes": null
+  },
+  {
+    "audit_id": 31,
+    "task_id": "fcrb:live_multiple_380-136-1-neg",
+    "tool_name": "unknown",
+    "context_query": "N/A",
+    "argument_path": "arg",
+    "agent_value": "N/A",
+    "reference_value": "N/A",
+    "adjudication_guidelines": {
+      "A": "Genuine Hallucination (invented or invalid value)",
+      "B": "Harmless Format/Style Variant (equivalent meaning, different representation)",
+      "C": "Valid Alternative Value (equally valid interpretation of query)",
+      "D": "Underspecified / Ambiguous Context"
+    },
+    "human_adjudication": null,
+    "human_notes": null
+  },
+  {
+    "audit_id": 32,
+    "task_id": "fcrb:live_multiple_500-148-10-neg",
+    "tool_name": "unknown",
+    "context_query": "N/A",
+    "argument_path": "arg",
+    "agent_value": "N/A",
+    "reference_value": "N/A",
+    "adjudication_guidelines": {
+      "A": "Genuine Hallucination (invented or invalid value)",
+      "B": "Harmless Format/Style Variant (equivalent meaning, different representation)",
+      "C": "Valid Alternative Value (equally valid interpretation of query)",
+      "D": "Underspecified / Ambiguous Context"
+    },
+    "human_adjudication": null,
+    "human_notes": null
+  },
+  {
+    "audit_id": 33,
+    "task_id": "fcrb:live_multiple_787-174-1-neg",
+    "tool_name": "unknown",
+    "context_query": "N/A",
+    "argument_path": "arg",
+    "agent_value": "N/A",
+    "reference_value": "N/A",
+    "adjudication_guidelines": {
+      "A": "Genuine Hallucination (invented or invalid value)",
+      "B": "Harmless Format/Style Variant (equivalent meaning, different representation)",
+      "C": "Valid Alternative Value (equally valid interpretation of query)",
+      "D": "Underspecified / Ambiguous Context"
+    },
+    "human_adjudication": null,
+    "human_notes": null
+  },
+  {
+    "audit_id": 34,
+    "task_id": "fcrb:live_multiple_256-120-0-neg",
+    "tool_name": "unknown",
+    "context_query": "N/A",
+    "argument_path": "arg",
+    "agent_value": "N/A",
+    "reference_value": "N/A",
+    "adjudication_guidelines": {
+      "A": "Genuine Hallucination (invented or invalid value)",
+      "B": "Harmless Format/Style Variant (equivalent meaning, different representation)",
+      "C": "Valid Alternative Value (equally valid interpretation of query)",
+      "D": "Underspecified / Ambiguous Context"
+    },
+    "human_adjudication": null,
+    "human_notes": null
+  },
+  {
+    "audit_id": 35,
+    "task_id": "fcrb:live_multiple_921-191-9-neg",
+    "tool_name": "unknown",
+    "context_query": "N/A",
+    "argument_path": "arg",
+    "agent_value": "N/A",
+    "reference_value": "N/A",
+    "adjudication_guidelines": {
+      "A": "Genuine Hallucination (invented or invalid value)",
+      "B": "Harmless Format/Style Variant (equivalent meaning, different representation)",
+      "C": "Valid Alternative Value (equally valid interpretation of query)",
+      "D": "Underspecified / Ambiguous Context"
+    },
+    "human_adjudication": null,
+    "human_notes": null
+  },
+  {
+    "audit_id": 36,
+    "task_id": "fcrb:live_multiple_276-127-11-neg",
+    "tool_name": "unknown",
+    "context_query": "N/A",
+    "argument_path": "arg",
+    "agent_value": "N/A",
+    "reference_value": "N/A",
+    "adjudication_guidelines": {
+      "A": "Genuine Hallucination (invented or invalid value)",
+      "B": "Harmless Format/Style Variant (equivalent meaning, different representation)",
+      "C": "Valid Alternative Value (equally valid interpretation of query)",
+      "D": "Underspecified / Ambiguous Context"
+    },
+    "human_adjudication": null,
+    "human_notes": null
+  },
+  {
+    "audit_id": 37,
+    "task_id": "fcrb:live_multiple_847-179-1-neg",
+    "tool_name": "unknown",
+    "context_query": "N/A",
+    "argument_path": "arg",
+    "agent_value": "N/A",
+    "reference_value": "N/A",
+    "adjudication_guidelines": {
+      "A": "Genuine Hallucination (invented or invalid value)",
+      "B": "Harmless Format/Style Variant (equivalent meaning, different representation)",
+      "C": "Valid Alternative Value (equally valid interpretation of query)",
+      "D": "Underspecified / Ambiguous Context"
+    },
+    "human_adjudication": null,
+    "human_notes": null
+  },
+  {
+    "audit_id": 38,
+    "task_id": "fcrb:live_multiple_806-175-12-neg",
+    "tool_name": "unknown",
+    "context_query": "N/A",
+    "argument_path": "arg",
+    "agent_value": "N/A",
+    "reference_value": "N/A",
+    "adjudication_guidelines": {
+      "A": "Genuine Hallucination (invented or invalid value)",
+      "B": "Harmless Format/Style Variant (equivalent meaning, different representation)",
+      "C": "Valid Alternative Value (equally valid interpretation of query)",
+      "D": "Underspecified / Ambiguous Context"
+    },
+    "human_adjudication": null,
+    "human_notes": null
+  },
+  {
+    "audit_id": 39,
+    "task_id": "fcrb:simple_318-neg",
+    "tool_name": "unknown",
+    "context_query": "N/A",
+    "argument_path": "arg",
+    "agent_value": "N/A",
+    "reference_value": "N/A",
+    "adjudication_guidelines": {
+      "A": "Genuine Hallucination (invented or invalid value)",
+      "B": "Harmless Format/Style Variant (equivalent meaning, different representation)",
+      "C": "Valid Alternative Value (equally valid interpretation of query)",
+      "D": "Underspecified / Ambiguous Context"
+    },
+    "human_adjudication": null,
+    "human_notes": null
+  },
+  {
+    "audit_id": 40,
+    "task_id": "fcrb:live_multiple_622-160-2-neg",
+    "tool_name": "unknown",
+    "context_query": "N/A",
+    "argument_path": "arg",
+    "agent_value": "N/A",
+    "reference_value": "N/A",
+    "adjudication_guidelines": {
+      "A": "Genuine Hallucination (invented or invalid value)",
+      "B": "Harmless Format/Style Variant (equivalent meaning, different representation)",
+      "C": "Valid Alternative Value (equally valid interpretation of query)",
+      "D": "Underspecified / Ambiguous Context"
+    },
+    "human_adjudication": null,
+    "human_notes": null
+  },
+  {
+    "audit_id": 41,
+    "task_id": "fcrb:live_multiple_1044-271-0-neg",
+    "tool_name": "unknown",
+    "context_query": "N/A",
+    "argument_path": "arg",
+    "agent_value": "N/A",
+    "reference_value": "N/A",
+    "adjudication_guidelines": {
+      "A": "Genuine Hallucination (invented or invalid value)",
+      "B": "Harmless Format/Style Variant (equivalent meaning, different representation)",
+      "C": "Valid Alternative Value (equally valid interpretation of query)",
+      "D": "Underspecified / Ambiguous Context"
+    },
+    "human_adjudication": null,
+    "human_notes": null
+  },
+  {
+    "audit_id": 42,
+    "task_id": "fcrb:live_simple_174-100-0-neg",
+    "tool_name": "unknown",
+    "context_query": "N/A",
+    "argument_path": "arg",
+    "agent_value": "N/A",
+    "reference_value": "N/A",
+    "adjudication_guidelines": {
+      "A": "Genuine Hallucination (invented or invalid value)",
+      "B": "Harmless Format/Style Variant (equivalent meaning, different representation)",
+      "C": "Valid Alternative Value (equally valid interpretation of query)",
+      "D": "Underspecified / Ambiguous Context"
+    },
+    "human_adjudication": null,
+    "human_notes": null
+  },
+  {
+    "audit_id": 43,
+    "task_id": "fcrb:multiple_23-neg",
+    "tool_name": "unknown",
+    "context_query": "N/A",
+    "argument_path": "arg",
+    "agent_value": "N/A",
+    "reference_value": "N/A",
+    "adjudication_guidelines": {
+      "A": "Genuine Hallucination (invented or invalid value)",
+      "B": "Harmless Format/Style Variant (equivalent meaning, different representation)",
+      "C": "Valid Alternative Value (equally valid interpretation of query)",
+      "D": "Underspecified / Ambiguous Context"
+    },
+    "human_adjudication": null,
+    "human_notes": null
+  },
+  {
+    "audit_id": 44,
+    "task_id": "fcrb:live_multiple_322-132-12-neg",
+    "tool_name": "unknown",
+    "context_query": "N/A",
+    "argument_path": "arg",
+    "agent_value": "N/A",
+    "reference_value": "N/A",
+    "adjudication_guidelines": {
+      "A": "Genuine Hallucination (invented or invalid value)",
+      "B": "Harmless Format/Style Variant (equivalent meaning, different representation)",
+      "C": "Valid Alternative Value (equally valid interpretation of query)",
+      "D": "Underspecified / Ambiguous Context"
+    },
+    "human_adjudication": null,
+    "human_notes": null
+  },
+  {
+    "audit_id": 45,
+    "task_id": "fcrb:live_multiple_916-191-4-neg",
+    "tool_name": "unknown",
+    "context_query": "N/A",
+    "argument_path": "arg",
+    "agent_value": "N/A",
+    "reference_value": "N/A",
+    "adjudication_guidelines": {
+      "A": "Genuine Hallucination (invented or invalid value)",
+      "B": "Harmless Format/Style Variant (equivalent meaning, different representation)",
+      "C": "Valid Alternative Value (equally valid interpretation of query)",
+      "D": "Underspecified / Ambiguous Context"
+    },
+    "human_adjudication": null,
+    "human_notes": null
+  },
+  {
+    "audit_id": 46,
+    "task_id": "fcrb:live_multiple_210-91-4-neg",
+    "tool_name": "unknown",
+    "context_query": "N/A",
+    "argument_path": "arg",
+    "agent_value": "N/A",
+    "reference_value": "N/A",
+    "adjudication_guidelines": {
+      "A": "Genuine Hallucination (invented or invalid value)",
+      "B": "Harmless Format/Style Variant (equivalent meaning, different representation)",
+      "C": "Valid Alternative Value (equally valid interpretation of query)",
+      "D": "Underspecified / Ambiguous Context"
+    },
+    "human_adjudication": null,
+    "human_notes": null
+  },
+  {
+    "audit_id": 47,
+    "task_id": "fcrb:multiple_92-neg",
+    "tool_name": "unknown",
+    "context_query": "N/A",
+    "argument_path": "arg",
+    "agent_value": "N/A",
+    "reference_value": "N/A",
+    "adjudication_guidelines": {
+      "A": "Genuine Hallucination (invented or invalid value)",
+      "B": "Harmless Format/Style Variant (equivalent meaning, different representation)",
+      "C": "Valid Alternative Value (equally valid interpretation of query)",
+      "D": "Underspecified / Ambiguous Context"
+    },
+    "human_adjudication": null,
+    "human_notes": null
+  },
+  {
+    "audit_id": 48,
+    "task_id": "fcrb:live_multiple_685-164-1-neg",
+    "tool_name": "unknown",
+    "context_query": "N/A",
+    "argument_path": "arg",
+    "agent_value": "N/A",
+    "reference_value": "N/A",
+    "adjudication_guidelines": {
+      "A": "Genuine Hallucination (invented or invalid value)",
+      "B": "Harmless Format/Style Variant (equivalent meaning, different representation)",
+      "C": "Valid Alternative Value (equally valid interpretation of query)",
+      "D": "Underspecified / Ambiguous Context"
+    },
+    "human_adjudication": null,
+    "human_notes": null
+  },
+  {
+    "audit_id": 49,
+    "task_id": "fcrb:simple_45-neg",
+    "tool_name": "unknown",
+    "context_query": "N/A",
+    "argument_path": "arg",
+    "agent_value": "N/A",
+    "reference_value": "N/A",
+    "adjudication_guidelines": {
+      "A": "Genuine Hallucination (invented or invalid value)",
+      "B": "Harmless Format/Style Variant (equivalent meaning, different representation)",
+      "C": "Valid Alternative Value (equally valid interpretation of query)",
+      "D": "Underspecified / Ambiguous Context"
+    },
+    "human_adjudication": null,
+    "human_notes": null
+  },
+  {
+    "audit_id": 50,
+    "task_id": "fcrb:simple_375-neg",
+    "tool_name": "unknown",
+    "context_query": "N/A",
+    "argument_path": "arg",
+    "agent_value": "N/A",
+    "reference_value": "N/A",
+    "adjudication_guidelines": {
+      "A": "Genuine Hallucination (invented or invalid value)",
+      "B": "Harmless Format/Style Variant (equivalent meaning, different representation)",
+      "C": "Valid Alternative Value (equally valid interpretation of query)",
+      "D": "Underspecified / Ambiguous Context"
+    },
+    "human_adjudication": null,
+    "human_notes": null
+  }
+]

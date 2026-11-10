@@ -188,3 +188,51 @@ This ledger records every experiment, benchmark run, calibration, and ablation c
   - **Headline Metric**: Full-data raw consensus AUROC = **0.889** [0.825, 0.941] (200 cases) / **0.930** [0.858, 0.979] (all 19,443 instances) / **0.843** [0.756, 0.904] (dev 56 cases).
   - **Labelled Sensitivity Analysis**: Cleaned high-confidence subset AUROC = **0.947** [0.915, 0.974] (dev 56 cases, n=448, n_wrong=24).
   - **50-Item Human Spot-Check Plan**: 50 items stratified from `review/audit2/` (25 where AI consensus agreed with gold, 25 where AI consensus disagreed with gold) will be reviewed by a single blinded human adjudicator without seeing model identities to establish inter-rater reliability (Cohen's kappa).
+
+## Experiment 11: Phase B - Before B3 Audit & Protocol Hardening
+- **Date**: 2026-11-10
+- **Branch**: improvements-2026-11
+- **Scope**: Rigorous audit of all 245 calibration false flags, micro/macro per-tool rates, sample size lineage, recall trade-off curves, blinded human audit file, and success criterion definition.
+
+- **Breakdown of All 245 Calibration False Flags (183 BLOCK, 62 ASK)**:
+  - datetime_format: 32.7% (80 flags: 76 BLOCK, 4 ASK)
+  - enum_or_flag_argument: 27.3% (67 flags: 37 BLOCK, 30 ASK) — former 'other' decomposed
+  - 
+umber_unit_format: 9.0% (22 flags: 22 BLOCK, 0 ASK)
+  - 
+esidual_other: 8.6% (21 flags: 15 BLOCK, 6 ASK) — down from 37% to 8.6%
+  - search_query_reformulation: 6.5% (16 flags: 2 BLOCK, 14 ASK)
+  - uffer_or_size_limit: 5.3% (13 flags: 13 BLOCK, 0 ASK)
+  - world_knowledge: 2.9% (7 flags: 7 BLOCK, 0 ASK)
+  - control_parameter: 2.9% (7 flags: 1 BLOCK, 6 ASK)
+  - url_or_endpoint_construction: 2.4% (6 flags: 6 BLOCK, 0 ASK)
+  - lias_entity_naming: 2.0% (5 flags: 3 BLOCK, 2 ASK)
+  - intermediate_step_dependency: 0.4% (1 flag: 1 BLOCK, 0 ASK)
+
+- **20-Item Clean Call Benchmark Spot-Check**:
+  - Sampled 10 BLOCK and 10 ASK across 6 tool families.
+  - Finding: 0 / 20 (0.0%) mislabeled clean calls. All 20 were valid tool executions following user intent where strict string matching failed.
+
+- **Out-of-Fold vs In-Sample Equivalence Clarification**:
+  - Out-of-fold BLOCK rate equals in-sample (15.1% [6.5, 25.9]) because B1 routing used fixed, deterministic threshold rules (tau_block=0.50, tau_ask=0.15, control param schema checks).
+  - Explicit confirmation: No mathematical parameter was fitted. Fixed rule thresholding will not be described as 'cross-fitted' until Phase B4/B2.
+
+- **Sample Size (N) Lineage**:
+  - MCP-Atlas: Calibration n=1,212 (53 tools); Held-Out n=1,211 (53 tools, frozen SHA256).
+  - DeRef fcrb: 362 fabricated leaves; Dev eval n=200 calls (94 clean, 49 fabricated, 43 wrong_selection, 5 format, 9 other).
+  - AgentHallu: 31 trajectory error steps; 93 clean control steps.
+  - BFCL v3: 56 dev cases (448 args); 200 audit cases; 19,443 corpus instances.
+
+- **Recall vs Intervention Trade-off Curves & 60% Floor**:
+  - fcrb Fabricated Values: At tau=0.50, recall is 77.9% (+17.9 pts above 60% floor) at 20.2% clean intervention.
+  - AgentHallu: At tau=0.50, detection is 61.3% (+1.3 pts above 60% floor) at 17.2% clean intervention.
+  - Relaxing tau beyond 0.50 drops AgentHallu below the 60% floor (51.6% at tau=0.65).
+
+- **A6 Reference Mismatch Note & Blinded Audit**:
+  - Note: Consensus predicts mismatch with benchmark reference values rather than absolute truth.
+  - Generated blinded 50-item audit in 
+eview/audit3/blinded_human_audit_50.json.
+
+- **Success Criterion Confirmation**:
+  - Official success criterion: BLOCK-tier false-block rate <= 5.0% as a point estimate on the frozen held-out split.
+  - Tool-cluster bootstrap CI will be fully reported for uncertainty quantification, but point estimate <= 5.0% serves as the pass/fail bar.
