@@ -107,3 +107,13 @@ This ledger records every experiment, benchmark run, calibration, and ablation c
 4. **Safety & Trade-Off Floor**:
    - False-block reductions must not compromise detection recall on AgentHallu and fabricated values below 60%.
    - Full trade-off curve logged if tension occurs.
+
+### MCP-Atlas Tool-Grouped Split (Frozen for Phase B)
+- **Date**: 2026-11-10
+- **Script**: enchmarks/split_mcpatlas_by_tool.py
+- **Output File**: enchmarks/data/mcpatlas/mcpatlas_tool_split.json
+- **Split Strategy**: Grouped strictly by tool (call['name']), zero tool overlap.
+- **Calibration/Dev**: 53 tools, 1,212 calls (50.0%).
+- **Frozen Held-out**: 53 tools, 1,211 calls (50.0%).
+- **Held-out SHA256**: 64848214a38714bec0f4bf2aeda56b29f064b866332e5013ffcb7b60c1c06106
+- **Rule**: Calibration and threshold tuning strictly on Calibration/Dev. Frozen held-out will be evaluated ONCE at the end of Phase B.
