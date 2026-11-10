@@ -315,3 +315,85 @@ def test_no_schema_skips_to_logic_check():
         )
     assert result.blocked is False
     assert len(tool.calls) == 1
+
+
+# ── Three-Tier Decision: ALLOW | ASK | BLOCK (Task B1) ──────────────────────
+
+from server.models.schemas import Decision
+
+
+def test_three_tier_allow_executes_tool():
+    tool = _make_tool('executed_allow')
+    proxy = InterceptingToolProxy(
+        tool_fn=tool,
+        tool_schema={'properties': {'account': {'type': 'string'}}},
+        risk_level=RiskLevel.HIGH,
+        decision_mode='three_tier',
+    )
+    result = proxy.call(
+        agent_args={'account': 'ACC-123'},
+        source_context='Approved transfer to account ACC-123.',
+    )
+    assert result.decision == Decision.ALLOW
+    assert result.blocked is False
+    assert result.requires_confirmation is False
+    assert result.tool_output == 'executed_allow'
+    assert len(tool.calls) == 1
+
+
+def test_three_tier_block_halts_execution():
+    tool = _make_tool()
+    proxy = InterceptingToolProxy(
+        tool_fn=tool,
+        tool_schema={'properties': {'account': {'type': 'string'}}},
+        risk_level=RiskLevel.HIGH,
+        decision_mode='three_tier',
+    )
+    # High-confidence identifier completely missing from context
+    result = proxy.call(
+        agent_args={'account': 'FABRICATED-999'},
+        source_context='Context mentions ACC-123 only.',
+    )
+    assert result.decision == Decision.BLOCK
+    assert result.blocked is True
+    assert result.requires_confirmation is False
+    assert result.block_reason == BlockReason.HIGH_CONFIDENCE_ABSENT
+    assert len(tool.calls) == 0
+
+
+def test_three_tier_ask_suspends_execution_for_confirmation():
+    tool = _make_tool()
+    proxy = InterceptingToolProxy(
+        tool_fn=tool,
+        tool_schema={'properties': {'limit': {'type': 'integer'}}},
+        risk_level=RiskLevel.HIGH,
+        decision_mode='three_tier',
+    )
+    # Control param ungrounded -> should trigger ASK, not hard BLOCK
+    result = proxy.call(
+        agent_args={'limit': 50},
+        source_context='User asked: list all recent transactions.',
+    )
+    assert result.decision == Decision.ASK
+    assert result.blocked is False
+    assert result.requires_confirmation is True
+    assert result.block_reason == BlockReason.LOW_CONFIDENCE_CLASS
+    assert len(tool.calls) == 0  # tool not called without confirmation
+
+
+def test_binary_compatibility_mode_blocks_on_ask():
+    tool = _make_tool()
+    proxy = InterceptingToolProxy(
+        tool_fn=tool,
+        tool_schema={'properties': {'limit': {'type': 'integer'}}},
+        risk_level=RiskLevel.HIGH,
+        decision_mode='binary',
+    )
+    result = proxy.call(
+        agent_args={'limit': 50},
+        source_context='User asked: list all recent transactions.',
+    )
+    assert result.decision == Decision.BLOCK
+    assert result.blocked is True
+    assert result.requires_confirmation is False
+    assert len(tool.calls) == 0

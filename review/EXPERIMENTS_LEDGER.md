@@ -117,3 +117,26 @@ This ledger records every experiment, benchmark run, calibration, and ablation c
 - **Frozen Held-out**: 53 tools, 1,211 calls (50.0%).
 - **Held-out SHA256**: 64848214a38714bec0f4bf2aeda56b29f064b866332e5013ffcb7b60c1c06106
 - **Rule**: Calibration and threshold tuning strictly on Calibration/Dev. Frozen held-out will be evaluated ONCE at the end of Phase B.
+
+---
+
+### Task B1: Three-Outcome Decision (ALLOW | ASK | BLOCK)
+- **Status**: Completed and verified.
+- **Code Changes**:
+  - `server/models/schemas.py`: Added `Decision` (`ALLOW`, `ASK`, `BLOCK`) and `BlockReason` enums; updated `ArgumentGroundingRequest` and `ArgumentGroundingResponse` with `decision`, `block_reason`, `tau_block=0.50`, `tau_ask=0.88`, and `decision_mode="three_tier"`.
+  - `server/tools/verify_arguments.py`: Implemented three-tier decision routing. High-confidence ungrounded arguments trigger `BLOCK`; low-confidence control parameters (`limit`, `offset`, `sort`, `filter`, `query`) and medium-confidence scores trigger `ASK`.
+  - `server/proxy/interceptor.py`: Updated `InterceptingToolProxy` to route `ALLOW` to execution, `ASK` to human confirmation (`requires_confirmation=True`), and `BLOCK` to hard halt. Backward compatibility preserved via `decision_mode="binary"`.
+  - Tests added: 4 new unit tests in `tests/test_proxy.py` and 4 in `tests/test_arg_ground.py` (all passing).
+- **Evaluation on Calibration Data (`benchmarks/eval_phase_b.py`)**:
+  - **MCP-Atlas Calibration Clean Traffic (n=1,212 calls across 53 tools)**:
+    - Baseline Binary (P3 tau=0.88): Hard False-Block Rate = **20.2%** [18.1, 22.6]
+    - B1 Three-Tier:
+      - Hard False Blocks (`BLOCK` tier): **15.1%** [13.2, 17.2] (-5.1 points)
+      - Confirmation Rate (`ASK` tier): **5.1%** [4.0, 6.5]
+      - Pass Rate (`ALLOW` tier): **79.8%** [77.4, 82.0]
+  - **Fabricated Value Recall (DeRef fcrb, n=362)**:
+    - Combined Recall (`BLOCK + ASK`): **77.9%** [73.4, 81.9] (282/362) -> Zero recall lost, well above 60% floor.
+  - **AgentHallu (n=31 errors, n=93 clean calls)**:
+    - Detection (`BLOCK + ASK`): **61.3%** [43.8, 76.3] `[EXPLORATORY]` -> Exact detection preserved.
+    - Clean Hard Blocks: **14.0%** [8.3, 22.5] (down from 17.2%).
+    - Clean ASK Rate: **3.2%** [1.1, 9.1]%.

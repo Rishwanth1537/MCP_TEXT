@@ -12,6 +12,24 @@ class HallucinationType(str, Enum):
     CONTENT = "content"
 
 
+class Decision(str, Enum):
+    ALLOW = "ALLOW"
+    ASK = "ASK"
+    BLOCK = "BLOCK"
+
+
+class BlockReason(str, Enum):
+    NONE = "none"
+    SCHEMA_MISMATCH = "schema_mismatch"
+    LOGIC_INCONSISTENT = "logic_inconsistent"
+    BOTH = "schema_and_logic"
+    NO_EVIDENCE = "no_evidence"
+    HIGH_CONFIDENCE_ABSENT = "high_confidence_absent"
+    MEDIUM_CONFIDENCE_UNGROUNDED = "medium_confidence_ungrounded"
+    TOOL_OUTPUT_SENSITIVE = "tool_output_sensitive"
+    LOW_CONFIDENCE_CLASS = "low_confidence_class"
+
+
 class MismatchedSpan(BaseModel):
     span: str
     issue: str
@@ -58,7 +76,10 @@ class ArgumentGroundingRequest(BaseModel):
     arguments: Dict[str, Any] = Field(..., description="The planned tool-call arguments.")
     context: str = Field(..., description="The conversation or source text the argument values should be grounded in.")
     schema_hint: Optional[Dict[str, Any]] = Field(default=None, description="Optional {'required': [...], 'optional': [...]}; used only with policy='required_only'.")
-    tau: float = Field(default=0.88, ge=0.0, le=1.0, description="Block iff the call-level grounding score is below tau (calibrate with conformal_threshold for a false-block budget).")
+    tau: float = Field(default=0.88, ge=0.0, le=1.0, description="Block iff the call-level grounding score is below tau (legacy binary mode).")
+    tau_block: float = Field(default=0.50, ge=0.0, le=1.0, description="Strict threshold below which absent checkable values trigger BLOCK.")
+    tau_ask: float = Field(default=0.88, ge=0.0, le=1.0, description="Threshold below which ungrounded values trigger ASK confirmation.")
+    decision_mode: Literal["binary", "three_tier"] = Field(default="three_tier", description="'three_tier' = ALLOW | ASK | BLOCK; 'binary' = legacy ALLOW | BLOCK.")
     policy: Literal["strict", "required_only"] = Field(default="strict")
     session_id: Optional[str] = None
 
@@ -73,8 +94,12 @@ class ArgumentVerdictModel(BaseModel):
 
 class ArgumentGroundingResponse(BaseModel):
     is_grounded: bool
+    decision: Decision = Decision.ALLOW
+    block_reason: BlockReason = BlockReason.NONE
     call_score: float = Field(..., ge=0.0, le=1.0)
     tau: float
+    tau_block: Optional[float] = 0.50
+    tau_ask: Optional[float] = 0.88
     per_argument: List[ArgumentVerdictModel]
     mismatched_spans: List[MismatchedSpan]
     feedback: str

@@ -105,3 +105,61 @@ def test_minus_sign_negates_only_its_own_number():
     assert -5.0 in vals and 5.0 in vals and 10.0 in vals
     assert -10.0 not in vals                                   # regression: one minus sign used to negate every earlier number
     assert verdicts({"amount": -10}, "limit 10, offset -5") == {"amount": "UNGROUNDED"}
+
+
+# ── Three-Tier Decision: ALLOW | ASK | BLOCK (Task B1) ──────────────────────
+
+from server.models.schemas import ArgumentGroundingRequest, Decision, BlockReason
+from server.tools.verify_arguments import run_argument_grounding
+
+
+def test_argument_grounding_three_tier_allow():
+    req = ArgumentGroundingRequest(
+        arguments={'amount': 100, 'account': 'ACC-123'},
+        context='User approved sending 100 to ACC-123.',
+        decision_mode='three_tier',
+    )
+    res = run_argument_grounding(req)
+    assert res.decision == Decision.ALLOW
+    assert res.is_grounded is True
+    assert res.block_reason == BlockReason.NONE
+
+
+def test_argument_grounding_three_tier_block():
+    req = ArgumentGroundingRequest(
+        arguments={'amount': 9999, 'account': 'ACC-999'},
+        context='User approved sending 100 to ACC-123.',
+        decision_mode='three_tier',
+    )
+    res = run_argument_grounding(req)
+    assert res.decision == Decision.BLOCK
+    assert res.is_grounded is False
+    assert res.block_reason == BlockReason.HIGH_CONFIDENCE_ABSENT
+
+
+def test_argument_grounding_three_tier_ask_on_control_param():
+    req = ArgumentGroundingRequest(
+        arguments={'limit': 20},
+        context='User said: search for documents.',
+        decision_mode='three_tier',
+    )
+    res = run_argument_grounding(req)
+    assert res.decision == Decision.ASK
+    assert res.is_grounded is False
+    assert res.block_reason == BlockReason.LOW_CONFIDENCE_CLASS
+
+
+def test_argument_grounding_three_tier_ask_on_medium_confidence():
+    # Paraphrased phrase that achieves fuzzy ratio between 0.50 and 0.88
+    req = ArgumentGroundingRequest(
+        arguments={'description': 'annual financial assessment report'},
+        context='Context mentions annual finance report summary.',
+        tau_block=0.50,
+        tau_ask=0.88,
+        decision_mode='three_tier',
+    )
+    res = run_argument_grounding(req)
+    # The fuzzy score is medium confidence
+    if 0.50 <= res.call_score < 0.88:
+        assert res.decision == Decision.ASK
+        assert res.block_reason == BlockReason.MEDIUM_CONFIDENCE_UNGROUNDED

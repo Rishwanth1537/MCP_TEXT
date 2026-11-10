@@ -62,18 +62,16 @@ class RiskLevel(str, Enum):
     HIGH = "high"     # Irreversible / financial / destructive — full verification
 
 
-class BlockReason(str, Enum):
-    SCHEMA_MISMATCH    = "schema_mismatch"
-    LOGIC_INCONSISTENT = "logic_inconsistent"
-    BOTH               = "schema_and_logic"
-    NO_EVIDENCE        = "no_evidence"
+from server.models.schemas import BlockReason, Decision
 
 
 @dataclass
 class InterceptionResult:
     """Result returned by the proxy instead of calling the downstream tool directly."""
     blocked: bool
+    decision: Decision = Decision.ALLOW
     block_reason: Optional[BlockReason] = None
+    requires_confirmation: bool = False
     schema_mismatches: List[Any] = field(default_factory=list)
     logic_mismatches: List[Any] = field(default_factory=list)
     factual_score: Optional[float] = None
@@ -129,11 +127,16 @@ class InterceptingToolProxy:
         session_id: Optional[str] = None,
         logic_mode: str = "arguments",
         arg_tau: float = 0.88,
+        arg_tau_block: float = 0.50,
+        arg_tau_ask: float = 0.88,
+        decision_mode: str = "three_tier",
         require_evidence: bool = True,
         evidence_provider: Optional[Callable[[], str]] = None,
     ) -> None:
         if logic_mode not in ("arguments", "grounded", "hybrid"):
             raise ValueError("logic_mode must be 'arguments', 'grounded' or 'hybrid'")
+        if decision_mode not in ("three_tier", "binary"):
+            raise ValueError("decision_mode must be 'three_tier' or 'binary'")
         self.tool_fn = tool_fn
         self.tool_schema = tool_schema or {}
         self.risk_level = risk_level
@@ -141,6 +144,9 @@ class InterceptingToolProxy:
         self.session_id = session_id
         self.logic_mode = logic_mode
         self.arg_tau = arg_tau
+        self.arg_tau_block = arg_tau_block
+        self.arg_tau_ask = arg_tau_ask
+        self.decision_mode = decision_mode
         self.require_evidence = require_evidence
         self.evidence_provider = evidence_provider
 
@@ -264,20 +270,63 @@ class InterceptingToolProxy:
                 from server.models.schemas import ArgumentGroundingRequest
                 from server.tools.verify_arguments import run_argument_grounding
                 arg_result = run_argument_grounding(ArgumentGroundingRequest(
-                    arguments=agent_args, context=evidence, schema_hint=self.tool_schema_hint(),
-                    tau=self.arg_tau, session_id=self.session_id))
+                    arguments=agent_args,
+                    context=evidence,
+                    schema_hint=self.tool_schema_hint(),
+                    tau=self.arg_tau,
+                    tau_block=self.arg_tau_block,
+                    tau_ask=self.arg_tau_ask,
+                    decision_mode=self.decision_mode,
+                    session_id=self.session_id,
+                ))
                 if factual_score is None:
                     factual_score = arg_result.call_score
-                if not arg_result.is_grounded:
+
+                if arg_result.decision == Decision.BLOCK:
                     logger.warning(
-                        "InterceptingToolProxy: blocked %s — ungrounded arguments: %s",
+                        "InterceptingToolProxy: blocked %s — high-confidence ungrounded arguments: %s",
                         self.tool_fn.__name__, [m.span for m in arg_result.mismatched_spans],
                     )
                     return InterceptionResult(
-                        blocked=True, block_reason=BlockReason.LOGIC_INCONSISTENT,
-                        logic_mismatches=arg_result.mismatched_spans, factual_score=arg_result.call_score,
+                        blocked=True,
+                        decision=Decision.BLOCK,
+                        block_reason=arg_result.block_reason,
+                        requires_confirmation=False,
+                        logic_mismatches=arg_result.mismatched_spans,
+                        factual_score=arg_result.call_score,
                         ged_normalised=ged_norm,
-                        feedback="Tool call blocked: argument values not supported by the context.\n" + arg_result.feedback)
+                        feedback="Tool call blocked: high-confidence ungrounded arguments detected.\n" + arg_result.feedback,
+                    )
+                elif arg_result.decision == Decision.ASK:
+                    if self.decision_mode == "binary":
+                        logger.warning(
+                            "InterceptingToolProxy: blocked %s (binary mode) — ungrounded arguments: %s",
+                            self.tool_fn.__name__, [m.span for m in arg_result.mismatched_spans],
+                        )
+                        return InterceptionResult(
+                            blocked=True,
+                            decision=Decision.BLOCK,
+                            block_reason=arg_result.block_reason,
+                            requires_confirmation=False,
+                            logic_mismatches=arg_result.mismatched_spans,
+                            factual_score=arg_result.call_score,
+                            ged_normalised=ged_norm,
+                            feedback="Tool call blocked: argument values not supported by context.\n" + arg_result.feedback,
+                        )
+                    logger.info(
+                        "InterceptingToolProxy: confirmation requested for %s — medium-confidence ungrounded arguments: %s",
+                        self.tool_fn.__name__, [m.span for m in arg_result.mismatched_spans],
+                    )
+                    return InterceptionResult(
+                        blocked=False,
+                        decision=Decision.ASK,
+                        block_reason=arg_result.block_reason,
+                        requires_confirmation=True,
+                        logic_mismatches=arg_result.mismatched_spans,
+                        factual_score=arg_result.call_score,
+                        ged_normalised=ged_norm,
+                        feedback="Human confirmation requested (ASK): arguments require user confirmation before execution.\n" + arg_result.feedback,
+                    )
 
         # ── Step 3: Execute downstream tool ──────────────────────────────────
         try:
@@ -288,10 +337,12 @@ class InterceptingToolProxy:
             )
             return InterceptionResult(
                 blocked=False,
+                decision=Decision.ALLOW,
+                requires_confirmation=False,
                 factual_score=factual_score,
                 ged_normalised=ged_norm,
                 tool_output=output,
-                feedback="Verification passed. Tool executed.",
+                feedback="Verification passed (ALLOW). Tool executed.",
             )
         except Exception as exc:
             logger.error(
