@@ -22,7 +22,8 @@ from ..models.schemas import (
     HallucinationType,
     MismatchedSpan,
 )
-from ..pipeline.arg_ground import check_arguments
+from ..pipeline.arg_ground import ArgVerdict, check_arguments
+from ..pipeline.schema_validator import validate_schema_arg
 
 LOW_CONFIDENCE_PARAM_SUBSTRINGS = (
     "limit", "offset", "page", "page_size", "sort", "order", "direction",
@@ -38,7 +39,23 @@ def is_low_confidence_arg(arg_name: str) -> bool:
 
 
 def run_argument_grounding(req: ArgumentGroundingRequest) -> ArgumentGroundingResponse:
-    verdicts = check_arguments(req.arguments, req.context)
+    raw_verdicts = check_arguments(req.arguments, req.context)
+    verdicts: List[ArgVerdict] = []
+    schema_violations: set[str] = set()
+    for v in raw_verdicts:
+        if req.decision_mode == "three_tier":
+            s_res = validate_schema_arg(req.tool_name, v.argument, v.value, req.context, explicit_schema=req.schema_hint)
+            if s_res is not None:
+                s_verdict, s_reason = s_res
+                if s_verdict == "GROUNDED":
+                    verdicts.append(ArgVerdict(v.argument, v.value, "GROUNDED", s_reason, 1.0))
+                    continue
+                else:
+                    schema_violations.add(v.argument)
+                    verdicts.append(ArgVerdict(v.argument, v.value, "UNGROUNDED", s_reason, 0.0))
+                    continue
+        verdicts.append(v)
+
     optional = set((req.schema_hint or {}).get("optional", [])) if req.policy == "required_only" else set()
     effective = [v for v in verdicts if v.verdict != "UNCHECKABLE" and v.argument not in optional]
     call_score = min((v.score for v in effective), default=1.0)
@@ -59,13 +76,16 @@ def run_argument_grounding(req: ArgumentGroundingRequest) -> ArgumentGroundingRe
             decision = Decision.BLOCK
             block_reason = BlockReason.HIGH_CONFIDENCE_ABSENT
     else:
-        # Three-tier mode (Phase B1)
+        # Three-tier mode (Phase B1 + B2a schema validation)
         if call_score >= tau_ask:
             decision = Decision.ALLOW
             block_reason = BlockReason.NONE
         elif call_score < tau_block:
-            # Check if any ungrounded argument is a high-confidence entity vs low-confidence control param
-            high_conf_missing = [v for v in ungrounded_effective if not is_low_confidence_arg(v.argument)]
+            # Check if any ungrounded argument is a high-confidence entity OR explicit schema violation
+            high_conf_missing = [
+                v for v in ungrounded_effective
+                if v.argument in schema_violations or not is_low_confidence_arg(v.argument)
+            ]
             if high_conf_missing:
                 decision = Decision.BLOCK
                 block_reason = BlockReason.HIGH_CONFIDENCE_ABSENT

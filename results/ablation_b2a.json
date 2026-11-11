@@ -1,0 +1,2620 @@
+{
+  "step": "B2a",
+  "mcpatlas_calib": {
+    "n": 1212,
+    "block_count": 159,
+    "block_rate": 13.12,
+    "block_ci": [
+      5.71,
+      21.7
+    ],
+    "ask_count": 41,
+    "ask_rate": 3.38,
+    "ask_ci": [
+      1.13,
+      6.24
+    ],
+    "any_count": 200,
+    "any_rate": 16.5,
+    "any_ci": [
+      9.34,
+      24.52
+    ]
+  },
+  "fcrb_fab": {
+    "n": 362,
+    "block_recall": 48.9,
+    "ask_recall": 27.62,
+    "union_recall": 76.52
+  },
+  "agenthallu": {
+    "err_n": 31,
+    "err_detection": 61.29,
+    "clean_n": 93,
+    "clean_block": 11,
+    "clean_ask": 3,
+    "clean_block_rate": 11.83
+  },
+  "per_call_flags": [
+    {
+      "id": "mcpatlas-689f4d693e212e8ef3390731-2",
+      "tool": "fetch_fetch",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "url",
+          "https://api.github.com/repos/assaultcube/AC",
+          "'https://api.github.com/repos/assaultcube/AC' not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-68925f01db31fe35560e3e9f-0",
+      "tool": "google-maps_maps_distance_matrix",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "destinations[0]",
+          "1000 5th Ave, New York, NY 10028, USA",
+          "'1000 5th Ave, New York, NY 10028, USA' not found in context"
+        ],
+        [
+          "origins[0]",
+          "East Side between 77th &, E 78th St, New York, NY 10065, Estados Unidos",
+          "'East Side between 77th &, E 78th St, New York, NY 10065, Estados Unidos' not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-68993ef3cf3e953b8ab83fa3-0",
+      "tool": "google-workspace_list_events",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "timeMin",
+          "2025-07-15T00:00:00Z",
+          "date 2025-07-15 not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-68993ef3cf3e953b8ab83fa3-1",
+      "tool": "osm-mcp-server_geocode_address",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "address",
+          "The Salty Donut, Miami, FL",
+          "'The Salty Donut, Miami, FL' not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-68993ef3cf3e953b8ab83fa3-2",
+      "tool": "osm-mcp-server_geocode_address",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "address",
+          "Vizcaya Museum, Miami, FL",
+          "'Vizcaya Museum, Miami, FL' not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-68993ef3cf3e953b8ab83fa3-3",
+      "tool": "osm-mcp-server_get_route_directions",
+      "decision": "ASK",
+      "ungrounded": [
+        [
+          "mode",
+          "foot",
+          "enum 'foot' contradicts 'walking' mentioned in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-6896416f7b30e5d8ccd7c901-1",
+      "tool": "google-maps_maps_distance_matrix",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "origins[0]",
+          "New York, USA",
+          "'New York, USA' not found in context"
+        ],
+        [
+          "destinations[0]",
+          "Los Angeles, USA",
+          "'Los Angeles, USA' not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-689bd255c0422b257e7dfcc1-2",
+      "tool": "alchemy_fetchTokenPriceHistoryBySymbol",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "endTime",
+          "2025-08-01",
+          "date 2025-08-01 not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-6896416f7b30e5d8ccd7c8f0-2",
+      "tool": "google-workspace_list_events",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "timeMin",
+          "2025-06-26T00:00:00Z",
+          "date 2025-06-26 not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-688ba1b3e95696e72dd93e8d-4",
+      "tool": "osm-mcp-server_find_nearby_places",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "radius",
+          200,
+          "number 200 not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-68940d8355faa0b720f0b4b4-3",
+      "tool": "airtable_search_records",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "value",
+          "2023-07",
+          "month 2023-07 not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-689f4d693e212e8ef3390707-0",
+      "tool": "whois_whois_domain",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "domain",
+          "openai.com",
+          "'openai.com' not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-689f4d693e212e8ef3390707-1",
+      "tool": "alchemy_fetchTokenPriceHistoryBySymbol",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "startTime",
+          "2014-01-19",
+          "date 2014-01-19 not found in context"
+        ],
+        [
+          "endTime",
+          "2014-01-19",
+          "date 2014-01-19 not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-689f4d693e212e8ef3390707-2",
+      "tool": "alchemy_fetchTokenPriceHistoryBySymbol",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "startTime",
+          "2020-01-19",
+          "date 2020-01-19 not found in context"
+        ],
+        [
+          "endTime",
+          "2020-01-19",
+          "date 2020-01-19 not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-6880e844943a73a8c5e412c3-3",
+      "tool": "arxiv_search_papers",
+      "decision": "ASK",
+      "ungrounded": [
+        [
+          "query",
+          "Jen-Hsun Jensen Huang",
+          "'Jen-Hsun Jensen Huang' not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-68824c643e6ff020bc33994b-0",
+      "tool": "oxylabs_google_search_scraper",
+      "decision": "ASK",
+      "ungrounded": [
+        [
+          "query",
+          "pele soccer player death",
+          "'pele soccer player death' not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-689bd255c0422b257e7dfcb5-2",
+      "tool": "airtable_list_records",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "max_records",
+          5,
+          "number 5 not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-689bd255c0422b257e7dfcb5-5",
+      "tool": "weather-data_weather_astronomy",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "dt",
+          "2020-04-01",
+          "date 2020-04-01 not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-689bd255c0422b257e7dfcb5-6",
+      "tool": "weather-data_weather_astronomy",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "dt",
+          "2020-04-01",
+          "date 2020-04-01 not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-689bd255c0422b257e7dfcbc-2",
+      "tool": "airtable_list_records",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "max_records",
+          10,
+          "number 10 not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-689cd6f8522029b7ad7b202a-2",
+      "tool": "weather-data_weather_astronomy",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "dt",
+          "2024-08-01",
+          "date 2024-08-01 not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-689cd6f8522029b7ad7b202a-3",
+      "tool": "weather-data_weather_astronomy",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "dt",
+          "2024-08-27",
+          "date 2024-08-27 not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-6886306b5ed4da6b2c38117c-6",
+      "tool": "google-workspace_list_events",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "timeMin",
+          "2025-07-09T18:00:00-04:00",
+          "date 2025-07-09 not found in context"
+        ],
+        [
+          "timeMax",
+          "2025-07-10T18:00:00-04:00",
+          "date 2025-07-10 not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-68925f01db31fe35560e3e85-2",
+      "tool": "airtable_list_records",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "max_records",
+          10,
+          "number 10 not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-68925f01db31fe35560e3e85-3",
+      "tool": "airtable_search_records",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "value",
+          "2020-01",
+          "month 2020-01 not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-68925f01db31fe35560e3e85-4",
+      "tool": "airtable_search_records",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "value",
+          "2020-02",
+          "month 2020-02 not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-68925f01db31fe35560e3e85-5",
+      "tool": "airtable_search_records",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "value",
+          "2020-03",
+          "month 2020-03 not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-68925f01db31fe35560e3e85-6",
+      "tool": "airtable_search_records",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "value",
+          "2020-04",
+          "month 2020-04 not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-68925f01db31fe35560e3e85-7",
+      "tool": "airtable_search_records",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "value",
+          "2020-05",
+          "month 2020-05 not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-68925f01db31fe35560e3e85-8",
+      "tool": "airtable_search_records",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "value",
+          "2020-06",
+          "month 2020-06 not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-68925f01db31fe35560e3e85-9",
+      "tool": "airtable_search_records",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "value",
+          "2020-07",
+          "month 2020-07 not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-68925f01db31fe35560e3e85-10",
+      "tool": "airtable_search_records",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "value",
+          "2020-08",
+          "month 2020-08 not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-68925f01db31fe35560e3e85-11",
+      "tool": "airtable_search_records",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "value",
+          "2020-09",
+          "month 2020-09 not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-68925f01db31fe35560e3e85-14",
+      "tool": "airtable_search_records",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "value",
+          "2020-12",
+          "month 2020-12 not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-689af4e653c3905e7b5b2581-0",
+      "tool": "slack_channels_list",
+      "decision": "ASK",
+      "ungrounded": [
+        [
+          "channel_types",
+          "",
+          "argument 'channel_types' expected non-empty csv_enum string"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-689af4e653c3905e7b5b25c2-3",
+      "tool": "airtable_list_records",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "max_records",
+          10,
+          "number 10 not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-689a373e148a49f91233dfd6-3",
+      "tool": "osm-mcp-server_get_route_directions",
+      "decision": "ASK",
+      "ungrounded": [
+        [
+          "mode",
+          "foot",
+          "enum 'foot' contradicts 'walking' mentioned in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-689bd255c0422b257e7dfcca-3",
+      "tool": "alchemy_fetchTokenPriceHistoryBySymbol",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "endTime",
+          "2021-07-15",
+          "date 2021-07-15 not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-689af4e653c3905e7b5b2596-3",
+      "tool": "airtable_list_records",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "max_records",
+          5,
+          "number 5 not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-68952adeba1c2ad4e6a5db6e-5",
+      "tool": "airtable_search_records",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "value",
+          "2020-01",
+          "month 2020-01 not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-6896416f7b30e5d8ccd7c8e2-0",
+      "tool": "open-library_get_book_by_title",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "title",
+          "The Cater Street Hangman",
+          "'The Cater Street Hangman' not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-689f4d693e212e8ef339071d-2",
+      "tool": "oxylabs_universal_scraper",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "url",
+          "https://patch-diff.githubusercontent.com/raw/pandas-dev/pandas/pull/62091.diff",
+          "'https://patch-diff.githubusercontent.com/raw/pandas-dev/pandas/pull/62091.diff' not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-689cd6f8522029b7ad7b1fe1-3",
+      "tool": "alchemy_fetchTokenPriceHistoryBySymbol",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "startTime",
+          "2021-12-18T23:00:00.000Z",
+          "'2021-12-18T23:00:00.000Z' not found in context"
+        ],
+        [
+          "endTime",
+          "2021-12-19T01:00:00.000Z",
+          "'2021-12-19T01:00:00.000Z' not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-689bd255c0422b257e7dfcde-0",
+      "tool": "google-workspace_list_events",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "timeMax",
+          "2025-07-07T23:59:59Z",
+          "date 2025-07-07 not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-689a373e148a49f91233e023-3",
+      "tool": "alchemy_fetchTokenPriceHistoryBySymbol",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "startTime",
+          "2020-09-22",
+          "date 2020-09-22 not found in context"
+        ],
+        [
+          "endTime",
+          "2020-09-22",
+          "date 2020-09-22 not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-689cd6f8522029b7ad7b1fe6-0",
+      "tool": "oxylabs_google_search_scraper",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "geo_location",
+          "US",
+          "alias 'US' not supported by context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-68993ef3cf3e953b8ab83fbd-4",
+      "tool": "google-workspace_list_events",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "timeMax",
+          "2025-07-14T00:00:00Z",
+          "date 2025-07-14 not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-68993ef3cf3e953b8ab83fbd-5",
+      "tool": "google-workspace_list_events",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "timeMax",
+          "2025-07-14T04:00:00Z",
+          "date 2025-07-14 not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-688fb11183792b921381bd14-2",
+      "tool": "osm-mcp-server_find_nearby_places",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "radius",
+          10000,
+          "number 10000 not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-686d2c79e1db37ea23ddd9f5-1",
+      "tool": "alchemy_fetchTokenPriceHistoryBySymbol",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "startTime",
+          "2021-01-10",
+          "date 2021-01-10 not found in context"
+        ],
+        [
+          "endTime",
+          "2021-01-16",
+          "date 2021-01-16 not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-689af4e653c3905e7b5b259a-3",
+      "tool": "alchemy_fetchTokenPriceHistoryBySymbol",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "startTime",
+          "2025-01-04",
+          "date 2025-01-04 not found in context"
+        ],
+        [
+          "endTime",
+          "2025-01-04",
+          "date 2025-01-04 not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-689a373e148a49f91233e00d-2",
+      "tool": "alchemy_fetchTokenPriceHistoryBySymbol",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "startTime",
+          "2022-07-01",
+          "date 2022-07-01 not found in context"
+        ],
+        [
+          "endTime",
+          "2022-07-02",
+          "date 2022-07-02 not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-689af4e653c3905e7b5b257f-3",
+      "tool": "airtable_list_records",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "max_records",
+          10,
+          "number 10 not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-68940d8355faa0b720f0b4b2-3",
+      "tool": "airtable_list_records",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "max_records",
+          5,
+          "number 5 not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-68940d8355faa0b720f0b4b2-4",
+      "tool": "airtable_search_records",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "value",
+          "2022-01",
+          "month 2022-01 not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-68940d8355faa0b720f0b4b2-5",
+      "tool": "airtable_search_records",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "value",
+          "2022-02",
+          "month 2022-02 not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-68940d8355faa0b720f0b4b2-6",
+      "tool": "airtable_search_records",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "value",
+          "2022-03",
+          "month 2022-03 not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-68940d8355faa0b720f0b4b2-7",
+      "tool": "airtable_search_records",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "value",
+          "2022-04",
+          "month 2022-04 not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-68940d8355faa0b720f0b4b2-8",
+      "tool": "airtable_search_records",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "value",
+          "2022-05",
+          "month 2022-05 not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-68940d8355faa0b720f0b4b2-9",
+      "tool": "airtable_search_records",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "value",
+          "2022-06",
+          "month 2022-06 not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-68940d8355faa0b720f0b4b2-11",
+      "tool": "airtable_search_records",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "value",
+          "2022-08",
+          "month 2022-08 not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-68940d8355faa0b720f0b4b2-12",
+      "tool": "airtable_search_records",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "value",
+          "2022-09",
+          "month 2022-09 not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-68940d8355faa0b720f0b4b2-13",
+      "tool": "airtable_search_records",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "value",
+          "2022-10",
+          "month 2022-10 not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-68940d8355faa0b720f0b4b2-14",
+      "tool": "airtable_search_records",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "value",
+          "2022-11",
+          "month 2022-11 not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-68940d8355faa0b720f0b4b2-15",
+      "tool": "airtable_search_records",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "value",
+          "2022-12",
+          "month 2022-12 not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-68a398aa2f58036e8d45edf7-0",
+      "tool": "google-workspace_list_events",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "timeMax",
+          "2025-07-15T23:59:59Z",
+          "date 2025-07-15 not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-68a398aa2f58036e8d45edf7-2",
+      "tool": "osm-mcp-server_find_nearby_places",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "categories[0]",
+          "amenity",
+          "'amenity' not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-6880e844943a73a8c5e412c1-1",
+      "tool": "whois_whois_domain",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "domain",
+          "ethereum.org",
+          "'ethereum.org' not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-6880e844943a73a8c5e412c1-2",
+      "tool": "alchemy_fetchTokenPriceHistoryBySymbol",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "endTime",
+          "2016-07-10",
+          "date 2016-07-10 not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-6880e844943a73a8c5e412c1-3",
+      "tool": "alchemy_fetchTokenPriceHistoryBySymbol",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "endTime",
+          "2020-05-12",
+          "date 2020-05-12 not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-68952adeba1c2ad4e6a5db79-3",
+      "tool": "airtable_search_records",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "value",
+          "2022-09",
+          "month 2022-09 not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-688ba1b3e95696e72dd93eaf-2",
+      "tool": "pubmed_search_pubmed_key_words",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "key_words",
+          "DNA Xu, Eriksson 2014",
+          "'DNA Xu, Eriksson 2014' not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-689e0b1d9c8e2ac413c1f248-1",
+      "tool": "oxylabs_google_search_scraper",
+      "decision": "ASK",
+      "ungrounded": [
+        [
+          "query",
+          "Ethereum crypto ticker symbol",
+          "'Ethereum crypto ticker symbol' not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-689e0b1d9c8e2ac413c1f248-2",
+      "tool": "alchemy_fetchTokenPriceHistoryBySymbol",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "startTime",
+          "2017-11-30",
+          "date 2017-11-30 not found in context"
+        ],
+        [
+          "endTime",
+          "2017-11-30",
+          "date 2017-11-30 not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-68952adeba1c2ad4e6a5db36-7",
+      "tool": "airtable_search_records",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "value",
+          "2021-02-02T00:00:00.000Z",
+          "'2021-02-02T00:00:00.000Z' not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-689f4d693e212e8ef3390748-3",
+      "tool": "weather-data_weather_astronomy",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "dt",
+          "2015-07-04",
+          "date 2015-07-04 not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-68925f01db31fe35560e3ebb-1",
+      "tool": "national-parks_findParks",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "q",
+          "free entry",
+          "'free entry' not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-689bd255c0422b257e7dfd08-0",
+      "tool": "google-workspace_list_events",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "timeMax",
+          "2025-08-07T23:59:59Z",
+          "date 2025-08-07 not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-68a398aa2f58036e8d45ee2e-5",
+      "tool": "mongodb_count",
+      "decision": "ASK",
+      "ungrounded": [
+        [
+          "query.Order Date.$gte.$date",
+          "2022-06-01T00:00:00.000Z",
+          "'2022-06-01T00:00:00.000Z' not found in context"
+        ],
+        [
+          "query.Order Date.$lt.$date",
+          "2022-07-01T00:00:00.000Z",
+          "'2022-07-01T00:00:00.000Z' not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-689cd6f8522029b7ad7b201e-2",
+      "tool": "oxylabs_google_search_scraper",
+      "decision": "ASK",
+      "ungrounded": [
+        [
+          "query",
+          "apex legends release date",
+          "'apex legends release date' not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-689bd255c0422b257e7dfcbe-1",
+      "tool": "oxylabs_google_search_scraper",
+      "decision": "ASK",
+      "ungrounded": [
+        [
+          "query",
+          "Didier Drogba place of birth",
+          "'Didier Drogba place of birth' not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-689bd255c0422b257e7dfcbe-3",
+      "tool": "alchemy_fetchTokenPriceHistoryBySymbol",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "startTime",
+          "2013-05-31",
+          "date 2013-05-31 not found in context"
+        ],
+        [
+          "endTime",
+          "2013-05-31",
+          "date 2013-05-31 not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-689a373e148a49f91233e016-4",
+      "tool": "google-workspace_list_events",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "timeMax",
+          "2025-08-01T00:00:00Z",
+          "date 2025-08-01 not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-6887c6d4614f06dc73af2411-1",
+      "tool": "arxiv_search_papers",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "date_from",
+          "2024-08-01",
+          "date 2024-08-01 not found in context"
+        ],
+        [
+          "date_to",
+          "2024-08-30",
+          "date 2024-08-30 not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-688ba1b3e95696e72dd93ea2-3",
+      "tool": "osm-mcp-server_find_nearby_places",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "categories[0]",
+          "tourism",
+          "'tourism' not found in context"
+        ],
+        [
+          "radius",
+          200,
+          "number 200 not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-68a398aa2f58036e8d45ee03-0",
+      "tool": "google-workspace_list_events",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "timeMin",
+          "2025-07-01T00:00:00z",
+          "'2025-07-01T00:00:00z' not found in context"
+        ],
+        [
+          "timeMax",
+          "2025-07-31T23:59:59z",
+          "'2025-07-31T23:59:59z' not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-688fb11183792b921381bd1e-2",
+      "tool": "airtable_list_records",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "max_records",
+          10,
+          "number 10 not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-6888e207a34beb25cfedda89-0",
+      "tool": "arxiv_search_papers",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "date_from",
+          "2025-07-01",
+          "date 2025-07-01 not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-68940d8355faa0b720f0b478-2",
+      "tool": "airtable_search_records",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "value",
+          "2022-06",
+          "month 2022-06 not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-689e0b1d9c8e2ac413c1f220-4",
+      "tool": "oxylabs_google_search_scraper",
+      "decision": "ASK",
+      "ungrounded": [
+        [
+          "query",
+          "your name female protagonist prefecture",
+          "'your name female protagonist prefecture' not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-689bd255c0422b257e7dfce6-3",
+      "tool": "weather-data_weather_astronomy",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "dt",
+          "2025-12-07",
+          "date 2025-12-07 not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-689af4e653c3905e7b5b2588-3",
+      "tool": "alchemy_fetchTokenPriceHistoryBySymbol",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "startTime",
+          "2019-07-31",
+          "date 2019-07-31 not found in context"
+        ],
+        [
+          "endTime",
+          "2019-07-31",
+          "date 2019-07-31 not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-689a373e148a49f91233dfcd-7",
+      "tool": "mongodb_count",
+      "decision": "ASK",
+      "ungrounded": [
+        [
+          "query.Date.$gte.$date",
+          "2023-11-01T00:00:00Z",
+          "date 2023-11-01 not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-689a373e148a49f91233dfcd-8",
+      "tool": "mongodb_count",
+      "decision": "ASK",
+      "ungrounded": [
+        [
+          "query.Date.$gte.$date",
+          "2023-11-01T00:00:00Z",
+          "date 2023-11-01 not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-6866d4d2eea665b355a8f8bc-1",
+      "tool": "oxylabs_google_search_scraper",
+      "decision": "ASK",
+      "ungrounded": [
+        [
+          "query",
+          "Movie about two teenage boys in a roadtrip with a woman directed by Alfonso Cuaron",
+          "'Movie about two teenage boys in a roadtrip with a woman directed by Alfonso Cuaron' not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-68a398aa2f58036e8d45edee-3",
+      "tool": "clinicaltrialsgov-mcp-server_clinicaltrials_list_studies",
+      "decision": "ASK",
+      "ungrounded": [
+        [
+          "filter.advanced",
+          "AREA[StartDate]RANGE[2024-01-24,2024-01-25]",
+          "'AREA[StartDate]RANGE[2024-01-24,2024-01-25]' not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-68a398aa2f58036e8d45edfb-3",
+      "tool": "whois_whois_domain",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "domain",
+          "google.com",
+          "'google.com' not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-688fb11183792b921381bd66-1",
+      "tool": "osm-mcp-server_geocode_address",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "address",
+          "Plaza de la Aduana, Cartagena, Colombia",
+          "'Plaza de la Aduana, Cartagena, Colombia' not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-68a398aa2f58036e8d45edf6-4",
+      "tool": "mongodb_count",
+      "decision": "ASK",
+      "ungrounded": [
+        [
+          "query.Date.$lt.$date",
+          "2021-01-01T00:00:00Z",
+          "date 2021-01-01 not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-686d2c79e1db37ea23ddda08-4",
+      "tool": "google-workspace_list_events",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "timeMin",
+          "2025-07-07T04:00:00Z",
+          "time 04:00 not found in context"
+        ],
+        [
+          "timeMax",
+          "2025-07-08T04:00:00Z",
+          "date 2025-07-08 not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-6896416f7b30e5d8ccd7c913-1",
+      "tool": "google-maps_maps_distance_matrix",
+      "decision": "ASK",
+      "ungrounded": [
+        [
+          "mode",
+          "walking",
+          "enum 'walking' contradicts 'car' mentioned in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-6896416f7b30e5d8ccd7c913-3",
+      "tool": "google-maps_maps_distance_matrix",
+      "decision": "ASK",
+      "ungrounded": [
+        [
+          "mode",
+          "walking",
+          "enum 'walking' contradicts 'car' mentioned in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-689bd255c0422b257e7dfcb8-0",
+      "tool": "clinicaltrialsgov-mcp-server_clinicaltrials_list_studies",
+      "decision": "ASK",
+      "ungrounded": [
+        [
+          "filter.advanced",
+          "AREA[PrimaryCompletionDate]2022",
+          "'AREA[PrimaryCompletionDate]2022' not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-686bdf0ca7f3bf48518a172b-1",
+      "tool": "alchemy_fetchTokenPriceHistoryBySymbol",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "startTime",
+          "2021-05-30",
+          "date 2021-05-30 not found in context"
+        ],
+        [
+          "endTime",
+          "2021-06-05",
+          "date 2021-06-05 not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-68993ef3cf3e953b8ab83fdf-3",
+      "tool": "osm-mcp-server_get_route_directions",
+      "decision": "ASK",
+      "ungrounded": [
+        [
+          "mode",
+          "foot",
+          "enum 'foot' contradicts 'walking' mentioned in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-6887c6d4614f06dc73af245f-0",
+      "tool": "slack_channels_list",
+      "decision": "ASK",
+      "ungrounded": [
+        [
+          "channel_types",
+          "private channel, public channel",
+          "argument 'channel_types' has disallowed token in 'private channel, public channel'"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-68a398aa2f58036e8d45ede2-2",
+      "tool": "fetch_fetch",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "url",
+          "https://api.github.com/repos/mastodon/mastodon",
+          "'https://api.github.com/repos/mastodon/mastodon' not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-68993ef3cf3e953b8ab83fbb-3",
+      "tool": "open-library_get_book_by_id",
+      "decision": "ASK",
+      "ungrounded": [
+        [
+          "idType",
+          "isbn",
+          "'isbn' not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-68952adeba1c2ad4e6a5db77-3",
+      "tool": "airtable_list_records",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "max_records",
+          10,
+          "number 10 not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-68952adeba1c2ad4e6a5db77-4",
+      "tool": "airtable_search_records",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "value",
+          "2021-04",
+          "month 2021-04 not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-689a373e148a49f91233e01a-2",
+      "tool": "alchemy_fetchTokenPriceHistoryBySymbol",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "startTime",
+          "2022-12-14",
+          "date 2022-12-14 not found in context"
+        ],
+        [
+          "endTime",
+          "2022-12-14",
+          "date 2022-12-14 not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-68a398aa2f58036e8d45eddc-2",
+      "tool": "google-workspace_list_events",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "timeMin",
+          "2025-04-07T00:00:00Z",
+          "date 2025-04-07 not found in context"
+        ],
+        [
+          "timeMax",
+          "2025-04-07T23:59:59Z",
+          "date 2025-04-07 not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-689a373e148a49f91233e029-2",
+      "tool": "arxiv_search_papers",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "categories[0]",
+          "astro-ph.HE",
+          "'astro-ph.HE' not found in context"
+        ],
+        [
+          "date_from",
+          "2017-01-01",
+          "date 2017-01-01 not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-689af4e653c3905e7b5b2572-3",
+      "tool": "airtable_list_records",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "max_records",
+          10,
+          "number 10 not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-689bd255c0422b257e7dfcd7-3",
+      "tool": "google-workspace_list_events",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "timeMin",
+          "2025-07-21T00:00:00Z",
+          "date 2025-07-21 not found in context"
+        ],
+        [
+          "timeMax",
+          "2025-07-22T23:59:59Z",
+          "date 2025-07-22 not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-6890e7fd2516f66b0a628e68-1",
+      "tool": "osm-mcp-server_geocode_address",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "address",
+          "Botafogo Mall",
+          "'Botafogo Mall' not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-68a398aa2f58036e8d45edeb-4",
+      "tool": "google-workspace_list_events",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "timeMin",
+          "2025-08-01T00:00:00Z",
+          "date 2025-08-01 not found in context"
+        ],
+        [
+          "timeMax",
+          "2025-08-17T23:59:59Z",
+          "date 2025-08-17 not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-68834223448b8fe04df2a5b1-2",
+      "tool": "oxylabs_google_search_scraper",
+      "decision": "ASK",
+      "ungrounded": [
+        [
+          "query",
+          "france presidential elections before:2021 after:2009",
+          "'france presidential elections before:2021 after:2009' not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-689bd255c0422b257e7dfd05-2",
+      "tool": "airtable_list_records",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "max_records",
+          1,
+          "number 1 not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-6896416f7b30e5d8ccd7c8e5-3",
+      "tool": "google-maps_maps_search_places",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "radius",
+          0,
+          "number 0 not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-689cd6f8522029b7ad7b2016-4",
+      "tool": "clinicaltrialsgov-mcp-server_clinicaltrials_list_studies",
+      "decision": "ASK",
+      "ungrounded": [
+        [
+          "filter.advanced",
+          "AREA[BriefTitle] \"Daily Care\" AND AREA[CompletionDate] RANGE[2015-01-01,2023-12-31]",
+          "'AREA[BriefTitle] \"Daily Care\" AND AREA[CompletionDate] RANGE[2015-01-01,2023-12-31]' not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-68a398aa2f58036e8d45edd1-4",
+      "tool": "arxiv_search_papers",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "date_from",
+          "2021-03-01",
+          "date 2021-03-01 not found in context"
+        ],
+        [
+          "date_to",
+          "2021-03-31",
+          "date 2021-03-31 not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-688706e2ca6b3308497106ec-0",
+      "tool": "slack_channels_list",
+      "decision": "ASK",
+      "ungrounded": [
+        [
+          "channel_types",
+          "",
+          "argument 'channel_types' expected non-empty csv_enum string"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-68a398aa2f58036e8d45edd2-2",
+      "tool": "fetch_fetch",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "url",
+          "https://api.github.com/repos/freeCodeCamp/freeCodeCamp",
+          "'https://api.github.com/repos/freeCodeCamp/freeCodeCamp' not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-689af4e653c3905e7b5b25b0-4",
+      "tool": "airtable_search_records",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "value",
+          "2018-01",
+          "month 2018-01 not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-689e0b1d9c8e2ac413c1f24b-0",
+      "tool": "slack_channels_list",
+      "decision": "ASK",
+      "ungrounded": [
+        [
+          "channel_types",
+          "private_chanel",
+          "argument 'channel_types' has disallowed token in 'private_chanel'"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-689cd6f8522029b7ad7b200e-0",
+      "tool": "oxylabs_google_search_scraper",
+      "decision": "ASK",
+      "ungrounded": [
+        [
+          "query",
+          "In what year did John F. Kennedy assume the presidency?",
+          "'In what year did John F. Kennedy assume the presidency?' not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-689cd6f8522029b7ad7b200e-1",
+      "tool": "oxylabs_google_search_scraper",
+      "decision": "ASK",
+      "ungrounded": [
+        [
+          "pages",
+          0,
+          "argument 'pages' value 0.0 below minimum 1"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-689cd6f8522029b7ad7b200e-2",
+      "tool": "oxylabs_google_search_scraper",
+      "decision": "ASK",
+      "ungrounded": [
+        [
+          "query",
+          "El coronel no tiene quien le escriba Libro online espa\u00f1ol",
+          "'El coronel no tiene quien le escriba Libro online espa\u00f1ol' not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-68952adeba1c2ad4e6a5db40-5",
+      "tool": "airtable_search_records",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "value",
+          "2021-12",
+          "month 2021-12 not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-68940d8355faa0b720f0b4bb-2",
+      "tool": "airtable_list_records",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "max_records",
+          10,
+          "number 10 not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-68a398aa2f58036e8d45edd3-4",
+      "tool": "arxiv_search_papers",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "date_from",
+          "2020-01-13",
+          "date 2020-01-13 not found in context"
+        ],
+        [
+          "date_to",
+          "2020-01-19",
+          "date 2020-01-19 not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-689a373e148a49f91233e02b-4",
+      "tool": "weather-data_weather_astronomy",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "q",
+          "Merida, Mexico",
+          "'Merida, Mexico' not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-689e0b1d9c8e2ac413c1f229-2",
+      "tool": "alchemy_fetchTokenPriceHistoryBySymbol",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "startTime",
+          "2017-01-01",
+          "date 2017-01-01 not found in context"
+        ],
+        [
+          "endTime",
+          "2017-01-02",
+          "date 2017-01-02 not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-689af4e653c3905e7b5b25c8-3",
+      "tool": "weather-data_weather_astronomy",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "dt",
+          "2025-02-01",
+          "date 2025-02-01 not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-6886306b5ed4da6b2c38118b-1",
+      "tool": "alchemy_fetchTokenPriceHistoryBySymbol",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "endTime",
+          "2021-09-14",
+          "date 2021-09-14 not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-688fb11183792b921381bd36-2",
+      "tool": "clinicaltrialsgov-mcp-server_clinicaltrials_list_studies",
+      "decision": "ASK",
+      "ungrounded": [
+        [
+          "filter.advanced",
+          "AREA[StudyFirstPostDate]RANGE[2001-03-01, 2001-03-01]",
+          "'AREA[StudyFirstPostDate]RANGE[2001-03-01, 2001-03-01]' not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-688a441c1a0d2e5c93853e99-1",
+      "tool": "clinicaltrialsgov-mcp-server_clinicaltrials_list_studies",
+      "decision": "ASK",
+      "ungrounded": [
+        [
+          "filter.advanced",
+          "AREA[StartDate]RANGE[MIN, 2020-08-31]",
+          "'AREA[StartDate]RANGE[MIN, 2020-08-31]' not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-689bd255c0422b257e7dfcec-2",
+      "tool": "alchemy_fetchTokenPriceHistoryBySymbol",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "startTime",
+          "2014-06-30",
+          "date 2014-06-30 not found in context"
+        ],
+        [
+          "endTime",
+          "2014-06-30",
+          "date 2014-06-30 not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-689bd255c0422b257e7dfcec-3",
+      "tool": "alchemy_fetchTokenPriceHistoryBySymbol",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "startTime",
+          "2014-07-31",
+          "date 2014-07-31 not found in context"
+        ],
+        [
+          "endTime",
+          "2014-07-31",
+          "date 2014-07-31 not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-68940d8355faa0b720f0b4ba-3",
+      "tool": "weather-data_weather_astronomy",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "dt",
+          "1959-08-08",
+          "date 1959-08-08 not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-689cd6f8522029b7ad7b200d-1",
+      "tool": "clinicaltrialsgov-mcp-server_clinicaltrials_list_studies",
+      "decision": "ASK",
+      "ungrounded": [
+        [
+          "filter.advanced",
+          "AREA[CompletionDate]RANGE[01/01/2024,12/31/2024]",
+          "'AREA[CompletionDate]RANGE[01/01/2024,12/31/2024]' not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-6896416f7b30e5d8ccd7c8c7-1",
+      "tool": "mcp-code-executor_execute_code",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "language",
+          "python",
+          "'python' not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-689cd6f8522029b7ad7b2034-1",
+      "tool": "oxylabs_google_search_scraper",
+      "decision": "ASK",
+      "ungrounded": [
+        [
+          "query",
+          "Novak Djokovic place of birth",
+          "'Novak Djokovic place of birth' not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-689cd6f8522029b7ad7b2034-3",
+      "tool": "alchemy_fetchTokenPriceHistoryBySymbol",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "startTime",
+          "2016-05-31",
+          "date 2016-05-31 not found in context"
+        ],
+        [
+          "endTime",
+          "2016-05-31",
+          "date 2016-05-31 not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-6890e7fd2516f66b0a628e3a-2",
+      "tool": "airtable_list_records",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "max_records",
+          10,
+          "number 10 not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-68993ef3cf3e953b8ab83fcc-1",
+      "tool": "google-workspace_list_events",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "timeMin",
+          "2025-07-08T00:00:00Z",
+          "date 2025-07-08 not found in context"
+        ],
+        [
+          "timeMax",
+          "2025-07-11T23:59:59Z",
+          "date 2025-07-11 not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-6886306b5ed4da6b2c381199-3",
+      "tool": "slack_channels_list",
+      "decision": "ASK",
+      "ungrounded": [
+        [
+          "channel_types",
+          "",
+          "argument 'channel_types' expected non-empty csv_enum string"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-68824c643e6ff020bc339906-3",
+      "tool": "alchemy_fetchTokenPriceHistoryBySymbol",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "endTime",
+          "2017-04-01",
+          "date 2017-04-01 not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-68952adeba1c2ad4e6a5db3a-4",
+      "tool": "airtable_search_records",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "value",
+          "2022-Q1",
+          "quarter 2022-Q1 not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-68952adeba1c2ad4e6a5db3a-5",
+      "tool": "airtable_search_records",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "value",
+          "2022-Q3",
+          "quarter 2022-Q3 not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-6896416f7b30e5d8ccd7c8dd-0",
+      "tool": "filesystem_list_directory",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "path",
+          "/data",
+          "'/data' not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-6896416f7b30e5d8ccd7c8dd-1",
+      "tool": "filesystem_list_directory",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "path",
+          "/data/repos",
+          "'/data/repos' not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-6896416f7b30e5d8ccd7c8dd-2",
+      "tool": "filesystem_list_directory",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "path",
+          "/data/repos/snake-game",
+          "'/data/repos/snake-game' not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-689a373e148a49f91233e004-1",
+      "tool": "weather-data_weather_astronomy",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "dt",
+          "2010-12-20",
+          "date 2010-12-20 not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-689a373e148a49f91233e004-2",
+      "tool": "osm-mcp-server_find_nearby_places",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "radius",
+          5000,
+          "number 5000 not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-6890e7fd2516f66b0a628e6f-7",
+      "tool": "airtable_list_records",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "max_records",
+          3,
+          "number 3 not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-6890e7fd2516f66b0a628e6f-8",
+      "tool": "airtable_search_records",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "value",
+          "2020-Q1",
+          "quarter 2020-Q1 not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-688fb11183792b921381bd25-1",
+      "tool": "mongodb_collection-schema",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "database",
+          "video_game_store",
+          "'video_game_store' not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-689bd255c0422b257e7dfcce-0",
+      "tool": "slack_channels_list",
+      "decision": "ASK",
+      "ungrounded": [
+        [
+          "channel_types",
+          " 'mpim', 'im', 'public_channel', 'private_channel'",
+          "argument 'channel_types' has disallowed token in \" 'mpim', 'im', 'public_channel', 'private_channel'\""
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-688ba1b3e95696e72dd93e9f-5",
+      "tool": "airtable_search_records",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "value",
+          "2022-08",
+          "month 2022-08 not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-687b3f4e721b0fdbc8d0a79b-3",
+      "tool": "alchemy_fetchTokenPriceHistoryBySymbol",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "endTime",
+          "2024-01-10",
+          "date 2024-01-10 not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-689bd255c0422b257e7dfd04-3",
+      "tool": "fetch_fetch",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "url",
+          "https://en.wikipedia.org/wiki/Super_Mario_64",
+          "'https://en.wikipedia.org/wiki/Super_Mario_64' not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-6897a6002b64a8c831efa335-3",
+      "tool": "google-maps_maps_directions",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "origin",
+          "Riverside Park, NYC",
+          "'Riverside Park, NYC' not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-68824c643e6ff020bc339928-1",
+      "tool": "alchemy_fetchTokenPriceHistoryBySymbol",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "startTime",
+          "2015-12-01",
+          "date 2015-12-01 not found in context"
+        ],
+        [
+          "endTime",
+          "2015-12-31",
+          "date 2015-12-31 not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-689af4e653c3905e7b5b25c4-3",
+      "tool": "airtable_search_records",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "value",
+          "2017-07-28T00:00:00.000Z",
+          "'2017-07-28T00:00:00.000Z' not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-68952adeba1c2ad4e6a5db7d-0",
+      "tool": "pubmed_search_pubmed_key_words",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "key_words",
+          "dendritic cell vaccine lung cancer 12 patients 85 treatments ",
+          "'dendritic cell vaccine lung cancer 12 patients 85 treatments ' not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-68952adeba1c2ad4e6a5db7d-4",
+      "tool": "clinicaltrialsgov-mcp-server_clinicaltrials_analyze_trends",
+      "decision": "ASK",
+      "ungrounded": [
+        [
+          "analysisType",
+          "countByCountry",
+          "'countByCountry' not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-689af4e653c3905e7b5b2578-2",
+      "tool": "airtable_list_records",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "max_records",
+          1,
+          "number 1 not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-6888e207a34beb25cfedda8b-0",
+      "tool": "open-library_get_book_by_title",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "title",
+          "g oair accident",
+          "'g oair accident' not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-689f4d693e212e8ef3390728-2",
+      "tool": "fetch_fetch",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "url",
+          "https://api.github.com/repos/BZFlag-Dev/bzflag",
+          "'https://api.github.com/repos/BZFlag-Dev/bzflag' not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-689a373e148a49f91233e01d-2",
+      "tool": "alchemy_fetchTokenPriceHistoryBySymbol",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "endTime",
+          "2025-08-01",
+          "date 2025-08-01 not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-68940d8355faa0b720f0b481-2",
+      "tool": "airtable_list_records",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "max_records",
+          10,
+          "number 10 not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-689af4e653c3905e7b5b25a4-1",
+      "tool": "alchemy_fetchTokenPriceHistoryBySymbol",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "endTime",
+          "2025-01-21",
+          "date 2025-01-21 not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-689a373e148a49f91233dffa-7",
+      "tool": "alchemy_fetchTokenPriceHistoryBySymbol",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "startTime",
+          "2017-01-20",
+          "date 2017-01-20 not found in context"
+        ],
+        [
+          "endTime",
+          "2017-01-20",
+          "date 2017-01-20 not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-689bd255c0422b257e7dfce7-1",
+      "tool": "alchemy_fetchTokenPriceHistoryBySymbol",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "endTime",
+          "2023-10-19",
+          "date 2023-10-19 not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-689e0b1d9c8e2ac413c1f24d-0",
+      "tool": "oxylabs_google_search_scraper",
+      "decision": "ASK",
+      "ungrounded": [
+        [
+          "query",
+          "Alien earth international premiere date",
+          "'Alien earth international premiere date' not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-688fb11183792b921381bd27-0",
+      "tool": "wikipedia_search_wikipedia",
+      "decision": "ASK",
+      "ungrounded": [
+        [
+          "query",
+          "Tuscany region ",
+          "'Tuscany region ' not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-688fb11183792b921381bd27-2",
+      "tool": "osm-mcp-server_geocode_address",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "address",
+          "Florence Airport, Italy",
+          "'Florence Airport, Italy' not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-689e0b1d9c8e2ac413c1f23a-2",
+      "tool": "alchemy_fetchTokenPriceHistoryBySymbol",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "startTime",
+          "2015-01-01",
+          "date 2015-01-01 not found in context"
+        ],
+        [
+          "endTime",
+          "2015-01-02",
+          "date 2015-01-02 not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-687ebf5ff5a578e0055a4560-0",
+      "tool": "oxylabs_google_search_scraper",
+      "decision": "ASK",
+      "ungrounded": [
+        [
+          "query",
+          "descartes birthday",
+          "'descartes birthday' not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-687ebf5ff5a578e0055a455e-5",
+      "tool": "slack_channels_list",
+      "decision": "ASK",
+      "ungrounded": [
+        [
+          "channel_types",
+          "",
+          "argument 'channel_types' expected non-empty csv_enum string"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-689af4e653c3905e7b5b25a1-5",
+      "tool": "airtable_search_records",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "value",
+          "2016-01",
+          "month 2016-01 not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-689af4e653c3905e7b5b25a1-6",
+      "tool": "airtable_search_records",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "value",
+          "2016-02",
+          "month 2016-02 not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-689af4e653c3905e7b5b25a1-7",
+      "tool": "airtable_search_records",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "value",
+          "2016-03",
+          "month 2016-03 not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-689af4e653c3905e7b5b25a1-8",
+      "tool": "airtable_search_records",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "value",
+          "2016-04",
+          "month 2016-04 not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-689af4e653c3905e7b5b25a1-9",
+      "tool": "airtable_search_records",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "value",
+          "2016-05",
+          "month 2016-05 not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-689af4e653c3905e7b5b25a1-10",
+      "tool": "airtable_search_records",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "value",
+          "2016-06",
+          "month 2016-06 not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-689af4e653c3905e7b5b25a1-11",
+      "tool": "airtable_search_records",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "value",
+          "2016-07",
+          "month 2016-07 not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-689af4e653c3905e7b5b25a1-12",
+      "tool": "airtable_search_records",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "value",
+          "2016-08",
+          "month 2016-08 not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-689af4e653c3905e7b5b25a1-13",
+      "tool": "airtable_search_records",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "value",
+          "2016-09",
+          "month 2016-09 not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-689af4e653c3905e7b5b25a1-14",
+      "tool": "airtable_search_records",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "value",
+          "2016-10",
+          "month 2016-10 not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-689af4e653c3905e7b5b25a1-15",
+      "tool": "airtable_search_records",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "value",
+          "2016-11",
+          "month 2016-11 not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-689af4e653c3905e7b5b25a1-16",
+      "tool": "airtable_search_records",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "value",
+          "2016-12",
+          "month 2016-12 not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-6890e7fd2516f66b0a628e82-3",
+      "tool": "wikipedia_search_wikipedia",
+      "decision": "ASK",
+      "ungrounded": [
+        [
+          "query",
+          "Monarch of the United Kingdom in 1817.",
+          "'Monarch of the United Kingdom in 1817.' not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-6888e207a34beb25cfedda70-1",
+      "tool": "slack_channels_list",
+      "decision": "ASK",
+      "ungrounded": [
+        [
+          "channel_types",
+          "private channel",
+          "argument 'channel_types' has disallowed token in 'private channel'"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-688706e2ca6b330849710721-1",
+      "tool": "mcp-code-executor_read_code_file",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "file_path",
+          "/data/Crime_records.csv",
+          "'/data/Crime_records.csv' not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-689e0b1d9c8e2ac413c1f249-2",
+      "tool": "weather-data_weather_astronomy",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "dt",
+          "2010-11-20",
+          "date 2010-11-20 not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-689e0b1d9c8e2ac413c1f24c-2",
+      "tool": "alchemy_fetchTokenPriceHistoryBySymbol",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "startTime",
+          "2019-03-28",
+          "date 2019-03-28 not found in context"
+        ],
+        [
+          "endTime",
+          "2019-03-30",
+          "date 2019-03-30 not found in context"
+        ]
+      ]
+    },
+    {
+      "id": "mcpatlas-689e0b1d9c8e2ac413c1f242-2",
+      "tool": "alchemy_fetchTokenPriceHistoryBySymbol",
+      "decision": "BLOCK",
+      "ungrounded": [
+        [
+          "startTime",
+          "2020-01-01",
+          "date 2020-01-01 not found in context"
+        ],
+        [
+          "endTime",
+          "2020-01-02",
+          "date 2020-01-02 not found in context"
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,173 @@
+{
+  "tools": {
+    "alchemy_fetchTokenPriceHistoryBySymbol": {
+      "properties": {
+        "interval": {
+          "type": "string",
+          "enum": ["1m", "5m", "15m", "30m", "1h", "4h", "1d", "1w", "1M"],
+          "default": "1d"
+        }
+      }
+    },
+    "slack_channels_list": {
+      "properties": {
+        "channel_types": {
+          "type": "csv_enum",
+          "enum": ["public_channel", "private_channel", "mpim", "im"],
+          "default": "public_channel"
+        },
+        "types": {
+          "type": "csv_enum",
+          "enum": ["public_channel", "private_channel", "mpim", "im"],
+          "default": "public_channel"
+        },
+        "limit": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 1000,
+          "default": 100
+        }
+      }
+    },
+    "fetch_fetch": {
+      "properties": {
+        "max_length": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 10000000,
+          "default": 5000
+        },
+        "start_index": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 10000000,
+          "default": 0
+        }
+      }
+    },
+    "osm-mcp-server_get_route_directions": {
+      "properties": {
+        "mode": {
+          "type": "string",
+          "enum": ["driving", "walking", "bicycling", "transit", "foot", "car", "bike", "cycling"],
+          "default": "car"
+        }
+      }
+    },
+    "google-maps_maps_distance_matrix": {
+      "properties": {
+        "mode": {
+          "type": "string",
+          "enum": ["driving", "walking", "bicycling", "transit", "foot", "car", "bike", "cycling"],
+          "default": "driving"
+        },
+        "units": {
+          "type": "string",
+          "enum": ["metric", "imperial"],
+          "default": "metric"
+        }
+      }
+    },
+    "oxylabs_universal_scraper": {
+      "properties": {
+        "output_format": {
+          "type": "string",
+          "enum": ["html", "markdown", "md", "raw", "text", "json"],
+          "default": "html"
+        }
+      }
+    },
+    "oxylabs_google_search_scraper": {
+      "properties": {
+        "pages": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 100,
+          "default": 1
+        },
+        "locale": {
+          "type": "string",
+          "pattern": "^[a-z]{2}(-[A-Z]{2})?$",
+          "default": "en-US"
+        },
+        "start_page": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 100,
+          "default": 1
+        }
+      }
+    },
+    "google-workspace_list_events": {
+      "properties": {
+        "maxResults": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 2147483647,
+          "default": 250
+        },
+        "MaxResult": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 2147483647,
+          "default": 250
+        },
+        "orderBy": {
+          "type": "string",
+          "enum": ["startTime", "updated"],
+          "default": "startTime"
+        }
+      }
+    },
+    "clinicaltrialsgov-mcp-server_clinicaltrials_list_studies": {
+      "properties": {
+        "overallStatus": {
+          "type": "string",
+          "enum": [
+            "RECRUITING",
+            "NOT_YET_RECRUITING",
+            "COMPLETED",
+            "ACTIVE_NOT_RECRUITING",
+            "SUSPENDED",
+            "TERMINATED",
+            "WITHDRAWN",
+            "ENROLLING_BY_INVITATION",
+            "UNKNOWN"
+          ]
+        },
+        "sort": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_]+(:(asc|desc))?$"
+        },
+        "fields": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_.]+$"
+        },
+        "pageSize": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 1000,
+          "default": 10
+        }
+      }
+    }
+  },
+  "generic_control_properties": {
+    "limit": {"type": "integer", "minimum": 1, "maximum": 100000},
+    "max_results": {"type": "integer", "minimum": 1, "maximum": 100000},
+    "maxresults": {"type": "integer", "minimum": 1, "maximum": 100000},
+    "maxResults": {"type": "integer", "minimum": 1, "maximum": 2147483647},
+    "MaxResult": {"type": "integer", "minimum": 1, "maximum": 2147483647},
+    "per_page": {"type": "integer", "minimum": 1, "maximum": 1000},
+    "page_size": {"type": "integer", "minimum": 1, "maximum": 1000},
+    "pagesize": {"type": "integer", "minimum": 1, "maximum": 1000},
+    "page": {"type": "integer", "minimum": 1, "maximum": 100000},
+    "pages": {"type": "integer", "minimum": 1, "maximum": 1000},
+    "offset": {"type": "integer", "minimum": 0, "maximum": 10000000},
+    "top_k": {"type": "integer", "minimum": 1, "maximum": 1000},
+    "max_length": {"type": "integer", "minimum": 1, "maximum": 10000000},
+    "timeout": {"type": "number", "minimum": 1, "maximum": 600},
+    "order": {"type": "string", "enum": ["asc", "desc", "ascending", "descending"]},
+    "direction": {"type": "string", "enum": ["asc", "desc", "ascending", "descending"]}
+  }
+}

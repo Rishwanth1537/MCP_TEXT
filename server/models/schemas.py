@@ -75,7 +75,8 @@ class SchemaAlignmentResponse(BaseModel):
 class ArgumentGroundingRequest(BaseModel):
     arguments: Dict[str, Any] = Field(..., description="The planned tool-call arguments.")
     context: str = Field(..., description="The conversation or source text the argument values should be grounded in.")
-    schema_hint: Optional[Dict[str, Any]] = Field(default=None, description="Optional {'required': [...], 'optional': [...]}; used only with policy='required_only'.")
+    tool_name: Optional[str] = Field(default=None, description="Optional tool name for JSON Schema enum/bounds validation.")
+    schema_hint: Optional[Dict[str, Any]] = Field(default=None, description="Optional {'required': [...], 'optional': [...], 'properties': {...}}.")
     tau: float = Field(default=0.88, ge=0.0, le=1.0, description="Block iff the call-level grounding score is below tau (legacy binary mode).")
     tau_block: float = Field(default=0.50, ge=0.0, le=1.0, description="Strict threshold below which absent checkable values trigger BLOCK.")
     tau_ask: float = Field(default=0.88, ge=0.0, le=1.0, description="Threshold below which ungrounded values trigger ASK confirmation.")

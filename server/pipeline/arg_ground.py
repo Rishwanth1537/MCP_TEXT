@@ -225,7 +225,7 @@ def _stems(text_norm: str) -> set:
     return {_stem(t) for t in text_norm.split()}
 
 
-_ISO = re.compile(r"^\s*(\d{4})-(\d{2})-(\d{2})(?:[T ](\d{2}):(\d{2})(?::(\d{2}))?)?\s*(?:Z|[+-]\d{2}:?\d{2})?\s*$")
+_ISO = re.compile(r"^\s*(\d{4})-(\d{2})-(\d{2})(?:[T ](\d{2}):(\d{2})(?::(\d{2})(?:\.\d+)?)?)?\s*(?:Z|[+-]\d{2}:?\d{2})?\s*$", re.I)
 _YM = re.compile(r"^\s*(\d{4})-(\d{2})\s*$")
 _QUARTER = re.compile(r"^\s*(\d{4})-Q([1-4])\s*$", re.I)
 _YEAR = re.compile(r"(?<![\d-])((?:19|20)\d{2})(?![\d-])")
@@ -282,7 +282,15 @@ def _date_in(context: str, y: int, mo: int, d: int) -> bool:
         return True
     mn = _MONTHS[mo - 1]
     pat = rf"({mn}|{mn[:3]})\.?\s+{d}(st|nd|rd|th)?,?\s+{y}|{d}(st|nd|rd|th)?\s+(of\s+)?({mn}|{mn[:3]})\.?,?\s+{y}"
-    return re.search(pat, c) is not None
+    if re.search(pat, c) is not None:
+        return True
+    # Split month+year and month+day in context (e.g. 'this july 2025 ... after july 15th')
+    ym, _ = _months_years(context)
+    if (y, mo) in ym:
+        day_pat = rf"\b({mn}|{mn[:3]})\.?\s+{d}(?:st|nd|rd|th)?\b|\b{d}(?:st|nd|rd|th)?\s+(?:of\s+)?({mn}|{mn[:3]})\b"
+        if re.search(day_pat, c) is not None:
+            return True
+    return False
 
 
 def _check_iso(argument: str, value: str, context: str):
@@ -435,3 +443,93 @@ def conformal_threshold(gold_scores, alpha: float) -> float:
     if k < 1:
         return 0.0
     return xs[k - 1]
+
+
+_CONTROL_GROUP_KEYS = {
+    "limit", "offset", "page", "pages", "page_size", "pagesize", "per_page", "sort", "order",
+    "direction", "filter", "cursor", "next_page", "mode", "format", "output_format", "view",
+    "fields", "params", "options", "config", "interval", "channel_types", "types", "max_length",
+    "maxresults", "maxresult", "max_results", "timeout", "units", "locale",
+}
+_SEARCH_GROUP_KEYS = {"query", "q", "search", "search_query", "search_term", "keyword", "keywords", "prompt", "topic"}
+_DATETIME_GROUP_KEYS = {"date", "dt", "time", "timemin", "timemax", "starttime", "endtime", "timestamp", "created_at", "since", "until"}
+
+
+def call_argument_class(arguments: Dict[str, Any]) -> str:
+    """Deterministic Mondrian partition of tool calls based strictly on argument names and types (no gold labels)."""
+    if not arguments:
+        return "control_only"
+    keys = {k.strip().lower() for k in arguments.keys()}
+    if keys & _DATETIME_GROUP_KEYS or any(
+        isinstance(v, str) and (_ISO.match(v) or _YM.match(v) or _QUARTER.match(v))
+        for v in arguments.values()
+    ):
+        return "datetime"
+    if keys <= _CONTROL_GROUP_KEYS:
+        return "control_only"
+    if keys & _SEARCH_GROUP_KEYS and not (keys - _SEARCH_GROUP_KEYS - _CONTROL_GROUP_KEYS):
+        return "search_query"
+    return "entity_or_id"
+
+
+def _clopper_pearson_ucb(k: int, n: int, delta: float = 0.10) -> float:
+    if n <= 0:
+        return 1.0
+    if k >= n:
+        return 1.0
+    try:
+        from scipy.stats import beta
+        return float(beta.ppf(1.0 - delta, k + 1, n - k))
+    except ImportError:
+        import math
+        return min(1.0, (k / n) + math.sqrt(math.log(1.0 / delta) / (2.0 * n)))
+
+
+def mondrian_conformal_threshold_ucb(
+    gold_scores: List[float],
+    groups: List[str],
+    alpha: float = 0.05,
+    delta: float = 0.10,
+) -> Dict[str, Dict[str, Any]]:
+    """
+    Call-level Mondrian conformal calibration with C1 Clopper-Pearson upper confidence bound.
+    For each call class g, computes the largest threshold tau_g such that the (1 - delta) UCB
+    on P(score < tau_g | clean, G=g) <= alpha. Returns dict mapping group -> calibration metadata.
+    """
+    by_group: Dict[str, List[float]] = {}
+    for sc, grp in zip(gold_scores, groups):
+        by_group.setdefault(grp, []).append(float(sc))
+
+    out: Dict[str, Dict[str, Any]] = {}
+    for grp, scores in sorted(by_group.items()):
+        s = sorted(scores)
+        n = len(s)
+        best_tau = 0.0
+        best_k = 0
+        best_ucb = _clopper_pearson_ucb(0, n, delta=delta)
+        # Candidate thresholds: check unique positive score levels up to 1.0
+        candidates = sorted(set(x for x in s if x > 0.0))
+        for t in candidates:
+            k = sum(1 for x in s if x < t)
+            ucb = _clopper_pearson_ucb(k, n, delta=delta)
+            if ucb <= alpha:
+                best_tau = float(t)
+                best_k = k
+                best_ucb = ucb
+            else:
+                break
+        # Check whether even tau = 0.01 (blocking score == 0.0) meets the C1 UCB
+        k_zero = sum(1 for x in s if x <= 0.0)
+        ucb_zero = _clopper_pearson_ucb(k_zero, n, delta=delta)
+        feasible_at_alpha = (best_tau > 0.0) or (ucb_zero <= alpha)
+        out[grp] = {
+            "n": n,
+            "tau": round(best_tau, 4),
+            "empirical_fbr_at_tau": round(best_k / n, 4) if n else 0.0,
+            "ucb_at_tau": round(best_ucb, 4),
+            "zero_score_count": k_zero,
+            "zero_score_rate": round(k_zero / n, 4) if n else 0.0,
+            "zero_score_ucb": round(ucb_zero, 4),
+            "feasible_at_alpha": feasible_at_alpha,
+        }
+    return out
