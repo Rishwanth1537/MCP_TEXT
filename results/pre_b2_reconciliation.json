@@ -1,0 +1,53 @@
+{
+  "b3b_hits": [
+    [
+      "mcpatlas_calib",
+      "mcpatlas-689cd6f8522029b7ad7b200e-0",
+      1.0
+    ],
+    [
+      "agenthallu",
+      "agenthallu:BFCL/068:s9:c0",
+      608.94
+    ],
+    [
+      "agenthallu",
+      "agenthallu:BFCL/055:s6:c0",
+      484.67
+    ],
+    [
+      "agenthallu",
+      "agenthallu:BFCL/010:s3:c0",
+      1.0
+    ]
+  ],
+  "pre_b3_16686a4": {
+    "block": 183,
+    "ask": 62
+  },
+  "post_b3_current": {
+    "block": 192,
+    "ask": 60
+  },
+  "paired_delta_block_pts": 0.74,
+  "paired_delta_block_ci": [
+    -0.89,
+    3.16
+  ],
+  "fixed_count": 15,
+  "fixed_tools": [
+    "airtable_search_records",
+    "alchemy_fetchTokenPriceHistoryBySymbol",
+    "google-workspace_list_events",
+    "national-parks_findParks"
+  ],
+  "regressed_count": 24,
+  "regressed_tools": [
+    "airtable_search_records"
+  ],
+  "fcrb_fab_recall_union": 77.35,
+  "fcrb_fab_recall_block": 49.72,
+  "near_miss_total": 94,
+  "near_miss_caught_any": 71,
+  "near_miss_recall_union": 75.53
+}
