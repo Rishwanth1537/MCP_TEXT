@@ -81,10 +81,6 @@ def _date_range_grounded(value: str, text: str) -> bool:
     v = value.strip()
     c = text.lower()
 
-    # 0. Verbatim match
-    if v.lower() in c:
-        return True
-
     # 1. Year-Month
     ym_m = _YM.match(v)
     if ym_m:

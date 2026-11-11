@@ -1,0 +1,25 @@
+{
+  "step": "B3a",
+  "calib_n": 1212,
+  "block_rate": 15.84,
+  "block_ci": [
+    6.54,
+    26.58
+  ],
+  "block_count": 192,
+  "ask_rate": 4.95,
+  "ask_ci": [
+    1.44,
+    9.72
+  ],
+  "ask_count": 60,
+  "any_rate": 20.79,
+  "any_ci": [
+    11.55,
+    31.27
+  ],
+  "any_count": 252,
+  "fcrb_union_recall": 77.9,
+  "hallu_union_recall": 61.3,
+  "n_tools": 53
+}

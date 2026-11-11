@@ -7,6 +7,7 @@ unit mismatches, wrong tickers) remain strictly UNGROUNDED.
 
 import pytest
 from server.pipeline.arg_ground import check_arguments, check_value
+from server.pipeline.provenance import check_call
 
 
 # -----------------------------------------------------------------------------
@@ -29,11 +30,11 @@ def test_b3c_valid_dates():
     res = check_value("value", "2020-Q1", "Review report for the first quarter of 2020.")
     assert res.verdict == "GROUNDED"
 
-    # Month boundaries when period requested
-    res_start = check_value("dt", "2020-04-01", "Weather data for April 2020.")
-    assert res_start.verdict == "GROUNDED"
-    res_end = check_value("dt", "2020-04-30", "Weather data for April 2020.")
-    assert res_end.verdict == "GROUNDED"
+    # Month boundaries when period requested (P2/P3 date-range expansion)
+    cv_start = check_call({"dt": "2020-04-01"}, [("user", "Weather data for April 2020.")], config="P3")
+    assert not cv_start.blocked
+    cv_end = check_call({"dt": "2020-04-30"}, [("user", "Weather data for April 2020.")], config="P3")
+    assert not cv_end.blocked
 
 
 def test_b3c_near_miss_adversarial_dates():
@@ -111,3 +112,42 @@ def test_b3b_unit_conversions():
     assert res_curr.verdict == "GROUNDED"
     bad_curr = check_value("price", 160.0, "Total price is $150.")
     assert bad_curr.verdict == "UNGROUNDED", "Wrong currency amount must be UNGROUNDED"
+
+
+# -----------------------------------------------------------------------------
+# B3a: Entity Aliases & Adversarial Tests
+# -----------------------------------------------------------------------------
+def test_b3a_aliases():
+    # Crypto tickers
+    res_eth = check_value("symbol", "ETH", "I am analyzing Ethereum price history.")
+    assert res_eth.verdict == "GROUNDED"
+    res_btc = check_value("symbol", "BTC", "My portfolio includes Bitcoin holdings.")
+    assert res_btc.verdict == "GROUNDED"
+
+    # US states
+    res_ca = check_value("state", "CA", "The conference is in California.")
+    assert res_ca.verdict == "GROUNDED"
+    res_ny = check_value("state", "NY", "Headquartered in New York.")
+    assert res_ny.verdict == "GROUNDED"
+
+    # Stocks
+    res_aapl = check_value("ticker", "AAPL", "Looking up Apple stock.")
+    assert res_aapl.verdict == "GROUNDED"
+
+
+def test_b3a_near_miss_adversarial_aliases():
+    # 1. Unmentioned crypto ticker
+    bad_sol = check_value("symbol", "SOL", "I am analyzing Ethereum price history.")
+    assert bad_sol.verdict == "UNGROUNDED", "Unmentioned crypto ticker must be UNGROUNDED"
+    bad_doge = check_value("symbol", "DOGE", "I am analyzing Ethereum price history.")
+    assert bad_doge.verdict == "UNGROUNDED", "Unmentioned crypto ticker must be UNGROUNDED"
+
+    # 2. Unmentioned US state
+    bad_tx = check_value("state", "TX", "The conference is in California.")
+    assert bad_tx.verdict == "UNGROUNDED", "Unmentioned state abbreviation must be UNGROUNDED"
+    bad_fl = check_value("state", "FL", "The conference is in California.")
+    assert bad_fl.verdict == "UNGROUNDED", "Unmentioned state abbreviation must be UNGROUNDED"
+
+    # 3. Substring false positive protection (e.g. 'cat' should not match state 'ca')
+    bad_cat = check_value("state", "CA", "A cat sat on the mat.")
+    assert bad_cat.verdict == "UNGROUNDED", "Substring within word must NOT ground alias"

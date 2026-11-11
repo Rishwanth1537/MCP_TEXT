@@ -23,9 +23,11 @@ from __future__ import annotations
 
 import calendar
 import functools
+import json
 import re
 from dataclasses import dataclass
 from difflib import SequenceMatcher
+from pathlib import Path
 from typing import Any, Dict, List, Tuple
 
 FUZZY = 0.88
@@ -287,10 +289,6 @@ def _check_iso(argument: str, value: str, context: str):
     v = value.strip()
     c = context.lower()
 
-    # 0. Verbatim containment in context
-    if v.lower() in c:
-        return ArgVerdict(argument, value, "GROUNDED", "")
-
     # 1. Year-Month (e.g. 2023-07)
     ym_m = _YM.match(v)
     if ym_m:
@@ -317,12 +315,7 @@ def _check_iso(argument: str, value: str, context: str):
         return None
     y, mo, d = int(m.group(1)), int(m.group(2)), int(m.group(3))
     if not _date_in(context, y, mo, d):
-        ym, _ = _months_years(context)
-        last_d = calendar.monthrange(y, mo)[1] if 1 <= mo <= 12 else 0
-        if (y, mo) in ym and d in (1, last_d):
-            pass
-        else:
-            return ArgVerdict(argument, value, "UNGROUNDED", f"date {y:04d}-{mo:02d}-{d:02d} not found in context", 0.0)
+        return ArgVerdict(argument, value, "UNGROUNDED", f"date {y:04d}-{mo:02d}-{d:02d} not found in context", 0.0)
     if m.group(4) is not None:
         t = (int(m.group(4)), int(m.group(5)))
         if t not in ((0, 0), (23, 59)) and t not in _context_times(context):
@@ -341,6 +334,40 @@ def _check_currency(argument: str, value: str, context: str):
     return ArgVerdict(argument, value, "UNGROUNDED", f"currency {value} not mentioned in context", 0.0)
 
 
+_ALIASES_FILE = Path(__file__).resolve().parent.parent / "data" / "aliases.json"
+_ALIAS_MAP: Dict[str, set] = {}
+
+
+def _init_aliases():
+    global _ALIAS_MAP
+    if not _ALIAS_MAP and _ALIASES_FILE.exists():
+        try:
+            with open(_ALIASES_FILE, "r", encoding="utf-8") as f:
+                data = json.load(f)
+            for cat, mapping in data.items():
+                for canon, aliases in mapping.items():
+                    fam = set([canon.lower()] + [a.lower() for a in aliases])
+                    for item in fam:
+                        _ALIAS_MAP[item] = fam
+        except Exception:
+            pass
+
+
+_init_aliases()
+
+
+def _check_alias(argument: str, value: str, context: str):
+    v = value.strip().lower()
+    fam = _ALIAS_MAP.get(v)
+    if not fam:
+        return None
+    c = context.lower()
+    for syn in fam:
+        if syn in c and re.search(rf"(?<![a-zA-Z0-9]){re.escape(syn)}(?![a-zA-Z0-9])", c):
+            return ArgVerdict(argument, value, "GROUNDED", "")
+    return ArgVerdict(argument, value, "UNGROUNDED", f"alias '{value}' not supported by context", 0.0)
+
+
 def check_value(argument: str, value: Any, context: str) -> ArgVerdict:
     if isinstance(value, bool) or value is None:
         return ArgVerdict(argument, value, "UNCHECKABLE", "boolean or null value")
@@ -353,7 +380,7 @@ def check_value(argument: str, value: Any, context: str) -> ArgVerdict:
         # a purely numeric string is a number
         if re.fullmatch(r"\s*[\d,]+(?:\.\d+)?\s*", value):
             return check_value(argument, float(value.replace(",", "")), context)
-        for special in (_check_iso, _check_currency):
+        for special in (_check_iso, _check_currency, _check_alias):
             v = special(argument, value, context)
             if v is not None:
                 return v

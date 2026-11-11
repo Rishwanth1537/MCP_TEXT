@@ -236,3 +236,45 @@ eview/audit3/blinded_human_audit_50.json.
 - **Success Criterion Confirmation**:
   - Official success criterion: BLOCK-tier false-block rate <= 5.0% as a point estimate on the frozen held-out split.
   - Tool-cluster bootstrap CI will be fully reported for uncertainty quantification, but point estimate <= 5.0% serves as the pass/fail bar.
+
+## Experiment 12: Phase B3 Step-by-Step Normalization Ablations (B3c -> B3b -> B3a)
+- **Date**: 2026-11-11
+- **Branch**: improvements-2026-11
+- **Scope**: Step-by-step ablations for DateTime (B3c), Extended Numbers/Units (B3b), and Entity Aliases (B3a) evaluated on MCP-Atlas Calibration Split (n=1,212) with cluster-bootstrap CIs, adversarial near-miss verification, and residual breakdown.
+
+- **Step-by-Step Ablation Progression**:
+  1. **Pre-B3 Baseline (Clean Trajectory Evidence)**:
+     - Hard False Blocks (BLOCK): **17.74%** [6.7%, 30.4%] (count: 215/1212)
+     - Asks (ASK): **5.12%** [1.6%, 9.9%] (count: 62/1212)
+     - Any Intervention: **22.85%** [12.0%, 35.1%] (count: 277/1212)
+     - fcrb Fabricated Recall: 77.9% [73.4%, 81.9%] (Floor: 60%)
+     - AgentHallu Detection: 61.3% [43.8%, 76.3%] (Floor: 60%)
+  2. **+ B3c (DateTime Normalization & Trajectory Date-Range Expansion)**:
+     - Hard False Blocks (BLOCK): **16.17%** [6.6%, 27.2%] (count: 196/1212, **Delta: -19 blocks / -1.57 pts**)
+     - Asks (ASK): **5.12%** [1.6%, 9.9%] (count: 62/1212)
+     - Any Intervention: **21.29%** [11.8%, 32.2%] (count: 258/1212, Delta: -19 flags)
+     - Adversarial Tests: 2/2 PASS (off-by-one dates, mid-month inventions remain strictly UNGROUNDED)
+     - Tense-invariance removed per directive as it does not affect argument values.
+  3. **+ B3b (Extended Compound Numbers >99, Ordinals, Fractions, and Unit Conversions)**:
+     - Hard False Blocks (BLOCK): **16.17%** [6.6%, 27.2%] (count: 196/1212, Delta: 0)
+     - Asks (ASK): **5.12%** [1.6%, 9.9%] (count: 62/1212)
+     - Any Intervention: **21.29%** [11.8%, 32.2%] (count: 258/1212)
+     - Adversarial Tests: 3/3 PASS (digit additions, unit mismatches km vs mi, temperature mismatches remain UNGROUNDED)
+  4. **+ B3a (Entity Alias Mapping: Crypto Tickers, Stocks, US States)**:
+     - Hard False Blocks (BLOCK): **15.84%** [6.5%, 26.6%] (count: 192/1212, **Delta: -4 blocks / -0.33 pts**)
+     - Asks (ASK): **4.95%** [1.4%, 9.7%] (count: 60/1212, Delta: -2 asks)
+     - Any Intervention: **20.79%** [11.6%, 31.3%] (count: 252/1212, Delta: -6 flags)
+     - Adversarial Tests: 2/2 PASS (unmentioned tickers, unmentioned states, word boundary substring protection remain UNGROUNDED)
+
+- **Cumulative B3 Impact**:
+  - Total False Flags Removed: **25 flags** (23 hard blocks, 2 asks).
+  - Clean Call Hard False Block Rate: **15.84% [6.5%, 26.6%]**.
+  - All 7 adversarial tests pass (100% precision preserved).
+  - Safety floors intact: fcrb fabricated value recall = 77.9% (>=60%), AgentHallu detection = 61.3% (>=60%).
+
+- **Post-B3 Remaining False Flags & Unexplained Share**:
+  - Total remaining flags: 252 / 1,212 calls (192 BLOCK, 60 ASK).
+  - **Remaining Unexplained Share (
+esidual_other)**: **20 flags** (7.9% of flags, **1.65%** of all calibration calls).
+  - Remaining categorized breakdown: datetime_format 93 (cross-turn multi-step dates), enum_or_flag_argument 67 (addressed in B2 schema validation), 
+umber_unit_format 22, search_query_reformulation 17, uffer_or_size_limit 13, world_knowledge 7, url_or_endpoint_construction 6, control_parameter 6, intermediate_step_dependency 1.
