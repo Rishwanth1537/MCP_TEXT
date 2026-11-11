@@ -51,24 +51,106 @@ def _norm_text(s: str) -> str:
     return _WS.sub(" ", _PUNCT.sub(" ", str(s).lower())).strip()
 
 
+_ORDINALS = {
+    "first": 1.0, "second": 2.0, "third": 3.0, "fourth": 4.0, "fifth": 5.0,
+    "sixth": 6.0, "seventh": 7.0, "eighth": 8.0, "ninth": 9.0, "tenth": 10.0,
+    "eleventh": 11.0, "twelfth": 12.0, "thirteenth": 13.0, "fourteenth": 14.0,
+    "fifteenth": 15.0, "sixteenth": 16.0, "seventeenth": 17.0, "eighteenth": 18.0,
+    "nineteenth": 19.0, "twentieth": 20.0
+}
+
+_FRACTIONS = {
+    "half": 0.5, "a half": 0.5, "one half": 0.5,
+    "quarter": 0.25, "a quarter": 0.25, "one quarter": 0.25,
+    "three quarters": 0.75, "three quarter": 0.75,
+    "third": 1.0 / 3.0, "a third": 1.0 / 3.0, "one third": 1.0 / 3.0,
+    "two thirds": 2.0 / 3.0
+}
+
+
 def _spelled_numbers(text: str) -> set:
     toks = _norm_text(text).replace("-", " ").split()
-    out, i = set(), 0
+    out = set()
+    num_words = set(_ONES.keys()) | set(_TENS.keys()) | {"hundred", "thousand", "million", "billion", "and"}
+
+    # 1. Single and compound spelled numbers (>99)
+    i = 0
     while i < len(toks):
-        t = toks[i]
-        if t in _ONES:
-            out.add(float(_ONES[t]))
-        elif t in _TENS:
-            val = _TENS[t]
-            if i + 1 < len(toks) and toks[i + 1] in _ONES and 0 < _ONES[toks[i + 1]] < 10:
-                val += _ONES[toks[i + 1]]
-            out.add(float(val))
-        elif t in ("hundred", "thousand", "million"):
-            mult = {"hundred": 100, "thousand": 1000, "million": 1_000_000}[t]
-            base = float(_ONES.get(toks[i - 1], 1)) if i > 0 and toks[i - 1] in _ONES else 1.0
-            out.add(base * mult)
-        i += 1
+        if toks[i] in num_words and toks[i] != "and":
+            block = []
+            while i < len(toks) and toks[i] in num_words:
+                block.append(toks[i])
+                i += 1
+            cur, tot = 0, 0
+            for w in block:
+                if w in _ONES:
+                    cur += _ONES[w]
+                elif w in _TENS:
+                    cur += _TENS[w]
+                elif w == "hundred":
+                    cur = (cur if cur != 0 else 1) * 100
+                elif w in ("thousand", "million", "billion"):
+                    mult = {"thousand": 1000, "million": 1_000_000, "billion": 1_000_000_000}[w]
+                    cur = (cur if cur != 0 else 1) * mult
+                    tot += cur
+                    cur = 0
+            tot += cur
+            out.add(float(tot))
+        else:
+            if toks[i] in _ORDINALS:
+                out.add(_ORDINALS[toks[i]])
+            if toks[i] in _FRACTIONS:
+                out.add(_FRACTIONS[toks[i]])
+            i += 1
+
+    t_lower = text.lower()
+    for frac_phrase, frac_val in _FRACTIONS.items():
+        if frac_phrase in t_lower:
+            out.add(frac_val)
+
     return out
+
+
+def _unit_conversions(text: str) -> set:
+    vals = set()
+    t = text.lower()
+
+    # Distance: miles <-> km
+    for m in re.finditer(r"(\d+(?:\.\d+)?)\s*(?:miles?|mi)\b", t):
+        v = float(m.group(1))
+        km = v * 1.609344
+        vals |= {km, round(km, 1), round(km, 2), round(km, 3)}
+    for m in re.finditer(r"(\d+(?:\.\d+)?)\s*(?:kilometers?|kilometres?|km)\b", t):
+        v = float(m.group(1))
+        mi = v / 1.609344
+        vals |= {mi, round(mi, 1), round(mi, 2), round(mi, 3)}
+
+    # Mass: lbs <-> kg
+    for m in re.finditer(r"(\d+(?:\.\d+)?)\s*(?:pounds?|lbs?)\b", t):
+        v = float(m.group(1))
+        kg = v * 0.45359237
+        vals |= {kg, round(kg, 1), round(kg, 2), round(kg, 3)}
+    for m in re.finditer(r"(\d+(?:\.\d+)?)\s*(?:kilograms?|kilos?|kg)\b", t):
+        v = float(m.group(1))
+        lb = v / 0.45359237
+        vals |= {lb, round(lb, 1), round(lb, 2), round(lb, 3)}
+
+    # Temperature: C <-> F
+    for m in re.finditer(r"(-?\d+(?:\.\d+)?)\s*(?:degrees?\s+)?(?:celsius|c)\b", t):
+        v = float(m.group(1))
+        f = v * 9.0 / 5.0 + 32.0
+        vals |= {f, round(f, 1), round(f, 2)}
+    for m in re.finditer(r"(-?\d+(?:\.\d+)?)\s*(?:degrees?\s+)?(?:fahrenheit|f)\b", t):
+        v = float(m.group(1))
+        c = (v - 32.0) * 5.0 / 9.0
+        vals |= {c, round(c, 1), round(c, 2)}
+
+    # Currency symbols: $, €, £, ¥
+    for m in re.finditer(r"[\$€£¥](\d[\d,]*(?:\.\d+)?)", t):
+        v = float(m.group(1).replace(",", ""))
+        vals.add(v)
+
+    return vals
 
 
 def numbers_in(text: str) -> set:
@@ -89,7 +171,7 @@ def numbers_in(text: str) -> set:
         if m.group(1):                       # explicit minus sign: also admit the negative of THIS number (latitudes, deltas, temperatures)
             mine |= {-x for x in mine if x > 0}
         vals |= mine
-    return vals | _spelled_numbers(text)
+    return vals | _spelled_numbers(text) | _unit_conversions(text)
 
 
 def _fuzzy_score(value_norm: str, context_norm: str) -> float:
