@@ -22,7 +22,7 @@ from dataclasses import dataclass, field
 from typing import Any, Dict, Iterable, List, Sequence, Tuple
 
 from server.pipeline.arg_ground import (
-    _ISO, _MONTHS, ArgVerdict, _norm_text, _stem, check_value, numbers_in,
+    _ISO, _YM, _QUARTER, _months_years, _MONTHS, ArgVerdict, _norm_text, _stem, check_value, numbers_in,
 )
 
 FUZZY_TOOL_CHARS = 100_000
@@ -77,25 +77,38 @@ class Evidence:
 
 # ---------------------------------------------------------------- date-range expansion (P2)
 _YM_ISO = re.compile(r"\b(\d{4})-(\d{2})\b(?!-\d)")
-_YEAR = re.compile(r"(?<![\d-])((?:19|20)\d{2})(?![\d-])")
-
-
-def _months_years(text: str) -> Tuple[set, set]:
-    t = text.lower()
-    ym, years = set(), set()
-    for i, mn in enumerate(_MONTHS, start=1):
-        for m in re.finditer(rf"\b(?:{mn}|{mn[:3]})\.?,?\s+(?:of\s+)?((?:19|20)\d{{2}})\b", t):
-            ym.add((int(m.group(1)), i))
-    for m in _YM_ISO.finditer(t):
-        y, mo = int(m.group(1)), int(m.group(2))
-        if 1 <= mo <= 12:
-            ym.add((y, mo))
-    years = {int(y) for y in _YEAR.findall(t)}
-    return ym, years
-
-
 def _date_range_grounded(value: str, text: str) -> bool:
-    m = _ISO.match(value)
+    v = value.strip()
+    c = text.lower()
+
+    # 0. Verbatim match
+    if v.lower() in c:
+        return True
+
+    # 1. Year-Month
+    ym_m = _YM.match(v)
+    if ym_m:
+        y, mo = int(ym_m.group(1)), int(ym_m.group(2))
+        ym, _ = _months_years(text)
+        forms = [f"{y:04d}-{mo:02d}", f"{mo:02d}/{y}", f"{mo}/{y}"]
+        return (y, mo) in ym or any(f in c for f in forms)
+
+    # 2. Quarter
+    q_m = _QUARTER.match(v)
+    if q_m:
+        y, q = int(q_m.group(1)), int(q_m.group(2))
+        q_words = ['first', 'second', 'third', 'fourth']
+        pats = [f'{y}-q{q}', f'q{q}-{y}', f'q{q} {y}', f'q{q}, {y}', f'{q_words[q-1]} quarter of {y}', f'{q_words[q-1]} quarter {y}']
+        if any(p in c for p in pats):
+            return True
+        # Cross-source trajectory match: year is mentioned in evidence, and quarter phrase is in evidence
+        _, years = _months_years(text)
+        if y in years and (f"q{q}" in c or f"{q_words[q-1]} quarter" in c):
+            return True
+        return False
+
+    # 3. Full ISO date
+    m = _ISO.match(v)
     if not m:
         return False
     if m.group(4) is not None:

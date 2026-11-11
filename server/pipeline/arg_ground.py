@@ -21,10 +21,12 @@ no multi-hop arithmetic ("500 miles" derived from two numbers in the context), E
 """
 from __future__ import annotations
 
+import calendar
+import functools
 import re
 from dataclasses import dataclass
 from difflib import SequenceMatcher
-from typing import Any, Dict, List
+from typing import Any, Dict, List, Tuple
 
 FUZZY = 0.88
 
@@ -140,8 +142,38 @@ def _stems(text_norm: str) -> set:
 
 
 _ISO = re.compile(r"^\s*(\d{4})-(\d{2})-(\d{2})(?:[T ](\d{2}):(\d{2})(?::(\d{2}))?)?\s*(?:Z|[+-]\d{2}:?\d{2})?\s*$")
+_YM = re.compile(r"^\s*(\d{4})-(\d{2})\s*$")
+_QUARTER = re.compile(r"^\s*(\d{4})-Q([1-4])\s*$", re.I)
+_YEAR = re.compile(r"(?<![\d-])((?:19|20)\d{2})(?![\d-])")
+_YM_ISO = re.compile(r"(?<![\d-])((?:19|20)\d{2})[-/](0[1-9]|1[0-2])(?![\d-])")
 _CTX_TIME = re.compile(r"\b(\d{1,2})(?::(\d{2}))?\s*(am|pm|a\.m\.|p\.m\.)|\b(\d{1,2}):(\d{2})\b", re.I)
 _MONTHS = ["january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"]
+_MONTH_PAT = re.compile(
+    r"\b(january|february|march|april|may|june|july|august|september|october|november|december|"
+    r"jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)\.?,?\s+(?:of\s+)?((?:19|20)\d{2})\b",
+    re.I
+)
+_MONTH_MAP = {
+    "january": 1, "jan": 1, "february": 2, "feb": 2, "march": 3, "mar": 3, "april": 4, "apr": 4,
+    "may": 5, "june": 6, "jun": 6, "july": 7, "jul": 7, "august": 8, "aug": 8,
+    "september": 9, "sep": 9, "october": 10, "oct": 10, "november": 11, "nov": 11, "december": 12, "dec": 12
+}
+
+
+@functools.lru_cache(maxsize=4096)
+def _months_years(text: str) -> Tuple[frozenset, frozenset]:
+    t = text.lower()
+    ym = set()
+    for m in _MONTH_PAT.finditer(t):
+        mn_str = m.group(1).lower().rstrip('.')
+        if mn_str in _MONTH_MAP:
+            ym.add((int(m.group(2)), _MONTH_MAP[mn_str]))
+    for m in _YM_ISO.finditer(t):
+        y, mo = int(m.group(1)), int(m.group(2))
+        if 1 <= mo <= 12:
+            ym.add((y, mo))
+    years = {int(y) for y in _YEAR.findall(t)}
+    return frozenset(ym), frozenset(years)
 
 
 def _context_times(context: str) -> set:
@@ -170,15 +202,48 @@ def _date_in(context: str, y: int, mo: int, d: int) -> bool:
 
 
 def _check_iso(argument: str, value: str, context: str):
-    m = _ISO.match(value)
+    v = value.strip()
+    c = context.lower()
+
+    # 0. Verbatim containment in context
+    if v.lower() in c:
+        return ArgVerdict(argument, value, "GROUNDED", "")
+
+    # 1. Year-Month (e.g. 2023-07)
+    ym_m = _YM.match(v)
+    if ym_m:
+        y, mo = int(ym_m.group(1)), int(ym_m.group(2))
+        ym, _ = _months_years(context)
+        forms = [f"{y:04d}-{mo:02d}", f"{mo:02d}/{y}", f"{mo}/{y}"]
+        if (y, mo) in ym or any(f in c for f in forms):
+            return ArgVerdict(argument, value, "GROUNDED", "")
+        return ArgVerdict(argument, value, "UNGROUNDED", f"month {y:04d}-{mo:02d} not found in context", 0.0)
+
+    # 2. Quarter (e.g. 2020-Q1)
+    q_m = _QUARTER.match(v)
+    if q_m:
+        y, q = int(q_m.group(1)), int(q_m.group(2))
+        q_words = ['first', 'second', 'third', 'fourth']
+        pats = [f'{y}-q{q}', f'q{q}-{y}', f'q{q} {y}', f'q{q}, {y}', f'{q_words[q-1]} quarter of {y}', f'{q_words[q-1]} quarter {y}']
+        if any(p in c for p in pats):
+            return ArgVerdict(argument, value, "GROUNDED", "")
+        return ArgVerdict(argument, value, "UNGROUNDED", f"quarter {y}-Q{q} not found in context", 0.0)
+
+    # 3. Full ISO date / timestamp
+    m = _ISO.match(v)
     if not m:
         return None
     y, mo, d = int(m.group(1)), int(m.group(2)), int(m.group(3))
     if not _date_in(context, y, mo, d):
-        return ArgVerdict(argument, value, "UNGROUNDED", f"date {y:04d}-{mo:02d}-{d:02d} not found in context", 0.0)
+        ym, _ = _months_years(context)
+        last_d = calendar.monthrange(y, mo)[1] if 1 <= mo <= 12 else 0
+        if (y, mo) in ym and d in (1, last_d):
+            pass
+        else:
+            return ArgVerdict(argument, value, "UNGROUNDED", f"date {y:04d}-{mo:02d}-{d:02d} not found in context", 0.0)
     if m.group(4) is not None:
         t = (int(m.group(4)), int(m.group(5)))
-        if t != (0, 0) and t not in _context_times(context):
+        if t not in ((0, 0), (23, 59)) and t not in _context_times(context):
             return ArgVerdict(argument, value, "UNGROUNDED", f"time {t[0]:02d}:{t[1]:02d} not found in context", 0.0)
     return ArgVerdict(argument, value, "GROUNDED", "")
 
