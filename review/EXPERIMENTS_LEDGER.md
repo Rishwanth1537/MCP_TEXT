@@ -381,6 +381,12 @@ umber_unit_format 22, search_query_reformulation 17, uffer_or_size_limit 13, wo
   - **Disjoint few-shot pool (`benchmarks/data/few_shot_pool.json`)**: `24` examples (`12` natural errors from `fcrb` `dev_train` covering `wrong_selection`, `wrong_format`, and `fabricated_value` + `8` clean `dev_train` + `4` Glaive v2), verified **0 tool overlap** with `dev_val` and `frozen_heldout`.
   - **Checker hints provenance**: `AgentHallu` hints use `benchmarks/frozen_pre_b3_arg_ground.py` (`cabdc1c`, `12.9%` FBR / `58.1%` det, `[frozen_pre_b3]`); `fcrb` dev hints are explicitly labelled `[in-sample]`.
   - **Live-run plan**: documented in `review/LIVE_RUN_PLAN.md` (ordered steps, call counts, estimated tokens, 30-case smoke-test stop gate before J1).
+
+- **6. 30-Case Live Groq Smoke Test (`openai/gpt-oss-120b`, `results/judge_2026-11-12_smoke30/smoke_report.json`)**:
+  - **Setup**: `fcrb_dev200` first `30` cases (`13` clean, `17` errors), frozen prompt (`9b59ae0a3fa5384a`), `temperature = 0`, fresh cache, sequential at `10` RPM.
+  - **Agreement**: **`28 / 30 (93.3%)`** per-case agreement with `benchmarks/llm_judge_args_cache.jsonl` (`0 / 30` unparseable live, `0 / 30` unparseable cache).
+  - **Rates (30-case slice)**: Cache `FBR = 23.1% (3/13)`, `Det = 64.7% (11/17)` vs Live `FBR = 30.8% (4/13)`, `Det = 58.8% (10/17)`.
+  - **Discordant cases (2)**: `fcrb:live_multiple_113-44-0-neg` (`label=false`: cache blocked, live allowed) and `fcrb:live_multiple_292-130-1` (`label=true`: cache allowed, live blocked) — within expected hosted-model / reasoning-temperature-0 run-to-run variance (~6.7%).
   - **Blinded 50-item audit (`review/audit_judge_50_blind.csv`)**: `20` fcrb checker-vs-Sonnet disagreements, `10` BFCL raw-vs-cleaned disagreements, `20` AgentHallu cases (zero AI/gold labels shown; private key in `review/audit_judge_50_key_DO_NOT_OPEN.json`).
   - **Legacy cache replay verification (`judge_eval.py --replay-legacy`)**: reproduced `fcrb_dev200` `agent-sonnet` (`FBR=0.0957`, `det=0.5377`, `0` unpars), `fcrb_dev200` `gpt-oss-120b` (`FBR=0.3191`, `det=0.5943`, `0` unpars), and `agenthallu` `agent-opus` (`FBR=0.0860`, `det=0.4516`, `0` unpars).
 
