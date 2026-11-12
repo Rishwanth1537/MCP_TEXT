@@ -405,3 +405,24 @@ umber_unit_format 22, search_query_reformulation 17, uffer_or_size_limit 13, wo
   - `NVIDIA_API_KEY`: missing — blocks Nemotron 550B ablation rerun and NVIDIA 4B/30B/120B/550B judges.
   - `ANTHROPIC_API_KEY`: missing — blocks temperature-0 Claude API judge runs (J1–J5).
   - `GEMINI_API_KEY` / `OPENROUTER_API_KEY`: missing — blocks multi-vendor panels in J5.
+
+---
+
+## Experiment 17: Phase 2 (Step D1) — Frozen 3-Tier Guard + J1/J2 Judge Triage (Dev)
+- **Date**: 2026-11-12
+- **Branch**: `improvements-2026-11`
+- **Script**: `benchmarks/eval_d1_triage.py` (uses `B2c alpha=0.10` guard thresholds + J1 `+def + source_labelled + checker_hints + autorules` + J2 `cite_then_judge`, `temperature = 0`).
+- **Results (Honest Summary — Clean Negative Result for Naive D1 with `checker_hints`)**:
+  - **`AgentHallu` (`n = 124`: `93` clean, `31` errors, `[EXPLORATORY]`, `frozen_pre_b3` hints)**:
+    - Frozen Guard (`BLOCK` only): `9.7%` FBR / `58.1%` det | Guard `Any`: `15.1%` FBR / `61.3%` det.
+    - `groq/openai/gpt-oss-120b` (`33` flagged calls): D1-A (`ASK`-only, `6` calls) = `14.0%` FBR / `61.3%` det; D1-B (`ASK+BLOCK`) = `11.8%` FBR / `58.1%` det (`d1b_auroc = 0.563`). Without `checker_hints`: D1-B collapsed to `10.8%` FBR / `29.0%` det.
+    - `nvidia/nemotron-3-ultra-550b-a55b` (`33` flagged calls, `464` eff. tokens/call): D1-A = `14.0%` FBR / `61.3%` det; D1-B = `11.8%` FBR / `54.8%` det (`9.7%` FBR / `54.8%` det at `<= 10%` FBR; `d1b_auroc = 0.541`).
+  - **`mcpatlas_dev_200` (`n = 200` clean calls)**:
+    - Frozen Guard (`BLOCK` only): `7.0%` FBR (`14/200`) | Guard `Any`: `21.5%` FBR (`43/200`).
+    - `nvidia/nemotron-3-ultra-550b-a55b` (`43` flagged calls, `681` eff. tokens/call): D1-A = `19.0%` FBR (`38/200`); D1-B = `18.0%` FBR (`36/200`, rescued only `7/43` clean flags).
+  - **`fcrb_val100_d1` (`n = 100` `excluding_dev200`: `51` clean, `49` errors, `[EXPLORATORY]`, `[in-sample]` hints)**:
+    - Frozen Guard (`BLOCK` only): `19.6%` FBR (`10/51`) / `30.6%` det (`15/49`) | Guard `Any`: `76.5%` FBR (`39/51`) / `75.5%` det (`37/49`).
+    - `nvidia/nemotron-3-ultra-550b-a55b` (`76` flagged calls, `1,470` eff. tokens/call): D1-A = `64.7%` FBR / `75.5%` det; D1-B = `58.8%` FBR / `71.4%` det (`d1b_auroc = 0.396`).
+- **Root Cause Identified**:
+  1. Passing `checker_hints` (`UNGROUNDED`) anchors the LLM judge into agreeing with the deterministic guard, preventing it from rescuing false blocks on clean calls (`18.0%` FBR on MCP-Atlas, `58.8%` on `fcrb`), while omitting `checker_hints` causes `gpt-oss-120b` to miss half of `AgentHallu`'s fabricated values (`58.1% -> 29.0%`).
+  2. Guard `ALLOW` still leaks `fcrb` `wrong_selection` errors (`24.5%` of errors in `fcrb_val100_d1`), so `ASK`-only / `ASK+BLOCK` triage cannot beat a well-calibrated standalone judge on `wrong_selection` unless `ALLOW` only fires on unambiguous single-candidate matches.
