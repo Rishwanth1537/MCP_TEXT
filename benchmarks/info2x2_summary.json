@@ -277,9 +277,100 @@
      72
     ],
     "J": 0.27708451503119685
+   },
+   "B_rule": {
+    "false_blocks": 0.43902439024390244,
+    "false_blocks_ci": [
+     0.337,
+     0.547
+    ],
+    "detection": 0.627906976744186,
+    "detection_ci": [
+     0.522,
+     0.723
+    ],
+    "unparseable": 0,
+    "detection_format_convention": [
+     1,
+     14
+    ],
+    "detection_other": [
+     53,
+     72
+    ],
+    "J": 0.1888825865002836
+   },
+   "C_def": {
+    "false_blocks": 0.2926829268292683,
+    "false_blocks_ci": [
+     0.205,
+     0.399
+    ],
+    "detection": 0.6627906976744186,
+    "detection_ci": [
+     0.558,
+     0.754
+    ],
+    "unparseable": 0,
+    "detection_format_convention": [
+     5,
+     14
+    ],
+    "detection_other": [
+     52,
+     72
+    ],
+    "J": 0.3701077708451503
+   },
+   "D_defrule": {
+    "false_blocks": 0.32926829268292684,
+    "false_blocks_ci": [
+     0.237,
+     0.437
+    ],
+    "detection": 0.7790697674418605,
+    "detection_ci": [
+     0.681,
+     0.854
+    ],
+    "unparseable": 0,
+    "detection_format_convention": [
+     12,
+     14
+    ],
+    "detection_other": [
+     55,
+     72
+    ],
+    "J": 0.4498014747589337
    }
   },
-  "contrasts": {},
+  "contrasts": {
+   "information": {
+    "first": "C_def",
+    "second": "A_plain",
+    "delta_J": 0.093,
+    "only_first_correct": 22,
+    "only_second_correct": 14,
+    "p": 0.243
+   },
+   "instruction": {
+    "first": "B_rule",
+    "second": "A_plain",
+    "delta_J": -0.0882,
+    "only_first_correct": 7,
+    "only_second_correct": 14,
+    "p": 0.1892
+   },
+   "rule_given_def": {
+    "first": "D_defrule",
+    "second": "C_def",
+    "delta_J": 0.0797,
+    "only_first_correct": 16,
+    "only_second_correct": 9,
+    "p": 0.2295
+   }
+  },
   "n_format_convention_errors": 14
  }
 }
