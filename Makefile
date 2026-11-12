@@ -1,4 +1,4 @@
-.PHONY: install install-benchmark download-models test test-all test-agent test-proxy lint sweep bench bench-external bench-external-public bench-external-local clean run run-guarded
+.PHONY: install install-benchmark download-models test test-all test-agent test-proxy lint sweep bench bench-external bench-external-public bench-external-local clean run run-guarded judge-eval
 
 # ── Install ──────────────────────────────────────────────────────────────────
 install:
@@ -73,6 +73,20 @@ bench-external-local:
 ## GED threshold sweep (reports best threshold for configs/thresholds.yaml)
 sweep:
 	python benchmarks/threshold_sweep.py --dataset benchmarks/mcpevol.json
+
+## Run unified J0-J8 judge evaluation harness (override DATASET/PROVIDER/MODEL/CONDITION/OUT)
+DATASET ?= fcrb_dev200
+PROVIDER ?= groq
+MODEL ?= openai/gpt-oss-120b
+CONDITION ?= A_plain
+OUT ?= results/judge_latest/eval.json
+judge-eval:
+	python benchmarks/judge_eval.py \
+		--dataset $(DATASET) \
+		--provider $(PROVIDER) \
+		--model $(MODEL) \
+		--condition $(CONDITION) \
+		--out $(OUT)
 
 # ── Dev servers ───────────────────────────────────────────────────────────────
 ## Standard server (agent calls verify_* tools explicitly)

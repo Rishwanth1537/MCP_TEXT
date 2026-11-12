@@ -52,6 +52,11 @@ def main():
             print("%-9s %-22s %-8s incomplete (%s)" % (fam, lab, mode, "no plain file" if wo is None else "no schema file"))
             continue
         ids = [i for i in wo if i in wi and contract_flag(cases[i], schemas) is not None]
+        if not ids:
+            raise RuntimeError(
+                f"Zero cases matched for {fam}/{lab} between {pf} and {sf}; "
+                "check BFCL_RAW_DIR / schema files and input row IDs."
+            )
         ok = np.array([bool(wo[i]["label"]) for i in ids])
         b0 = np.array([blocked_from_row(wo[i]) for i in ids]); b1 = np.array([blocked_from_row(wi[i]) for i in ids])
         u0 = sum(not wo[i]["parsed"] for i in ids); u1 = sum(not wi[i]["parsed"] for i in ids)

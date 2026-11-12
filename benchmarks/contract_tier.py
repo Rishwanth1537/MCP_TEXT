@@ -20,6 +20,7 @@ import argparse
 import glob
 import json
 import math
+import os
 import re
 import sys
 from collections import Counter, defaultdict
@@ -31,11 +32,12 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 sys.path.insert(0, str(ROOT / "benchmarks"))
 
-GORILLA = Path(r"C:\Users\GOVARDHAN SATYA\bfcl_raw\gorilla_data")
+DEFAULT_GORILLA_DIR = ROOT / "benchmarks" / "data" / "bfcl" / "gorilla_data"
+GORILLA = Path(os.environ.get("BFCL_RAW_DIR") or os.environ.get("GORILLA_DATA_DIR") or DEFAULT_GORILLA_DIR)
 DONTCARE = {"dontcare", "don't care", ""}
 
 
-def load_schemas():
+def load_schemas(require_nonempty: bool = True):
     """name -> list of distinct definitions (BFCL repeats a function name across files with different parameter sets)."""
     fns = {}
     for f in sorted(glob.glob(str(GORILLA / "BFCL_v4_*.json"))):
@@ -48,6 +50,11 @@ def load_schemas():
                 lst = fns.setdefault(fn["name"], [])
                 if fn not in lst:
                     lst.append(fn)
+    if require_nonempty and not fns:
+        raise FileNotFoundError(
+            f"No BFCL schema files (BFCL_v4_*.json) found in {GORILLA}. "
+            f"Set BFCL_RAW_DIR or place schema files under {DEFAULT_GORILLA_DIR}."
+        )
     return fns
 
 

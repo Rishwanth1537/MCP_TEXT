@@ -125,3 +125,30 @@ Why: the audit of 2026-11-10 found two confounds in the information ablation. (1
 Design. Same seeded dev samples and frozen prompt (hash 9b59ae0a3fa5384a) as before; API judges at temperature 0 only (NVIDIA Nemotron 4B and 550B; 30B and 120B optional); one run per cell. fcrb (200 cases, analysis on the 168 with a definition): A plain; B rule sentence only; C definition only; D definition + rule sentence; E placebo (the definition of another function that shares no parameter name with the call, closest length, same header and rule sentence as D). cfb (100 cases): conversation cut to its last 3,000 characters first, definition appended afterwards, no further truncation: A plain; C definition only; D definition + rule. Case files from `benchmarks/make_info_2x2_benches.py` (reads no label), runs by `benchmarks/run_info_2x2.py`, analysis by `benchmarks/analyze_info_2x2.py`. A and D on fcrb use the same case text as the earlier ladder, so their cached replies are reused, not re-sampled.
 Measures: false-block rate, detection, Youden J per cell with Wilson intervals; exact McNemar on per-case correctness for five contrasts: information (C vs A), instruction (B vs A), rule given definition (D vs C), placebo (E vs A), information net of form (D vs E). On fcrb, detection is also reported separately for format-convention errors (heuristic on argument names and definition text, no labels) and all other errors.
 Hypotheses (revise H-I1; fixed now). H-I1a: for the 550B judge on fcrb, C minus A is at least +10 points of J. H-I1b: the placebo changes J by less than 5 points in absolute value (E vs A). H-I1c: D minus E is at least +10 points of J. H-I1d (descriptive): the share of the detection gain C over A that falls on format-convention errors. Reading rules: if H-I1a fails while B vs A or D vs C is at least +10, the earlier result was an instruction effect, not an information effect, and C2 is withdrawn; if the gain on non-format errors is under 5 points, C2 is restated as "format conventions are decidable only from the tool definition". cfb is descriptive (no threshold). Development halves only; nothing here is a test-half result.
+
+---
+
+### Deviation 23 (2026-11-12): J0 Judge Improvement Protocol & Substitute Groq Definition Ablation
+Registered before running any J0–J8 judge experiment.
+
+1. **Baseline Reproduction & Status**:
+   - Claude Sonnet on fcrb dev (`n=200`): **reproduced** (`9.57%` FBR / `53.77%` detection).
+   - AgentHallu 5-judge range (`31` errors / `93` clean): **reproduced** (`32.3%–48.4%` detection).
+   - Nemotron 550B definition ablation (`+9.3 pts, p = 0.24`): **unverified, partial cache (32/200), no NVIDIA key**; `+9.3` and `+20.9` are not cited as confirmed until a full rerun.
+2. **Substitute Definition Ablation (Groq Strongest Available Model, e.g. `openai/gpt-oss-120b` or strongest listed Groq model)**:
+   - Hypothesis: Adding the tool definition (`C_def`) improves detection over `A_plain` at matched false-block rates, and adding auto-generated format conventions extracted from the tool definition (`D_def_autorule`) captures format-convention errors without hand-written dataset rules.
+   - Data: all `200` seeded fcrb dev cases (`split == "dev"`, `seed = 0`, reporting both all-200 and schema-carrying subset) and all `124` AgentHallu cases (`cases_eval.json`, `31` errors / `93` clean, labelled `[EXPLORATORY]` since `n_pos = 31 < 100`).
+   - Conditions: (1) `A_plain` (user request + conversation + proposed call), (2) `C_def` (+ full tool definition), (3) `D_def_autorule` (+ format rules automatically extracted from the tool definition, not hand-written).
+   - Operating settings: `temperature = 0`, cached per `(provider, model, prompt_hash, temperature, schema_mode, messages)` in JSONL, sequential execution respecting Groq RPM limits, zero gold labels / error-type labels / dataset names in any prompt.
+   - Metrics & tests: FBR, detection, Youden J, matched-FBR catch rate (5% / 10% where continuous scores exist), 95% cluster-bootstrap CIs, exact McNemar paired tests, with and without format-only errors.
+3. **J0–J8 Evaluation Protocol & Targets**:
+   - Tool-grouped dev / frozen held-out splits for `fcrb` (`fcrb_tool_split.json`) and `mcpatlas` (`mcpatlas_tool_split.json`); held-out splits remain untouched until J8 final evaluation.
+   - Pre-registered J8 targets (at matched false-block rates on held-out / human-labelled data):
+     - `fcrb` real-error catch rate at 10% FBR: `>= 65%`
+     - `wrong_selection` catch rate at 10% FBR: `>= 55%`
+     - `AgentHallu` catch rate at `<= 15%` FBR: `>= 60%` (reported `[EXPLORATORY]`, `n_pos = 31`)
+     - Tool-selection wrong-tool catch rate at `<= 10%` FBR: `>= 70%`
+     - MCP-Atlas clean calls: `BLOCK <= 5%`, `ASK <= 10%`
+     - Cleaned-label verdict AUROC (`<= 5`-judge panel): `>= 0.85`
+     - Expected calibration error (ECE): `<= 0.10`
+     - Cost per call vs current judge (`~1.1s`, `~520` tokens): `>= 40%` lower tokens or latency at equal detection.

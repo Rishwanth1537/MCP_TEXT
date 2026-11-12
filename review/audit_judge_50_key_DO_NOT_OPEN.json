@@ -1,0 +1,302 @@
+[
+ {
+  "audit_id": "J_AUD_001",
+  "orig_id": "fcrb:live_multiple_341-133-5-neg",
+  "bucket": "fcrb_checker_vs_sonnet_disagreement",
+  "ai_annotated_label": false
+ },
+ {
+  "audit_id": "J_AUD_002",
+  "orig_id": "fcrb:live_simple_218-117-10-neg",
+  "bucket": "fcrb_checker_vs_sonnet_disagreement",
+  "ai_annotated_label": false
+ },
+ {
+  "audit_id": "J_AUD_003",
+  "orig_id": "agenthallu:BFCL/140:s6",
+  "bucket": "agenthallu_eval",
+  "ai_annotated_label": false
+ },
+ {
+  "audit_id": "J_AUD_004",
+  "orig_id": "fcrb:live_multiple_45-18-0-neg",
+  "bucket": "fcrb_checker_vs_sonnet_disagreement",
+  "ai_annotated_label": false
+ },
+ {
+  "audit_id": "J_AUD_005",
+  "orig_id": "fcrb:live_multiple_469-145-20-neg",
+  "bucket": "fcrb_checker_vs_sonnet_disagreement",
+  "ai_annotated_label": false
+ },
+ {
+  "audit_id": "J_AUD_006",
+  "orig_id": "agenthallu:BFCL/050:s8:c0",
+  "bucket": "agenthallu_eval",
+  "ai_annotated_label": true
+ },
+ {
+  "audit_id": "J_AUD_007",
+  "orig_id": "agenthallu:BFCL/158:s11",
+  "bucket": "agenthallu_eval",
+  "ai_annotated_label": false
+ },
+ {
+  "audit_id": "J_AUD_008",
+  "orig_id": "fcrb:live_multiple_690-164-6-neg",
+  "bucket": "fcrb_checker_vs_sonnet_disagreement",
+  "ai_annotated_label": false
+ },
+ {
+  "audit_id": "J_AUD_009",
+  "orig_id": "agenthallu:BFCL/099:s2:c0",
+  "bucket": "agenthallu_eval",
+  "ai_annotated_label": true
+ },
+ {
+  "audit_id": "J_AUD_010",
+  "orig_id": "fcrb:live_multiple_81-36-2",
+  "bucket": "fcrb_checker_vs_sonnet_disagreement",
+  "ai_annotated_label": true
+ },
+ {
+  "audit_id": "J_AUD_011",
+  "orig_id": "live_multiple_50-20-0|gemini-2.5-flash-thinking-off",
+  "bucket": "bfcl_raw_vs_cleaned_disagreement",
+  "ai_annotated_label": true
+ },
+ {
+  "audit_id": "J_AUD_012",
+  "orig_id": "fcrb:multiple_91-neg",
+  "bucket": "fcrb_checker_vs_sonnet_disagreement",
+  "ai_annotated_label": false
+ },
+ {
+  "audit_id": "J_AUD_013",
+  "orig_id": "fcrb:live_multiple_469-145-20",
+  "bucket": "fcrb_checker_vs_sonnet_disagreement",
+  "ai_annotated_label": true
+ },
+ {
+  "audit_id": "J_AUD_014",
+  "orig_id": "fcrb:live_multiple_464-145-15",
+  "bucket": "fcrb_checker_vs_sonnet_disagreement",
+  "ai_annotated_label": true
+ },
+ {
+  "audit_id": "J_AUD_015",
+  "orig_id": "live_simple_27-7-0|claude-4.5-sonnet-thinking-off",
+  "bucket": "bfcl_raw_vs_cleaned_disagreement",
+  "ai_annotated_label": true
+ },
+ {
+  "audit_id": "J_AUD_016",
+  "orig_id": "fcrb:live_multiple_324-132-14-neg",
+  "bucket": "fcrb_checker_vs_sonnet_disagreement",
+  "ai_annotated_label": false
+ },
+ {
+  "audit_id": "J_AUD_017",
+  "orig_id": "fcrb:live_multiple_674-162-16",
+  "bucket": "fcrb_checker_vs_sonnet_disagreement",
+  "ai_annotated_label": true
+ },
+ {
+  "audit_id": "J_AUD_018",
+  "orig_id": "agenthallu:BFCL/113:s8:c0",
+  "bucket": "agenthallu_eval",
+  "ai_annotated_label": true
+ },
+ {
+  "audit_id": "J_AUD_019",
+  "orig_id": "agenthallu:BFCL/007:s4:c0",
+  "bucket": "agenthallu_eval",
+  "ai_annotated_label": true
+ },
+ {
+  "audit_id": "J_AUD_020",
+  "orig_id": "agenthallu:BFCL/126:s6",
+  "bucket": "agenthallu_eval",
+  "ai_annotated_label": false
+ },
+ {
+  "audit_id": "J_AUD_021",
+  "orig_id": "agenthallu:BFCL/142:s8:c0",
+  "bucket": "agenthallu_eval",
+  "ai_annotated_label": true
+ },
+ {
+  "audit_id": "J_AUD_022",
+  "orig_id": "fcrb:live_simple_18-3-14",
+  "bucket": "fcrb_checker_vs_sonnet_disagreement",
+  "ai_annotated_label": true
+ },
+ {
+  "audit_id": "J_AUD_023",
+  "orig_id": "agenthallu:BFCL/092:s8:c0",
+  "bucket": "agenthallu_eval",
+  "ai_annotated_label": true
+ },
+ {
+  "audit_id": "J_AUD_024",
+  "orig_id": "fcrb:live_multiple_705-164-21-neg",
+  "bucket": "fcrb_checker_vs_sonnet_disagreement",
+  "ai_annotated_label": false
+ },
+ {
+  "audit_id": "J_AUD_025",
+  "orig_id": "live_simple_27-7-0|claude-4-opus-thinking-off",
+  "bucket": "bfcl_raw_vs_cleaned_disagreement",
+  "ai_annotated_label": true
+ },
+ {
+  "audit_id": "J_AUD_026",
+  "orig_id": "agenthallu:BFCL/154:s5:c0",
+  "bucket": "agenthallu_eval",
+  "ai_annotated_label": true
+ },
+ {
+  "audit_id": "J_AUD_027",
+  "orig_id": "live_multiple_69-30-0|claude-4.5-sonnet-thinking-off",
+  "bucket": "bfcl_raw_vs_cleaned_disagreement",
+  "ai_annotated_label": true
+ },
+ {
+  "audit_id": "J_AUD_028",
+  "orig_id": "multiple_31|gpt-4.1-mini",
+  "bucket": "bfcl_raw_vs_cleaned_disagreement",
+  "ai_annotated_label": true
+ },
+ {
+  "audit_id": "J_AUD_029",
+  "orig_id": "multiple_31|claude-4.5-sonnet-thinking-off",
+  "bucket": "bfcl_raw_vs_cleaned_disagreement",
+  "ai_annotated_label": true
+ },
+ {
+  "audit_id": "J_AUD_030",
+  "orig_id": "fcrb:live_multiple_943-196-1-neg",
+  "bucket": "fcrb_checker_vs_sonnet_disagreement",
+  "ai_annotated_label": false
+ },
+ {
+  "audit_id": "J_AUD_031",
+  "orig_id": "fcrb:live_multiple_968-210-0-neg",
+  "bucket": "fcrb_checker_vs_sonnet_disagreement",
+  "ai_annotated_label": false
+ },
+ {
+  "audit_id": "J_AUD_032",
+  "orig_id": "fcrb:live_multiple_574-156-0-neg",
+  "bucket": "fcrb_checker_vs_sonnet_disagreement",
+  "ai_annotated_label": false
+ },
+ {
+  "audit_id": "J_AUD_033",
+  "orig_id": "agenthallu:BFCL/011:s7:c2",
+  "bucket": "agenthallu_eval",
+  "ai_annotated_label": true
+ },
+ {
+  "audit_id": "J_AUD_034",
+  "orig_id": "multiple_4|Qwen3-235B-A22B-Instruct-2507-FP8",
+  "bucket": "bfcl_raw_vs_cleaned_disagreement",
+  "ai_annotated_label": true
+ },
+ {
+  "audit_id": "J_AUD_035",
+  "orig_id": "fcrb:live_multiple_961-205-1-neg",
+  "bucket": "fcrb_checker_vs_sonnet_disagreement",
+  "ai_annotated_label": false
+ },
+ {
+  "audit_id": "J_AUD_036",
+  "orig_id": "agenthallu:BFCL/055:s15:c0",
+  "bucket": "agenthallu_eval",
+  "ai_annotated_label": true
+ },
+ {
+  "audit_id": "J_AUD_037",
+  "orig_id": "agenthallu:BFCL/036:s5:c0",
+  "bucket": "agenthallu_eval",
+  "ai_annotated_label": true
+ },
+ {
+  "audit_id": "J_AUD_038",
+  "orig_id": "fcrb:live_multiple_430-141-19",
+  "bucket": "fcrb_checker_vs_sonnet_disagreement",
+  "ai_annotated_label": true
+ },
+ {
+  "audit_id": "J_AUD_039",
+  "orig_id": "agenthallu:BFCL/009:s1:c1",
+  "bucket": "agenthallu_eval",
+  "ai_annotated_label": true
+ },
+ {
+  "audit_id": "J_AUD_040",
+  "orig_id": "agenthallu:BFCL/018:s6:c0",
+  "bucket": "agenthallu_eval",
+  "ai_annotated_label": true
+ },
+ {
+  "audit_id": "J_AUD_041",
+  "orig_id": "agenthallu:BFCL/163:s6:c0",
+  "bucket": "agenthallu_eval",
+  "ai_annotated_label": true
+ },
+ {
+  "audit_id": "J_AUD_042",
+  "orig_id": "live_simple_86-47-0|claude-4.5-sonnet-thinking-off",
+  "bucket": "bfcl_raw_vs_cleaned_disagreement",
+  "ai_annotated_label": true
+ },
+ {
+  "audit_id": "J_AUD_043",
+  "orig_id": "agenthallu:BFCL/006:s6",
+  "bucket": "agenthallu_eval",
+  "ai_annotated_label": false
+ },
+ {
+  "audit_id": "J_AUD_044",
+  "orig_id": "fcrb:live_multiple_468-145-19",
+  "bucket": "fcrb_checker_vs_sonnet_disagreement",
+  "ai_annotated_label": true
+ },
+ {
+  "audit_id": "J_AUD_045",
+  "orig_id": "simple_python_113|claude-4-opus-thinking-off",
+  "bucket": "bfcl_raw_vs_cleaned_disagreement",
+  "ai_annotated_label": true
+ },
+ {
+  "audit_id": "J_AUD_046",
+  "orig_id": "fcrb:live_multiple_494-148-4-neg",
+  "bucket": "fcrb_checker_vs_sonnet_disagreement",
+  "ai_annotated_label": false
+ },
+ {
+  "audit_id": "J_AUD_047",
+  "orig_id": "agenthallu:BFCL/008:s3",
+  "bucket": "agenthallu_eval",
+  "ai_annotated_label": false
+ },
+ {
+  "audit_id": "J_AUD_048",
+  "orig_id": "simple_python_94|gemini-2.5-flash-thinking-off",
+  "bucket": "bfcl_raw_vs_cleaned_disagreement",
+  "ai_annotated_label": true
+ },
+ {
+  "audit_id": "J_AUD_049",
+  "orig_id": "agenthallu:BFCL/024:s5",
+  "bucket": "agenthallu_eval",
+  "ai_annotated_label": false
+ },
+ {
+  "audit_id": "J_AUD_050",
+  "orig_id": "agenthallu:BFCL/090:s6:c0",
+  "bucket": "agenthallu_eval",
+  "ai_annotated_label": true
+ }
+]
