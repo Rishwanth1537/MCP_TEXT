@@ -162,6 +162,17 @@ def load_dataset(dataset_name: str, split: str = "dev", limit: Optional[int] = N
         d = json.loads((ROOT / "benchmarks/data/deref/fcrb_tool_split.json").read_text(encoding="utf-8"))
         cases = d["dev_cases"]
         return cases[:limit] if limit else cases
+    if dataset_name == "fcrb_tool_train":
+        d = json.loads((ROOT / "benchmarks/data/deref/fcrb_tool_split.json").read_text(encoding="utf-8"))
+        cases = d["dev_train_cases"]
+        return cases[:limit] if limit else cases
+    if dataset_name == "fcrb_tool_val":
+        d = json.loads((ROOT / "benchmarks/data/deref/fcrb_tool_split.json").read_text(encoding="utf-8"))
+        cases = d["dev_val_cases"]
+        return cases[:limit] if limit else cases
+    if dataset_name == "tool_selection":
+        cases = json.loads((ROOT / "benchmarks/data/tool_selection_eval.json").read_text(encoding="utf-8"))["cases"]
+        return cases[:limit] if limit else cases
     if dataset_name == "agenthallu":
         cases = json.loads((ROOT / "benchmarks/data/agenthallu/cases_eval.json").read_text(encoding="utf-8"))["cases"]
         return cases[:limit] if limit else cases
@@ -218,6 +229,7 @@ def evaluate_judge(
                 source_labelled=factors.get("source_labelled", False),
                 include_checker_hints=factors.get("checker_hints", False),
                 include_checker_score=factors.get("checker_score", False),
+                checker_scope=factors.get("checker_scope", "frozen_pre_b3" if str(c.get("id", "")).startswith("agenthallu:") else "in_sample"),
                 include_autorules=factors.get("autorules", condition == "D_def_autorule"),
                 variant=variant,
                 j2_order=j2_order,
@@ -380,9 +392,34 @@ def replay_legacy_cache(
     }
 
 
+def report_tool_selection_breakdown(rows: List[Dict[str, Any]], cases: List[Dict[str, Any]]) -> Dict[str, Any]:
+    """Report tool-selection catch rate separately for easy, hard, and natural wrong-tool subsets [EXPLORATORY]."""
+    cmap = {c["id"]: c for c in cases}
+    right_rows = [r for r in rows if r["label"]]
+    fb = sum(1 for r in right_rows if r["parsed"] and not r["supported"])
+    n_ok = len(right_rows)
+    out: Dict[str, Any] = {
+        "status": "EXPLORATORY",
+        "n_right": n_ok,
+        "false_block_rate": fb / n_ok if n_ok else 0.0,
+        "false_block_ci_wilson": wilson_interval(fb, n_ok),
+        "subsets": {},
+    }
+    for diff in ("easy", "hard", "natural"):
+        sub = [r for r in rows if not r["label"] and cmap.get(r["id"], {}).get("difficulty") == diff]
+        dt_cnt = sum(1 for r in sub if r["parsed"] and not r["supported"])
+        out["subsets"][diff] = {
+            "n_wrong": len(sub),
+            "catch_rate": dt_cnt / len(sub) if sub else 0.0,
+            "catch_ci_wilson": wilson_interval(dt_cnt, len(sub)),
+            "exploratory": check_exploratory(len(sub), label=f"tool_selection_{diff}"),
+        }
+    return out
+
+
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--dataset", required=True, choices=["fcrb_dev200", "fcrb_tool_dev", "agenthallu", "mcpatlas_dev"])
+    ap.add_argument("--dataset", required=True, choices=["fcrb_dev200", "fcrb_tool_dev", "fcrb_tool_train", "fcrb_tool_val", "agenthallu", "mcpatlas_dev", "tool_selection"])
     ap.add_argument("--provider", default="groq")
     ap.add_argument("--model", required=True)
     ap.add_argument("--condition", default="A_plain", choices=["A_plain", "C_def", "D_def_autorule"])

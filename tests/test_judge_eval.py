@@ -97,8 +97,8 @@ def test_j1_all_six_factors_and_j3_variants():
     txt = msgs[1]["content"]
     assert "[AGENT_UNVERIFIED - NOT EVIDENCE]" in txt
     assert "Other available tools:" in txt
-    assert "Deterministic checker hints per argument:" in txt
-    assert "Deterministic checker call_score:" in txt
+    assert "Deterministic checker hints per argument [in-sample]:" in txt
+    assert "Deterministic checker call_score [in-sample]:" in txt
     assert "Extracted format rules:" in txt
     assert "Reference Examples:" in txt
 
@@ -179,3 +179,31 @@ def test_j5_ask_policy_and_panel_combiners():
 def test_environment_info_present():
     env = get_environment_info()
     assert "os" in env and "python" in env and "packages" in env
+
+
+def test_checker_hints_scope_and_tool_selection_breakdown():
+    from benchmarks.judge_eval import report_tool_selection_breakdown
+    from benchmarks.judge_prompts_v2 import build_checker_hints
+
+    ah_txt = build_checker_hints({"name": "estimate_drive_feasibility_by_mileage", "arguments": {"dist": 608.94}}, "distance 980 km", checker_scope="frozen_pre_b3")
+    fcrb_txt = build_checker_hints({"name": "get_weather", "arguments": {"city": "Paris"}}, "Paris", checker_scope="in_sample")
+    assert "[frozen_pre_b3]" in ah_txt
+    assert "[in-sample]" in fcrb_txt
+
+    cases = [
+        {"id": "1", "label": True, "difficulty": "right"},
+        {"id": "2", "label": False, "difficulty": "easy"},
+        {"id": "3", "label": False, "difficulty": "hard"},
+        {"id": "4", "label": False, "difficulty": "natural"},
+    ]
+    rows = [
+        {"id": "1", "label": True, "parsed": True, "supported": True},
+        {"id": "2", "label": False, "parsed": True, "supported": False},
+        {"id": "3", "label": False, "parsed": True, "supported": True},
+        {"id": "4", "label": False, "parsed": True, "supported": False},
+    ]
+    rep = report_tool_selection_breakdown(rows, cases)
+    assert rep["status"] == "EXPLORATORY"
+    assert rep["subsets"]["easy"]["catch_rate"] == pytest.approx(1.0)
+    assert rep["subsets"]["hard"]["catch_rate"] == pytest.approx(0.0)
+    assert rep["subsets"]["natural"]["catch_rate"] == pytest.approx(1.0)

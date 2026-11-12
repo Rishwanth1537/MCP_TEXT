@@ -110,21 +110,34 @@ def format_source_labelled_context(case: Dict[str, Any]) -> str:
     return "\n".join(lines)
 
 
-def build_checker_hints(call: Dict[str, Any], evidence_text: str, include_score: bool = False) -> str:
-    """Run deterministic arg_ground checker as structured evidence hints for the judge."""
-    from server.pipeline.arg_ground import call_score, check_arguments  # noqa: PLC0415
+def build_checker_hints(
+    call: Dict[str, Any],
+    evidence_text: str,
+    include_score: bool = False,
+    checker_scope: str = "in_sample",
+) -> str:
+    """Run deterministic arg_ground checker as structured evidence hints for the judge.
+    - checker_scope='frozen_pre_b3': uses frozen cabdc1c checker (required for AgentHallu so hints are not tuned on clean calls).
+    - checker_scope='in_sample': uses current checker and labels hints [in-sample] (for fcrb dev).
+    """
+    if checker_scope == "frozen_pre_b3":
+        from benchmarks.frozen_pre_b3_arg_ground import call_score, check_arguments  # noqa: PLC0415
+        tag = "[frozen_pre_b3]"
+    else:
+        from server.pipeline.arg_ground import call_score, check_arguments  # noqa: PLC0415
+        tag = "[in-sample]"
 
     args = call.get("arguments") or {}
     if not isinstance(args, dict) or not args:
-        return "Deterministic checker hints: (no arguments to check)"
+        return f"Deterministic checker hints {tag}: (no arguments to check)"
     verdicts = check_arguments(args, evidence_text)
-    lines = ["Deterministic checker hints per argument:"]
+    lines = [f"Deterministic checker hints per argument {tag}:"]
     for v in verdicts:
         status = v.verdict
         lines.append(f'- arg "{v.argument}" = {json.dumps(v.value, ensure_ascii=False)}: {status}')
     if include_score:
         sc = call_score(args, evidence_text)
-        lines.append(f"Deterministic checker call_score: {sc:.3f}")
+        lines.append(f"Deterministic checker call_score {tag}: {sc:.3f}")
     return "\n".join(lines)
 
 
@@ -163,6 +176,7 @@ def build_j1_j3_messages(
     source_labelled: bool = False,
     include_checker_hints: bool = False,
     include_checker_score: bool = False,
+    checker_scope: str = "in_sample",
     include_autorules: bool = False,
     variant: str = "role_framing",
     j2_order: str = "verdict_first",
@@ -198,7 +212,7 @@ def build_j1_j3_messages(
         call_obj = call
 
     if include_checker_hints:
-        sections.append(build_checker_hints(call_obj, ctx, include_score=include_checker_score))
+        sections.append(build_checker_hints(call_obj, ctx, include_score=include_checker_score, checker_scope=checker_scope))
 
     if include_autorules:
         def_part = ctx.split("Tool definition", 1)[1] if "Tool definition" in ctx else json.dumps(case.get("available_tools", ""))
