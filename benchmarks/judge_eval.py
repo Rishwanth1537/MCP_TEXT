@@ -417,6 +417,32 @@ def report_tool_selection_breakdown(rows: List[Dict[str, Any]], cases: List[Dict
     return out
 
 
+def report_dev_val_stratified(rows: List[Dict[str, Any]], cases: List[Dict[str, Any]]) -> Dict[str, Any]:
+    """Report dev_val metrics overall, on in_dev200 cases, and excluding dev200 cases."""
+    cmap = {c["id"]: c for c in cases}
+
+    def _metrics(sub):
+        if not sub:
+            return {"n": 0}
+        y = np.array([r["label"] for r in sub], dtype=bool)
+        b = np.array([(not r["supported"]) if r["parsed"] else bool(r["label"]) for r in sub], dtype=bool)
+        n_ok, n_err = int(y.sum()), int((~y).sum())
+        fb, dt_cnt = int(b[y].sum()), int(b[~y].sum())
+        return {
+            "n": len(sub),
+            "n_correct": n_ok,
+            "n_wrong": n_err,
+            "false_block_rate": fb / n_ok if n_ok else 0.0,
+            "detection_rate": dt_cnt / n_err if n_err else 0.0,
+        }
+
+    return {
+        "all": _metrics(rows),
+        "in_dev200_only": _metrics([r for r in rows if cmap.get(r["id"], {}).get("in_dev200")]),
+        "excluding_dev200": _metrics([r for r in rows if not cmap.get(r["id"], {}).get("in_dev200")]),
+    }
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--dataset", required=True, choices=["fcrb_dev200", "fcrb_tool_dev", "fcrb_tool_train", "fcrb_tool_val", "agenthallu", "mcpatlas_dev", "tool_selection"])

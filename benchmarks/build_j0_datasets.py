@@ -40,6 +40,7 @@ def build_fcrb_tool_split() -> Dict[str, Any]:
     dev_pool = [c for c in cases if c.get("split") == "dev"]
     idx200 = np.random.default_rng(0).permutation(len(dev_pool))[:200]
     dev200 = [dev_pool[i] for i in sorted(idx200)]
+    dev200_ids = {c["id"] for c in dev200}
     pinned_dev_tools = {(c.get("call") or (c.get("calls") or [{}])[0]).get("name") or "unknown" for c in dev200}
 
     by_tool: Dict[str, List[Dict[str, Any]]] = defaultdict(list)
@@ -48,6 +49,7 @@ def build_fcrb_tool_split() -> Dict[str, Any]:
         tool_name = call.get("name") or "unknown"
         item = dict(c)
         item["tool_name"] = tool_name
+        item["in_dev200"] = c["id"] in dev200_ids
         item["premise_with_schema"] = schema_map.get(c["id"], c["premise"])
         by_tool[tool_name].append(item)
 
@@ -85,28 +87,37 @@ def build_fcrb_tool_split() -> Dict[str, Any]:
     dev_train_cases = [c for t in dev_train_tools for c in by_tool[t]]
     dev_val_cases = [c for t in dev_val_tools for c in by_tool[t]]
 
+    heldout_fresh_272 = [c for c in heldout_cases if c.get("split") != "dev"]
     heldout_bytes = json.dumps(heldout_cases, sort_keys=True).encode("utf-8")
     heldout_hash = sha256_bytes(heldout_bytes)
+    heldout_272_hash = sha256_bytes(json.dumps(heldout_fresh_272, sort_keys=True).encode("utf-8"))
 
     out = {
         "seed": SEED,
         "source": str(src.relative_to(ROOT)),
-        "note": "All 89 tools in dev200 are pinned to dev (split by tool into dev_train/dev_val); frozen_heldout has 0 id/query_id/tool overlap with dev200, dev_train, and dev_val.",
+        "note": (
+            "All 89 tools in dev200 are pinned to dev (split by tool into dev_train/dev_val); "
+            "frozen_heldout (n=404) is judge-fresh, checker-partly-seen (132 cases in checker 630-case split==dev); "
+            "heldout_fresh_272 (n=272) is headline for judge-vs-checker comparisons."
+        ),
         "n_total_cases": len(cases),
         "n_total_tools": len(by_tool),
         "dev": {"n_tools": len(dev_tools), "n_cases": len(dev_cases), "tools": dev_tools},
-        "dev_train": {"n_tools": len(dev_train_tools), "n_cases": len(dev_train_cases), "tools": dev_train_tools},
-        "dev_val": {"n_tools": len(dev_val_tools), "n_cases": len(dev_val_cases), "tools": dev_val_tools},
+        "dev_train": {"n_tools": len(dev_train_tools), "n_cases": len(dev_train_cases), "n_in_dev200": sum(c["in_dev200"] for c in dev_train_cases), "tools": dev_train_tools},
+        "dev_val": {"n_tools": len(dev_val_tools), "n_cases": len(dev_val_cases), "n_in_dev200": sum(c["in_dev200"] for c in dev_val_cases), "tools": dev_val_tools},
         "frozen_heldout": {
             "n_tools": len(heldout_tools),
             "n_cases": len(heldout_cases),
             "tools": heldout_tools,
             "sha256": heldout_hash,
+            "n_fresh_272": len(heldout_fresh_272),
+            "fresh_272_sha256": heldout_272_hash,
         },
         "dev_cases": dev_cases,
         "dev_train_cases": dev_train_cases,
         "dev_val_cases": dev_val_cases,
         "heldout_cases": heldout_cases,
+        "heldout_fresh_272_cases": heldout_fresh_272,
     }
     out_path = ROOT / "benchmarks" / "data" / "deref" / "fcrb_tool_split.json"
     out_path.write_text(json.dumps(out, indent=1), encoding="utf-8")
@@ -121,6 +132,8 @@ def build_fcrb_tool_split() -> Dict[str, Any]:
         "heldout_tools": len(heldout_tools),
         "heldout_cases": len(heldout_cases),
         "heldout_sha256": heldout_hash,
+        "heldout_fresh_272": len(heldout_fresh_272),
+        "heldout_272_sha256": heldout_272_hash,
     }
 
 
@@ -163,7 +176,9 @@ def build_tool_selection_set() -> Dict[str, Any]:
             if tid not in by_tid:
                 by_tid[tid] = r
 
-    tids = sorted(by_tid.keys())
+    # Exclude parallel_multiple / live_parallel_multiple from synthetic wrong-tool substitutions
+    # because the sibling tool often satisfies the other parallel sub-request (found in 30-case audit).
+    tids = sorted(t for t in by_tid if "parallel" not in t)
     rng.shuffle(tids)
     bfcl_right = tids[:45]
     bfcl_wrong_easy = tids[45:70]
@@ -307,9 +322,17 @@ def build_tool_selection_set() -> Dict[str, Any]:
             "verification_method": "mcpatlas_reference_trajectory_mismatch_cross_server_sibling",
         })
 
+    AMBIGUOUS_MCP_PAIRS = {
+        ("filesystem_list_directory_with_sizes", "filesystem_list_directory"),
+        ("wikipedia_search_wikipedia", "wikipedia_get_article"),
+        ("national-parks_getParkDetails", "national-parks_findParks"),
+    }
+
     for c, enabled in mcp_wrong_hard:
         gold_name = c["call"]["name"]
         wrong_name = _most_similar_sibling(gold_name, [{"name": t} for t in enabled])
+        if (wrong_name, gold_name) in AMBIGUOUS_MCP_PAIRS:
+            continue
         out_cases.append({
             "id": f"tsel:mcpatlas:wrong_hard:{c['id']}",
             "source_dataset": "mcpatlas_dev",
