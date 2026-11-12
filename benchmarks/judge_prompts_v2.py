@@ -181,6 +181,7 @@ def build_j1_j3_messages(
     variant: str = "role_framing",
     j2_order: str = "verdict_first",
     few_shots: Optional[List[Dict[str, Any]]] = None,
+    max_context_chars: Optional[int] = None,
 ) -> Tuple[List[Dict[str, str]], str]:
     """Unified J1+J2+J3 message builder with zero label leakage."""
     base_sys = J3_VARIANTS.get(variant, J3_VARIANTS["role_framing"])
@@ -188,16 +189,26 @@ def build_j1_j3_messages(
     system_prompt = f"{base_sys}\n\n{schema_instr}"
 
     if source_labelled:
-        ctx = format_source_labelled_context(case)
+        ctx_full = format_source_labelled_context(case)
     else:
-        ctx = case.get("premise") or case.get("user_request") or case.get("context") or ""
+        ctx_full = case.get("premise") or case.get("user_request") or case.get("context") or ""
 
     if include_definition and case.get("premise_with_schema"):
         if source_labelled and "Tool definition" in case["premise_with_schema"]:
             def_block = "Tool definition" + case["premise_with_schema"].split("Tool definition", 1)[1]
-            ctx = f"{ctx}\n\n{def_block}"
+            ctx_full = f"{ctx_full}\n\n{def_block}"
         elif not source_labelled:
-            ctx = case["premise_with_schema"]
+            ctx_full = case["premise_with_schema"]
+
+    ctx = ctx_full
+    if max_context_chars and len(ctx) > max_context_chars:
+        if "[USER]" in ctx and "[TOOL_OUTPUT" in ctx:
+            user_part, rest = ctx.split("[TOOL_OUTPUT", 1)
+            user_keep = user_part[: max_context_chars // 2]
+            rem = max(200, max_context_chars - len(user_keep))
+            ctx = f"{user_keep}\n[earlier tool outputs truncated]\n[TOOL_OUTPUT{rest[-rem:]}"
+        else:
+            ctx = "[earlier context truncated]\n" + ctx[-max_context_chars:]
 
     sections = [f"Context:\n{ctx}"]
 
@@ -212,7 +223,7 @@ def build_j1_j3_messages(
         call_obj = call
 
     if include_checker_hints:
-        sections.append(build_checker_hints(call_obj, ctx, include_score=include_checker_score, checker_scope=checker_scope))
+        sections.append(build_checker_hints(call_obj, ctx_full, include_score=include_checker_score, checker_scope=checker_scope))
 
     if include_autorules:
         def_part = ctx.split("Tool definition", 1)[1] if "Tool definition" in ctx else json.dumps(case.get("available_tools", ""))

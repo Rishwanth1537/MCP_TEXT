@@ -152,3 +152,14 @@ Registered before running any J0–J8 judge experiment.
      - Cleaned-label verdict AUROC (`<= 5`-judge panel): `>= 0.85`
      - Expected calibration error (ECE): `<= 0.10`
      - Cost per call vs current judge (`~1.1s`, `~520` tokens): `>= 40%` lower tokens or latency at equal detection.
+
+---
+
+### Deviation 24 (2026-11-12): Step D1 — Frozen 3-Tier Guard + J1/J2 Judge Triage (Method 1)
+Registered before running any D1 judge calls. Following the Phase 1 guard freeze (`3e1df43`), we evaluate **Step D1** on dev data (`fcrb_tool_val`, `AgentHallu [EXPLORATORY]`, `mcpatlas_dev_200`) using `groq/openai/gpt-oss-120b` (`temperature = 0`, J1 `+def + checker_hints + autorules` + J2 `cite_then_judge` strict JSON with confidence `0–100`):
+- **Systems compared** (all at matched false-block rates where continuous scores exist, plus operating-point FBR / detection / escalation rate / tokens per call):
+  1. **Frozen Guard Alone** (`B2c` `alpha = 0.10` 3-tier `ALLOW / ASK / BLOCK`).
+  2. **D1-A (Strict `ASK`-only triage)**: Guard `ALLOW` and `BLOCK` are final; **only `ASK` calls** go to the J1+J2 judge.
+  3. **D1-B (Flagged `ASK + BLOCK` triage)**: Guard `ALLOW` is final; **`ASK` and `BLOCK` calls** go to the J1+J2 judge so the judge can rescue guard false blocks.
+  4. **J1+J2 Judge Alone** (on `AgentHallu` `n=124` and `fcrb_tool_val` `n=424`).
+- **Reporting**: `fcrb_tool_val` reported overall and stratified (`in_dev200` vs `excluding_dev200`); `AgentHallu` checker hints use `frozen_pre_b3` and results are marked `[EXPLORATORY]` (`n_pos = 31`).

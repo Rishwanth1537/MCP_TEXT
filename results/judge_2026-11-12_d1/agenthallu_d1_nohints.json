@@ -1,0 +1,110 @@
+{
+ "timestamp": "2026-11-12T14:43:53.989726",
+ "git_hash": "3e1df43",
+ "environment": {
+  "os": "Windows-11-10.0.22631-SP0",
+  "python": "3.14.6",
+  "packages": {
+   "numpy": "2.5.1",
+   "pandas": "3.0.5",
+   "pydantic": "2.13.4",
+   "scikit-learn": null,
+   "scipy": "1.18.1",
+   "transformers": "5.19.0",
+   "torch": "2.14.1"
+  }
+ },
+ "provider": "groq",
+ "model": "openai/gpt-oss-120b",
+ "dataset": "agenthallu",
+ "n_total": 124,
+ "exploratory": {
+  "is_exploratory": true,
+  "n_positives": 31,
+  "status": "EXPLORATORY (n_pos < 100)",
+  "note": "Warning: agenthallu has only 31 positive cases (< 100). Statistical power is limited; confidence intervals will be wide. Results must be reported as exploratory, not confirmatory."
+ },
+ "guard_counts": {
+  "ALLOW": 91,
+  "ASK": 6,
+  "BLOCK": 27
+ },
+ "guard_block_only": {
+  "n": 124,
+  "n_correct": 93,
+  "n_wrong": 31,
+  "false_block_rate": 0.0967741935483871,
+  "false_block_ci_wilson": [
+   0.0518,
+   0.1738
+  ],
+  "detection_rate": 0.5806451612903226,
+  "detection_ci_wilson": [
+   0.4077,
+   0.7358
+  ]
+ },
+ "guard_any_intervention": {
+  "n": 124,
+  "n_correct": 93,
+  "n_wrong": 31,
+  "false_block_rate": 0.15053763440860216,
+  "false_block_ci_wilson": [
+   0.0918,
+   0.237
+  ],
+  "detection_rate": 0.6129032258064516,
+  "detection_ci_wilson": [
+   0.4382,
+   0.7627
+  ]
+ },
+ "d1a_ask_only_judge": {
+  "n": 124,
+  "n_correct": 93,
+  "n_wrong": 31,
+  "false_block_rate": 0.13978494623655913,
+  "false_block_ci_wilson": [
+   0.0835,
+   0.2246
+  ],
+  "detection_rate": 0.6129032258064516,
+  "detection_ci_wilson": [
+   0.4382,
+   0.7627
+  ]
+ },
+ "d1b_flagged_judge": {
+  "n": 124,
+  "n_correct": 93,
+  "n_wrong": 31,
+  "false_block_rate": 0.10752688172043011,
+  "false_block_ci_wilson": [
+   0.0595,
+   0.1867
+  ],
+  "detection_rate": 0.2903225806451613,
+  "detection_ci_wilson": [
+   0.161,
+   0.4659
+  ]
+ },
+ "judge_calls_d1a": 6,
+ "judge_calls_d1b": 33,
+ "mean_tokens_per_judge_call": 1082.6969696969697,
+ "effective_tokens_per_call_d1b": 288.13709677419354,
+ "latency_p50_s": 1.0513,
+ "d1b_auroc": 0.4887270204647936,
+ "d1b_at_5pct_fbr": {
+  "target_fbr": 0.05,
+  "tau": 1.0,
+  "realized_fbr": 0.010752688172043012,
+  "catch_rate": 0.03225806451612903
+ },
+ "d1b_at_10pct_fbr": {
+  "target_fbr": 0.1,
+  "tau": 0.95,
+  "realized_fbr": 0.0967741935483871,
+  "catch_rate": 0.0967741935483871
+ }
+}

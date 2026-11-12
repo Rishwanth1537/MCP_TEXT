@@ -1,0 +1,97 @@
+{
+ "timestamp": "2026-11-12T16:48:12.661673",
+ "git_hash": "3e1df43",
+ "environment": {
+  "os": "Windows-11-10.0.22631-SP0",
+  "python": "3.14.6",
+  "packages": {
+   "numpy": "2.5.1",
+   "pandas": "3.0.5",
+   "pydantic": "2.13.4",
+   "scikit-learn": null,
+   "scipy": "1.18.1",
+   "transformers": "5.19.0",
+   "torch": "2.14.1"
+  }
+ },
+ "provider": "nvidia",
+ "model": "nvidia/nemotron-3-ultra-550b-a55b",
+ "dataset": "mcpatlas_dev_200",
+ "n_total": 200,
+ "exploratory": {
+  "is_exploratory": true,
+  "n_positives": 0,
+  "status": "EXPLORATORY (n_pos < 100)",
+  "note": "Warning: mcpatlas_dev_200 has only 0 positive cases (< 100). Statistical power is limited; confidence intervals will be wide. Results must be reported as exploratory, not confirmatory."
+ },
+ "guard_counts": {
+  "ALLOW": 157,
+  "ASK": 29,
+  "BLOCK": 14
+ },
+ "guard_block_only": {
+  "n": 200,
+  "n_correct": 200,
+  "n_wrong": 0,
+  "false_block_rate": 0.07,
+  "false_block_ci_wilson": [
+   0.0422,
+   0.1141
+  ],
+  "detection_rate": 0.0,
+  "detection_ci_wilson": [
+   0.0,
+   0.0
+  ]
+ },
+ "guard_any_intervention": {
+  "n": 200,
+  "n_correct": 200,
+  "n_wrong": 0,
+  "false_block_rate": 0.215,
+  "false_block_ci_wilson": [
+   0.1637,
+   0.277
+  ],
+  "detection_rate": 0.0,
+  "detection_ci_wilson": [
+   0.0,
+   0.0
+  ]
+ },
+ "d1a_ask_only_judge": {
+  "n": 200,
+  "n_correct": 200,
+  "n_wrong": 0,
+  "false_block_rate": 0.19,
+  "false_block_ci_wilson": [
+   0.1417,
+   0.25
+  ],
+  "detection_rate": 0.0,
+  "detection_ci_wilson": [
+   0.0,
+   0.0
+  ]
+ },
+ "d1b_flagged_judge": {
+  "n": 200,
+  "n_correct": 200,
+  "n_wrong": 0,
+  "false_block_rate": 0.18,
+  "false_block_ci_wilson": [
+   0.1329,
+   0.2391
+  ],
+  "detection_rate": 0.0,
+  "detection_ci_wilson": [
+   0.0,
+   0.0
+  ]
+ },
+ "judge_calls_d1a": 29,
+ "judge_calls_d1b": 43,
+ "mean_tokens_per_judge_call": 3169.6976744186045,
+ "effective_tokens_per_call_d1b": 681.485,
+ "latency_p50_s": 17.5629
+}

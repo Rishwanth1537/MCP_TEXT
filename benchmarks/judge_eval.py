@@ -234,6 +234,7 @@ def evaluate_judge(
                 variant=variant,
                 j2_order=j2_order,
                 few_shots=shots,
+                max_context_chars=max_context_chars,
             )
         else:
             msgs, phash = build_judge_messages(c, condition=condition, max_context_chars=max_context_chars)
