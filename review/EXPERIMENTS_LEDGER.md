@@ -356,28 +356,31 @@ umber_unit_format 22, search_query_reformulation 17, uffer_or_size_limit 13, wo
 - **Branch**: `improvements-2026-11`
 
 - **1. Baseline Reproduction Status**:
-  - **Claude Sonnet on `fcrb` dev (`n=200`)**: **Reproduced** (`9.57%` FBR `9/94`, `53.77%` detection `57/106`, `0` unparseable) from `benchmarks/llm_judge_args_fcrb_agent_sonnet_dev_v0.json`.
-  - **AgentHallu 5-judge range (`31` errors / `93` clean)**: **Reproduced** (`32.3%–48.4%` detection: Nemotron 4B `32.3%`, Sonnet `38.7%`, Haiku `38.7%`, Opus `45.2%`, Nemotron 550B `48.4%`) via `python benchmarks/analyze_agenthallu.py`.
+  - **Claude Sonnet on `fcrb` dev (`n=200`)**: **Re-analysed from cache** (`9.57%` FBR `9/94`, `53.77%` detection `57/106`, `0` unparseable) from `benchmarks/llm_judge_args_fcrb_agent_sonnet_dev_v0.json` (not re-run live).
+  - **AgentHallu 5-judge range (`31` errors / `93` clean)**: **Re-analysed from cache** (`32.3%–48.4%` detection: Nemotron 4B `32.3%`, Sonnet `38.7%`, Haiku `38.7%`, Opus `45.2%`, Nemotron 550B `48.4%`) via `python benchmarks/analyze_agenthallu.py` (not re-run live).
   - **Nemotron 550B definition ablation (`+9.3 pts, p = 0.24`)**: **`unverified, partial cache (32/200), no NVIDIA key`**. `benchmarks/info2x2_fcrb_C_def_550b.json` is absent, `benchmarks/info2x2_summary.json` has only `A_plain` for `550b`, `llm_judge_args_cache.jsonl` has only `32/200` `C_def` entries, and `analyze_ladder.py` crashed on a missing hardcoded Windows path. Neither `+9.3` nor `+20.9` is cited as confirmed until a full rerun.
 
-- **2. AgentHallu Context Checker FBR Reconciliation (`12.9%` -> `9.7%`)**:
-  - **`12.9%` (`12/93`)**: `call_is_grounded` (`server/pipeline/arg_ground.py`) at Deviation 14 / Phase A baseline (`cabdc1c`, pre-B3).
-  - **`9.7%` (`9/93`)**: `call_is_grounded` (`server/pipeline/arg_ground.py`) on current branch (`59a3316`, post-B3b `541893a`), where B3b's km<->miles unit conversion and number normalization resolved 3 clean calls (`BFCL/068:s9:c0` `608.94`, `BFCL/055:s6:c0` `484.67`, `BFCL/010:s3:c0` `1.0`), keeping error detection unchanged at `18/31 (58.1%)`.
+- **2. AgentHallu Context Checker Two-Version Reporting (`12.9%` vs `9.7%`)**:
+  - **Pre-B3 (`cabdc1c`, frozen — used in all judge comparisons)**: **`12.9%` FBR (`12/93`) / `58.1%` detection (`18/31`)** (`call_is_grounded` in `server/pipeline/arg_ground.py` at Deviation 14).
+  - **Current (`59a3316`, post-B3b `541893a` — tuned/evaluated on these clean calls)**: **`9.7%` FBR (`9/93`) / `58.1%` detection (`18/31`)**, where B3b's km<->miles unit conversion and number normalization resolved 3 clean calls (`BFCL/068:s9:c0` `608.94`, `BFCL/055:s6:c0` `484.67`, `BFCL/010:s3:c0` `1.0`).
 
-- **3. Reproducibility Fixes & Cache Audit**:
+- **3. Reproducibility Fixes, Cache Audit & Key Hygiene**:
   - `benchmarks/contract_tier.py`: replaced hardcoded `C:\Users\GOVARDHAN SATYA\bfcl_raw\gorilla_data` with `BFCL_RAW_DIR` / `GORILLA_DATA_DIR` (default `benchmarks/data/bfcl/gorilla_data`) + `FileNotFoundError` guard when no `BFCL_v4_*.json` files exist.
   - `benchmarks/analyze_ladder.py`: added fail-fast `RuntimeError` guard if `ids` is empty.
-  - Cache keying verified: `llm_judge_args.py` hashes `[provider, model, variant, PROMPT_HASH, messages]`; new `judge_eval.py` hashes `[provider, model, prompt_hash, temperature, condition, messages]`.
+  - Cache keying verified: `llm_judge_args.py` hashes `[provider, model, variant, PROMPT_HASH, messages]`; `judge_eval.py` hashes `[provider, model, prompt_hash, temperature, schema_condition_variant, messages]`.
+  - Key hygiene: verified `.gitignore` covers `*.env` and `.secrets/`; no key fragments logged; `get_environment_info()` records OS, Python version, and installed package versions in every `results/` output.
 
-- **4. J0 Harness, Frozen Splits, Tool-Selection Set & Blinded 50-Item Audit**:
-  - **Harness**: `benchmarks/judge_eval.py` (`make judge-eval`), tested by `tests/test_judge_eval.py` (`5/5` passed).
-  - **Tool-grouped `fcrb_tool_split.json`**: `93` dev tools (`632` cases), `149` frozen held-out tools (`628` cases), `heldout_sha256: 1f18e9493c4f92f714a45c4c48471b3ce8569565094056004f13eea2bf71f7ac` (unopened).
+- **4. J0–J5 Offline Harness, Splits, Tool-Selection Set, Audit & Cache Replay**:
+  - **Harness & Modules**: `benchmarks/judge_eval.py` (`make judge-eval`), `benchmarks/judge_prompts_v2.py` (J1 6-factor builders, J2 strict-JSON + retry + `cite_then_judge`, J3 5 prompt variants + disjoint few-shot selector), `benchmarks/judge_ask_policy.py` (J5 `ALLOW`/`ASK`/`BLOCK` policy + `mean`/`max`/grouped-OOF `logistic` combiners + ECE), verified with mock judge in `tests/test_judge_eval.py` (`10/10` passed).
+  - **Tool-grouped `fcrb_tool_split.json`**: pinned all `89` tools of `dev200` (`856` cases) into `dev`; froze remaining `153` tools (`404` cases) as `frozen_heldout` (`heldout_sha256: c538b369e782c105eb0129740a1b1a43e6e7afd1acc4df8f33c2cce3e52826dc`), verified **0 ID / 0 query_id / 0 tool_name overlap** with `dev200`. Phase A/B checker work used `cases_fcrb.json` `split == "dev"` (`n=630`: `dev200` `n=200`, `n=362` fabricated, `n=94` clean).
   - **Tool-grouped `mcpatlas_tool_split.json`**: `53` dev tools (`1,212` cases), `53` frozen held-out tools (`1,211` cases), `sha256: 64848214a38714bec0f4bf2aeda56b29f064b866332e5013ffcb7b60c1c06106` (unopened).
-  - **Tool-selection set (`benchmarks/data/tool_selection_eval.json`)**: `180` cases (`95` right-tool, `85` wrong-tool) from real tool lists in `bfcl_consensus` (`45/45`), `mcpatlas_dev` (`40/40`), and `agenthallu` (`10` right), each labelled with `verification_method`.
-  - **Blinded 50-item audit (`review/audit_judge_50_blind.csv`)**: `20` fcrb checker-vs-Sonnet disagreements, `10` BFCL raw-vs-cleaned disagreements, `20` AgentHallu cases (no AI/gold labels shown; private key in `review/audit_judge_50_key_DO_NOT_OPEN.json`).
+  - **Tool-selection set (`benchmarks/data/tool_selection_eval.json`, `[EXPLORATORY]`)**: `188` cases (`95` right-tool, `93` wrong-tool: `8` natural BFCL wrong-tool selections from `consensus_cases.json['malformed']` + `85` synthetic sibling substitutions within real tool lists from BFCL `function_schemas` (`45`) and MCP-Atlas dev `ENABLED_TOOLS` (`40`)). Overlap with source sets: `90` BFCL `test_ids` and `10` AgentHallu IDs (explicitly derived from them, tagged with `verification_method`).
+  - **Disjoint few-shot pool (`benchmarks/data/few_shot_pool.json`)**: `24` balanced examples from `argground_bench.json` (Glaive v2), 100% disjoint from `fcrb`, `AgentHallu`, `MCP-Atlas`, and `BFCL`.
+  - **Blinded 50-item audit (`review/audit_judge_50_blind.csv`)**: `20` fcrb checker-vs-Sonnet disagreements, `10` BFCL raw-vs-cleaned disagreements, `20` AgentHallu cases (zero AI/gold labels shown; private key in `review/audit_judge_50_key_DO_NOT_OPEN.json`).
+  - **Legacy cache replay verification (`judge_eval.py --replay-legacy`)**: reproduced `fcrb_dev200` `agent-sonnet` (`FBR=0.0957`, `det=0.5377`, `0` unpars), `fcrb_dev200` `gpt-oss-120b` (`FBR=0.3191`, `det=0.5943`, `0` unpars), and `agenthallu` `agent-opus` (`FBR=0.0860`, `det=0.4516`, `0` unpars).
 
 - **5. API Key Status & Blocked Experiments**:
-  - `GROQ_API_KEY`: present (`gsk_VF...`) in `C:\Users\rishw\.mcp_checker_keys.env`, but Groq API returned **`HTTP 401 invalid_api_key`** — blocks J0 substitute Groq ablation (`200` fcrb + `124` AgentHallu) and Groq judge runs.
+  - `GROQ_API_KEY`: present in `C:\Users\rishw\.mcp_checker_keys.env`, but Groq API returned **`HTTP 401 invalid_api_key`** — blocks J0 substitute Groq ablation (`200` fcrb + `124` AgentHallu) and Groq judge runs.
   - `NVIDIA_API_KEY`: missing — blocks Nemotron 550B ablation rerun and NVIDIA 4B/30B/120B/550B judges.
   - `ANTHROPIC_API_KEY`: missing — blocks temperature-0 Claude API judge runs (J1–J5).
   - `GEMINI_API_KEY` / `OPENROUTER_API_KEY`: missing — blocks multi-vendor panels in J5.

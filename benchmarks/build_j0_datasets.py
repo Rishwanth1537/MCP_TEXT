@@ -28,10 +28,19 @@ def sha256_bytes(data: bytes) -> str:
 
 
 def build_fcrb_tool_split() -> Dict[str, Any]:
+    import numpy as np  # noqa: PLC0415
+
     src = ROOT / "benchmarks" / "data" / "deref" / "cases_fcrb.json"
     schema_src = ROOT / "benchmarks" / "data" / "deref" / "cases_fcrb_schema.json"
     cases = json.loads(src.read_text(encoding="utf-8"))["cases"]
     schema_map = {c["id"]: c["premise"] for c in json.loads(schema_src.read_text(encoding="utf-8"))["cases"]}
+
+    # Pin all tools appearing in dev200 (split == "dev", seed=0, limit=200) into dev
+    # so dev200 has ZERO id, query_id, or tool_name overlap with frozen_heldout.
+    dev_pool = [c for c in cases if c.get("split") == "dev"]
+    idx200 = np.random.default_rng(0).permutation(len(dev_pool))[:200]
+    dev200 = [dev_pool[i] for i in sorted(idx200)]
+    pinned_dev_tools = {(c.get("call") or (c.get("calls") or [{}])[0]).get("name") or "unknown" for c in dev200}
 
     by_tool: Dict[str, List[Dict[str, Any]]] = defaultdict(list)
     for c in cases:
@@ -42,24 +51,16 @@ def build_fcrb_tool_split() -> Dict[str, Any]:
         item["premise_with_schema"] = schema_map.get(c["id"], c["premise"])
         by_tool[tool_name].append(item)
 
-    rng = random.Random(SEED)
-    tools = sorted(by_tool.keys())
-    rng.shuffle(tools)
+    dev_tools = sorted(t for t in by_tool if t in pinned_dev_tools)
+    heldout_tools = sorted(t for t in by_tool if t not in pinned_dev_tools)
 
-    # Greedy size-balanced assignment by tool
-    dev_tools, heldout_tools = [], []
-    dev_n, held_n = 0, 0
-    for t in tools:
-        cnt = len(by_tool[t])
-        if dev_n <= held_n:
-            dev_tools.append(t)
-            dev_n += cnt
-        else:
-            heldout_tools.append(t)
-            held_n += cnt
+    dev_cases = [c for t in dev_tools for c in by_tool[t]]
+    heldout_cases = [c for t in heldout_tools for c in by_tool[t]]
 
-    dev_cases = [c for t in sorted(dev_tools) for c in by_tool[t]]
-    heldout_cases = [c for t in sorted(heldout_tools) for c in by_tool[t]]
+    # Hard assertion: zero overlap with dev200
+    assert not ({c["id"] for c in dev200} & {c["id"] for c in heldout_cases})
+    assert not ({c["query_id"] for c in dev200} & {c["query_id"] for c in heldout_cases})
+    assert not (pinned_dev_tools & set(heldout_tools))
 
     heldout_bytes = json.dumps(heldout_cases, sort_keys=True).encode("utf-8")
     heldout_hash = sha256_bytes(heldout_bytes)
@@ -67,13 +68,14 @@ def build_fcrb_tool_split() -> Dict[str, Any]:
     out = {
         "seed": SEED,
         "source": str(src.relative_to(ROOT)),
+        "note": "All 89 tools in dev200 are pinned to dev; frozen_heldout has 0 id/query_id/tool overlap with dev200.",
         "n_total_cases": len(cases),
-        "n_total_tools": len(tools),
-        "dev": {"n_tools": len(dev_tools), "n_cases": len(dev_cases), "tools": sorted(dev_tools)},
+        "n_total_tools": len(by_tool),
+        "dev": {"n_tools": len(dev_tools), "n_cases": len(dev_cases), "tools": dev_tools},
         "frozen_heldout": {
             "n_tools": len(heldout_tools),
             "n_cases": len(heldout_cases),
-            "tools": sorted(heldout_tools),
+            "tools": heldout_tools,
             "sha256": heldout_hash,
         },
         "dev_cases": dev_cases,
@@ -240,12 +242,46 @@ def build_tool_selection_set() -> Dict[str, Any]:
             "verification_method": "agenthallu_clean_gold_trajectory_tool",
         })
 
+    # 4. Natural BFCL wrong-tool selections from consensus_cases.json['malformed']
+    seen_nat = set()
+    n_natural_wrong = 0
+    for m in bfcl.get("malformed", []):
+        if m.get("reason") != "function_name_or_count_mismatch":
+            continue
+        pf = m.get("pred_functions") or []
+        gf = m.get("gold_functions") or []
+        tid = m.get("test_id")
+        if len(pf) == 1 and len(gf) == 1 and pf[0] != gf[0] and tid in by_tid and tid not in seen_nat:
+            r = by_tid[tid]
+            snames = {s["name"] for s in r.get("function_schemas", [])}
+            if pf[0] in snames and gf[0] in snames:
+                seen_nat.add(tid)
+                n_natural_wrong += 1
+                out_cases.append({
+                    "id": f"tsel:bfcl_natural:wrong:{tid}:{m.get('model')}",
+                    "source_dataset": "bfcl_consensus_natural",
+                    "split": "dev",
+                    "kind": "wrong_tool_natural",
+                    "is_natural": True,
+                    "label": False,
+                    "user_request": r.get("request", ""),
+                    "context": r.get("request", ""),
+                    "chosen_tool": pf[0],
+                    "gold_tool": gf[0],
+                    "arguments": {},
+                    "available_tools": r["function_schemas"],
+                    "verification_method": f"natural_model_wrong_tool_selection_by_{m.get('model')}_vs_bfcl_gold",
+                })
+
     out_path = ROOT / "benchmarks" / "data" / "tool_selection_eval.json"
     out_obj = {
         "seed": SEED,
+        "status": "EXPLORATORY",
         "n_total": len(out_cases),
         "n_right_tool": sum(1 for x in out_cases if x["label"]),
         "n_wrong_tool": sum(1 for x in out_cases if not x["label"]),
+        "n_wrong_tool_natural": n_natural_wrong,
+        "n_wrong_tool_synthetic": sum(1 for x in out_cases if not x["label"]) - n_natural_wrong,
         "cases": out_cases,
     }
     out_path.write_text(json.dumps(out_obj, indent=1), encoding="utf-8")
@@ -254,7 +290,33 @@ def build_tool_selection_set() -> Dict[str, Any]:
         "n_total": out_obj["n_total"],
         "n_right": out_obj["n_right_tool"],
         "n_wrong": out_obj["n_wrong_tool"],
+        "n_wrong_natural": n_natural_wrong,
     }
+
+
+def build_disjoint_few_shot_pool() -> Dict[str, Any]:
+    """Build 24-item few-shot pool from ArgGround-Bench (Glaive v2), 100% disjoint from fcrb/AgentHallu/MCP-Atlas/BFCL."""
+    src = ROOT / "benchmarks" / "argground_bench.json"
+    cases = json.loads(src.read_text(encoding="utf-8"))["cases"]
+    rng = random.Random(SEED)
+    pos = [c for c in cases if c.get("label") is True]
+    neg = [c for c in cases if c.get("label") is False]
+    rng.shuffle(pos)
+    rng.shuffle(neg)
+    pool = []
+    for c in pos[:12] + neg[:12]:
+        pool.append({
+            "id": f"fewshot:{c['id']}",
+            "source_dataset": "argground_bench_glaive_v2",
+            "premise": c["premise"],
+            "call": c["call"],
+            "supported": bool(c["label"]),
+            "unsupported_arguments": [k for k in (c["call"].get("arguments") or {}) if not c["label"]][:1],
+        })
+    rng.shuffle(pool)
+    out_path = ROOT / "benchmarks" / "data" / "few_shot_pool.json"
+    out_path.write_text(json.dumps({"seed": SEED, "n": len(pool), "examples": pool}, indent=1), encoding="utf-8")
+    return {"path": str(out_path.relative_to(ROOT)), "n": len(pool)}
 
 
 def build_blinded_50_audit() -> Dict[str, Any]:
@@ -337,7 +399,13 @@ def main():
     fcrb_info = build_fcrb_tool_split()
     tsel_info = build_tool_selection_set()
     audit_info = build_blinded_50_audit()
-    print(json.dumps({"fcrb_tool_split": fcrb_info, "tool_selection": tsel_info, "audit_50": audit_info}, indent=2))
+    fs_info = build_disjoint_few_shot_pool()
+    print(json.dumps({
+        "fcrb_tool_split": fcrb_info,
+        "tool_selection": tsel_info,
+        "audit_50": audit_info,
+        "few_shot_pool": fs_info,
+    }, indent=2))
 
 
 if __name__ == "__main__":
